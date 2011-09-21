@@ -29,10 +29,11 @@
     </license>
   </licenses>
 
+
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/trunk</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</developerConnection>
+    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/trunk</url>
   </scm>
 
   <distributionManagement>

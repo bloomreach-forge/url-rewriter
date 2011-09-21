@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.01.01</version>
+    <version>1.01.01-SNAPSHOT</version>
   </parent>
 
   <name>Url rewriting HST plugin</name>
@@ -22,6 +22,12 @@
 
   <dependencies>
     <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>org.tuckey</groupId>
       <artifactId>gzip</artifactId>
       <version>1.0</version>
@@ -36,6 +42,7 @@
       <groupId>org.ops4j.pax.logging</groupId>
       <artifactId>pax-logging-api</artifactId>
       <version>1.5.3</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>ant</groupId>
@@ -46,6 +53,12 @@
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
       <version>3.0.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
