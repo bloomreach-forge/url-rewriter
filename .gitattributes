@@ -1,1 +1,2 @@
 * text=auto !eol
+urlrewriter-plugin-cms/src/main/resources/namespace/urlrewriter.cnd -text

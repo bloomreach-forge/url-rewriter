@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="navigator" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+    <sv:value>frontend:plugin</sv:value>
+  </sv:property>
+  <sv:property sv:name="browser.id" sv:type="String">
+    <sv:value>service.browse</sv:value>
+  </sv:property>
+  <sv:property sv:name="browser.viewers" sv:type="String">
+    <sv:value>cms-folder-views</sv:value>
+  </sv:property>
+  <sv:property sv:name="extension.list" sv:type="String">
+    <sv:value>service.browse.list</sv:value>
+  </sv:property>
+  <sv:property sv:name="model.default.path" sv:type="String">
+    <sv:value>/content/urlrewriter</sv:value>
+  </sv:property>
+  <sv:property sv:name="model.document" sv:type="String">
+    <sv:value>model.browse.document</sv:value>
+  </sv:property>
+  <sv:property sv:name="plugin.class" sv:type="String">
+    <sv:value>org.hippoecm.frontend.plugins.cms.browse.Navigator</sv:value>
+  </sv:property>
+  <sv:property sv:name="search.viewers" sv:type="String">
+    <sv:value>cms-search-views</sv:value>
+  </sv:property>
+  <sv:property sv:name="section.configuration" sv:type="String">
+    <sv:value>service.browse.tree.configuration</sv:value>
+  </sv:property>
+  <sv:property sv:name="section.urlrewriter" sv:type="String">
+    <sv:value>service.browse.tree.urlrewriter</sv:value>
+  </sv:property>
+  <sv:property sv:name="section.content" sv:type="String">
+    <sv:value>service.browse.tree.content</sv:value>
+  </sv:property>
+  <sv:property sv:name="section.files" sv:type="String">
+    <sv:value>service.browse.tree.files</sv:value>
+  </sv:property>
+  <sv:property sv:name="section.images" sv:type="String">
+    <sv:value>service.browse.tree.images</sv:value>
+  </sv:property>
+  <sv:property sv:name="sections" sv:type="String">
+    <sv:value>section.content</sv:value>
+    <sv:value>section.images</sv:value>
+    <sv:value>section.files</sv:value>
+    <sv:value>section.configuration</sv:value>
+    <sv:value>section.urlrewriter</sv:value>
+    <!--sv:value>section.taxonomies</sv:value-->
+  </sv:property>
+  <sv:property sv:name="wicket.behavior" sv:type="String">
+    <sv:value>service.behavior.navigator</sv:value>
+  </sv:property>
+  <sv:property sv:name="wicket.id" sv:type="String">
+    <sv:value>service.browse.navigator</sv:value>
+  </sv:property>
+  <sv:property sv:name="wicket.variant" sv:type="String">
+    <sv:value>yui</sv:value>
+  </sv:property>
+</sv:node>

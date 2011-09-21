@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlrewrite>
+  <rule>
+    <name>Domain Name Check example</name>
+    <condition name="host" operator="notequal">localhost</condition>
+    <from>^(.*)$</from>
+    <to type="redirect">http://localhost:8080/site$1</to>
+  </rule>
+  <rule>
+    <name>Domain Name Check 2</name>
+    <condition name="host" operator="notequal">localhost</condition>
+    <from>^(.*)$</from>
+    <to type="redirect">http://localhost:8080/site$1</to>
+  </rule>
+</urlrewrite>
