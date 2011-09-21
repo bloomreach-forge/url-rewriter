@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    Copyright (C) 2011 Hippo B.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <!-- ====================================================================== -->
+  <!-- A P P E N D E R S                                                      -->
+  <!-- ====================================================================== -->
+
+  <!-- hippo-cms.log -->
+  <appender name="cms" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="${catalina.base}/logs/hippo-cms.log"/>
+    <param name="Append" value="true"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss} %-5p [%C.%M():%L] %m%n"/>
+    </layout>
+  </appender>
+
+  <!-- hippo-site.log -->
+  <appender name="site" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="${catalina.base}/logs/hippo-site.log"/>
+    <param name="Append" value="true"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss} %-5p [%C.%M():%L] %m%n"/>
+    </layout>
+  </appender>
+
+  <!-- hippo-audit.log -->
+  <appender name="audit" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="${catalina.base}/logs/hippo-audit.log"/>
+    <param name="Append" value="true"/>
+    <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss} %-5p [%C.%M():%L] %m%n"/>
+    </layout>
+  </appender>
+
+  <!-- console -->
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <param name="Target" value="System.out"/>
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss} %-5p [%C.%M():%L] %m%n"/>
+    </layout> 
+    <filter class="org.apache.log4j.varia.LevelRangeFilter">
+      <param name="levelMin" value="ERROR" />
+    </filter>
+  </appender> 
+
+  <!-- ====================================================================== -->
+  <!-- L O G G E R S                                                          -->
+  <!-- ====================================================================== -->
+
+  <!-- CMS logging -->
+  <category name="org.apache.jackrabbit.core">
+    <level value="warn"/>
+  </category>
+  <category name="org.apache.jackrabbit.extractor">
+    <level value="warn"/>
+  </category>
+  <category name="org.apache.jackrabbit">
+    <level value="warn"/>
+  </category>
+  <category name="org.hippoecm.repository">
+    <level value="warn"/>
+  </category>
+  <category name="org.hippoecm.frontend">
+    <level value="warn"/>
+  </category>
+  <category name="org.apache.wicket">
+    <level value="warn"/>
+  </category>
+
+  <!-- audit logging -->
+  <category additivity="false" name="org.hippoecm.repository.api.Workflow">
+    <level value="info"/>
+    <appender-ref ref="audit"/>
+  </category>
+
+  <!-- Site logging -->
+  <category additivity="false" name="org.hippoecm.hst">
+    <level value="warn"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </category>
+
+  <!-- too many caching warnings -->
+  <category name="org.apache.jackrabbit.core.state">
+    <level value="error"/>
+  </category>
+  <category name="org.apache.jackrabbit.core.ItemManager">
+    <level value="error"/>
+  </category>
+  <category name="org.apache.jackrabbit.core.persistence.bundle.util.LRUNodeIdCache">
+    <level value="error"/>
+  </category>
+
+  <!-- ignore wicket localizer warnings -->
+  <category name="org.apache.wicket.Localizer">
+    <level value="error"/>
+  </category>
+
+  <!-- ignore DataNucleus errors -->
+  <category name="DataNucleus.Plugin">
+    <level value="fatal"/>
+  </category>
+  <category name="DataNucleus.ClassLoading">
+    <level value="fatal"/>
+  </category>
+  <category name="DataNucleus.Enhancer">
+    <level value="fatal"/>
+  </category>
+
+  <!-- more info wanted -->
+  <category name="org.apache.jackrabbit.core.persistence.bundle">
+    <level value="info"/>
+  </category>
+  <category name="org.hippoecm.repository.jackrabbit.persistence">
+    <level value="info"/>
+  </category>
+  <category name="org.hippoecm.repository.updater">
+    <level value="info"/>
+  </category>
+  <category name="org.hippoecm.repository.export">
+    <level value="info"/>
+  </category>
+
+  <root>
+    <level value="warn"/>
+    <appender-ref ref="cms"/>
+    <appender-ref ref="console"/>
+  </root>
+
+</log4j:configuration>
+

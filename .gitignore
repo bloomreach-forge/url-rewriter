@@ -1,0 +1,4 @@
+cms/overlays
+plugin/*.iml
+plugin/urlrewriter-plugin-cms/*.iml
+plugin/urlrewriter-plugin-site/*.iml

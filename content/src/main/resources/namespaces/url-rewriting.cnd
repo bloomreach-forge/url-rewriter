@@ -1,0 +1,10 @@
+<'urlrewriting'='http://www.onehippo.org/urlrewriting/nt/1.0'>
+<'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.2'>
+<'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
+<'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+
+[urlrewriting:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document orderable
+
+[urlrewriting:textdocument] > urlrewriting:basedocument, hippostd:relaxed
+
+[urlrewriting:newsdocument] > urlrewriting:basedocument, hippostd:relaxed

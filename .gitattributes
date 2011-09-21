@@ -1,0 +1,8 @@
+* text=auto !eol
+content/src/main/resources/namespaces/url-rewriting.cnd -text
+lib/gzipfilter-repackaged.jar -text
+lib/gzipfilter.jar -text
+plugin/urlrewriter-plugin-cms/src/main/resources/namespace/urlrewriter.cnd -text
+site/src/main/webapp/images/button_edit.gif -text
+site/src/main/webapp/images/hippo.gif -text
+site/src/main/webapp/images/onehippo.gif -text

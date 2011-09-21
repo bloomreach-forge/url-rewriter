@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sv:node sv:name="hst:components" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
+  <sv:property sv:name="jcr:primaryType" sv:type="Name">
+  	<sv:value>hst:components</sv:value>
+  </sv:property>
+    <sv:node sv:name="leftmenu">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>hst:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="hst:componentclassname" sv:type="String">
+          <sv:value>org.onehippo.forge.rewriting.components.LeftMenu</sv:value>
+      </sv:property>
+     <sv:property sv:name="hst:template" sv:type="String">
+        <sv:value>standard.main.leftmenu</sv:value>
+      </sv:property>
+    </sv:node>
+    <sv:node sv:name="content">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>hst:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="hst:componentclassname" sv:type="String">
+          <sv:value>org.onehippo.forge.rewriting.components.Detail</sv:value>
+      </sv:property>
+      <sv:property sv:name="hst:template" sv:type="String">
+          <sv:value>standard.main.content</sv:value>
+      </sv:property>
+    </sv:node>
+    
+    <sv:node sv:name="overview">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>hst:component</sv:value>
+      </sv:property>
+      <sv:property sv:name="hst:componentclassname" sv:type="String">
+          <sv:value>org.onehippo.forge.rewriting.components.Overview</sv:value>
+      </sv:property>
+      <sv:property sv:name="hst:template" sv:type="String">
+          <sv:value>overview.main.content</sv:value>
+      </sv:property>
+    </sv:node>
+    
+</sv:node>

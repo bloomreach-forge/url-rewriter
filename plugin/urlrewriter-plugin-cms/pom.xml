@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <properties>
+    <selectionplugins-addon-cms.version>2.05.00</selectionplugins-addon-cms.version>
+  </properties>
+
+  <parent>
+    <groupId>org.onehippo.forge.rewriting</groupId>
+    <artifactId>url-rewriting</artifactId>
+    <version>1.01.00</version>
+  </parent>
+
+  <name>Url rewriting CMS plugin</name>
+  <description>Url rewriting CMS plugin</description>
+  <groupId>org.onehippo.forge.rewriting</groupId>
+  <artifactId>rewriting-module-cms</artifactId>
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.onehippo.forge.selectionplugins</groupId>
+      <artifactId>selectionplugins-addon-repository</artifactId>
+      <version>${selectionplugins-addon-cms.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.forge.selectionplugins</groupId>
+      <artifactId>selectionplugins-addon-cms</artifactId>
+      <version>${selectionplugins-addon-cms.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>

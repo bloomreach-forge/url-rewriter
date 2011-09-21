@@ -1,0 +1,14 @@
+<'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.2'>
+<'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
+<'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
+<'urlrewriter'='http://org.onehippo.forge/urlrewriter/1.0'>
+[urlrewriter:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document orderable
+
+[urlrewriter:rulecondition] > hippo:compound, hippostd:relaxed orderable
+
+[urlrewriter:rulecompound] > hippo:compound, hippostd:relaxed orderable
+
+// rule set document, contains multiple rules, can be extended /modified later
+[urlrewriter:ruleset] > urlrewriter:basedocument, hippostd:relaxed orderable
+
+[urlrewriter:rulesetxml] > urlrewriter:basedocument, hippostd:relaxed orderable

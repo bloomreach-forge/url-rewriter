@@ -1,0 +1,46 @@
+body { 
+    font-family: Verdana,Helvetica,sans-serif;
+}
+
+#content {
+  float:left;
+  width:60%;
+}
+
+#leftmenu, #right {
+  float:left;
+  width:20%;
+}
+
+ul#paging-nav {
+  margin-left:11.5em;
+}
+
+ul#paging-nav li {
+  display:inline;
+}
+
+ul#paging-nav li.active {
+  font-weight:bold;
+}
+
+div.lightgrey {
+ background-color:#D3D3D3;
+}
+
+div.grey {
+ background-color:#C0C0C0;
+}
+
+ul.hst-container {
+    padding:0;
+    margin:0;
+}
+
+ul.hst-container li {
+  list-style-type:none;
+}
+
+@media print {
+/* print specific styling here*/
+}
