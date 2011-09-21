@@ -389,7 +389,7 @@
             <sv:value>frontend:pluginconfig</sv:value>
           </sv:property>
           <sv:property sv:name="selectable.options" sv:type="String">
-            <sv:value>redirect,forward</sv:value>
+            <sv:value>redirect,forward,permanent-redirect,temporary-redirect,pre-include,post-include,proxy</sv:value>
           </sv:property>
         </sv:node>
       </sv:node>
