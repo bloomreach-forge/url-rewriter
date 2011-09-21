@@ -209,12 +209,6 @@ public class RewritingManager {
             return null;
         }
 
-        if (type != null && name != null) {
-            log.warn("Invalid URL rewrite *condition*: name and type are defined, please use only one of them");
-            return null;
-        }
-
-
         StringBuilder builder = new StringBuilder();
         builder.append("<condition ");
         if (!StringUtils.isBlank(type)) {
