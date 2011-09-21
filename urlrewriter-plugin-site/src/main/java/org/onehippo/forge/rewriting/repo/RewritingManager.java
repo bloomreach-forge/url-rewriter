@@ -38,6 +38,7 @@ public class RewritingManager {
     private static final String FROM_PROPERTY = "urlrewriter:rulefrom";
     private static final String TO_PROPERTY = "urlrewriter:ruleto";
     private static final String TYPE_PROPERTY = "urlrewriter:ruletype";
+    private static final String CASE_SENSITIVE_PROPERTY = "urlrewriter:casesensitive";
     private static final String NAME_PROPERTY = "urlrewriter:rulename";
     private static final String AND_OR_PROPERTY = "urlrewriter:conditionor";
 
@@ -151,8 +152,15 @@ public class RewritingManager {
 
 
         String type = extractProperty(ruleNode, TYPE_PROPERTY);
+        boolean caseSensitive = extractBooleanProperty(ruleNode, CASE_SENSITIVE_PROPERTY);
 
-        String ruleFrom = new StringBuilder().append("<from>").append(from).append("</from>").toString();
+        String ruleFrom;
+        if (caseSensitive) {
+            ruleFrom = new StringBuilder().append("<from casesensitive=\"true\">").append(from).append("</from>").toString();
+        } else {
+            ruleFrom = new StringBuilder().append("<from>").append(from).append("</from>").toString();
+        }
+
         String ruleTo;
         if (type != null) {
             ruleTo = new StringBuilder().append("<to type=\"").append(type).append("\">").append(to).append("</to>").toString();
@@ -171,6 +179,7 @@ public class RewritingManager {
         }
         return builder.append(ruleFrom).append(ruleTo).append("</rule>").toString();
     }
+
 
     private String parseConditionals(final Node ruleNode) {
         try {
@@ -228,6 +237,19 @@ public class RewritingManager {
         builder.append('>').append(value).append("</condition>");
 
         return builder.toString();
+    }
+
+
+    private Boolean extractBooleanProperty(final Node node, final String property) {
+        try {
+            if (node.hasProperty(property)) {
+                Property p = node.getProperty(property);
+                return p.getBoolean();
+            }
+        } catch (Exception ignore) {
+            // ignore
+        }
+        return false;
     }
 
     private String extractProperty(final Node node, final String property) {

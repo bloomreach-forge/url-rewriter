@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sv:node sv:name="rulecompound" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" >
+<sv:node sv:name="rulecompound" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hipposysedit:templatetype</sv:value>
   </sv:property>
@@ -157,6 +157,29 @@
           <sv:value>String</sv:value>
         </sv:property>
       </sv:node>
+      <sv:node sv:name="casesensitive">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>hipposysedit:field</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposysedit:mandatory" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposysedit:multiple" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposysedit:ordered" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposysedit:path" sv:type="String">
+          <sv:value>urlrewriter:casesensitive</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposysedit:primary" sv:type="Boolean">
+          <sv:value>false</sv:value>
+        </sv:property>
+        <sv:property sv:name="hipposysedit:type" sv:type="String">
+          <sv:value>Boolean</sv:value>
+        </sv:property>
+      </sv:node>
     </sv:node>
   </sv:node>
   <sv:node sv:name="hipposysedit:prototypes">
@@ -166,6 +189,9 @@
     <sv:node sv:name="hipposysedit:prototype">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>urlrewriter:rulecompound</sv:value>
+      </sv:property>
+      <sv:property sv:name="urlrewriter:casesensitive" sv:type="Boolean">
+        <sv:value>false</sv:value>
       </sv:property>
       <sv:property sv:name="urlrewriter:rulefrom" sv:type="String">
         <sv:value/>
@@ -207,14 +233,49 @@
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>frontend:plugin</sv:value>
         </sv:property>
+        <sv:property sv:name="extension.left" sv:type="String">
+          <sv:value>${cluster.id}.left</sv:value>
+        </sv:property>
+        <sv:property sv:name="extension.right" sv:type="String">
+          <sv:value>${cluster.id}.right</sv:value>
+        </sv:property>
+        <sv:property sv:name="plugin.class" sv:type="String">
+          <sv:value>org.hippoecm.frontend.editor.layout.TwoColumn</sv:value>
+        </sv:property>
+        <sv:property sv:multiple="true" sv:name="wicket.extensions" sv:type="String">
+          <sv:value>extension.left</sv:value>
+          <sv:value>extension.right</sv:value>
+        </sv:property>
+        <sv:property sv:name="wicket.id" sv:type="String">
+          <sv:value>${wicket.id}</sv:value>
+        </sv:property>
+      </sv:node>
+      <sv:node sv:name="left">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>frontend:plugin</sv:value>
+        </sv:property>
         <sv:property sv:name="item" sv:type="String">
-          <sv:value>${cluster.id}.field</sv:value>
+          <sv:value>${cluster.id}.left.item</sv:value>
         </sv:property>
         <sv:property sv:name="plugin.class" sv:type="String">
           <sv:value>org.hippoecm.frontend.service.render.ListViewPlugin</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.id" sv:type="String">
-          <sv:value>${wicket.id}</sv:value>
+          <sv:value>${cluster.id}.left</sv:value>
+        </sv:property>
+      </sv:node>
+      <sv:node sv:name="right">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>frontend:plugin</sv:value>
+        </sv:property>
+        <sv:property sv:name="item" sv:type="String">
+          <sv:value>${cluster.id}.right.item</sv:value>
+        </sv:property>
+        <sv:property sv:name="plugin.class" sv:type="String">
+          <sv:value>org.hippoecm.frontend.service.render.ListViewPlugin</sv:value>
+        </sv:property>
+        <sv:property sv:name="wicket.id" sv:type="String">
+          <sv:value>${cluster.id}.right</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="rulename">
@@ -243,7 +304,44 @@
           <sv:value>${validator.id}</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.id" sv:type="String">
-          <sv:value>${cluster.id}.field</sv:value>
+          <sv:value>${cluster.id}.left.item</sv:value>
+        </sv:property>
+        <sv:property sv:name="wicket.model" sv:type="String">
+          <sv:value>${wicket.model}</sv:value>
+        </sv:property>
+        <sv:node sv:name="cluster.options">
+          <sv:property sv:name="jcr:primaryType" sv:type="Name">
+            <sv:value>frontend:pluginconfig</sv:value>
+          </sv:property>
+        </sv:node>
+      </sv:node>
+      <sv:node sv:name="casesensitive">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>frontend:plugin</sv:value>
+        </sv:property>
+        <sv:property sv:name="caption" sv:type="String">
+          <sv:value>Casesensitive</sv:value>
+        </sv:property>
+        <sv:property sv:name="engine" sv:type="String">
+          <sv:value>${engine}</sv:value>
+        </sv:property>
+        <sv:property sv:name="field" sv:type="String">
+          <sv:value>casesensitive</sv:value>
+        </sv:property>
+        <sv:property sv:name="mode" sv:type="String">
+          <sv:value>${mode}</sv:value>
+        </sv:property>
+        <sv:property sv:name="model.compareTo" sv:type="String">
+          <sv:value>${model.compareTo}</sv:value>
+        </sv:property>
+        <sv:property sv:name="plugin.class" sv:type="String">
+          <sv:value>org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin</sv:value>
+        </sv:property>
+        <sv:property sv:name="validator.id" sv:type="String">
+          <sv:value>${validator.id}</sv:value>
+        </sv:property>
+        <sv:property sv:name="wicket.id" sv:type="String">
+          <sv:value>${cluster.id}.right.item</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.model" sv:type="String">
           <sv:value>${wicket.model}</sv:value>
@@ -277,7 +375,7 @@
           <sv:value>org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.id" sv:type="String">
-          <sv:value>${cluster.id}.field</sv:value>
+          <sv:value>${cluster.id}.left.item</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.model" sv:type="String">
           <sv:value>${wicket.model}</sv:value>
@@ -311,7 +409,7 @@
           <sv:value>org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.id" sv:type="String">
-          <sv:value>${cluster.id}.field</sv:value>
+          <sv:value>${cluster.id}.left.item</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.model" sv:type="String">
           <sv:value>${wicket.model}</sv:value>
@@ -345,7 +443,7 @@
           <sv:value>org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.id" sv:type="String">
-          <sv:value>${cluster.id}.field</sv:value>
+          <sv:value>${cluster.id}.left.item</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.model" sv:type="String">
           <sv:value>${wicket.model}</sv:value>
@@ -379,7 +477,7 @@
           <sv:value>org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.id" sv:type="String">
-          <sv:value>${cluster.id}.field</sv:value>
+          <sv:value>${cluster.id}.right.item</sv:value>
         </sv:property>
         <sv:property sv:name="wicket.model" sv:type="String">
           <sv:value>${wicket.model}</sv:value>
