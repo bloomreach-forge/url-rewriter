@@ -39,6 +39,7 @@ public class RewritingManager {
     private static final String TO_PROPERTY = "urlrewriter:ruleto";
     private static final String TYPE_PROPERTY = "urlrewriter:ruletype";
     private static final String NAME_PROPERTY = "urlrewriter:rulename";
+    private static final String AND_OR_PROPERTY = "urlrewriter:conditionor";
 
     private volatile boolean needRefresh = true;
 
@@ -208,7 +209,7 @@ public class RewritingManager {
             log.warn("Invalid URL rewrite *condition*: all parameters [name, type, operator] are null");
             return null;
         }
-
+        String booleanCondition = extractProperty(conditionNode, AND_OR_PROPERTY);
         StringBuilder builder = new StringBuilder();
         builder.append("<condition ");
         if (!StringUtils.isBlank(type)) {
@@ -216,6 +217,10 @@ public class RewritingManager {
         }
         if (!StringUtils.isBlank(name)) {
             builder.append("name=\"").append(name).append("\" ");
+        }
+
+        if (!StringUtils.isBlank(booleanCondition) && booleanCondition.equals("or")) {
+            builder.append("next=\"").append(booleanCondition).append("\" ");
         }
         if (!StringUtils.isBlank(operator)) {
             builder.append("operator=\"").append(operator).append("\" ");
