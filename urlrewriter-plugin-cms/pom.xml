@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <properties>
-    <selectionplugins-addon-cms.version>2.05.00</selectionplugins-addon-cms.version>
+    <forge.selection.version>2.05.00</forge.selection.version>
   </properties>
 
   <parent>
@@ -21,12 +21,12 @@
     <dependency>
       <groupId>org.onehippo.forge.selectionplugins</groupId>
       <artifactId>selectionplugins-addon-repository</artifactId>
-      <version>${selectionplugins-addon-cms.version}</version>
+      <version>${forge.selection.version}</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.forge.selectionplugins</groupId>
       <artifactId>selectionplugins-addon-cms</artifactId>
-      <version>${selectionplugins-addon-cms.version}</version>
+      <version>${forge.selection.version}</version>
     </dependency>
   </dependencies>
 
