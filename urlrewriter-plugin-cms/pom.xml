@@ -29,6 +29,7 @@
       <version>${selectionplugins-addon-cms.version}</version>
     </dependency>
   </dependencies>
+
   <distributionManagement>
     <repository>
       <uniqueVersion>false</uniqueVersion>
@@ -36,5 +37,13 @@
       <url>svn:https://forge.onehippo.org/svn/urlrewriter/maven2/</url>
     </repository>
   </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>hippo-forge</id>
+      <name>Hippo Forge maven 2 repository.</name>
+      <url>http://maven.onehippo.com/maven2-forge</url>
+    </repository>
+  </repositories>
 
 </project>
