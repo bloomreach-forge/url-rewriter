@@ -6,14 +6,14 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.01.02</version>
+    <version>1.01.03-SNAPSHOT</version>
   </parent>
 
   <name>Url rewriting HST plugin</name>
   <description>Url rewriting HST plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-hst</artifactId>
-  <version>1.01.02</version>
+  <version>1.01.03-SNAPSHOT</version>
   <packaging>jar</packaging>
   <properties>
     <hst.version>2.22.03</hst.version>
