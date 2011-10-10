@@ -106,8 +106,8 @@
     </sv:property>
   </sv:node>
 
-
-  <sv:node sv:name="urlrewriter-content">
+  <!-- Example rules -->
+  <!--sv:node sv:name="urlrewriter-content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
@@ -120,7 +120,7 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/content</sv:value>
     </sv:property>
-  </sv:node>
+  </sv:node-->
 
   <!--
     URL rewriter view
