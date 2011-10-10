@@ -12,7 +12,7 @@
   <description>Url rewriting</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
-  <version>1.01.03-SNAPSHOT</version>
+  <version>1.01.03</version>
   <packaging>pom</packaging>
 
   <modules>
@@ -31,9 +31,9 @@
 
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/tags/urlrewriter-1.01.03</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/tags/urlrewriter-1.01.03</developerConnection>
+    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/tags/urlrewriter-1.01.03</url>
   </scm>
 
   <distributionManagement>
