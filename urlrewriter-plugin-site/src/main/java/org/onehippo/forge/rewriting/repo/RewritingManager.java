@@ -3,6 +3,7 @@ package org.onehippo.forge.rewriting.repo;
 import java.util.Date;
 
 import javax.jcr.Credentials;
+import javax.jcr.Item;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Property;
@@ -209,13 +210,15 @@ public class RewritingManager {
         }
         String value = extractProperty(conditionNode, "urlrewriter:conditionvalue");
         if (value == null) {
-            log.warn("Invalid URL rewrite *condition*: condition value was null");
+            log.warn("Invalid URL rewrite condition '{}' on node '{}': value was null", name,
+                    getJcrItemPath(conditionNode));
             return null;
         }
         String type = extractProperty(conditionNode, "urlrewriter:conditiontype");
         String operator = extractProperty(conditionNode, "urlrewriter:conditionoperator");
         if (name == null && operator == null && type == null) {
-            log.warn("Invalid URL rewrite *condition*: all parameters [name, type, operator] are null");
+            log.warn("Invalid URL rewrite condition on node '{}': all parameters [name, type, operator] are null",
+                    getJcrItemPath(conditionNode));
             return null;
         }
         String booleanCondition = extractProperty(conditionNode, AND_OR_PROPERTY);
@@ -269,12 +272,13 @@ public class RewritingManager {
      * Validates the rule
      *
      * @param rule    xml string containing rule
-     * @param request
+     * @param context
      * @return
      */
     private boolean validRule(final String rule, final ServletContext context) {
 
-        Conf conf = new Conf(context, new StringInputStream(XML_START + rule + XML_END), "testing-valid-", "testing-valid-rules", false);
+        Conf conf = new Conf(context, new StringInputStream(XML_START + rule + XML_END), "testing-valid-",
+                "testing-valid-rules", false);
         boolean ok = conf.isOk();
         if (!ok) {
             log.warn("skipping invalid rule:  {}", rule);
@@ -334,5 +338,22 @@ public class RewritingManager {
 
     public Date getLastLoadDate() {
         return lastLoadDate;
+    }
+
+    /**
+     * JCR item path getter
+     * @param item JCR item
+     * @return Path (nullable)
+     */
+    private static String getJcrItemPath(Item item) {
+        if (item == null) {
+            return null;
+        }
+        try {
+            return item.getPath();
+        } catch (RepositoryException e) {
+            log.warn(e.getMessage());
+            return null;
+        }
     }
 }
