@@ -25,7 +25,7 @@ mvn install:install-file -DgroupId=org.tuckey -DartifactId=gzip -Dversion=1.0 -D
 can be: TRACE, DEBUG, INFO, WARN, ERROR, FATAL  -->
     <init-param>
       <param-name>logLevel</param-name>
-      <param-value>STDOUT:DEBUG</param-value>
+      <param-value>slf4j</param-value>
     </init-param>
     <!-- you can disable status page if desired
 can be: true, false (default true)              -->
@@ -38,7 +38,11 @@ conflict with your installed apps (note, defaults
 to /rewrite-status) note, must start with /     -->
     <init-param>
       <param-name>statusPath</param-name>
-      <param-value>/status</param-value>
+      <param-value>/rewrite-status</param-value>
+    </init-param>
+    <init-param>
+      <param-name>statusEnabledOnHosts</param-name>
+      <param-value>localhost, 127.0.0.*, *.lan</param-value>
     </init-param>
   </filter>
 
