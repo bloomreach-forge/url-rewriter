@@ -45,7 +45,7 @@ to /rewrite-status) note, must start with /     -->
     </init-param>
     <init-param>
       <param-name>statusEnabledOnHosts</param-name>
-      <param-value>localhost, 127.0.0.*, *.lan</param-value>
+      <param-value>localhost, 127.0.0.*, *.lan, *.local</param-value>
     </init-param>
   </filter>
 
