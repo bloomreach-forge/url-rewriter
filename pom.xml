@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
@@ -14,6 +13,12 @@
   <artifactId>urlrewriter</artifactId>
   <version>1.01.04-SNAPSHOT</version>
   <packaging>pom</packaging>
+
+  <properties>
+    <urlrewritefilter.version>3.2.0</urlrewritefilter.version>
+    <gzip.version>1.0</gzip.version>
+  </properties>
+
 
   <modules>
     <module>urlrewriter-plugin-cms</module>
@@ -56,6 +61,22 @@
       <email>m.milicevic@onehippo.com</email>
     </developer>
   </developers>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.tuckey</groupId>
+        <artifactId>gzip</artifactId>
+        <version>${gzip.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.tuckey</groupId>
+        <artifactId>urlrewritefilter</artifactId>
+        <version>${urlrewritefilter.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 
   <build>
     <defaultGoal>package</defaultGoal>
