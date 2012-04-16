@@ -1,6 +1,3 @@
-# install needed maven dependency (not in maven repo)
-mvn install:install-file -DgroupId=org.tuckey -DartifactId=gzip -Dversion=1.0 -Dpackaging=jar -Dfile=lib/gzipfilter-repackaged.jar
-
 # add CMS plugin to your project:
     <dependency>
       <groupId>org.onehippo.forge.rewriting</groupId>
