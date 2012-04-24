@@ -1,0 +1,118 @@
+<!--
+
+    Copyright (C) 2011 Hippo
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<?xml version="1.0"?><!--
+    Copyright 2011 Hippo Licensed under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under
+    the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+    OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and
+    limitations under the License.
+  --><!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Installing URL rewriter</title>
+  </properties>
+  <body>
+    <section name="Installing Urlrewriter">
+      <subsection name="Prerequisites">
+        <p>
+          These instruction assumes that you have maven 3 installed
+        </p>
+      </subsection>
+      <subsection name="Installing into your project">
+        <p>Add CMS plugin to your project:</p>
+        <source>
+<![CDATA[<dependency>
+  <groupId>org.onehippo.forge.rewriting</groupId>
+  <artifactId>rewriting-module-cms</artifactId>
+  <version>${xxx}</version>
+</dependency>]]>
+        </source>
+        <p>Add HST plugin to your project:</p>
+        <source>
+<![CDATA[<dependency>
+  <groupId>org.onehippo.forge.rewriting</groupId>
+  <artifactId>rewriting-module-hst</artifactId>
+  <version>${xxx}</version>
+</dependency>]]>
+        </source>
+        <p>Configure site web.xml filter</p>
+        <source>
+          <![CDATA[
+<filter>
+    <filter-name>RewriteFilter</filter-name>
+    <filter-class>org.onehippo.forge.rewriting.HippoRewriteFilter</filter-class>
+    <!-- sets up log level (will be logged to context log)
+     can be: TRACE, DEBUG, INFO (default), WARN, ERROR, FATAL, log4j, commons, slf4j,
+     sysout:{level} (ie, sysout:DEBUG)
+     if you are having trouble using normal levels use sysout:DEBUG
+     (default WARN) -->
+    <init-param>
+      <param-name>logLevel</param-name>
+      <param-value>slf4j</param-value>
+    </init-param>
+    <!-- you can disable status page if desired can be: true, false (default true)              -->
+    <init-param>
+      <param-name>statusEnabled</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <!-- you can change status path so that it does not conflict with your installed apps (note, defaults to /rewrite-status) note, must start with /  -->
+    <init-param>
+      <param-name>statusPath</param-name>
+      <param-value>/rewrite-status</param-value>
+    </init-param>
+    <init-param>
+      <param-name>statusEnabledOnHosts</param-name>
+      <param-value>localhost, 127.0.0.*, *.lan, *.local</param-value>
+    </init-param>
+</filter>
+          ]]>
+        </source>
+        <p>
+          Add filter as a first entry in your web.xml before the other filter mappings:
+        </p>
+        <source>
+<![CDATA[<filter-mapping>
+  <filter-name>RewriteFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+  <dispatcher>REQUEST</dispatcher>
+</filter-mapping>]]>
+        </source>
+        <p>Copy <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a> to the following location within your project: ..site/src/main/resources/META-INF/hst-assembly/overrides/</p>
+      </subsection>
+    </section>
+    <section name="Running the demo project">
+      <subsection name="Example Demo Project Location">
+        <p>If you do not want to put this plugin directly into your project you might want to checkout the demo project.</p>
+        <em>
+          Note: You can check out, build and run a demo as follows:
+        </em>
+        <source>
+<![CDATA[$ svn co https://forge.onehippo.org/svn/urlrewriter/demo/trunk urlrewriter-demo
+$ cd urlrewriter-demo
+$ mvn clean install
+$ mvn -P cargo.run
+]]></source>
+      </subsection>
+    </section>
+  </body>
+</document>

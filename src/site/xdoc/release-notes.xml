@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!--
 
     Copyright (C) 2011 Hippo
@@ -16,11 +16,24 @@
     limitations under the License.
 
 -->
-<sv:node sv:name="urlrewriter" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
-  <sv:property sv:name="jcr:primaryType" sv:type="Name">
-    <sv:value>hipposysedit:namespace</sv:value>
-  </sv:property>
-  <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
-    <sv:value>mix:referenceable</sv:value>
-  </sv:property>
-</sv:node>
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Release Notes</title>
+  </properties>
+  <body>
+    <section name="Release Notes">
+      <subsection name="1.01.01">
+        <ul>
+          <li>Initial version</li>
+        </ul>
+      </subsection>
+      <subsection name="1.01.02">
+        <ul>
+          <li>Bug fixes:</li>
+          <li>Refactorings</li>
+        </ul>
+      </subsection>
+    </section>
+  </body>
+</document>

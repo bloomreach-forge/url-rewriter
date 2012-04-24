@@ -1,4 +1,5 @@
 * text=auto !eol
 /LICENSE -text
 /NOTICE -text
+src/etc/license.txt -text
 urlrewriter-plugin-cms/src/main/resources/namespace/urlrewriter.cnd -text

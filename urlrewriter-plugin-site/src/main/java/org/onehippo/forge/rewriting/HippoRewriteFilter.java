@@ -1,3 +1,18 @@
+/**
+ * Copyright (C) 2011 Hippo
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.onehippo.forge.rewriting;
 
 import java.io.IOException;
@@ -29,6 +44,9 @@ import org.tuckey.web.filters.urlrewrite.utils.ServerNameMatcher;
 import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
+ * Hippo URL Rewrite Filter based on Url Rewrite Filter originally written by Paul Tuckey.
+ * @see <a href="http://www.tuckey.org/urlrewrite/">Tucky Url Rewrite Filter</a>
+ * @see <a href="http://http://urlrewriter.forge.onehippo.org/">Hippo Rewrite Filter project page on forge</a>
  * @version $Id$
  */
 public class HippoRewriteFilter extends UrlRewriteFilter {
@@ -107,8 +125,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             Conf conf = new Conf();
             loader.process(modRewriteConfText, conf);
             conf.initialise();
-
-
         }
     }
 
@@ -128,7 +144,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         }
 
     }
-
 
     private void checkConfLocal(final Conf conf) {
         if (log.isDebugEnabled()) {
@@ -290,7 +305,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             throws IOException {
 
         log.debug("showing status");
-
 
         Status status = new Status(confLastLoaded, this);
         status.displayStatusInContainer(request);
