@@ -16,7 +16,7 @@
     limitations under the License.
 
 -->
-<sv:node sv:name="new-urlrewriter-document" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
+<sv:node sv:name="new-urlrewriter-simple-document" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hippostd:templatequery</sv:value>
   </sv:property>
@@ -49,7 +49,7 @@
     <sv:value>xpath</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:statement" sv:type="String">
-    <sv:value>//element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,urlrewriter:ruleset)</sv:value>
+    <sv:value>//element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,urlrewriter:simpleruleset)</sv:value>
   </sv:property>
   <sv:node sv:name="hippo:translation">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -62,7 +62,7 @@
       <sv:value>en</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>new urlrewriter document</sv:value>
+      <sv:value>new urlrewriter simple document</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -76,7 +76,7 @@
       <sv:value>nl</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nieuw urlrewriter document</sv:value>
+      <sv:value>nieuw urlrewriter simple document</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -90,7 +90,7 @@
       <sv:value>it</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouvo urlrewriter documento</sv:value>
+      <sv:value>nouvo urlrewriter simple documento</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -104,7 +104,7 @@
       <sv:value>fr</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouveau urlrewriter document</sv:value>
+      <sv:value>nouveau urlrewriter simple document</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>

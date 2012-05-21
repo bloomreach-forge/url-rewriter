@@ -8,7 +8,7 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.01.05-SNAPSHOT</version>
+    <version>1.02.00-SNAPSHOT</version>
   </parent>
 
   <name>Url rewriting CMS plugin</name>
@@ -27,6 +27,16 @@
       <groupId>org.onehippo.forge.selectionplugins</groupId>
       <artifactId>selectionplugins-addon-cms</artifactId>
       <version>${forge.selection.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-cms-api</artifactId>
+      <version>2.23.01-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-repository-api</artifactId>
+      <version>2.23.01-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

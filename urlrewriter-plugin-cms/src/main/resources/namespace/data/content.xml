@@ -33,7 +33,7 @@
   </sv:property>
   <sv:node sv:name="rule-documents">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippostd:directory</sv:value>
+      <sv:value>urlrewriter:folder</sv:value>
     </sv:property>
     <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
       <sv:value>hippo:harddocument</sv:value>
@@ -46,215 +46,21 @@
       <sv:value>new-urlrewriter-folder</sv:value>
       <sv:value>new-urlrewriter-document</sv:value>
     </sv:property>
-    <sv:node sv:name="xml">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>hippostd:folder</sv:value>
-      </sv:property>
-      <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-        <sv:value>hippo:harddocument</sv:value>
-      </sv:property>
-      <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>fb6bf41c-00c7-4933-8f1c-fa1629af2b24</sv:value>
-      </sv:property>
-      <sv:property sv:name="hippo:related___pathreference" sv:type="String"/>
-      <sv:property sv:multiple="true" sv:name="hippostd:foldertype" sv:type="String">
-        <sv:value>new-urlrewriter-document</sv:value>
-        <sv:value>new-urlrewriter-folder</sv:value>
-      </sv:property>
-      <sv:node sv:name="xml-example">
-        <sv:property sv:name="jcr:primaryType" sv:type="Name">
-          <sv:value>hippo:handle</sv:value>
-        </sv:property>
-        <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-          <sv:value>hippo:hardhandle</sv:value>
-        </sv:property>
-        <sv:property sv:name="jcr:uuid" sv:type="String">
-          <sv:value>76f35082-48c0-4df7-84e5-5b29dad72f88</sv:value>
-        </sv:property>
-        <sv:node sv:name="xml-example">
-          <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>urlrewriter:rulesetxml</sv:value>
-          </sv:property>
-          <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-            <sv:value>hippo:harddocument</sv:value>
-            <sv:value>hippotranslation:translated</sv:value>
-          </sv:property>
-          <sv:property sv:name="jcr:uuid" sv:type="String">
-            <sv:value>9a882445-9a53-4e92-8fb5-34886eb4bb86</sv:value>
-          </sv:property>
-          <sv:property sv:multiple="true" sv:name="hippo:availability" sv:type="String">
-            <sv:value>live</sv:value>
-            <sv:value>preview</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippo:related___pathreference" sv:type="String">
-            <sv:value>urlrewriter/rule-documents/xml/xml-example</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostd:holder" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostd:state" sv:type="String">
-            <sv:value>published</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostd:stateSummary" sv:type="String">
-            <sv:value>live</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:createdBy" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:creationDate" sv:type="Date">
-            <sv:value>2011-09-07T16:37:21.199+02:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:lastModificationDate" sv:type="Date">
-            <sv:value>2011-09-07T16:56:44.988+02:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:lastModifiedBy" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:publicationDate" sv:type="Date">
-            <sv:value>2011-09-07T16:56:46.753+02:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippotranslation:id" sv:type="String">
-            <sv:value>4ecf3351-7998-405e-bd20-7f631ef1b4d5</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippotranslation:locale" sv:type="String">
-            <sv:value>document-type-locale</sv:value>
-          </sv:property>
-          <sv:property sv:multiple="true" sv:name="urlrewriter:rule" sv:type="String">
-            <sv:value>&lt;rule&gt;
-        &lt;name&gt;Domain Name Check&lt;/name&gt;
-        &lt;condition name="host" operator="notequal"&gt;localhost&lt;/condition&gt;
-        &lt;from&gt;^(.*)$&lt;/from&gt;
-        &lt;to type="redirect"&gt;http://localhost:8080/site$1&lt;/to&gt;
-    &lt;/rule&gt;</sv:value>
-          </sv:property>
-          <sv:node sv:name="hippotranslation:translations">
-            <sv:property sv:name="jcr:primaryType" sv:type="Name">
-              <sv:value>hippotranslation:translations</sv:value>
-            </sv:property>
-          </sv:node>
-        </sv:node>
-      </sv:node>
-    </sv:node>
-    <sv:node sv:name="simple">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>hippostd:folder</sv:value>
-      </sv:property>
-      <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-        <sv:value>hippo:harddocument</sv:value>
-      </sv:property>
-      <sv:property sv:name="jcr:uuid" sv:type="String">
-        <sv:value>5b55402b-2802-4177-aa89-6897d4723c43</sv:value>
-      </sv:property>
-      <sv:property sv:name="hippo:related___pathreference" sv:type="String"/>
-      <sv:property sv:multiple="true" sv:name="hippostd:foldertype" sv:type="String">
-        <sv:value>new-urlrewriter-document</sv:value>
-        <sv:value>new-urlrewriter-folder</sv:value>
-      </sv:property>
-      <sv:node sv:name="example-rule">
-        <sv:property sv:name="jcr:primaryType" sv:type="Name">
-          <sv:value>hippo:handle</sv:value>
-        </sv:property>
-        <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-          <sv:value>hippo:hardhandle</sv:value>
-        </sv:property>
-        <sv:property sv:name="jcr:uuid" sv:type="String">
-          <sv:value>8766f8ac-abd4-4a8a-afa8-6de5109a2808</sv:value>
-        </sv:property>
-        <sv:node sv:name="example-rule">
-          <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>urlrewriter:ruleset</sv:value>
-          </sv:property>
-          <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-            <sv:value>hippo:harddocument</sv:value>
-            <sv:value>hippotranslation:translated</sv:value>
-          </sv:property>
-          <sv:property sv:name="jcr:uuid" sv:type="String">
-            <sv:value>03472867-cb5e-414d-8737-9afc137179b3</sv:value>
-          </sv:property>
-          <sv:property sv:multiple="true" sv:name="hippo:availability" sv:type="String">
-            <sv:value>live</sv:value>
-            <sv:value>preview</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippo:related___pathreference" sv:type="String">
-            <sv:value>urlrewriter/rule-documents/simple/example-rule</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostd:holder" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostd:state" sv:type="String">
-            <sv:value>published</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostd:stateSummary" sv:type="String">
-            <sv:value>live</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:createdBy" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:creationDate" sv:type="Date">
-            <sv:value>2011-09-07T20:01:15.560+02:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:lastModificationDate" sv:type="Date">
-            <sv:value>2011-09-07T20:06:30.730+02:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:lastModifiedBy" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippostdpubwf:publicationDate" sv:type="Date">
-            <sv:value>2011-09-07T20:07:54.515+02:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippotranslation:id" sv:type="String">
-            <sv:value>9ae7996f-76a1-4053-ac10-2bcd0f1fa0fb</sv:value>
-          </sv:property>
-          <sv:property sv:name="hippotranslation:locale" sv:type="String">
-            <sv:value>document-type-locale</sv:value>
-          </sv:property>
-          <sv:node sv:name="hippotranslation:translations">
-            <sv:property sv:name="jcr:primaryType" sv:type="Name">
-              <sv:value>hippotranslation:translations</sv:value>
-            </sv:property>
-          </sv:node>
-          <sv:node sv:name="urlrewriter:rule">
-            <sv:property sv:name="jcr:primaryType" sv:type="Name">
-              <sv:value>urlrewriter:rulecompound</sv:value>
-            </sv:property>
-            <sv:property sv:multiple="true" sv:name="urlrewriter:rulecondition" sv:type="String">
-              <sv:value/>
-            </sv:property>
-            <sv:property sv:name="urlrewriter:rulefrom" sv:type="String">
-              <sv:value>^(.*)$</sv:value>
-            </sv:property>
-            <sv:property sv:name="urlrewriter:rulename" sv:type="String">
-              <sv:value>Domain Name Check</sv:value>
-            </sv:property>
-            <sv:property sv:name="urlrewriter:ruleto" sv:type="String">
-              <sv:value>http://localhost:8080/site$1</sv:value>
-            </sv:property>
-            <sv:property sv:name="urlrewriter:ruletype" sv:type="String">
-              <sv:value>redirect</sv:value>
-            </sv:property>
-            <sv:node sv:name="urlrewriter:rulecondition">
-              <sv:property sv:name="jcr:primaryType" sv:type="Name">
-                <sv:value>urlrewriter:rulecondition</sv:value>
-              </sv:property>
-              <sv:property sv:name="urlrewriter:conditionname" sv:type="String">
-                <sv:value/>
-              </sv:property>
-              <sv:property sv:name="urlrewriter:conditionoperator" sv:type="String">
-                <sv:value>notequal</sv:value>
-              </sv:property>
-              <sv:property sv:name="urlrewriter:conditionpredefinedname" sv:type="String">
-                <sv:value>host</sv:value>
-              </sv:property>
-              <sv:property sv:name="urlrewriter:conditiontype" sv:type="String">
-                <sv:value/>
-              </sv:property>
-              <sv:property sv:name="urlrewriter:conditionvalue" sv:type="String">
-                <sv:value>localhost</sv:value>
-              </sv:property>
-            </sv:node>
-          </sv:node>
-        </sv:node>
-      </sv:node>
-    </sv:node>
+  </sv:node>
+  <sv:node sv:name="simple-rule-documents">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>urlrewriter:simplefolder</sv:value>
+    </sv:property>
+    <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
+      <sv:value>hippo:harddocument</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>a438abfb-856d-4ec5-9d30-327c04fcae89</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:related___pathreference" sv:type="String"/>
+    <sv:property sv:multiple="true" sv:name="hippostd:foldertype" sv:type="String">
+      <sv:value>new-urlrewriter-simple-folder</sv:value>
+      <sv:value>new-urlrewriter-simple-document</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>
