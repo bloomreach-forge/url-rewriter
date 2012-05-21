@@ -8,12 +8,10 @@
 
 [urlrewriter:rulecompound] > hippo:compound, hippostd:relaxed orderable
 
-[urlrewriter:simplerulecompound] > hippo:compound, hippostd:relaxed orderable
+[urlrewriter:simplerule] > urlrewriter:basedocument, hippostd:relaxed orderable
 
 // rule set document, contains multiple rules, can be extended /modified later
 [urlrewriter:ruleset] > urlrewriter:basedocument, hippostd:relaxed orderable
-
-[urlrewriter:simpleruleset] > urlrewriter:basedocument, hippostd:relaxed orderable
 
 [urlrewriter:rulesetxml] > urlrewriter:basedocument, hippostd:relaxed orderable
 
