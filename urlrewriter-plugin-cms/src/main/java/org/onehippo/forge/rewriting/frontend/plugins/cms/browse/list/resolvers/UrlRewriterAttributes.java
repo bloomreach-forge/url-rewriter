@@ -41,7 +41,10 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
     private Observable observable;
     private transient boolean loaded = false;
 
+    private transient String ruleName;
     private transient String originalUrl;
+    private transient String rewriteUrl;
+    private transient String rewriteType;
 
     public UrlRewriterAttributes(JcrNodeModel nodeModel) {
         this.nodeModel = nodeModel;
@@ -51,6 +54,16 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
     public String getOriginalUrl() {
         load();
         return originalUrl;
+    }
+
+    public String getRewriteUrl() {
+        load();
+        return rewriteUrl;
+    }
+
+    public String getRewriteType() {
+        load();
+        return rewriteType;
     }
 
     public void detach() {
@@ -141,6 +154,14 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
 
                         if (document.hasProperty("urlrewriter:rulefrom")) {
                             originalUrl = document.getProperty("urlrewriter:rulefrom").getString();
+                        }
+
+                        if (document.hasProperty("urlrewriter:ruleto")) {
+                            rewriteUrl = document.getProperty("urlrewriter:ruleto").getString();
+                        }
+
+                        if (document.hasProperty("urlrewriter:ruletype")) {
+                            rewriteType = document.getProperty("urlrewriter:ruletype").getString();
                         }
 
                     }

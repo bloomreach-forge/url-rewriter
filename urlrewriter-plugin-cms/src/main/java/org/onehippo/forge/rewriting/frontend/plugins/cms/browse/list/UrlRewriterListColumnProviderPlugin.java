@@ -81,7 +81,7 @@ public class UrlRewriterListColumnProviderPlugin  extends AbstractListColumnProv
                 return UrlRewriterListColumnProviderPlugin.this.compare(a1.getOriginalUrl(), a2.getOriginalUrl());
             }
         });
-        column.setCssClass("doclisting-originalurl");
+        column.setCssClass("doclisting-original-url");
         column.setRenderer(new UrlRewriterAttributeRenderer() {
             private static final long serialVersionUID = -1485899011687542362L;
 
@@ -90,15 +90,50 @@ public class UrlRewriterListColumnProviderPlugin  extends AbstractListColumnProv
                 return attributes.getOriginalUrl();
             }
         });
-        /*column.setAttributeModifier(new DocumentAttributeAttributeModifier("title") {
-            private static final long serialVersionUID = 1036099861027058091L;
+        columns.add(column);
+
+
+        //Rewrite Url
+        column = new ListColumn<Node>(new ClassResourceModel("doclisting-rewrite-url", getClass()), "rewrite-url");
+        column.setComparator(new UrlRewriterAttributeComparator() {
+            private static final long serialVersionUID = -4617312936280189361L;
 
             @Override
-            protected String getObject( atts) {
-                return advancedFormattedCalendar(atts.getLastModifiedDate());
+            protected int compare(UrlRewriterAttributes a1, UrlRewriterAttributes a2) {
+                return UrlRewriterListColumnProviderPlugin.this.compare(a1.getRewriteUrl(), a2.getRewriteUrl());
             }
-        });*/
+        });
+        column.setCssClass("doclisting-rewrite-url");
+        column.setRenderer(new UrlRewriterAttributeRenderer() {
+            private static final long serialVersionUID = -1485899011687542362L;
 
+            @Override
+            protected String getObject(UrlRewriterAttributes attributes) {
+                return attributes.getRewriteUrl();
+            }
+        });
+        columns.add(column);
+
+
+        //Rewrite Type
+        column = new ListColumn<Node>(new ClassResourceModel("doclisting-rewrite-type", getClass()), "rewrite-type");
+        column.setComparator(new UrlRewriterAttributeComparator() {
+            private static final long serialVersionUID = -4617312936280189361L;
+
+            @Override
+            protected int compare(UrlRewriterAttributes a1, UrlRewriterAttributes a2) {
+                return UrlRewriterListColumnProviderPlugin.this.compare(a1.getRewriteType(), a2.getRewriteType());
+            }
+        });
+        column.setCssClass("doclisting-rewrite-type");
+        column.setRenderer(new UrlRewriterAttributeRenderer() {
+            private static final long serialVersionUID = -1485899011687542362L;
+
+            @Override
+            protected String getObject(UrlRewriterAttributes attributes) {
+                return attributes.getRewriteType();
+            }
+        });
         columns.add(column);
 
         return columns;

@@ -118,7 +118,7 @@
           <sv:value>String</sv:value>
         </sv:property>
       </sv:node>
-      <sv:node sv:name="rulename">
+      <sv:node sv:name="ruledescription">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>hipposysedit:field</sv:value>
         </sv:property>
@@ -132,7 +132,7 @@
           <sv:value>false</sv:value>
         </sv:property>
         <sv:property sv:name="hipposysedit:path" sv:type="String">
-          <sv:value>urlrewriter:rulename</sv:value>
+          <sv:value>urlrewriter:ruledescription</sv:value>
         </sv:property>
         <sv:property sv:name="hipposysedit:primary" sv:type="Boolean">
           <sv:value>false</sv:value>
@@ -219,7 +219,7 @@
       <sv:property sv:name="urlrewriter:rulefrom" sv:type="String">
         <sv:value/>
       </sv:property>
-      <sv:property sv:name="urlrewriter:rulename" sv:type="String">
+      <sv:property sv:name="urlrewriter:ruledescription" sv:type="String">
         <sv:value/>
       </sv:property>
       <sv:property sv:name="urlrewriter:ruleto" sv:type="String">
@@ -303,7 +303,7 @@
           <sv:value>${cluster.id}.right</sv:value>
         </sv:property>
       </sv:node>
-      <sv:node sv:name="rulename">
+      <sv:node sv:name="ruledescription">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>frontend:plugin</sv:value>
         </sv:property>
@@ -314,7 +314,7 @@
           <sv:value>${engine}</sv:value>
         </sv:property>
         <sv:property sv:name="field" sv:type="String">
-          <sv:value>rulename</sv:value>
+          <sv:value>ruledescription</sv:value>
         </sv:property>
         <sv:property sv:name="mode" sv:type="String">
           <sv:value>${mode}</sv:value>
