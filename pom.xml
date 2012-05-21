@@ -163,7 +163,7 @@
       </plugin>
 
 
-      <!-- TODO
+
       <plugin>
         <groupId>com.mycila.maven-license-plugin</groupId>
         <artifactId>maven-license-plugin</artifactId>
@@ -178,6 +178,8 @@
             <exclude>NOTICE.txt</exclude>
             <exclude>README.textile</exclude>
             <exclude>src/etc/**</exclude>
+            <exclude>**/*.properties</exclude>
+            <exclude>**/*.cnd</exclude>
           </excludes>
           <properties>
             <name>${project.name}</name>
@@ -194,7 +196,7 @@
           </execution>
         </executions>
       </plugin>
-      -->
+
     </plugins>
   </build>
   <repositories>
