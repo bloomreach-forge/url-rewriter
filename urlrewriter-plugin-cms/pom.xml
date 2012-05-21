@@ -8,7 +8,7 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.01.04</version>
+    <version>1.01.05-SNAPSHOT</version>
   </parent>
 
   <name>Url rewriting CMS plugin</name>
