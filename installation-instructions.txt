@@ -60,6 +60,22 @@ to /rewrite-status) note, must start with /     -->
       <param-name>statusEnabledOnHosts</param-name>
       <param-value>localhost, 127.0.0.*, *.lan, *.local</param-value>
     </init-param>
+    <init-param>
+      <param-name>disabledRuleTypes</param-name>
+      <param-value>complex,simple</param-value>
+    </init-param>
+    <init-param>
+      <param-name>rulesPriority</param-name>
+      <param-value>complexRulesFirst | simpleRulesFirst</param-value>
+    </init-param>
+    <init-param>
+      <param-name>complexRulesLocation</param-name>
+      <param-value>content path</param-value>
+    </init-param>
+    <init-param>
+      <param-name>simpleRulesLocation</param-name>
+      <param-value>content path</param-value>
+    </init-param>
   </filter>
 
 
@@ -72,4 +88,4 @@ to /rewrite-status) note, must start with /     -->
   </filter-mapping>
 
 
-# copy ..site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml to your project
+# copy https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml to your project

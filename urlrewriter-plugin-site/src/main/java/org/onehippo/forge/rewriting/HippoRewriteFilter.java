@@ -17,7 +17,10 @@ package org.onehippo.forge.rewriting;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -55,7 +58,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
     private final Object lock = new Object();
 
-    // TODO check if this si needed
+    // TODO check if this is needed
     private static final String DEFAULT_STATUS_ENABLED_ON_HOSTS = "localhost, local, 127.0.0.1";
 
     //
@@ -63,6 +66,11 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private UrlRewriter urlRewriter;
     private boolean statusEnabled = true;
     private String statusPath = "/rewrite-status";
+    private List<String> disabledRuleTypes = new ArrayList<String>();
+    private String rulesPriority = "complexRulesFirst";
+    private String complexRulesLocation = null;
+    private String simpleRulesLocation = null;
+
     private Conf confLastLoaded;
 
     // hippo vars
@@ -91,18 +99,15 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         // set the conf of the logger to make sure we get the messages in context log
         Log.setConfiguration(filterConfig);
 
-        String statusPathConf = filterConfig.getInitParameter("statusPath");
-        String statusEnabledConf = filterConfig.getInitParameter("statusEnabled");
-        String statusEnabledOnHosts = filterConfig.getInitParameter("statusEnabledOnHosts");
-
-
         // status enabled (default true)
+        String statusEnabledConf = filterConfig.getInitParameter("statusEnabled");
         if (statusEnabledConf != null && !"".equals(statusEnabledConf)) {
             log.debug("statusEnabledConf set to " + statusEnabledConf);
             statusEnabled = "true".equals(statusEnabledConf.toLowerCase());
         }
         if (statusEnabled) {
             // status path (default /rewrite-status)
+            String statusPathConf = filterConfig.getInitParameter("statusPath");
             if (statusPathConf != null && !"".equals(statusPathConf)) {
                 statusPath = statusPathConf.trim();
                 log.info("status display enabled, path set to " + statusPath);
@@ -111,12 +116,25 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             log.info("status display disabled");
         }
 
+        String statusEnabledOnHosts = filterConfig.getInitParameter("statusEnabledOnHosts");
         if (StringUtils.isBlank(statusEnabledOnHosts)) {
             statusEnabledOnHosts = DEFAULT_STATUS_ENABLED_ON_HOSTS;
         } else {
             log.debug("statusEnabledOnHosts set to " + statusEnabledOnHosts);
         }
         statusServerNameMatcher = new ServerNameMatcher(statusEnabledOnHosts);
+
+        //Specify if complex or simple rules should be handled first
+        rulesPriority = filterConfig.getInitParameter("rulesPriority");
+
+        //Specified disabled types
+        if(!StringUtils.isBlank(filterConfig.getInitParameter("disabledRuleTypes"))){
+            disabledRuleTypes = Arrays.asList(filterConfig.getInitParameter("disabledRuleTypes").split("\\s*,\\s*"));
+        }
+
+        //Rewrite rules locations
+        complexRulesLocation = filterConfig.getInitParameter("complexRulesLocation");
+        simpleRulesLocation = filterConfig.getInitParameter("simpleRulesLocation");
 
         // now load conf from snippet in web.xml if modRewriteStyleConf is set
         String modRewriteConfText = filterConfig.getInitParameter("modRewriteConfText");
@@ -138,7 +156,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
                 return;
             }
             // TODO we can make this fine grained
-            StringBuilder builder = rewritingManager.loadRules(context ,request, null);
+            StringBuilder builder = rewritingManager.loadRules(context ,request, complexRulesLocation, simpleRulesLocation, rulesPriority, disabledRuleTypes);
             Conf conf = new Conf(context, new StringInputStream(builder.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
             checkConfLocal(conf);
         }

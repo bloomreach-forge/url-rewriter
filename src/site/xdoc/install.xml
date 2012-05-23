@@ -74,6 +74,22 @@
       <param-name>statusEnabledOnHosts</param-name>
       <param-value>localhost, 127.0.0.*, *.lan, *.local</param-value>
     </init-param>
+    <init-param>
+      <param-name>disabledRuleTypes</param-name>
+      <param-value>complex,simple</param-value>
+    </init-param>
+    <init-param>
+      <param-name>rulesPriority</param-name>
+      <param-value>complexRulesFirst | simpleRulesFirst</param-value>
+    </init-param>
+    <init-param>
+      <param-name>complexRulesLocation</param-name>
+      <param-value>content path</param-value>
+    </init-param>
+    <init-param>
+      <param-name>simpleRulesLocation</param-name>
+      <param-value>content path</param-value>
+    </init-param>
 </filter>
           ]]>
         </source>

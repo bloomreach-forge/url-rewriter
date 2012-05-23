@@ -61,6 +61,14 @@
       <name>m.milicevic</name>
       <email>m.milicevic@onehippo.com</email>
     </developer>
+    <developer>
+      <name>j.reijn</name>
+      <email>j.reijn@onehippo.com</email>
+    </developer>
+    <developer>
+      <name>m.chatzidakis</name>
+      <email>m.chatzidakis@onehippo.com</email>
+    </developer>
   </developers>
 
   <dependencyManagement>
