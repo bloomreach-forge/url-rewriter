@@ -27,8 +27,6 @@ import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
 import org.hippoecm.frontend.plugins.standards.list.AbstractListColumnProviderPlugin;
 import org.hippoecm.frontend.plugins.standards.list.ListColumn;
-import org.hippoecm.frontend.plugins.standards.list.comparators.NameComparator;
-import org.hippoecm.frontend.plugins.standards.list.resolvers.DocumentAttributeModifier;
 import org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.comparators.UrlRewriterAttributeComparator;
 import org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.resolvers.UrlRewriterAttributeRenderer;
 import org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.resolvers.UrlRewriterAttributes;
@@ -54,16 +52,7 @@ public class UrlRewriterListColumnProviderPlugin  extends AbstractListColumnProv
 
     @Override
     public List<ListColumn<Node>> getColumns() {
-        List<ListColumn<Node>> columns = new ArrayList<ListColumn<Node>>();
-
-        //Name
-        ListColumn<Node> column = new ListColumn<Node>(new ClassResourceModel("doclisting-name", UrlRewriterListColumnProviderPlugin.class), "name");
-        column.setComparator(new NameComparator());
-        column.setAttributeModifier(new DocumentAttributeModifier());
-        column.setCssClass("doclisting-name");
-        columns.add(column);
-
-        return columns;
+        return new ArrayList<ListColumn<Node>>();
     }
 
     @Override

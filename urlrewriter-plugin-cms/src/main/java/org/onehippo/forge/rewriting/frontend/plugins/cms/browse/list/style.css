@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-.hippo-list-details tr th.doclisting-name,
-.hippo-list-details tr td.doclisting-name { width: 90px; min-width: 90px; ;max-width: 90px; }
-
 .hippo-list-details tr th.doclisting-original-url,
-.hippo-list-details tr td.doclisting-original-url { width: 492px; min-width: 492px; max-width: 492px; }
+.hippo-list-details tr td.doclisting-original-url { width: 484px; min-width: 484px; max-width: 484px; }
 
 .hippo-list-details tr th.doclisting-rewrite-url,
-.hippo-list-details tr td.doclisting-rewrite-url { width: 492px; min-width: 492px; max-width: 492px; }
+.hippo-list-details tr td.doclisting-rewrite-url { width: 484px; min-width: 484px; max-width: 484px; }
 
 .hippo-list-details tr th.doclisting-rewrite-type,
-.hippo-list-details tr td.doclisting-rewrite-type { width: 115px; min-width: 115px; max-width: 115px; }
+.hippo-list-details tr td.doclisting-rewrite-type { width: 112px; min-width: 112px; max-width: 112px; }
