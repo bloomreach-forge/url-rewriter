@@ -76,6 +76,7 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
             if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_SIMPLEFOLDER)){
                 load(node, context, rules);
             } else {
+                //TODO Check the document is published
                 String rule = extractRule(node, context);
                 if (validateRule(rule, context)) {
                     rules.append(rule);
