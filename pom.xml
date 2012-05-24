@@ -16,6 +16,8 @@
 
   <properties>
     <urlrewritefilter.version>3.2.0</urlrewritefilter.version>
+    <hippo.repository.api.version>2.22.05</hippo.repository.api.version>
+    <hippo.cms.api.version>2.22.05</hippo.cms.api.version>
   </properties>
 
   <modules>
@@ -77,6 +79,18 @@
         <groupId>org.tuckey</groupId>
         <artifactId>urlrewritefilter</artifactId>
         <version>${urlrewritefilter.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.onehippo.cms7</groupId>
+        <artifactId>hippo-cms-api</artifactId>
+        <version>${hippo.cms.api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.onehippo.cms7</groupId>
+        <artifactId>hippo-repository-api</artifactId>
+        <version>${hippo.repository.api.version}</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
