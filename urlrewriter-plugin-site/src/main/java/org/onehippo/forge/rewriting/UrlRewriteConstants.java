@@ -20,14 +20,25 @@ package org.onehippo.forge.rewriting;
  */
 public class UrlRewriteConstants {
 
-    public static final String PRIMARY_TYPE_XML = "urlrewriter:rule";
-    public static final String XML_TYPE = "urlrewriter:rulesetxml";
+    public static final String PRIMARY_TYPE_RULE = "urlrewriter:rule";
+    public static final String PRIMARY_TYPE_RULESET = "urlrewriter:ruleset";
+    public static final String PRIMARY_TYPE_RULESETXML = "urlrewriter:rulesetxml";
+    public static final String PRIMARY_TYPE_SIMPLEFOLDER = "urlrewriter:simplefolder";
+    public static final String PRIMARY_TYPE_SIMPLERULE = "urlrewriter:simplerule";
+
     public static final String FROM_PROPERTY = "urlrewriter:rulefrom";
     public static final String TO_PROPERTY = "urlrewriter:ruleto";
     public static final String TYPE_PROPERTY = "urlrewriter:ruletype";
     public static final String CASE_SENSITIVE_PROPERTY = "urlrewriter:casesensitive";
     public static final String NAME_PROPERTY = "urlrewriter:rulename";
+    public static final String DESCRIPTION_PROPERTY = "urlrewriter:ruledescription";
     public static final String AND_OR_PROPERTY = "urlrewriter:conditionor";
+    public static final String CONDITION_PREDEFINED_NAME_PROPERTY = "urlrewriter:conditionpredefinedname";
+    public static final String CONDITION_NAME_PROPERTY = "urlrewriter:conditionname";
+    public static final String CONDITION_VALUE_PROPERTY = "urlrewriter:conditionvalue";
+    public static final String CONDITION_TYPE_PROPERTY = "urlrewriter:conditiontype";
+    public static final String CONDITION_OPERATOR_PROPERTY = "urlrewriter:conditionoperator";
+
 
     public static final String XML_START = "<?xml version=\"1.0\" encoding=\"utf-8\"?><urlrewrite>";
     public static final String XML_END = "</urlrewrite>";

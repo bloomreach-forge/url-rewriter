@@ -15,10 +15,8 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
-import javax.jcr.Item;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.Value;
@@ -28,11 +26,9 @@ import javax.jcr.query.QueryResult;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
-import org.apache.tools.ant.filters.StringInputStream;
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tuckey.web.filters.urlrewrite.Conf;
 import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
@@ -42,7 +38,9 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
 
     private static Logger log = LoggerFactory.getLogger(ComplexRulesExtractor.class);
 
-    private static final String QUERY_LIMIT = "//*[@hippostd:state ='published' and (@jcr:primaryType='urlrewriter:ruleset' or @jcr:primaryType='urlrewriter:rulesetxml')]";
+    private static final String QUERY_LIMIT = "//*[@hippostd:state ='published' and (@jcr:primaryType='"
+            +UrlRewriteConstants.PRIMARY_TYPE_RULESET+"' or @jcr:primaryType='"
+            +UrlRewriteConstants.PRIMARY_TYPE_RULESETXML+"')]";
 
     @Override
     public String load(final ServletContext context, final ServletRequest request) {
@@ -57,7 +55,7 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
         Session session = null;
         StringBuilder rules = new StringBuilder();
         try {
-            session = getNewSession();
+            session = getSession();
             if (session == null) {
                 return null;
             }
@@ -70,7 +68,7 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
                 rules.append(extractRules(node, context));
             }
         } catch (Exception e) {
-            log.error("Error loading rewriting rules {}", e);
+            log.error("Error loading complex rewriting rules {}", e);
         } finally {
             closeSession(session);
         }
@@ -79,27 +77,27 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
 
 
 
-    private String extractRules(final Node node, final ServletContext request) {
+    private String extractRules(final Node node, final ServletContext context) {
         StringBuilder builder = new StringBuilder();
         try {
             // check if xml type:
             String primaryType = node.getPrimaryNodeType().getName();
-            if (primaryType.equals(UrlRewriteConstants.XML_TYPE)) {
-                Value[] values = node.getProperty(UrlRewriteConstants.PRIMARY_TYPE_XML).getValues();
+            if (primaryType.equals(UrlRewriteConstants.PRIMARY_TYPE_RULESETXML)) {
+                Value[] values = extractMultipleProperty(node, UrlRewriteConstants.PRIMARY_TYPE_RULE);
                 for (Value value : values) {
                     String rule = value.getString();
-                    if (validRule(rule, request)) {
+                    if (validateRule(rule, context)) {
                         builder.append(rule);
                     }
                 }
 
             } else {
                 // these are simple, compound types:
-                NodeIterator nodes = node.getNodes(UrlRewriteConstants.PRIMARY_TYPE_XML);
+                NodeIterator nodes = node.getNodes(UrlRewriteConstants.PRIMARY_TYPE_RULE);
                 while (nodes.hasNext()) {
                     Node ruleNode = nodes.nextNode();
                     String rule = extractCompoundRule(ruleNode);
-                    if (rule != null && validRule(rule, request)) {
+                    if (validateRule(rule, context)) {
                         builder.append(rule);
                     }
                 }
@@ -120,7 +118,6 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
         if (to == null) {
             return null;
         }
-
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
@@ -174,18 +171,18 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
     }
 
     private String extractCondition(final Node conditionNode) {
-        String name = extractProperty(conditionNode, "urlrewriter:conditionpredefinedname");
+        String name = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_PREDEFINED_NAME_PROPERTY);
         if (name == null) {
-            name = extractProperty(conditionNode, "urlrewriter:conditionname");
+            name = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_NAME_PROPERTY);
         }
-        String value = extractProperty(conditionNode, "urlrewriter:conditionvalue");
+        String value = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_VALUE_PROPERTY);
         if (value == null) {
             log.warn("Invalid URL rewrite condition '{}' on node '{}': value was null", name,
                     getJcrItemPath(conditionNode));
             return null;
         }
-        String type = extractProperty(conditionNode, "urlrewriter:conditiontype");
-        String operator = extractProperty(conditionNode, "urlrewriter:conditionoperator");
+        String type = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_TYPE_PROPERTY);
+        String operator = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_OPERATOR_PROPERTY);
         if (name == null && operator == null && type == null) {
             log.warn("Invalid URL rewrite condition on node '{}': all parameters [name, type, operator] are null",
                     getJcrItemPath(conditionNode));
@@ -213,82 +210,5 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
     }
 
 
-    private Boolean extractBooleanProperty(final Node node, final String property) {
-        try {
-            if (node.hasProperty(property)) {
-                Property p = node.getProperty(property);
-                return p.getBoolean();
-            }
-        } catch (Exception ignore) {
-            // ignore
-        }
-        return false;
-    }
 
-    private String extractProperty(final Node node, final String property) {
-        try {
-            if (node.hasProperty(property)) {
-                Property p = node.getProperty(property);
-                return StringUtils.trimToNull(p.getString());
-            }
-        } catch (RepositoryException ignore) {
-            // ignore
-        }
-        return null;
-
-    }
-
-    /**
-     * Validates the rule
-     *
-     * @param rule    xml string containing rule
-     * @param context
-     * @return
-     */
-    private boolean validRule(final String rule, final ServletContext context) {
-
-        Conf conf = new Conf(context, new StringInputStream(UrlRewriteConstants.XML_START + rule + UrlRewriteConstants.XML_END), "testing-valid-",
-                "testing-valid-rules", false);
-        boolean ok = conf.isOk();
-        if (!ok) {
-            log.warn("skipping invalid rule:  {}", rule);
-        }
-        return ok;
-    }
-
-
-    private Session getNewSession() {
-        Session session = null;
-        try {
-            session = repository.login(credentials);
-        } catch (RepositoryException e) {
-            log.error("Error obtaining session {}", e);
-        }
-        return session;
-    }
-
-    private void closeSession(final Session session) {
-        if (session != null) {
-            session.logout();
-        }
-    }
-
-
-
-    /**
-     * JCR item path getter
-     * @param item JCR item
-     * @return Path (nullable)
-     */
-    private static String getJcrItemPath(Item item) {
-        if (item == null) {
-            return null;
-        }
-        try {
-            return item.getPath();
-        } catch (RepositoryException e) {
-            log.warn(e.getMessage());
-            return null;
-        }
-    }
 }
