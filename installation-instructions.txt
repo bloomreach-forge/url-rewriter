@@ -62,18 +62,10 @@ to /rewrite-status) note, must start with /     -->
     </init-param>
     <init-param>
       <param-name>disabledRuleTypes</param-name>
-      <param-value>complex,simple</param-value>
+      <param-value>conditional,simple,xml</param-value>
     </init-param>
     <init-param>
-      <param-name>rulesPriority</param-name>
-      <param-value>complexRulesFirst | simpleRulesFirst</param-value>
-    </init-param>
-    <init-param>
-      <param-name>complexRulesLocation</param-name>
-      <param-value>content path</param-value>
-    </init-param>
-    <init-param>
-      <param-name>simpleRulesLocation</param-name>
+      <param-name>rulesLocation</param-name>
       <param-value>content path</param-value>
     </init-param>
   </filter>

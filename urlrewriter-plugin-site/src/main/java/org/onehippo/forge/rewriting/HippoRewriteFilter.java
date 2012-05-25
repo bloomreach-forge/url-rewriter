@@ -67,9 +67,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private boolean statusEnabled = true;
     private String statusPath = "/rewrite-status";
     private List<String> disabledRuleTypes = new ArrayList<String>();
-    private String rulesPriority = "complexRulesFirst";
-    private String complexRulesLocation = null;
-    private String simpleRulesLocation = null;
+    private String rulesLocation = null;
 
     private Conf confLastLoaded;
 
@@ -124,17 +122,13 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         }
         statusServerNameMatcher = new ServerNameMatcher(statusEnabledOnHosts);
 
-        //Specify if complex or simple rules should be handled first
-        rulesPriority = filterConfig.getInitParameter("rulesPriority");
-
         //Specified disabled types
         if(!StringUtils.isBlank(filterConfig.getInitParameter("disabledRuleTypes"))){
             disabledRuleTypes = Arrays.asList(filterConfig.getInitParameter("disabledRuleTypes").split("\\s*,\\s*"));
         }
 
         //Rewrite rules locations
-        complexRulesLocation = filterConfig.getInitParameter("complexRulesLocation");
-        simpleRulesLocation = filterConfig.getInitParameter("simpleRulesLocation");
+        rulesLocation = filterConfig.getInitParameter("rulesLocation");
 
         // now load conf from snippet in web.xml if modRewriteStyleConf is set
         String modRewriteConfText = filterConfig.getInitParameter("modRewriteConfText");
@@ -156,7 +150,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
                 return;
             }
             // TODO we can make this fine grained
-            StringBuilder builder = rewritingManager.loadRules(context ,request, complexRulesLocation, simpleRulesLocation, rulesPriority, disabledRuleTypes);
+            StringBuilder builder = rewritingManager.loadRules(context ,request, rulesLocation, disabledRuleTypes);
             Conf conf = new Conf(context, new StringInputStream(builder.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
             checkConfLocal(conf);
         }

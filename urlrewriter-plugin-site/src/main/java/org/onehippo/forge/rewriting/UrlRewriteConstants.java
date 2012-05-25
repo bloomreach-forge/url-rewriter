@@ -23,7 +23,7 @@ public class UrlRewriteConstants {
     public static final String PRIMARY_TYPE_RULE = "urlrewriter:rule";
     public static final String PRIMARY_TYPE_RULESET = "urlrewriter:ruleset";
     public static final String PRIMARY_TYPE_XMLRULE = "urlrewriter:xmlrule";
-    public static final String PRIMARY_TYPE_COMPLEXRULE = "urlrewriter:complexrule";
+    public static final String PRIMARY_TYPE_CONDITIONALRULE = "urlrewriter:conditionalrule";
     public static final String PRIMARY_TYPE_SIMPLERULE = "urlrewriter:simplerule";
 
     public static final String FROM_PROPERTY = "urlrewriter:rulefrom";

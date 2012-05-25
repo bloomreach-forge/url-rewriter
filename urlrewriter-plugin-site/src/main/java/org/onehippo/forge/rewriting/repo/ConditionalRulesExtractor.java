@@ -15,28 +15,18 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import javax.jcr.Value;
-import javax.jcr.query.Query;
-import javax.jcr.query.QueryManager;
-import javax.jcr.query.QueryResult;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
-import org.onehippo.forge.rewriting.UrlRewriteConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
  * @version $Id$
  */
-public class ComplexRulesExtractor extends AbstractRulesExtractor {
+public class ConditionalRulesExtractor extends AbstractRulesExtractor {
 
-    private static Logger log = LoggerFactory.getLogger(ComplexRulesExtractor.class);
+    private static Logger log = LoggerFactory.getLogger(ConditionalRulesExtractor.class);
 
 
 

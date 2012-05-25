@@ -6,7 +6,7 @@
 
 [urlrewriter:rulecondition] > hippo:compound, hippostd:relaxed orderable
 
-[urlrewriter:complexrule] > urlrewriter:basedocument, hippostd:relaxed orderable
+[urlrewriter:conditionalrule] > urlrewriter:basedocument, hippostd:relaxed orderable
 
 [urlrewriter:simplerule] > urlrewriter:basedocument, hippostd:relaxed orderable
 

@@ -34,14 +34,14 @@ public class RewritingManager {
 
     private static Logger log = LoggerFactory.getLogger(RewritingManager.class);
 
-    public static final String RULES_PRIORITY_COMPLEX_FIRST = "complexRulesFirst";
-    private static final String RULES_PRIORITY_SIMPLE_FIRST = "simpleRulesFirst";
-    public static final String DISABLED_RULE_TYPES_COMPLEX = "complex";
+    public static final String DISABLED_RULE_TYPES_CONDITIONAL = "conditional";
     public static final String DISABLED_RULE_TYPES_SIMPLE = "simple";
+    public static final String DISABLED_RULE_TYPES_XML = "xml";
 
     // spring managed
-    private RewritingRulesExtractor complexRulesExtractor;
+    private RewritingRulesExtractor conditionalRulesExtractor;
     private RewritingRulesExtractor simpleRulesExtractor;
+    private RewritingRulesExtractor xmlRulesExtractor;
 
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
@@ -62,7 +62,7 @@ public class RewritingManager {
      */
     @Deprecated
     public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String urlRewriteLocation) {
-        return loadRules(context, request, null, null, null, null);
+        return loadRules(context, request, null, null);
     }
 
 
@@ -71,47 +71,47 @@ public class RewritingManager {
     *
     * @param context
     * @param request
-    * @param complexRewriteRulesLocation absolute repository path of the complex rules (ruleset/rulesetxml documents)
-    * @param simpleRewriteRulesLocation absolute repository path of the simple rules (simplerule documents)
-    * @param rulesPriority Specify if complex or simple rules should be handled first (complexRulesFirst|simpleRulesFirst)
-    * @param disabledRuleTypes List of rule types that are disabled (values: complex|simple)
+    * @param rewriteRulesLocation absolute repository path of the rules
+    * @param disabledRuleTypes List of rule types that are disabled (values: conditional|simple|xml)
     */
-    public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String complexRewriteRulesLocation, final String simpleRewriteRulesLocation, final String rulesPriority, final List<String> disabledRuleTypes) {
+    public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String rewriteRulesLocation, final List<String> disabledRuleTypes) {
         // check if refresh is needed..if not return local copy
         if (!needRefresh) {
             return loadedRules;
         }
 
-        //Get complex rules
-        StringBuilder complexRules = new StringBuilder();
-        if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_COMPLEX)){
-            if(StringUtils.isBlank(complexRewriteRulesLocation)){
-                log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", complexRulesExtractor.getRewriteRulesLocation());
-            } else {
-                complexRulesExtractor.setRewriteRulesLocation(complexRewriteRulesLocation);
-            }
-            complexRules.append(complexRulesExtractor.load(context, request));
-        }
-
-        //Get simple rules
-        StringBuilder simpleRules = new StringBuilder();
-        if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_SIMPLE)){
-            if(StringUtils.isBlank(simpleRewriteRulesLocation)){
-                log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", simpleRulesExtractor.getRewriteRulesLocation());
-            } else {
-                simpleRulesExtractor.setRewriteRulesLocation(simpleRewriteRulesLocation);
-            }
-            simpleRules.append(simpleRulesExtractor.load(context, request));
-        }
-
-        //Finally fill up the rules with the correct order
         StringBuilder rules = new StringBuilder(UrlRewriteConstants.XML_START);
-        if(RULES_PRIORITY_COMPLEX_FIRST.equals(rulesPriority) || StringUtils.isBlank(rulesPriority)){
-            rules.append(complexRules).append(simpleRules);
-        } else if(RULES_PRIORITY_SIMPLE_FIRST.equals(rulesPriority)){
-            rules.append(simpleRules).append(complexRules);
-        }
+
+
+/*
+
+//Get complex rules
+StringBuilder conditionalRules = new StringBuilder();
+if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_COMPLEX)){
+    if(StringUtils.isBlank(complexRewriteRulesLocation)){
+        log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", conditionalRulesExtractor.getRewriteRulesLocation());
+    } else {
+        conditionalRulesExtractor.setRewriteRulesLocation(complexRewriteRulesLocation);
+    }
+    conditionalRules.append(conditionalRulesExtractor.load(context, request));
+}
+
+//Get simple rules
+StringBuilder simpleRules = new StringBuilder();
+if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_SIMPLE)){
+    if(StringUtils.isBlank(simpleRewriteRulesLocation)){
+        log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", simpleRulesExtractor.getRewriteRulesLocation());
+    } else {
+        simpleRulesExtractor.setRewriteRulesLocation(simpleRewriteRulesLocation);
+    }
+    simpleRules.append(simpleRulesExtractor.load(context, request));
+}
+*/
+
+
+
         rules.append(UrlRewriteConstants.XML_END);
+
 
         //Update our state
         loadedRules = new StringBuilder(rules);
@@ -123,12 +123,12 @@ public class RewritingManager {
 
 
 
-    public RewritingRulesExtractor getComplexRulesExtractor() {
-        return complexRulesExtractor;
+    public RewritingRulesExtractor getConditionalRulesExtractor() {
+        return conditionalRulesExtractor;
     }
 
-    public void setComplexRulesExtractor(final RewritingRulesExtractor complexRulesExtractor) {
-        this.complexRulesExtractor = complexRulesExtractor;
+    public void setConditionalRulesExtractor(final RewritingRulesExtractor conditionalRulesExtractor) {
+        this.conditionalRulesExtractor = conditionalRulesExtractor;
     }
 
     public RewritingRulesExtractor getSimpleRulesExtractor() {
@@ -139,6 +139,13 @@ public class RewritingManager {
         this.simpleRulesExtractor = simpleRulesExtractor;
     }
 
+    public RewritingRulesExtractor getXmlRulesExtractor() {
+        return xmlRulesExtractor;
+    }
+
+    public void setXmlRulesExtractor(final RewritingRulesExtractor xmlRulesExtractor) {
+        this.xmlRulesExtractor = xmlRulesExtractor;
+    }
 
     public void invalidate(final Event event) {
         needRefresh = true;

@@ -87,7 +87,7 @@
       <sv:value>19051.3</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/types/complexrule.xml</sv:value>
+      <sv:value>namespace/types/conditionalrule.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
