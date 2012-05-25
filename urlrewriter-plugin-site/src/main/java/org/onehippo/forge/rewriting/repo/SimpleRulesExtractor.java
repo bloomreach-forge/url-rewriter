@@ -18,7 +18,6 @@ package org.onehippo.forge.rewriting.repo;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
@@ -36,79 +35,23 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
     private static Logger log = LoggerFactory.getLogger(SimpleRulesExtractor.class);
 
     @Override
-    public String load(final ServletContext context, final ServletRequest request) {
-        String rulesLocation = this.getRewriteRulesLocation();
-        if (rulesLocation == null || !rulesLocation.startsWith("/")) {
-            log.error("No location specified for simple rules. Cannot extract rules.");
-            return null;
-        }
-        log.debug("Loading simple rules from location {}", rulesLocation);
+    public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
 
-        Session session = null;
-        StringBuilder rules = new StringBuilder();
-        try {
-            session = getSession();
-            if (session == null) {
-                return null;
-            }
-
-            Node rootNode = session.getRootNode().getNode(rulesLocation.substring(1));
-            if(! rootNode.hasNodes()){
-                log.debug("No simple rules found under {}.", getJcrItemPath(rootNode));
-                return null;
-            }
-
-            load(rootNode, context, rules);
-
-        } catch (Exception e) {
-            log.error("Error loading simple rewriting rules {}", e);
-        } finally {
-            closeSession(session);
-        }
-        return rules.toString();
-
-    }
-
-    private void load(final Node startNode, final ServletContext context, final StringBuilder rules) throws RepositoryException {
-        NodeIterator nodes = startNode.getNodes();
-        while (nodes.hasNext()) {
-            Node node = nodes.nextNode();
-            if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
-                load(node, context, rules);
-            } else {
-                //TODO Check the document is published
-                String rule = extractRule(node, context);
-                if (validateRule(rule, context)) {
-                    rules.append(rule);
-                }
-            }
-        }
-    }
-
-    private String extractRule(final Node node, final ServletContext context) throws RepositoryException {
-
-        //passed node can only be a handle
-        if (! node.isNodeType(HippoNodeType.NT_HANDLE)) {
+        if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_SIMPLERULE)){
             return null;
         }
 
-        //TODO Is this ok???????
-        Node simpleRuleNode = node.getNode(node.getName());
-        if(! simpleRuleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_SIMPLERULE)){
-            return null;
-        }
+        String ruleName = ruleNode.getName();
+        String ruleDescription = extractProperty(ruleNode, UrlRewriteConstants.DESCRIPTION_PROPERTY);
 
-        String ruleName = simpleRuleNode.getName();
-        String ruleDescription = extractProperty(simpleRuleNode, UrlRewriteConstants.DESCRIPTION_PROPERTY);
-
-        String ruleFrom = extractProperty(simpleRuleNode, UrlRewriteConstants.FROM_PROPERTY);
-        String ruleTo = extractProperty(simpleRuleNode, UrlRewriteConstants.TO_PROPERTY);
+        String ruleFrom = extractProperty(ruleNode, UrlRewriteConstants.FROM_PROPERTY);
+        String ruleTo = extractProperty(ruleNode, UrlRewriteConstants.TO_PROPERTY);
         if (ruleFrom == null || ruleTo == null) {
             return null;
         }
 
-        String type = extractProperty(simpleRuleNode, UrlRewriteConstants.TYPE_PROPERTY);
-        boolean caseSensitive = extractBooleanProperty(simpleRuleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
+        String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
+        boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
 
         ruleFrom = caseSensitive ?
                 new StringBuilder().append("<from casesensitive=\"true\">").append(ruleFrom).append("</from>").toString() :
@@ -120,7 +63,7 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
 
 
         StringBuilder builder = new StringBuilder();
-        builder.append("<rule>")
+        builder.append("<rule match-type=\"wildcard\">")
                 .append("<name>")
                 .append(StringUtils.isBlank(ruleName) ? "" : ruleName)
                 .append(StringUtils.isBlank(ruleDescription) ? "" : ((StringUtils.isBlank(ruleName) ? "" : " - ") + ruleDescription))
@@ -129,7 +72,8 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
                 .append(ruleTo)
                 .append("</rule>");
 
-        return builder.toString();
+        String rule = builder.toString();
+        return validateRule(rule, context) ? rule : null;
     }
 
 }

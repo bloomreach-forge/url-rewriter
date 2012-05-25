@@ -151,6 +151,9 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             }
             // TODO we can make this fine grained
             StringBuilder builder = rewritingManager.loadRules(context ,request, rulesLocation, disabledRuleTypes);
+            if(builder == null){
+                return;
+            }
             Conf conf = new Conf(context, new StringInputStream(builder.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
             checkConfLocal(conf);
         }

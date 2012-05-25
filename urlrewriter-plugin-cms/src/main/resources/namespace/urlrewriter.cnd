@@ -12,4 +12,4 @@
 
 [urlrewriter:xmlrule] > urlrewriter:basedocument, hippostd:relaxed orderable
 
-[urlrewriter:folder] > hippostd:folder
+[urlrewriter:ruleset] > hippostd:folder

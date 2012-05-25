@@ -15,6 +15,8 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
@@ -23,7 +25,5 @@ import javax.servlet.ServletRequest;
  */
 public interface RewritingRulesExtractor {
 
-    public String load(ServletContext context, ServletRequest request);
-    public String getRewriteRulesLocation();
-    public void setRewriteRulesLocation(String rewriteRulesLocation);
+    public String extract(Node node, ServletContext context) throws RepositoryException;
 }

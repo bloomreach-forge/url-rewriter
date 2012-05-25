@@ -13,32 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.onehippo.forge.rewriting.repo;
+package org.onehippo.forge.rewriting;
 
-import javax.jcr.Node;
+import javax.jcr.Item;
 import javax.jcr.RepositoryException;
-import javax.jcr.Value;
-import javax.servlet.ServletContext;
 
-import org.onehippo.forge.rewriting.UrlRewriteConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * @version $Id$
  */
-public class XmlRulesExtractor extends AbstractRulesExtractor {
+public class UrlRewriteUtils {
 
-    private static Logger log = LoggerFactory.getLogger(XmlRulesExtractor.class);
+    private static Logger log = LoggerFactory.getLogger(UrlRewriteUtils.class);
 
-    @Override
-    public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
-
-        if (!ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_XMLRULE)) {
+    /**
+     * JCR item path getter
+     *
+     * @param item JCR item
+     * @return Path (nullable)
+     */
+    public static String getJcrItemPath(Item item) {
+        if (item == null) {
             return null;
         }
-        String rule = extractProperty(ruleNode, UrlRewriteConstants.XML_RULE_PROPERTY);
-        return validateRule(rule, context) ? rule : null;
+        try {
+            return item.getPath();
+        } catch (RepositoryException e) {
+            log.warn(e.getMessage());
+            return null;
+        }
     }
-
 }

@@ -15,13 +15,9 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
-import javax.jcr.Credentials;
-import javax.jcr.Item;
 import javax.jcr.Node;
 import javax.jcr.Property;
-import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import javax.jcr.Value;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -41,27 +37,12 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
     private static Logger log = LoggerFactory.getLogger(AbstractRulesExtractor.class);
 
 
-    public abstract String load(final ServletContext context, final ServletRequest request);
+    public abstract String extract(final Node node, final ServletContext context) throws RepositoryException;
 
 
     //*************************************************************************************
     // Common utility methods for any RewritingRulesExtractor
     //*************************************************************************************
-    protected Session getSession() {
-        Session session = null;
-        try {
-            session = repository.login(credentials);
-        } catch (RepositoryException e) {
-            log.error("Error obtaining session {}", e);
-        }
-        return session;
-    }
-
-    protected void closeSession(final Session session) {
-        if (session != null) {
-            session.logout();
-        }
-    }
 
     protected Boolean extractBooleanProperty(final Node node, final String property) {
         try {
@@ -99,24 +80,6 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
     }
 
     /**
-     * JCR item path getter
-     *
-     * @param item JCR item
-     * @return Path (nullable)
-     */
-    protected String getJcrItemPath(Item item) {
-        if (item == null) {
-            return null;
-        }
-        try {
-            return item.getPath();
-        } catch (RepositoryException e) {
-            log.warn(e.getMessage());
-            return null;
-        }
-    }
-
-    /**
      * Validates a rule
      *
      * @param rule    xml string containing rule
@@ -136,34 +99,5 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
     }
 
 
-    //*************************************************************************************
-    // SPRING MANAGED PROPERTIES
-    //*************************************************************************************
-    protected String rewriteRulesLocation;
-    protected Repository repository;
-    protected Credentials credentials;
 
-    public String getRewriteRulesLocation() {
-        return rewriteRulesLocation;
-    }
-
-    public void setRewriteRulesLocation(final String rewriteRulesLocation) {
-        this.rewriteRulesLocation = rewriteRulesLocation;
-    }
-
-    public Repository getRepository() {
-        return repository;
-    }
-
-    public void setRepository(final Repository repository) {
-        this.repository = repository;
-    }
-
-    public Credentials getCredentials() {
-        return credentials;
-    }
-
-    public void setCredentials(final Credentials credentials) {
-        this.credentials = credentials;
-    }
 }

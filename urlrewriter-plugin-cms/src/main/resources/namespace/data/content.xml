@@ -33,7 +33,7 @@
   </sv:property>
   <sv:node sv:name="rule-documents">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>urlrewriter:folder</sv:value>
+      <sv:value>urlrewriter:ruleset</sv:value>
     </sv:property>
     <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
       <sv:value>hippo:harddocument</sv:value>

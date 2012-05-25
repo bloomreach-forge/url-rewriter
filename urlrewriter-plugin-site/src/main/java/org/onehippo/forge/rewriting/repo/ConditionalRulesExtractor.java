@@ -15,11 +15,17 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
+import org.onehippo.forge.rewriting.UrlRewriteConstants;
+import org.onehippo.forge.rewriting.UrlRewriteUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
  * @version $Id$
@@ -28,116 +34,53 @@ public class ConditionalRulesExtractor extends AbstractRulesExtractor {
 
     private static Logger log = LoggerFactory.getLogger(ConditionalRulesExtractor.class);
 
-
-
     @Override
-    public String load(final ServletContext context, final ServletRequest request) {
+    public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
 
-        String rulesLocation = this.getRewriteRulesLocation();
-       /* if (rulesLocation == null || !rulesLocation.startsWith("/")) {
-            log.error("No location specified for complex rules. Cannot extract rules.");
+        if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_CONDITIONALRULE)){
             return null;
         }
-        log.debug("Loading complex rules from location {}", rulesLocation);
 
-        Session session = null;
-        StringBuilder rules = new StringBuilder();
-        try {
-            session = getSession();
-            if (session == null) {
-                return null;
-            }
-            QueryManager queryManager = session.getWorkspace().getQueryManager();
-            Query query = queryManager.createQuery('/' + rulesLocation + QUERY_LIMIT, "xpath");
-            QueryResult result = query.execute();
-            NodeIterator nodes = result.getNodes();
-            while (nodes.hasNext()) {
-                Node node = nodes.nextNode();
-                rules.append(extractRules(node, context));
-            }
-        } catch (Exception e) {
-            log.error("Error loading complex rewriting rules {}", e);
-        } finally {
-            closeSession(session);
-        }
-        return rules.toString();*/
-        return null;
-    }
+        String ruleName = ruleNode.getName();
+        String ruleDescription = extractProperty(ruleNode, UrlRewriteConstants.DESCRIPTION_PROPERTY);
 
-/*
-
-
-    private String extractRules(final Node node, final ServletContext context) {
-        StringBuilder builder = new StringBuilder();
-        try {
-            // check if xml type:
-            String primaryType = node.getPrimaryNodeType().getName();
-            if (primaryType.equals(UrlRewriteConstants.PRIMARY_TYPE_RULESETXML)) {
-                Value[] values = extractMultipleProperty(node, UrlRewriteConstants.PRIMARY_TYPE_RULE);
-                for (Value value : values) {
-                    String rule = value.getString();
-                    if (validateRule(rule, context)) {
-                        builder.append(rule);
-                    }
-                }
-
-            } else {
-                // these are simple, compound types:
-                NodeIterator nodes = node.getNodes(UrlRewriteConstants.PRIMARY_TYPE_RULE);
-                while (nodes.hasNext()) {
-                    Node ruleNode = nodes.nextNode();
-                    String rule = extractCompoundRule(ruleNode);
-                    if (validateRule(rule, context)) {
-                        builder.append(rule);
-                    }
-                }
-            }
-        } catch (RepositoryException e) {
-            log.error("error getting rules {}", e);
-        }
-        return builder.toString();
-    }
-
-    private String extractCompoundRule(final Node ruleNode) {
-
-        String from = extractProperty(ruleNode, UrlRewriteConstants.FROM_PROPERTY);
-        if (from == null) {
-            return null;
-        }
-        String to = extractProperty(ruleNode, UrlRewriteConstants.TO_PROPERTY);
-        if (to == null) {
+        String ruleFrom = extractProperty(ruleNode, UrlRewriteConstants.FROM_PROPERTY);
+        String ruleTo = extractProperty(ruleNode, UrlRewriteConstants.TO_PROPERTY);
+        if (ruleFrom == null || ruleTo == null) {
             return null;
         }
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
 
-        String ruleFrom;
-        if (caseSensitive) {
-            ruleFrom = new StringBuilder().append("<from casesensitive=\"true\">").append(from).append("</from>").toString();
-        } else {
-            ruleFrom = new StringBuilder().append("<from>").append(from).append("</from>").toString();
-        }
+        ruleFrom = caseSensitive ?
+                new StringBuilder().append("<from casesensitive=\"true\">").append(ruleFrom).append("</from>").toString() :
+                new StringBuilder().append("<from>").append(ruleFrom).append("</from>").toString();
 
-        String ruleTo;
-        if (type != null) {
-            ruleTo = new StringBuilder().append("<to type=\"").append(type).append("\">").append(to).append("</to>").toString();
-        } else {
-            ruleTo = new StringBuilder().append("<to>").append(to).append("</to>").toString();
-        }
+        ruleTo = type != null ?
+                new StringBuilder().append("<to type=\"").append(type).append("\">").append(ruleTo).append("</to>").toString():
+                new StringBuilder().append("<to>").append(ruleTo).append("</to>").toString();
+
+
         StringBuilder builder = new StringBuilder();
-        builder.append("<rule>");
-        String ruleName = extractProperty(ruleNode, UrlRewriteConstants.NAME_PROPERTY);
-        if (!StringUtils.isBlank(ruleName)) {
-            builder.append("<name>").append(ruleName).append("</name>");
-        }
+        builder.append("<rule>")
+                .append("<name>")
+                .append(StringUtils.isBlank(ruleName) ? "" : ruleName)
+                .append(StringUtils.isBlank(ruleDescription) ? "" : ((StringUtils.isBlank(ruleName) ? "" : " - ") + ruleDescription))
+                .append("</name>");
+
         String conditions = parseConditionals(ruleNode);
         if (conditions != null) {
             builder.append(conditions);
         }
-        return builder.append(ruleFrom).append(ruleTo).append("</rule>").toString();
-    }
 
+        builder.append(ruleFrom)
+                .append(ruleTo)
+                .append("</rule>");
+
+        String rule = builder.toString();
+        return validateRule(rule, context) ? rule : null;
+    }
 
     private String parseConditionals(final Node ruleNode) {
         try {
@@ -168,14 +111,14 @@ public class ConditionalRulesExtractor extends AbstractRulesExtractor {
         String value = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_VALUE_PROPERTY);
         if (value == null) {
             log.warn("Invalid URL rewrite condition '{}' on node '{}': value was null", name,
-                    getJcrItemPath(conditionNode));
+                    UrlRewriteUtils.getJcrItemPath(conditionNode));
             return null;
         }
         String type = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_TYPE_PROPERTY);
         String operator = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_OPERATOR_PROPERTY);
         if (name == null && operator == null && type == null) {
             log.warn("Invalid URL rewrite condition on node '{}': all parameters [name, type, operator] are null",
-                    getJcrItemPath(conditionNode));
+                    UrlRewriteUtils.getJcrItemPath(conditionNode));
             return null;
         }
         String booleanCondition = extractProperty(conditionNode, UrlRewriteConstants.AND_OR_PROPERTY);
@@ -199,7 +142,6 @@ public class ConditionalRulesExtractor extends AbstractRulesExtractor {
         return builder.toString();
     }
 
-*/
 
 
 }

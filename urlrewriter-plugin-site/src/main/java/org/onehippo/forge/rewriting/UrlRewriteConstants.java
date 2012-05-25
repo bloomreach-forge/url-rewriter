@@ -20,7 +20,7 @@ package org.onehippo.forge.rewriting;
  */
 public class UrlRewriteConstants {
 
-    public static final String PRIMARY_TYPE_RULE = "urlrewriter:rule";
+
     public static final String PRIMARY_TYPE_RULESET = "urlrewriter:ruleset";
     public static final String PRIMARY_TYPE_XMLRULE = "urlrewriter:xmlrule";
     public static final String PRIMARY_TYPE_CONDITIONALRULE = "urlrewriter:conditionalrule";
@@ -37,6 +37,7 @@ public class UrlRewriteConstants {
     public static final String CONDITION_VALUE_PROPERTY = "urlrewriter:conditionvalue";
     public static final String CONDITION_TYPE_PROPERTY = "urlrewriter:conditiontype";
     public static final String CONDITION_OPERATOR_PROPERTY = "urlrewriter:conditionoperator";
+    public static final String XML_RULE_PROPERTY = "urlrewriter:rule";
 
 
     public static final String XML_START = "<?xml version=\"1.0\" encoding=\"utf-8\"?><urlrewrite>";

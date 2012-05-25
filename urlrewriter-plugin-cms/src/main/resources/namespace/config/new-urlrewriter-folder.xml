@@ -47,7 +47,7 @@
     </sv:property>
     <sv:node sv:name="hippostd:folder">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>urlrewriter:folder</sv:value>
+        <sv:value>urlrewriter:ruleset</sv:value>
       </sv:property>
       <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
         <sv:value>hippo:harddocument</sv:value>
@@ -73,7 +73,7 @@
       <sv:value>en</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>new urlrewriter folder</sv:value>
+      <sv:value>New Urlrewriter Ruleset</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -87,7 +87,7 @@
       <sv:value>nl</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nieuwe urlrewriter map</sv:value>
+      <sv:value>Nieuwe urlrewriter ruleset</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -101,7 +101,7 @@
       <sv:value>it</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouva urlrewriter cartella</sv:value>
+      <sv:value>nouva urlrewriter ruleset</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -115,7 +115,7 @@
       <sv:value>fr</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouveau urlrewriter dossier</sv:value>
+      <sv:value>nouveau urlrewriter ruleset</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>

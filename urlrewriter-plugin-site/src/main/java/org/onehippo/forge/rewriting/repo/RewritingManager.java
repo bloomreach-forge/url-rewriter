@@ -18,11 +18,19 @@ package org.onehippo.forge.rewriting.repo;
 import java.util.Date;
 import java.util.List;
 
+import javax.jcr.Credentials;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.Repository;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
+import org.hippoecm.repository.api.HippoNodeType;
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
+import org.onehippo.forge.rewriting.UrlRewriteUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
@@ -39,6 +47,9 @@ public class RewritingManager {
     public static final String DISABLED_RULE_TYPES_XML = "xml";
 
     // spring managed
+    private String rewriteRulesLocation;
+    private Repository repository;
+    private Credentials credentials;
     private RewritingRulesExtractor conditionalRulesExtractor;
     private RewritingRulesExtractor simpleRulesExtractor;
     private RewritingRulesExtractor xmlRulesExtractor;
@@ -80,38 +91,38 @@ public class RewritingManager {
             return loadedRules;
         }
 
-        StringBuilder rules = new StringBuilder(UrlRewriteConstants.XML_START);
+        String rulesLocation = getRulesLocation(rewriteRulesLocation);
+        if(StringUtils.isBlank(rulesLocation)){
+            log.error("No location specified for rules. Cannot load rules.");
+            return null;
+        }
 
+        log.debug("Loading rules from location {}", rulesLocation);
 
-/*
+        Session session = null;
+        StringBuilder rules = null;
+        try {
+            session = getSession();
+            if (session == null) {
+                return null;
+            }
+            Node rootNode = session.getRootNode().getNode(rulesLocation.substring(1));
+            if(! rootNode.hasNodes()){
+                log.debug("No rules found under {}.", UrlRewriteUtils.getJcrItemPath(rootNode));
+                return null;
+            }
 
-//Get complex rules
-StringBuilder conditionalRules = new StringBuilder();
-if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_COMPLEX)){
-    if(StringUtils.isBlank(complexRewriteRulesLocation)){
-        log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", conditionalRulesExtractor.getRewriteRulesLocation());
-    } else {
-        conditionalRulesExtractor.setRewriteRulesLocation(complexRewriteRulesLocation);
-    }
-    conditionalRules.append(conditionalRulesExtractor.load(context, request));
-}
+            //Start recursion
+            rules = new StringBuilder(UrlRewriteConstants.XML_START);
+            load(rootNode, context, rules, disabledRuleTypes);
 
-//Get simple rules
-StringBuilder simpleRules = new StringBuilder();
-if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_SIMPLE)){
-    if(StringUtils.isBlank(simpleRewriteRulesLocation)){
-        log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", simpleRulesExtractor.getRewriteRulesLocation());
-    } else {
-        simpleRulesExtractor.setRewriteRulesLocation(simpleRewriteRulesLocation);
-    }
-    simpleRules.append(simpleRulesExtractor.load(context, request));
-}
-*/
-
-
+        } catch (Exception e) {
+            log.error("Error loading simple rewriting rules {}", e);
+        } finally {
+            closeSession(session);
+        }
 
         rules.append(UrlRewriteConstants.XML_END);
-
 
         //Update our state
         loadedRules = new StringBuilder(rules);
@@ -121,7 +132,123 @@ if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_
         return rules;
     }
 
+    /**
+     * Load rules recursively starting from a urlrewriter:ruleset node
+     *
+     * @param startNode
+     * @param context
+     * @param rules StringBuilder to load the rules in
+     * @param disabledRuleTypes List of rule types that are disabled (values: conditional|simple|xml)
+     */
+    private void load(final Node startNode, final ServletContext context, final StringBuilder rules, final List<String> disabledRuleTypes) throws RepositoryException {
 
+        NodeIterator nodes = startNode.getNodes();
+        while (nodes.hasNext()) {
+            Node node = nodes.nextNode();
+            if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
+                load(node, context, rules, disabledRuleTypes);
+            } else {
+                //passed node can only be a handle
+                if (! node.isNodeType(HippoNodeType.NT_HANDLE)) {
+                    continue;
+                }
+
+                //TODO Is this ok???????
+                node = node.getNode(node.getName());
+
+                //TODO Why isn't the HippoStdNodeType.NT_PUBLISHABLE and HippoStdNodeType.HIPPOSTD_STATE in the repository api dependency?
+                if (node.isNodeType("hippostd:publishable") && "unpublished".equals(node.getProperty("hippostd:state").getString())) {
+                    continue;
+                }
+                String ruleType = node.getPrimaryNodeType().getName();
+                String rule = null;
+
+                try{
+                    if(ruleType.equals(UrlRewriteConstants.PRIMARY_TYPE_CONDITIONALRULE) && !disabledRuleTypes.contains(DISABLED_RULE_TYPES_CONDITIONAL)){
+                        rule = conditionalRulesExtractor.extract(node, context);
+                    } else if(ruleType.equals(UrlRewriteConstants.PRIMARY_TYPE_SIMPLERULE) && !disabledRuleTypes.contains(DISABLED_RULE_TYPES_SIMPLE)){
+                        rule = simpleRulesExtractor.extract(node, context);
+                    } else if(ruleType.equals(UrlRewriteConstants.PRIMARY_TYPE_XMLRULE) && !disabledRuleTypes.contains(DISABLED_RULE_TYPES_XML)){
+                        rule = xmlRulesExtractor.extract(node, context);
+                    }
+                } catch (RepositoryException e){
+                    log.error("Exception encountered while traversing url rewriter rules:", e);
+                }
+
+                if(rule != null){
+                    rules.append(rule);
+                }
+            }
+        }
+    }
+
+
+    protected String getRulesLocation(String overrideRulesLocation){
+        String rulesLocation = overrideRulesLocation;
+        if(StringUtils.isBlank(rulesLocation)){
+            log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", getRewriteRulesLocation());
+            rulesLocation = getRewriteRulesLocation();
+            if (rulesLocation == null || !rulesLocation.startsWith("/")) {
+                return null;
+            }
+        }
+        return rulesLocation;
+    }
+
+    public void invalidate(final Event event) {
+        needRefresh = true;
+    }
+
+    public Date getLastLoadDate() {
+        return lastLoadDate;
+    }
+
+    private Session getSession() {
+        Session session = null;
+        try {
+            session = repository.login(credentials);
+        } catch (RepositoryException e) {
+            log.error("Error obtaining session {}", e);
+        }
+        return session;
+    }
+
+    private void closeSession(final Session session) {
+        if (session != null) {
+            session.logout();
+        }
+    }
+
+
+
+    //*************************************************************************************
+    // SPRING MANAGED PROPERTIES
+    //*************************************************************************************
+
+
+    public String getRewriteRulesLocation() {
+        return rewriteRulesLocation;
+    }
+
+    public void setRewriteRulesLocation(final String rewriteRulesLocation) {
+        this.rewriteRulesLocation = rewriteRulesLocation;
+    }
+
+    public Repository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(final Repository repository) {
+        this.repository = repository;
+    }
+
+    public Credentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(final Credentials credentials) {
+        this.credentials = credentials;
+    }
 
     public RewritingRulesExtractor getConditionalRulesExtractor() {
         return conditionalRulesExtractor;
@@ -145,13 +272,5 @@ if(disabledRuleTypes == null || !disabledRuleTypes.contains(DISABLED_RULE_TYPES_
 
     public void setXmlRulesExtractor(final RewritingRulesExtractor xmlRulesExtractor) {
         this.xmlRulesExtractor = xmlRulesExtractor;
-    }
-
-    public void invalidate(final Event event) {
-        needRefresh = true;
-    }
-
-    public Date getLastLoadDate() {
-        return lastLoadDate;
     }
 }
