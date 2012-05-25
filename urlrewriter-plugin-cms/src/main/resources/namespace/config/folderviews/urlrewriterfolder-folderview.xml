@@ -16,7 +16,7 @@
     limitations under the License.
 
 -->
-<sv:node sv:name="urlrewriter:simplefolder" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:h="http://www.onehippo.org/jcr/xmlimport" h:merge="insert" h:location="hippostd:directory">
+<sv:node sv:name="urlrewriter:folder" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:h="http://www.onehippo.org/jcr/xmlimport" h:merge="insert" h:location="hippostd:directory">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>frontend:plugincluster</sv:value>
   </sv:property>
@@ -184,7 +184,7 @@
       <sv:value>org.hippoecm.frontend.plugins.cms.browse.list.DefaultListColumnProviderPlugin</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="urlRewriterSimpleRulesetColumns">
+  <sv:node sv:name="urlRewriterRulesetColumns">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>frontend:plugin</sv:value>
     </sv:property>

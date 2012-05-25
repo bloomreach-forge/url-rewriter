@@ -41,7 +41,6 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
     private Observable observable;
     private transient boolean loaded = false;
 
-    private transient String ruleName;
     private transient String originalUrl;
     private transient String rewriteUrl;
     private transient String rewriteType;

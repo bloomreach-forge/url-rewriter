@@ -38,15 +38,13 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
 
     private static Logger log = LoggerFactory.getLogger(ComplexRulesExtractor.class);
 
-    private static final String QUERY_LIMIT = "//*[@hippostd:state ='published' and (@jcr:primaryType='"
-            +UrlRewriteConstants.PRIMARY_TYPE_RULESET+"' or @jcr:primaryType='"
-            +UrlRewriteConstants.PRIMARY_TYPE_RULESETXML+"')]";
+
 
     @Override
     public String load(final ServletContext context, final ServletRequest request) {
 
         String rulesLocation = this.getRewriteRulesLocation();
-        if (rulesLocation == null || !rulesLocation.startsWith("/")) {
+       /* if (rulesLocation == null || !rulesLocation.startsWith("/")) {
             log.error("No location specified for complex rules. Cannot extract rules.");
             return null;
         }
@@ -72,9 +70,11 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
         } finally {
             closeSession(session);
         }
-        return rules.toString();
+        return rules.toString();*/
+        return null;
     }
 
+/*
 
 
     private String extractRules(final Node node, final ServletContext context) {
@@ -209,6 +209,7 @@ public class ComplexRulesExtractor extends AbstractRulesExtractor {
         return builder.toString();
     }
 
+*/
 
 
 }

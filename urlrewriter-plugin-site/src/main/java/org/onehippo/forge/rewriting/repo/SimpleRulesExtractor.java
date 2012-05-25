@@ -73,7 +73,7 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
         NodeIterator nodes = startNode.getNodes();
         while (nodes.hasNext()) {
             Node node = nodes.nextNode();
-            if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_SIMPLEFOLDER)){
+            if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
                 load(node, context, rules);
             } else {
                 //TODO Check the document is published

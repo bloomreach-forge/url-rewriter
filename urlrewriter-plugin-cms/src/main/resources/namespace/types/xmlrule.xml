@@ -16,7 +16,7 @@
     limitations under the License.
 
 -->
-<sv:node sv:name="rulesetxml"  xmlns:sv="http://www.jcp.org/jcr/sv/1.0"  >
+<sv:node sv:name="xmlrule"  xmlns:sv="http://www.jcp.org/jcr/sv/1.0"  >
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hipposysedit:templatetype</sv:value>
   </sv:property>
@@ -57,7 +57,7 @@
           <sv:value>false</sv:value>
         </sv:property>
         <sv:property sv:name="hipposysedit:multiple" sv:type="Boolean">
-          <sv:value>true</sv:value>
+          <sv:value>false</sv:value>
         </sv:property>
         <sv:property sv:name="hipposysedit:ordered" sv:type="Boolean">
           <sv:value>false</sv:value>
@@ -80,7 +80,7 @@
     </sv:property>
     <sv:node sv:name="hipposysedit:prototype">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>urlrewriter:rulesetxml</sv:value>
+        <sv:value>urlrewriter:xmlrule</sv:value>
       </sv:property>
       <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
         <sv:value>hippo:harddocument</sv:value>
