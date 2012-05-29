@@ -18,7 +18,6 @@ package org.onehippo.forge.rewriting.repo;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 
 /**
  * @version $Id$

@@ -20,10 +20,11 @@ import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Value;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 
 import org.apache.tools.ant.filters.StringInputStream;
+import org.hippoecm.hst.util.XmlUtils;
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
+import org.onehippo.forge.rewriting.UrlRewriteUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tuckey.web.filters.urlrewrite.Conf;
@@ -51,27 +52,34 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
                 return p.getBoolean();
             }
         } catch (Exception ignore) {
-            // ignore
+            log.warn("Exception while accessing property {}, on node {}", property, UrlRewriteUtils.getJcrItemPath(node));
         }
         return false;
     }
 
     protected String extractProperty(final Node node, final String property) {
+        return extractProperty(node, property, true);
+    }
+
+    protected String extractProperty(final Node node, final String property, final boolean xmlEscaping) {
         try {
             if (node.hasProperty(property)) {
                 Property p = node.getProperty(property);
-                return StringUtils.trimToNull(p.getString());
+                String value = StringUtils.trimToNull(p.getString());
+                return value != null && xmlEscaping ?
+                        XmlUtils.encode(value) :
+                        value;
             }
         } catch (RepositoryException ignore) {
-            // ignore
+            log.warn("Exception while accessing property {}, on node {}", property, UrlRewriteUtils.getJcrItemPath(node));
         }
         return null;
     }
 
-    protected Value[] extractMultipleProperty(final Node node, final String property){
-        try{
-            if(node.hasProperty(property)){
-                return  node.getProperty(property).getValues();
+    protected Value[] extractMultipleProperty(final Node node, final String property) {
+        try {
+            if (node.hasProperty(property)) {
+                return node.getProperty(property).getValues();
             }
         } catch (RepositoryException ignore) {
             return new Value[0];
@@ -87,7 +95,7 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
      * @return
      */
     protected boolean validateRule(final String rule, final ServletContext context) {
-        if(StringUtils.isBlank(rule)){
+        if (StringUtils.isBlank(rule)) {
             return false;
         }
         Conf conf = new Conf(context, new StringInputStream(UrlRewriteConstants.XML_START + rule + UrlRewriteConstants.XML_END), "testing-valid-", "testing-valid-rules", false);
@@ -97,7 +105,4 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
         }
         return ok;
     }
-
-
-
 }

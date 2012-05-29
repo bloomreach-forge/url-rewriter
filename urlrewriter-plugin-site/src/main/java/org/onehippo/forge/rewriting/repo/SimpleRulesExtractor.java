@@ -16,12 +16,10 @@
 package org.onehippo.forge.rewriting.repo;
 
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 
-import org.hippoecm.repository.api.HippoNodeType;
+import org.hippoecm.hst.util.XmlUtils;
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +39,7 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
             return null;
         }
 
-        String ruleName = ruleNode.getName();
+        String ruleName = XmlUtils.encode(ruleNode.getName());
         String ruleDescription = extractProperty(ruleNode, UrlRewriteConstants.DESCRIPTION_PROPERTY);
 
         String ruleFrom = extractProperty(ruleNode, UrlRewriteConstants.FROM_PROPERTY);

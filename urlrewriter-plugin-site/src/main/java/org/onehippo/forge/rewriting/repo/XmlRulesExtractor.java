@@ -17,7 +17,6 @@ package org.onehippo.forge.rewriting.repo;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.Value;
 import javax.servlet.ServletContext;
 
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
@@ -37,7 +36,7 @@ public class XmlRulesExtractor extends AbstractRulesExtractor {
         if (!ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_XMLRULE)) {
             return null;
         }
-        String rule = extractProperty(ruleNode, UrlRewriteConstants.XML_RULE_PROPERTY);
+        String rule = extractProperty(ruleNode, UrlRewriteConstants.XML_RULE_PROPERTY, false);
         return validateRule(rule, context) ? rule : null;
     }
 
