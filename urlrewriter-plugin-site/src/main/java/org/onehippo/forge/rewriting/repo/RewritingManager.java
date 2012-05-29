@@ -24,6 +24,8 @@ import javax.jcr.NodeIterator;
 import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.nodetype.NodeType;
+import javax.jcr.nodetype.NodeTypeManager;
 import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -148,18 +150,11 @@ public class RewritingManager {
             if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
                 load(node, context, rules, disabledRuleTypes);
             } else {
-                //passed node can only be a handle
-                if (! node.isNodeType(HippoNodeType.NT_HANDLE)) {
+                node = getDocumentNode(node);
+                if(node == null){
                     continue;
                 }
 
-                //TODO Is this ok???????
-                node = node.getNode(node.getName());
-
-                //TODO Why isn't the HippoStdNodeType.NT_PUBLISHABLE and HippoStdNodeType.HIPPOSTD_STATE in the repository api dependency?
-                if (node.isNodeType("hippostd:publishable") && "unpublished".equals(node.getProperty("hippostd:state").getString())) {
-                    continue;
-                }
                 String ruleType = node.getPrimaryNodeType().getName();
                 String rule = null;
 
@@ -180,6 +175,25 @@ public class RewritingManager {
                 }
             }
         }
+    }
+
+
+    protected Node getDocumentNode(Node wrapperNode) throws RepositoryException{
+        Node document = null;
+        if (wrapperNode.isNodeType(HippoNodeType.NT_HANDLE)) {
+            NodeIterator docs = wrapperNode.getNodes(wrapperNode.getName());
+            while (docs.hasNext()) {
+                document = docs.nextNode();
+                //TODO Replace when the constant is added to the api
+                if (document.isNodeType("hippostd:publishable")) {
+                    String state = document.getProperty("hippostd:state").getString();
+                    if ("published".equals(state)) {
+                        return document;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
 

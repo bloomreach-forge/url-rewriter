@@ -16,8 +16,10 @@
 package org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.resolvers;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.nodetype.NodeType;
+import javax.jcr.nodetype.NodeTypeManager;
 
 import org.apache.wicket.model.IDetachable;
 import org.hippoecm.frontend.model.JcrNodeModel;
@@ -88,31 +90,23 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                 if (node != null) {
                     Node document = null;
                     NodeType primaryType = null;
-                    boolean isHistoric = false;
                     if (node.isNodeType(HippoNodeType.NT_HANDLE)) {
-                        /* TODO : What happens here exactly?
                         NodeIterator docs = node.getNodes(node.getName());
                         while (docs.hasNext()) {
                             document = docs.nextNode();
                             primaryType = document.getPrimaryNodeType();
-                            if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
-                                String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
+                            //TODO Replace when the constant is added to the api
+                            if (document.isNodeType("hippostd:publishable")) {
+                                String state = document.getProperty("hippostd:state").getString();
                                 if ("unpublished".equals(state)) {
                                     break;
                                 }
                             }
-                        } */
-
-                        //TODO Do something!!
-                        document = node.getNode(node.getName());
-                        primaryType = document.getPrimaryNodeType();
-
+                        }
                     } else if (node.isNodeType(HippoNodeType.NT_DOCUMENT)) {
                         document = node;
                         primaryType = document.getPrimaryNodeType();
                     } else if (node.isNodeType("nt:version")) {
-                        /* TODO : What happens here exactly?
-                        isHistoric = true;
                         Node frozen = node.getNode("jcr:frozenNode");
                         String primary = frozen.getProperty("jcr:frozenPrimaryType").getString();
                         NodeTypeManager ntMgr = frozen.getSession().getWorkspace().getNodeTypeManager();
@@ -120,43 +114,12 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                         if (primaryType.isNodeType(HippoNodeType.NT_DOCUMENT)) {
                             document = frozen;
                         }
-                        */
                     }
                     if (document != null) {
-                        /* TODO : What happens here exactly?
-                        if (primaryType.isNodeType(HippoStdNodeType.NT_PUBLISHABLESUMMARY)
-                                || document.isNodeType(HippoStdNodeType.NT_PUBLISHABLESUMMARY)) {
-                            cssClass = StateIconAttributeModifier.PREFIX
-                                    + (isHistoric ? "prev-" : "")
-                                    + document.getProperty(HippoStdNodeType.HIPPOSTD_STATESUMMARY).getString()
-                                    + StateIconAttributeModifier.SUFFIX;
-                            IModel stateModel = new JcrPropertyValueModel(new JcrPropertyModel(document
-                                    .getProperty(HippoStdNodeType.HIPPOSTD_STATESUMMARY)));
-                            summary = (String) new TypeTranslator(new JcrNodeTypeModel(
-                                    HippoStdNodeType.NT_PUBLISHABLESUMMARY)).getValueName(
-                                    HippoStdNodeType.HIPPOSTD_STATESUMMARY, stateModel).getObject();
-
-                            if (primaryType.isNodeType(HIPPOSTDPUBWF_DOCUMENT) || document.isNodeType(HIPPOSTDPUBWF_DOCUMENT)) {
-                                if (document.hasProperty(HIPPOSTDPUBWF_PUBLICATION_DATE)) {
-                                    publicationDate = document.getProperty(HIPPOSTDPUBWF_PUBLICATION_DATE).getDate();
-                                }
-                                if(document.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE)) {
-                                    lastModifiedDate = document.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE).getDate();
-                                }
-                                if(document.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY)) {
-                                    lastModifiedBy = document.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY).getString();
-                                }
-                                if(document.hasProperty(HIPPOSTDPUBWF_CREATION_DATE)) {
-                                    creationDate = document.getProperty(HIPPOSTDPUBWF_CREATION_DATE).getDate();
-                                }
-                                if(document.hasProperty(HIPPOSTDPUBWF_CREATED_BY)) {
-                                    createdBy = document.getProperty(HIPPOSTDPUBWF_CREATED_BY).getString();
-                                }
-                            }
-
+                        //TODO Replace when the constant is added to the api
+                        if (primaryType.isNodeType("hippostd:publishableSummary") || document.isNodeType("hippostd:publishableSummary")) {
                             observable.setTarget(new JcrNodeModel(document));
-                        }*/
-
+                        }
 
                         if (document.hasProperty("urlrewriter:rulefrom")) {
                             originalUrl = document.getProperty("urlrewriter:rulefrom").getString();
