@@ -38,6 +38,7 @@ public class UrlRewriteConstants {
     public static final String CONDITION_TYPE_PROPERTY = "urlrewriter:conditiontype";
     public static final String CONDITION_OPERATOR_PROPERTY = "urlrewriter:conditionoperator";
     public static final String XML_RULE_PROPERTY = "urlrewriter:rule";
+    public static final String CONDITIONS_NODE = "urlrewriter:rulecondition";
 
 
     public static final String XML_START = "<?xml version=\"1.0\" encoding=\"utf-8\"?><urlrewrite>";

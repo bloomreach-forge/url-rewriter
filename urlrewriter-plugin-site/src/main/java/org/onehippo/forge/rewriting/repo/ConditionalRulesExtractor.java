@@ -84,7 +84,7 @@ public class ConditionalRulesExtractor extends AbstractRulesExtractor {
 
     private String parseConditionals(final Node ruleNode) {
         try {
-            NodeIterator conditions = ruleNode.getNodes("urlrewriter:rulecondition");
+            NodeIterator conditions = ruleNode.getNodes(UrlRewriteConstants.CONDITIONS_NODE);
             StringBuilder builder = new StringBuilder();
             while (conditions.hasNext()) {
                 Node conditionNode = conditions.nextNode();
