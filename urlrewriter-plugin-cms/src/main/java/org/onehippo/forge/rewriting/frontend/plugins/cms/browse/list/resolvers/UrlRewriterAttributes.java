@@ -44,6 +44,7 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
     private transient String originalUrl;
     private transient String rewriteUrl;
     private transient String rewriteType;
+    private transient Boolean hasConditions;
 
     public UrlRewriterAttributes(JcrNodeModel nodeModel) {
         this.nodeModel = nodeModel;
@@ -63,6 +64,11 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
     public String getRewriteType() {
         load();
         return rewriteType;
+    }
+
+    public Boolean hasConditions() {
+        load();
+        return hasConditions;
     }
 
     public void detach() {
@@ -99,7 +105,8 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
 
                         //TODO Do something!!
                         document = node.getNode(node.getName());
-                        
+                        primaryType = document.getPrimaryNodeType();
+
                     } else if (node.isNodeType(HippoNodeType.NT_DOCUMENT)) {
                         document = node;
                         primaryType = document.getPrimaryNodeType();
@@ -163,6 +170,9 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                             rewriteType = document.getProperty("urlrewriter:ruletype").getString();
                         }
 
+                        if (primaryType.isNodeType("urlrewriter:conditionalrule")){
+                            hasConditions = document.hasNode("urlrewriter:rulecondition");
+                        }
                     }
                 }
             } catch (RepositoryException ex) {

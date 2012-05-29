@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 /**
  * @version $Id$
  */
-public class UrlRewriterListColumnProviderPlugin  extends AbstractListColumnProviderPlugin {
+public class UrlRewriterListColumnProviderPlugin extends AbstractListColumnProviderPlugin {
 
     private static final long serialVersionUID = 1L;
     static final Logger log = LoggerFactory.getLogger(UrlRewriterListColumnProviderPlugin.class);
@@ -125,18 +125,49 @@ public class UrlRewriterListColumnProviderPlugin  extends AbstractListColumnProv
         });
         columns.add(column);
 
+        //Has conditions (conditional rules only)
+        column = new ListColumn<Node>(new ClassResourceModel("doclisting-has-conditions", getClass()), "has-conditions");
+        column.setComparator(new UrlRewriterAttributeComparator() {
+            private static final long serialVersionUID = -4617312936280189361L;
+
+            @Override
+            protected int compare(UrlRewriterAttributes a1, UrlRewriterAttributes a2) {
+                return UrlRewriterListColumnProviderPlugin.this.compare(a1.hasConditions(), a2.hasConditions());
+            }
+        });
+        column.setCssClass("doclisting-rewrite-type");
+        column.setRenderer(new UrlRewriterAttributeRenderer() {
+            private static final long serialVersionUID = -1485899011687542362L;
+
+            @Override
+            protected String getObject(UrlRewriterAttributes attributes) {
+                return attributes.hasConditions() == null ? null : attributes.hasConditions().toString().toLowerCase();
+            }
+        });
+        columns.add(column);
+
         return columns;
     }
 
-    protected int compare(String s1, String s2){
-        if (s1 == null) {
-            if (s2 == null) {
-                return 0;
-            }
+    protected int compare(String s1, String s2) {
+        if (s1 == null && s2 == null) {
+            return 0;
+        } else if (s1 == null) {
             return 1;
         } else if (s2 == null) {
             return -1;
         }
         return String.CASE_INSENSITIVE_ORDER.compare(s1, s2);
+    }
+
+    protected int compare(Boolean b1, Boolean b2) {
+        if (b1 == null && b2 == null) {
+            return 0;
+        } else if (b1 == null) {
+            return 1;
+        } else if (b2 == null) {
+            return -1;
+        }
+        return b1.compareTo(b2);
     }
 }
