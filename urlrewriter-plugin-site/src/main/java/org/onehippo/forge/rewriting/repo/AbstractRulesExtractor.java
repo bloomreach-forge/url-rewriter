@@ -51,7 +51,7 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
                 Property p = node.getProperty(property);
                 return p.getBoolean();
             }
-        } catch (Exception ignore) {
+        } catch (Exception e) {
             log.warn("Exception while accessing property {}, on node {}", property, UrlRewriteUtils.getJcrItemPath(node));
         }
         return false;
@@ -70,7 +70,7 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
                         XmlUtils.encode(value) :
                         value;
             }
-        } catch (RepositoryException ignore) {
+        } catch (RepositoryException e) {
             log.warn("Exception while accessing property {}, on node {}", property, UrlRewriteUtils.getJcrItemPath(node));
         }
         return null;

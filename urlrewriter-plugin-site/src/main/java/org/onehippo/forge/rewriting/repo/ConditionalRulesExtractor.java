@@ -74,9 +74,7 @@ public class ConditionalRulesExtractor extends AbstractRulesExtractor {
             builder.append(conditions);
         }
 
-        builder.append(ruleFrom)
-                .append(ruleTo)
-                .append("</rule>");
+        builder.append(ruleFrom).append(ruleTo).append("</rule>");
 
         String rule = builder.toString();
         return validateRule(rule, context) ? rule : null;
@@ -117,8 +115,7 @@ public class ConditionalRulesExtractor extends AbstractRulesExtractor {
         String type = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_TYPE_PROPERTY);
         String operator = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_OPERATOR_PROPERTY);
         if (name == null && operator == null && type == null) {
-            log.warn("Invalid URL rewrite condition on node '{}': all parameters [name, type, operator] are null",
-                    UrlRewriteUtils.getJcrItemPath(conditionNode));
+            log.warn("Invalid URL rewrite condition on node '{}': all parameters [name, type, operator] are null", UrlRewriteUtils.getJcrItemPath(conditionNode));
             return null;
         }
         String booleanCondition = extractProperty(conditionNode, UrlRewriteConstants.AND_OR_PROPERTY);
