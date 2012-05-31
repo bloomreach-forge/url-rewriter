@@ -61,7 +61,12 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     // TODO check if this is needed
     private static final String DEFAULT_STATUS_ENABLED_ON_HOSTS = "localhost, local, 127.0.0.1";
 
-    //
+    private static final String INIT_PARAM_STATUS_ENABLED = "statusEnabled";
+    private static final String INIT_PARAM_STATUS_PATH = "statusPath";
+    private static final String INIT_PARAM_STATUS_ENABLED_ON_HOSTS = "statusEnabledOnHosts";
+    public static final String INIT_PARAM_RULES_LOCATION = "rulesLocation";
+    public static final String INIT_PARAM_MOD_REWRITE_CONF_TEXT = "modRewriteConfText";
+
     private ServerNameMatcher statusServerNameMatcher;
     private UrlRewriter urlRewriter;
     private boolean statusEnabled = true;
@@ -84,7 +89,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             return;
         }
 
-        log.debug("init: calling destroy just in case we are being re-inited uncleanly");
+        log.debug("init: calling destroy just in case we are being re-initialized uncleanly");
         destroyActual();
 
         context = filterConfig.getServletContext();
@@ -97,14 +102,14 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         Log.setConfiguration(filterConfig);
 
         // status enabled (default true)
-        String statusEnabledConf = filterConfig.getInitParameter("statusEnabled");
+        String statusEnabledConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_ENABLED);
         if (statusEnabledConf != null && !"".equals(statusEnabledConf)) {
             log.debug("statusEnabledConf set to " + statusEnabledConf);
             statusEnabled = "true".equals(statusEnabledConf.toLowerCase());
         }
         if (statusEnabled) {
             // status path (default /rewrite-status)
-            String statusPathConf = filterConfig.getInitParameter("statusPath");
+            String statusPathConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_PATH);
             if (statusPathConf != null && !"".equals(statusPathConf)) {
                 statusPath = statusPathConf.trim();
                 log.info("status display enabled, path set to " + statusPath);
@@ -113,7 +118,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             log.info("status display disabled");
         }
 
-        String statusEnabledOnHosts = filterConfig.getInitParameter("statusEnabledOnHosts");
+        String statusEnabledOnHosts = filterConfig.getInitParameter(INIT_PARAM_STATUS_ENABLED_ON_HOSTS);
         if (StringUtils.isBlank(statusEnabledOnHosts)) {
             statusEnabledOnHosts = DEFAULT_STATUS_ENABLED_ON_HOSTS;
         } else {
@@ -122,10 +127,10 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         statusServerNameMatcher = new ServerNameMatcher(statusEnabledOnHosts);
 
         //Rewrite rules locations
-        rulesLocation = filterConfig.getInitParameter("rulesLocation");
+        rulesLocation = filterConfig.getInitParameter(INIT_PARAM_RULES_LOCATION);
 
         // now load conf from snippet in web.xml if modRewriteStyleConf is set
-        String modRewriteConfText = filterConfig.getInitParameter("modRewriteConfText");
+        String modRewriteConfText = filterConfig.getInitParameter(INIT_PARAM_MOD_REWRITE_CONF_TEXT);
         if (!StringUtils.isBlank(modRewriteConfText)) {
             ModRewriteConfLoader loader = new ModRewriteConfLoader();
             Conf conf = new Conf();
