@@ -57,7 +57,7 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
 
         ruleTo = type != null ?
                 new StringBuilder().append("<to type=\"").append(type).append("\">").append(ruleTo).append("</to>").toString():
-                new StringBuilder().append("<to>").append(ruleTo).append("</to>").toString();
+                new StringBuilder().append("<to type=\"").append(UrlRewriteConstants.DEFAULT_RULE_TYPE).append("\">").append(ruleTo).append("</to>").toString();
 
 
         StringBuilder builder = new StringBuilder();
