@@ -66,7 +66,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private UrlRewriter urlRewriter;
     private boolean statusEnabled = true;
     private String statusPath = "/rewrite-status";
-    private List<String> disabledRuleTypes = new ArrayList<String>();
     private String rulesLocation = null;
 
     private Conf confLastLoaded;
@@ -122,11 +121,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         }
         statusServerNameMatcher = new ServerNameMatcher(statusEnabledOnHosts);
 
-        //Specified disabled types
-        if(!StringUtils.isBlank(filterConfig.getInitParameter("disabledRuleTypes"))){
-            disabledRuleTypes = Arrays.asList(filterConfig.getInitParameter("disabledRuleTypes").split("\\s*,\\s*"));
-        }
-
         //Rewrite rules locations
         rulesLocation = filterConfig.getInitParameter("rulesLocation");
 
@@ -150,11 +144,11 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
                 return;
             }
             // TODO we can make this fine grained
-            StringBuilder builder = rewritingManager.loadRules(context ,request, rulesLocation, disabledRuleTypes);
-            if(builder == null){
+            StringBuilder rules = rewritingManager.load(context ,request, rulesLocation);
+            if(rules == null){
                 return;
             }
-            Conf conf = new Conf(context, new StringInputStream(builder.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
+            Conf conf = new Conf(context, new StringInputStream(rules.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
             checkConfLocal(conf);
         }
 

@@ -24,8 +24,6 @@ import javax.jcr.NodeIterator;
 import javax.jcr.Repository;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import javax.jcr.nodetype.NodeType;
-import javax.jcr.nodetype.NodeTypeManager;
 import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -44,17 +42,11 @@ public class RewritingManager {
 
     private static Logger log = LoggerFactory.getLogger(RewritingManager.class);
 
-    public static final String DISABLED_RULE_TYPES_CONDITIONAL = "conditional";
-    public static final String DISABLED_RULE_TYPES_SIMPLE = "simple";
-    public static final String DISABLED_RULE_TYPES_XML = "xml";
-
     // spring managed
     private String rewriteRulesLocation;
     private Repository repository;
     private Credentials credentials;
-    private RewritingRulesExtractor conditionalRulesExtractor;
-    private RewritingRulesExtractor simpleRulesExtractor;
-    private RewritingRulesExtractor xmlRulesExtractor;
+    private List<RewritingRulesExtractor> rewritingRulesExtractors;
 
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
@@ -75,7 +67,7 @@ public class RewritingManager {
      */
     @Deprecated
     public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String urlRewriteLocation) {
-        return loadRules(context, request, null, null);
+        return load(context, request, null);
     }
 
 
@@ -85,9 +77,8 @@ public class RewritingManager {
     * @param context
     * @param request
     * @param rewriteRulesLocation absolute repository path of the rules
-    * @param disabledRuleTypes List of rule types that are disabled (values: conditional|simple|xml)
     */
-    public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String rewriteRulesLocation, final List<String> disabledRuleTypes) {
+    public synchronized StringBuilder load(final ServletContext context, final ServletRequest request, final String rewriteRulesLocation) {
         // check if refresh is needed..if not return local copy
         if (!needRefresh) {
             return loadedRules;
@@ -116,7 +107,7 @@ public class RewritingManager {
 
             //Start recursion
             rules = new StringBuilder(UrlRewriteConstants.XML_START);
-            load(rootNode, context, rules, disabledRuleTypes);
+            load(rootNode, context, rules);
 
         } catch (Exception e) {
             log.error("Error loading simple rewriting rules {}", e);
@@ -140,38 +131,31 @@ public class RewritingManager {
      * @param startNode
      * @param context
      * @param rules StringBuilder to load the rules in
-     * @param disabledRuleTypes List of rule types that are disabled (values: conditional|simple|xml)
      */
-    private void load(final Node startNode, final ServletContext context, final StringBuilder rules, final List<String> disabledRuleTypes) throws RepositoryException {
+    private void load(final Node startNode, final ServletContext context, final StringBuilder rules) throws RepositoryException {
 
         NodeIterator nodes = startNode.getNodes();
         while (nodes.hasNext()) {
             Node node = nodes.nextNode();
             if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
-                load(node, context, rules, disabledRuleTypes);
+                load(node, context, rules);
             } else {
                 node = getDocumentNode(node);
                 if(node == null){
                     continue;
                 }
 
-                String ruleType = node.getPrimaryNodeType().getName();
                 String rule = null;
-
-                try{
-                    if(ruleType.equals(UrlRewriteConstants.PRIMARY_TYPE_CONDITIONALRULE) && !disabledRuleTypes.contains(DISABLED_RULE_TYPES_CONDITIONAL)){
-                        rule = conditionalRulesExtractor.extract(node, context);
-                    } else if(ruleType.equals(UrlRewriteConstants.PRIMARY_TYPE_SIMPLERULE) && !disabledRuleTypes.contains(DISABLED_RULE_TYPES_SIMPLE)){
-                        rule = simpleRulesExtractor.extract(node, context);
-                    } else if(ruleType.equals(UrlRewriteConstants.PRIMARY_TYPE_XMLRULE) && !disabledRuleTypes.contains(DISABLED_RULE_TYPES_XML)){
-                        rule = xmlRulesExtractor.extract(node, context);
+                for(RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
+                    try{
+                        rule = rulesExtractor.extract(node, context);
+                        if(rule != null){
+                            rules.append(rule);
+                        }
+                    } catch (RepositoryException e){
+                        log.error("Exception encountered while extracting with: {}", rulesExtractor);
+                        log.error("Exception is: ", e);
                     }
-                } catch (RepositoryException e){
-                    log.error("Exception encountered while traversing url rewriter rules:", e);
-                }
-
-                if(rule != null){
-                    rules.append(rule);
                 }
             }
         }
@@ -264,27 +248,14 @@ public class RewritingManager {
         this.credentials = credentials;
     }
 
-    public RewritingRulesExtractor getConditionalRulesExtractor() {
-        return conditionalRulesExtractor;
+    public List<RewritingRulesExtractor> getRewritingRulesExtractors() {
+        return rewritingRulesExtractors;
     }
 
-    public void setConditionalRulesExtractor(final RewritingRulesExtractor conditionalRulesExtractor) {
-        this.conditionalRulesExtractor = conditionalRulesExtractor;
+    public void setRewritingRulesExtractors(final List<RewritingRulesExtractor> rewritingRulesExtractors) {
+        this.rewritingRulesExtractors = rewritingRulesExtractors;
     }
 
-    public RewritingRulesExtractor getSimpleRulesExtractor() {
-        return simpleRulesExtractor;
-    }
 
-    public void setSimpleRulesExtractor(final RewritingRulesExtractor simpleRulesExtractor) {
-        this.simpleRulesExtractor = simpleRulesExtractor;
-    }
 
-    public RewritingRulesExtractor getXmlRulesExtractor() {
-        return xmlRulesExtractor;
-    }
-
-    public void setXmlRulesExtractor(final RewritingRulesExtractor xmlRulesExtractor) {
-        this.xmlRulesExtractor = xmlRulesExtractor;
-    }
 }

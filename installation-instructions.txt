@@ -61,10 +61,6 @@ to /rewrite-status) note, must start with /     -->
       <param-value>localhost, 127.0.0.*, *.lan, *.local</param-value>
     </init-param>
     <init-param>
-      <param-name>disabledRuleTypes</param-name>
-      <param-value>conditional,simple,xml</param-value>
-    </init-param>
-    <init-param>
       <param-name>rulesLocation</param-name>
       <param-value>content path</param-value>
     </init-param>

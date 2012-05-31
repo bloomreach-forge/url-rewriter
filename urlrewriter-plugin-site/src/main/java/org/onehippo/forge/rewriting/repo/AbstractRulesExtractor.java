@@ -105,4 +105,8 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
         }
         return ok;
     }
+
+    public String toString(){
+        return getClass().getName();
+    }
 }

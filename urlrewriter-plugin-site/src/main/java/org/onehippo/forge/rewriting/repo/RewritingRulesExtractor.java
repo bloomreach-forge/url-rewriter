@@ -25,4 +25,5 @@ import javax.servlet.ServletContext;
 public interface RewritingRulesExtractor {
 
     public String extract(Node node, ServletContext context) throws RepositoryException;
+
 }

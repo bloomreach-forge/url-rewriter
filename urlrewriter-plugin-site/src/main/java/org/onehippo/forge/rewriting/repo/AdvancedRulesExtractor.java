@@ -30,9 +30,9 @@ import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 /**
  * @version $Id$
  */
-public class ConditionalRulesExtractor extends AbstractRulesExtractor {
+public class AdvancedRulesExtractor extends AbstractRulesExtractor {
 
-    private static Logger log = LoggerFactory.getLogger(ConditionalRulesExtractor.class);
+    private static Logger log = LoggerFactory.getLogger(AdvancedRulesExtractor.class);
 
     @Override
     public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
