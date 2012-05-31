@@ -69,35 +69,6 @@
       <sv:value>${wicket.id}</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="addfolderPlugin">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>frontend:plugin</sv:value>
-    </sv:property>
-    <sv:property sv:name="browser.id" sv:type="String">
-      <sv:value>${browser.id}</sv:value>
-    </sv:property>
-    <sv:property sv:name="editor.id" sv:type="String">
-      <sv:value>${editor.id}</sv:value>
-    </sv:property>
-    <sv:property sv:name="option.location" sv:type="String">
-      <sv:value>/content/urlrewriter</sv:value>
-    </sv:property>
-    <sv:property sv:name="plugin.class" sv:type="String">
-      <sv:value>org.hippoecm.frontend.plugins.standardworkflow.FolderShortcutPlugin</sv:value>
-    </sv:property>
-    <sv:property sv:name="wicket.id" sv:type="String">
-      <sv:value>${cluster.id}.addfolder</sv:value>
-    </sv:property>
-    <sv:property sv:name="wicket.variant" sv:type="String">
-      <sv:value>addfolder</sv:value>
-    </sv:property>
-    <sv:property sv:name="workflow.categories" sv:type="String">
-      <sv:value>threepane</sv:value>
-    </sv:property>
-    <sv:property sv:name="workflow.enabled" sv:type="String">
-      <sv:value>${workflow.enabled}</sv:value>
-    </sv:property>
-  </sv:node>
   <sv:node sv:name="urlrewriterBrowser">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>frontend:plugin</sv:value>
@@ -147,7 +118,18 @@
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>frontend:pluginconfig</sv:value>
       </sv:property>
-      <sv:node sv:name="showDirectoryType">
+      <sv:node sv:name="showRulesetType">
+        <sv:property sv:name="jcr:primaryType" sv:type="Name">
+          <sv:value>frontend:pluginconfig</sv:value>
+        </sv:property>
+        <sv:property sv:name="child" sv:type="String">
+          <sv:value>urlrewriter:ruleset</sv:value>
+        </sv:property>
+        <sv:property sv:name="display" sv:type="Boolean">
+          <sv:value>true</sv:value>
+        </sv:property>
+      </sv:node>
+      <sv:node sv:name="hideDirectoryType">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>frontend:pluginconfig</sv:value>
         </sv:property>
@@ -155,7 +137,7 @@
           <sv:value>hippostd:directory</sv:value>
         </sv:property>
         <sv:property sv:name="display" sv:type="Boolean">
-          <sv:value>true</sv:value>
+          <sv:value>false</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="hideHandleType">
@@ -169,7 +151,7 @@
           <sv:value>false</sv:value>
         </sv:property>
       </sv:node>
-      <sv:node sv:name="showFolderType">
+      <sv:node sv:name="hideFolderType">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>frontend:pluginconfig</sv:value>
         </sv:property>
@@ -177,10 +159,39 @@
           <sv:value>hippostd:folder</sv:value>
         </sv:property>
         <sv:property sv:name="display" sv:type="Boolean">
-          <sv:value>true</sv:value>
+          <sv:value>false</sv:value>
         </sv:property>
       </sv:node>
     </sv:node>
+  </sv:node>
+  <sv:node sv:name="addfolderPlugin">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>frontend:plugin</sv:value>
+    </sv:property>
+    <sv:property sv:name="browser.id" sv:type="String">
+      <sv:value>${browser.id}</sv:value>
+    </sv:property>
+    <sv:property sv:name="editor.id" sv:type="String">
+      <sv:value>${editor.id}</sv:value>
+    </sv:property>
+    <sv:property sv:name="option.location" sv:type="String">
+      <sv:value>/content/urlrewriter</sv:value>
+    </sv:property>
+    <sv:property sv:name="plugin.class" sv:type="String">
+      <sv:value>org.hippoecm.frontend.plugins.standardworkflow.FolderShortcutPlugin</sv:value>
+    </sv:property>
+    <sv:property sv:name="wicket.id" sv:type="String">
+      <sv:value>${cluster.id}.addfolder</sv:value>
+    </sv:property>
+    <sv:property sv:name="wicket.variant" sv:type="String">
+      <sv:value>addfolder</sv:value>
+    </sv:property>
+    <sv:property sv:name="workflow.categories" sv:type="String">
+      <sv:value>threepane</sv:value>
+    </sv:property>
+    <sv:property sv:name="workflow.enabled" sv:type="String">
+      <sv:value>${workflow.enabled}</sv:value>
+    </sv:property>
   </sv:node>
 </sv:node>
   

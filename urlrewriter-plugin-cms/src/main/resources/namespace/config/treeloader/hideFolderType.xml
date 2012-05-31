@@ -16,7 +16,7 @@
     limitations under the License.
 
 -->
-<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" sv:name="showFolderType">
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" sv:name="hideFolderType">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>frontend:pluginconfig</sv:value>
   </sv:property>
@@ -24,6 +24,6 @@
     <sv:value>hippostd:folder</sv:value>
   </sv:property>
   <sv:property sv:name="display" sv:type="Boolean">
-    <sv:value>true</sv:value>
+    <sv:value>false</sv:value>
   </sv:property>
 </sv:node>
