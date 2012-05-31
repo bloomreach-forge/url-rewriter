@@ -133,7 +133,7 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                             rewriteType = document.getProperty("urlrewriter:ruletype").getString();
                         }
 
-                        if (primaryType.isNodeType("urlrewriter:conditionalrule")){
+                        if (primaryType.isNodeType("urlrewriter:advancedrule")){
                             hasConditions = document.hasNode("urlrewriter:rulecondition");
                         }
                     }

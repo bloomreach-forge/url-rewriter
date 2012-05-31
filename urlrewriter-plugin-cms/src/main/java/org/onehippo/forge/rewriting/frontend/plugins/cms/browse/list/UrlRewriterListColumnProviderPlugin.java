@@ -125,7 +125,7 @@ public class UrlRewriterListColumnProviderPlugin extends AbstractListColumnProvi
         });
         columns.add(column);
 
-        //Has conditions (conditional rules only)
+        //Has conditions (advanced rules only)
         column = new ListColumn<Node>(new ClassResourceModel("doclisting-has-conditions", getClass()), "has-conditions");
         column.setComparator(new UrlRewriterAttributeComparator() {
             private static final long serialVersionUID = -4617312936280189361L;

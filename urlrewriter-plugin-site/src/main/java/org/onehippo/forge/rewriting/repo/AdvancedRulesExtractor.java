@@ -37,7 +37,7 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
     @Override
     public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
 
-        if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_CONDITIONALRULE)){
+        if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_ADVANCEDRULE)){
             return null;
         }
 
