@@ -102,10 +102,8 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
     }
 
     private String extractCondition(final Node conditionNode) {
-        String name = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_PREDEFINED_NAME_PROPERTY);
-        if (name == null) {
-            name = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_NAME_PROPERTY);
-        }
+        String name = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_NAME_PROPERTY);
+
         String value = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_VALUE_PROPERTY);
         if (value == null) {
             log.warn("Invalid URL rewrite condition '{}' on node '{}': value was null", name,
@@ -114,7 +112,7 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
         }
         String type = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_TYPE_PROPERTY);
         String operator = extractProperty(conditionNode, UrlRewriteConstants.CONDITION_OPERATOR_PROPERTY);
-        if (name == null && operator == null && type == null) {
+        if (operator == null && type == null) {
             log.warn("Invalid URL rewrite condition on node '{}': all parameters [name, type, operator] are null", UrlRewriteUtils.getJcrItemPath(conditionNode));
             return null;
         }

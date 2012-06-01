@@ -34,7 +34,6 @@ public class UrlRewriteConstants {
     public static final String CASE_SENSITIVE_PROPERTY = "urlrewriter:casesensitive";
     public static final String DESCRIPTION_PROPERTY = "urlrewriter:ruledescription";
     public static final String AND_OR_PROPERTY = "urlrewriter:conditionor";
-    public static final String CONDITION_PREDEFINED_NAME_PROPERTY = "urlrewriter:conditionpredefinedname";
     public static final String CONDITION_NAME_PROPERTY = "urlrewriter:conditionname";
     public static final String CONDITION_VALUE_PROPERTY = "urlrewriter:conditionvalue";
     public static final String CONDITION_TYPE_PROPERTY = "urlrewriter:conditiontype";
