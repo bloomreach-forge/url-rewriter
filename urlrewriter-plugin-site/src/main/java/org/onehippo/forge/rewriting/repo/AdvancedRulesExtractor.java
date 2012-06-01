@@ -64,6 +64,7 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
+        boolean isWildCardType= extractBooleanProperty(ruleNode, UrlRewriteConstants.IS_WILDCARD_TYPE_PROPERTY);
 
         ruleFrom = caseSensitive ?
                 new StringBuilder().append("<from casesensitive=\"true\">").append(ruleFrom).append("</from>").toString() :
@@ -75,7 +76,8 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
 
 
         StringBuilder builder = new StringBuilder();
-        builder.append("<rule>")
+        builder.append("<rule")
+                .append(isWildCardType ? " match-type=\"wildcard\">" : ">")
                 .append("<name>")
                 .append(StringUtils.isBlank(ruleName) ? "" : ruleName)
                 .append(StringUtils.isBlank(ruleDescription) ? "" : ((StringUtils.isBlank(ruleName) ? "" : " - ") + ruleDescription))

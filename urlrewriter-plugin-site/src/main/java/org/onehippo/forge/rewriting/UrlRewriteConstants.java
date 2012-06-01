@@ -32,6 +32,7 @@ public class UrlRewriteConstants {
     public static final String TO_PROPERTY = "urlrewriter:ruleto";
     public static final String TYPE_PROPERTY = "urlrewriter:ruletype";
     public static final String CASE_SENSITIVE_PROPERTY = "urlrewriter:casesensitive";
+    public static final String IS_WILDCARD_TYPE_PROPERTY = "urlrewriter:iswildcardtype";
     public static final String DESCRIPTION_PROPERTY = "urlrewriter:ruledescription";
     public static final String AND_OR_PROPERTY = "urlrewriter:conditionor";
     public static final String CONDITION_NAME_PROPERTY = "urlrewriter:conditionname";
