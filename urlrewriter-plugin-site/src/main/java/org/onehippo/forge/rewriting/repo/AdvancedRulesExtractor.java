@@ -35,7 +35,7 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
     private static Logger log = LoggerFactory.getLogger(AdvancedRulesExtractor.class);
 
     @Override
-    public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
+    public String extract(final Node ruleNode, final ServletContext context, final boolean ignoreContextPath) throws RepositoryException {
 
         if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_ADVANCEDRULE)){
             return null;

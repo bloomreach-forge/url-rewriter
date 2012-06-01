@@ -105,9 +105,13 @@ public class RewritingManager {
                 return null;
             }
 
+            boolean ignoreContextPath = rootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
+                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
+                    UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE;
+
             //Start recursion
             rules = new StringBuilder(UrlRewriteConstants.XML_START);
-            load(rootNode, context, rules);
+            load(rootNode, context, rules, ignoreContextPath);
 
         } catch (Exception e) {
             log.error("Error loading simple rewriting rules {}", e);
@@ -132,13 +136,13 @@ public class RewritingManager {
      * @param context
      * @param rules StringBuilder to load the rules in
      */
-    private void load(final Node startNode, final ServletContext context, final StringBuilder rules) throws RepositoryException {
+    private void load(final Node startNode, final ServletContext context, final StringBuilder rules, final boolean ignoreContextPath) throws RepositoryException {
 
         NodeIterator nodes = startNode.getNodes();
         while (nodes.hasNext()) {
             Node node = nodes.nextNode();
             if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
-                load(node, context, rules);
+                load(node, context, rules, ignoreContextPath);
             } else {
                 node = getDocumentNode(node);
                 if(node == null){
@@ -148,7 +152,7 @@ public class RewritingManager {
                 String rule = null;
                 for(RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
                     try{
-                        rule = rulesExtractor.extract(node, context);
+                        rule = rulesExtractor.extract(node, context, ignoreContextPath);
                         if(rule != null){
                             rules.append(rule);
                         }

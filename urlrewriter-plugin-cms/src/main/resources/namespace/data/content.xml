@@ -22,6 +22,7 @@
   </sv:property>
   <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
     <sv:value>hippo:harddocument</sv:value>
+    <sv:value>hippostd:relaxed</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
     <sv:value>e1d8c1b6-327c-4f3f-8d87-4db2cec03b2a</sv:value>
@@ -30,5 +31,8 @@
   <sv:property sv:multiple="true" sv:name="hippostd:foldertype" sv:type="String">
     <sv:value>new-urlrewriter-document</sv:value>
     <sv:value>new-urlrewriter-folder</sv:value>
+  </sv:property>
+  <sv:property sv:name="urlrewriter:ignorecontextpath" sv:type="String">
+    <sv:value>true</sv:value>
   </sv:property>
 </sv:node>

@@ -38,7 +38,7 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
     private static Logger log = LoggerFactory.getLogger(AbstractRulesExtractor.class);
 
 
-    public abstract String extract(final Node node, final ServletContext context) throws RepositoryException;
+    public abstract String extract(final Node node, final ServletContext context, final boolean ignoreContextPath) throws RepositoryException;
 
 
     //*************************************************************************************
