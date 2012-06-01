@@ -45,4 +45,5 @@ public class UrlRewriteConstants {
     public static final String XML_START = "<?xml version=\"1.0\" encoding=\"utf-8\"?><urlrewrite>";
     public static final String XML_END = "</urlrewrite>";
     public static final String DEFAULT_RULE_TYPE = "temporary-redirect";
+    public static final String DEFAULT_HST_CONTEXT_PATH = "/site";
 }

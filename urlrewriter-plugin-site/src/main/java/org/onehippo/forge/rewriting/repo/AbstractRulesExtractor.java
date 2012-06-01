@@ -121,8 +121,20 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
         return builder.toString();
     }
 
+    /**
+     * Removes the context path from a url path. For hst, this is '/site'
+     *
+     * @param urlPath String holding the url path. This must start with /
+     * @return The path without the context path
+     */
+    protected String stripContextPath(final String urlPath) {
+        return urlPath.startsWith(UrlRewriteConstants.DEFAULT_HST_CONTEXT_PATH) ?
+                urlPath.substring(UrlRewriteConstants.DEFAULT_HST_CONTEXT_PATH.length()) :
+                urlPath;
+    }
 
-    public String toString(){
+
+    public String toString() {
         return getClass().getName();
     }
 

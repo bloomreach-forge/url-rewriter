@@ -57,6 +57,10 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
         }
         ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
 
+        if(ignoreContextPath){
+            ruleFrom = stripContextPath(ruleFrom);
+        }
+
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
 
