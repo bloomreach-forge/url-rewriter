@@ -15,12 +15,15 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
+import java.net.URL;
+
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.servlet.ServletContext;
 
 import org.hippoecm.hst.util.XmlUtils;
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
+import org.onehippo.forge.rewriting.UrlRewriteUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
@@ -48,6 +51,12 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
             return null;
         }
 
+        URL urlFrom = UrlRewriteUtils.parseUrl(ruleFrom);
+        if(urlFrom == null){
+            return null;
+        }
+        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
+
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
 
@@ -65,8 +74,14 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
                 .append("<name>")
                 .append(StringUtils.isBlank(ruleName) ? "" : ruleName)
                 .append(StringUtils.isBlank(ruleDescription) ? "" : ((StringUtils.isBlank(ruleName) ? "" : " - ") + ruleDescription))
-                .append("</name>")
-                .append(ruleFrom)
+                .append("</name>");
+
+        String domain = urlFrom.getHost();
+        if(domain != null){
+            builder.append(createDomainCondition(domain));
+        }
+
+        builder.append(ruleFrom)
                 .append(ruleTo)
                 .append("</rule>");
 

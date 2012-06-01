@@ -15,6 +15,8 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
+import java.net.URL;
+
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
@@ -50,6 +52,12 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
             return null;
         }
 
+        URL urlFrom = UrlRewriteUtils.parseUrl(ruleFrom);
+        if(urlFrom == null){
+            return null;
+        }
+        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
+
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
 
@@ -72,6 +80,11 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
         String conditions = parseConditionals(ruleNode);
         if (conditions != null) {
             builder.append(conditions);
+        }
+
+        String domain = urlFrom.getHost();
+        if(domain != null){
+            builder.append(createDomainCondition(domain));
         }
 
         builder.append(ruleFrom).append(ruleTo).append("</rule>");

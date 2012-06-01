@@ -15,6 +15,9 @@
  */
 package org.onehippo.forge.rewriting;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import javax.jcr.Item;
 import javax.jcr.RepositoryException;
 
@@ -42,6 +45,28 @@ public class UrlRewriteUtils {
             return item.getPath();
         } catch (RepositoryException e) {
             log.warn(e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Extracts domain information from a url
+     *
+     * @param url string containing the url
+     * @return A java.net.URL
+     */
+    public static URL parseUrl(final String url) {
+        try {
+            if (url.startsWith("/")) {
+                return new URL("http", null, -1, url);
+            } else if(url.startsWith("http://")) {
+                return new URL(url);
+            } else {
+                return new URL("http://" + url);
+            }
+        } catch (MalformedURLException e) {
+            log.error("Could not parse url: {}", url);
+            log.error("Exception is {}", e);
             return null;
         }
     }

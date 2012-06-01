@@ -106,7 +106,24 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
         return ok;
     }
 
+    /**
+     * Creates a condition for the domain
+     *
+     * @param domain String holding the domain
+     * @return An xml representation of the rule condition
+     */
+    protected String createDomainCondition(final String domain) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("<condition type=\"header\" name=\"host\" operator=\"equal\" next=\"and\">")
+                .append(domain)
+                .append("</condition>");
+
+        return builder.toString();
+    }
+
+
     public String toString(){
         return getClass().getName();
     }
+
 }
