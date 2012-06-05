@@ -57,6 +57,7 @@
     <url>https://issues.onehippo.com/browse/HIPPLUG</url>
   </issueManagement>
   <inceptionYear>2011</inceptionYear>
+
   <organization />
   <developers>
     <developer>
@@ -205,7 +206,8 @@
           </excludes>
           <properties>
             <name>${project.name}</name>
-            <year>${project.inceptionYear}</year>
+            <inceptionYear>${project.inceptionYear}</inceptionYear>
+            <lastEditedYear>2012</lastEditedYear>
             <holder>Hippo</holder>
           </properties>
           <encoding>UTF-8</encoding>
