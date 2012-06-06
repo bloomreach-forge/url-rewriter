@@ -62,7 +62,7 @@ to /rewrite-status) note, must start with /     -->
     </init-param>
     <init-param>
       <param-name>rulesLocation</param-name>
-      <param-value>content path</param-value>
+      <param-value>/content/urlrewriter</param-value>
     </init-param>
   </filter>
 
