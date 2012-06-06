@@ -21,11 +21,13 @@ import javax.jcr.RepositoryException;
 import javax.jcr.nodetype.NodeType;
 import javax.jcr.nodetype.NodeTypeManager;
 
+import org.apache.jackrabbit.JcrConstants;
 import org.apache.wicket.model.IDetachable;
 import org.hippoecm.frontend.model.JcrNodeModel;
 import org.hippoecm.frontend.model.event.IObservable;
 import org.hippoecm.frontend.model.event.IObservationContext;
 import org.hippoecm.frontend.model.event.Observable;
+import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNodeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -95,9 +97,8 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                         while (docs.hasNext()) {
                             document = docs.nextNode();
                             primaryType = document.getPrimaryNodeType();
-                            //TODO Replace when the constant is added to the api
-                            if (document.isNodeType("hippostd:publishable")) {
-                                String state = document.getProperty("hippostd:state").getString();
+                            if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
+                                String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
                                 if ("unpublished".equals(state)) {
                                     break;
                                 }
@@ -106,9 +107,9 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                     } else if (node.isNodeType(HippoNodeType.NT_DOCUMENT)) {
                         document = node;
                         primaryType = document.getPrimaryNodeType();
-                    } else if (node.isNodeType("nt:version")) {
-                        Node frozen = node.getNode("jcr:frozenNode");
-                        String primary = frozen.getProperty("jcr:frozenPrimaryType").getString();
+                    } else if (node.isNodeType(JcrConstants.NT_VERSION)) {
+                        Node frozen = node.getNode(JcrConstants.JCR_FROZENNODE);
+                        String primary = frozen.getProperty(JcrConstants.JCR_FROZENPRIMARYTYPE).getString();
                         NodeTypeManager ntMgr = frozen.getSession().getWorkspace().getNodeTypeManager();
                         primaryType = ntMgr.getNodeType(primary);
                         if (primaryType.isNodeType(HippoNodeType.NT_DOCUMENT)) {
@@ -116,8 +117,7 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                         }
                     }
                     if (document != null) {
-                        //TODO Replace when the constant is added to the api
-                        if (primaryType.isNodeType("hippostd:publishableSummary") || document.isNodeType("hippostd:publishableSummary")) {
+                        if (primaryType.isNodeType(HippoStdNodeType.NT_PUBLISHABLESUMMARY) || document.isNodeType(HippoStdNodeType.NT_PUBLISHABLESUMMARY)) {
                             observable.setTarget(new JcrNodeModel(document));
                         }
 

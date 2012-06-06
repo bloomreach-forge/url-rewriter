@@ -28,6 +28,7 @@ import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 
+import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNodeType;
 import org.onehippo.forge.rewriting.UrlRewriteConstants;
 import org.onehippo.forge.rewriting.UrlRewriteUtils;
@@ -172,9 +173,8 @@ public class RewritingManager {
             NodeIterator docs = wrapperNode.getNodes(wrapperNode.getName());
             while (docs.hasNext()) {
                 document = docs.nextNode();
-                //TODO Replace when the constant is added to the api
-                if (document.isNodeType("hippostd:publishable")) {
-                    String state = document.getProperty("hippostd:state").getString();
+                if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
+                    String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
                     if ("published".equals(state)) {
                         return document;
                     }
