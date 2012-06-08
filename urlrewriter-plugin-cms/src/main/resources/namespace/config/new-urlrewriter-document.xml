@@ -76,7 +76,7 @@
       <sv:value>nl</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Voeg nieuw Url-rewriter document toe</sv:value>
+      <sv:value>nieuw Url-rewriter document</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
