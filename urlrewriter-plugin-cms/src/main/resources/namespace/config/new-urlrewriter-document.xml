@@ -62,7 +62,7 @@
       <sv:value>en</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>new urlrewriter document</sv:value>
+      <sv:value>New URL-rewriter document</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -76,7 +76,7 @@
       <sv:value>nl</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nieuw urlrewriter document</sv:value>
+      <sv:value>Voeg nieuw Url-rewriter document toe</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -90,7 +90,7 @@
       <sv:value>it</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouvo urlrewriter documento</sv:value>
+      <sv:value>Nouvo URL-rewriter documento</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -104,7 +104,7 @@
       <sv:value>fr</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouveau urlrewriter document</sv:value>
+      <sv:value>Nouveau URL-rewriter document</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>
