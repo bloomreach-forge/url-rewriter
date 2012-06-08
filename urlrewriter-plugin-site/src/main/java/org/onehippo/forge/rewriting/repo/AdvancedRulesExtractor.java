@@ -89,8 +89,9 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
         }
 
         String domain = urlFrom.getHost();
+        int port = urlFrom.getPort();
         if(domain != null){
-            builder.append(createDomainCondition(domain));
+            builder.append(createDomainCondition(domain, port));
         }
 
         builder.append(ruleFrom).append(ruleTo).append("</rule>");
