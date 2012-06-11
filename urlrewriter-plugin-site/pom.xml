@@ -9,8 +9,8 @@
     <version>1.02.00-SNAPSHOT</version>
   </parent>
 
-  <name>Url rewriting HST plugin</name>
-  <description>Url rewriting HST plugin</description>
+  <name>Url rewriter HST plugin</name>
+  <description>Url rewriter HST plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-hst</artifactId>
   <packaging>jar</packaging>

@@ -11,8 +11,8 @@
     <version>1.02.00-SNAPSHOT</version>
   </parent>
 
-  <name>Url rewriting CMS plugin</name>
-  <description>Url rewriting CMS plugin</description>
+  <name>Url rewriter CMS plugin</name>
+  <description>Url rewriter CMS plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-cms</artifactId>
   <packaging>jar</packaging>

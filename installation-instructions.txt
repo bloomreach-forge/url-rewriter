@@ -16,16 +16,16 @@
 
 # add CMS plugin to your project:
     <dependency>
-      <groupId>org.onehippo.forge.rewriting</groupId>
-      <artifactId>rewriting-module-cms</artifactId>
+      <groupId>org.onehippo.forge.urlrewriter</groupId>
+      <artifactId>urlrewriter-module-cms</artifactId>
       <version>${xxx}</version>
     </dependency>
 
 # add HST plugin to your project
 
     <dependency>
-      <groupId>org.onehippo.forge.rewriting</groupId>
-      <artifactId>rewriting-module-hst</artifactId>
+      <groupId>org.onehippo.forge.urlrewriter</groupId>
+      <artifactId>urlrewriter-module-hst</artifactId>
       <version>${xxx}</version>
     </dependency>
 
