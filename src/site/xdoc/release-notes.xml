@@ -23,20 +23,9 @@
   </properties>
   <body>
     <section name="Release Notes">
-      <subsection name="1.01.01">
+      <subsection name="1.02.00-alpha">
         <ul>
-          <li>Initial version</li>
-        </ul>
-      </subsection>
-      <subsection name="1.01.02">
-        <ul>
-          <li>Bug fixes:</li>
-          <li>Refactorings</li>
-        </ul>
-      </subsection>
-      <subsection name="1.01.03">
-        <ul>
-          <li>Do not import the example rules by default</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-354">HIPPLUG-354: URL rewriter issues. A wrapper issue for many improvements currently under development</a></li>
         </ul>
       </subsection>
       <subsection name="1.01.04">
@@ -46,9 +35,20 @@
           <li>put sensible defaults in the installation instructions</li>
         </ul>
       </subsection>
-      <subsection name="1.02.00-alpha">
+      <subsection name="1.01.03">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-354">HIPPLUG-354: URL rewriter issues. A wrapper issue for many improvements currently under development</a></li>
+          <li>Do not import the example rules by default</li>
+        </ul>
+      </subsection>
+      <subsection name="1.01.02">
+        <ul>
+          <li>Bug fixes:</li>
+          <li>Refactorings</li>
+        </ul>
+      </subsection>
+      <subsection name="1.01.01">
+        <ul>
+          <li>Initial version</li>
         </ul>
       </subsection>
     </section>
