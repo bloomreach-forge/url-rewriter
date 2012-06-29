@@ -556,7 +556,7 @@
             <sv:value>frontend:pluginconfig</sv:value>
           </sv:property>
           <sv:property sv:name="selectable.options" sv:type="String">
-            <sv:value>notequal,greater,less,greaterorequal,nstanceof,equal,isdir,isfile,isfilewithsize,notdir,notfile,notfilewithsize</sv:value>
+            <sv:value>equal,notequal,greater,less,greaterorequal,lessorequal</sv:value>
           </sv:property>
         </sv:node>
       </sv:node>
