@@ -93,7 +93,7 @@
       <sv:value>it</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Cartella</sv:value>
+      <sv:value>Insieme di regole di riscrittura</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">

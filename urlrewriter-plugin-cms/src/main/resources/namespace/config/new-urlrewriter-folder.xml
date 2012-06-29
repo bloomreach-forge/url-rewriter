@@ -101,7 +101,7 @@
       <sv:value>it</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>rewrite rule folder</sv:value>
+      <sv:value>insieme di regole di riscrittura</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
