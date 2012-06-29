@@ -38,7 +38,7 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
     private static Logger log = LoggerFactory.getLogger(AbstractRulesExtractor.class);
 
 
-    public abstract String extract(final Node node, final ServletContext context, final boolean ignoreContextPath) throws RepositoryException;
+    public abstract String extract(final Node node, final ServletContext context) throws RepositoryException;
 
 
     //*************************************************************************************
@@ -120,19 +120,6 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
                 .append("</condition>")
                 .toString();
     }
-
-    /**
-     * Removes the context path from a url path. For hst, this is '/site'
-     *
-     * @param urlPath String holding the url path. This must start with /
-     * @return The path without the context path
-     */
-    protected String stripContextPath(final String urlPath) {
-        return urlPath.startsWith(UrlRewriteConstants.DEFAULT_HST_CONTEXT_PATH) ?
-                urlPath.substring(UrlRewriteConstants.DEFAULT_HST_CONTEXT_PATH.length()) :
-                urlPath;
-    }
-
 
     public String toString() {
         return getClass().getName();

@@ -36,7 +36,7 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
     private static Logger log = LoggerFactory.getLogger(SimpleRulesExtractor.class);
 
     @Override
-    public String extract(final Node ruleNode, final ServletContext context, final boolean ignoreContextPath) throws RepositoryException {
+    public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
 
         if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_SIMPLERULE)){
             return null;
@@ -56,10 +56,6 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
             return null;
         }
         ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
-
-        if(ignoreContextPath){
-            ruleFrom = stripContextPath(ruleFrom);
-        }
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
