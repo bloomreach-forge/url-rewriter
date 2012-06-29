@@ -73,7 +73,7 @@
       <sv:value>en</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>New Urlrewriter Ruleset</sv:value>
+      <sv:value>rewrite rule folder</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -87,7 +87,7 @@
       <sv:value>nl</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Nieuwe urlrewriter ruleset</sv:value>
+      <sv:value>map met rewrite-regels</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -101,7 +101,7 @@
       <sv:value>it</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouva urlrewriter ruleset</sv:value>
+      <sv:value>rewrite rule folder</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -115,7 +115,7 @@
       <sv:value>fr</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>nouveau urlrewriter ruleset</sv:value>
+      <sv:value>dossier de règles de réécriture</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>
