@@ -48,7 +48,6 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
     private transient String originalUrl;
     private transient String rewriteUrl;
     private transient String rewriteType;
-    private transient Boolean hasConditions;
 
     public UrlRewriterAttributes(JcrNodeModel nodeModel) {
         this.nodeModel = nodeModel;
@@ -70,12 +69,7 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
         return rewriteType;
     }
 
-    public Boolean hasConditions() {
-        load();
-        return hasConditions;
-    }
-
-    public void detach() {
+   public void detach() {
         loaded = false;
 
         originalUrl = null;
@@ -131,10 +125,6 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
 
                         if (document.hasProperty("urlrewriter:ruletype")) {
                             rewriteType = document.getProperty("urlrewriter:ruletype").getString();
-                        }
-
-                        if (primaryType.isNodeType("urlrewriter:advancedrule")){
-                            hasConditions = document.hasNode("urlrewriter:rulecondition");
                         }
                     }
                 }

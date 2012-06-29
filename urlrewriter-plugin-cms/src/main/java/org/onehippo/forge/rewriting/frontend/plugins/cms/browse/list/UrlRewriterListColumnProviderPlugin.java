@@ -125,27 +125,6 @@ public class UrlRewriterListColumnProviderPlugin extends AbstractListColumnProvi
         });
         columns.add(column);
 
-        //Has conditions (advanced rules only)
-        column = new ListColumn<Node>(new ClassResourceModel("doclisting-has-conditions", getClass()), "has-conditions");
-        column.setComparator(new UrlRewriterAttributeComparator() {
-            private static final long serialVersionUID = -4617312936280189361L;
-
-            @Override
-            protected int compare(UrlRewriterAttributes a1, UrlRewriterAttributes a2) {
-                return UrlRewriterListColumnProviderPlugin.this.compare(a1.hasConditions(), a2.hasConditions());
-            }
-        });
-        column.setCssClass("doclisting-rewrite-type");
-        column.setRenderer(new UrlRewriterAttributeRenderer() {
-            private static final long serialVersionUID = -1485899011687542362L;
-
-            @Override
-            protected String getObject(UrlRewriterAttributes attributes) {
-                return attributes.hasConditions() == null ? null : attributes.hasConditions().toString().toLowerCase();
-            }
-        });
-        columns.add(column);
-
         return columns;
     }
 
