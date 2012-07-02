@@ -93,7 +93,7 @@
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="urlrewriter-namespace-simplerule">
+  <sv:node sv:name="urlrewriter-namespace-rule">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
@@ -101,7 +101,7 @@
       <sv:value>19051.4</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/types/simplerule.xml</sv:value>
+      <sv:value>namespace/types/rule.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>

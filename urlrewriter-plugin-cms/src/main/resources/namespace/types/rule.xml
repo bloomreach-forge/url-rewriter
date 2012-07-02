@@ -16,7 +16,7 @@
     limitations under the License.
 
 -->
-<sv:node sv:name="simplerule" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
+<sv:node sv:name="rule" xmlns:sv="http://www.jcp.org/jcr/sv/1.0">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hipposysedit:templatetype</sv:value>
   </sv:property>
@@ -33,7 +33,7 @@
       <sv:value>en</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Simple Rule</sv:value>
+      <sv:value>Rule</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hippo:translation">
@@ -44,7 +44,7 @@
       <sv:value>nl</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Eenvoudige regel</sv:value>
+      <sv:value>Regel</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="hipposysedit:nodetype">
@@ -198,7 +198,7 @@
     </sv:property>
     <sv:node sv:name="hipposysedit:prototype">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>urlrewriter:simplerule</sv:value>
+        <sv:value>urlrewriter:rule</sv:value>
       </sv:property>
       <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
         <sv:value>hippo:harddocument</sv:value>
@@ -278,7 +278,7 @@
         <sv:value>validator.id</sv:value>
       </sv:property>
       <sv:property sv:name="type" sv:type="String">
-        <sv:value>urlrewriter:simplerule</sv:value>
+        <sv:value>urlrewriter:rule</sv:value>
       </sv:property>
       <sv:node sv:name="translator">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
