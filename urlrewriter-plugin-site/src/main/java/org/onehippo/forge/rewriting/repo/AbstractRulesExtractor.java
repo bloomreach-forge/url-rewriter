@@ -107,13 +107,18 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
     }
 
     /**
-     * Creates a condition for the domain
+     * Creates conditions for the scheme and domain
      *
+     * @param scheme String holding the scheme
      * @param domain String holding the domain
+     * @param port Integer holding the port
      * @return An xml representation of the rule condition
      */
-    protected String createDomainCondition(final String domain, final int port) {
+    protected String createSchemeAndDomainCondition(final String scheme, final String domain, final int port) {
         return new StringBuilder()
+                .append("<condition type=\"scheme\" operator=\"equal\" next=\"and\">")
+                .append(scheme)
+                .append("</condition>")
                 .append("<condition type=\"header\" name=\"host\" operator=\"equal\" next=\"and\">")
                 .append(domain)
                 .append((port != -1) ? (":" + port) : "")

@@ -59,7 +59,7 @@ public class UrlRewriteUtils {
         try {
             if (url.startsWith("/")) {
                 return new URL("http", null, -1, url);
-            } else if(url.startsWith("http://")) {
+            } else if(url.matches("^https?://.*")) {
                 return new URL(url);
             } else {
                 return new URL("http://" + url);

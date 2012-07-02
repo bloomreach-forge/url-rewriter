@@ -76,10 +76,11 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
                 .append(StringUtils.isBlank(ruleDescription) ? "" : ((StringUtils.isBlank(ruleName) ? "" : " - ") + ruleDescription))
                 .append("</name>");
 
+        String scheme = urlFrom.getProtocol();
         String domain = urlFrom.getHost();
         int port = urlFrom.getPort();
-        if(domain != null){
-            builder.append(createDomainCondition(domain, port));
+        if(scheme != null && domain != null){
+            builder.append(createSchemeAndDomainCondition(scheme, domain, port));
         }
 
         builder.append(ruleFrom)
