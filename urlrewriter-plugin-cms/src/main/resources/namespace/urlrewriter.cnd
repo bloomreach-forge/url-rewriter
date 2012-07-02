@@ -8,7 +8,7 @@
 
 [urlrewriter:advancedrule] > urlrewriter:basedocument, hippostd:relaxed orderable
 
-[urlrewriter:simplerule] > urlrewriter:basedocument, hippostd:relaxed orderable
+[urlrewriter:rule] > urlrewriter:basedocument, hippostd:relaxed orderable
 
 [urlrewriter:xmlrule] > urlrewriter:basedocument, hippostd:relaxed orderable
 
