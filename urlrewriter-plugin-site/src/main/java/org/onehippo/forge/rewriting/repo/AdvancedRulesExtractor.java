@@ -52,12 +52,6 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
             return null;
         }
 
-        URL urlFrom = UrlRewriteUtils.parseUrl(ruleFrom);
-        if(urlFrom == null){
-            return null;
-        }
-        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
-
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
         boolean isWildCardType= extractBooleanProperty(ruleNode, UrlRewriteConstants.IS_WILDCARD_TYPE_PROPERTY);
@@ -83,12 +77,6 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
         String conditions = parseConditionals(ruleNode);
         if (conditions != null) {
             builder.append(conditions);
-        }
-
-        String domain = urlFrom.getHost();
-        int port = urlFrom.getPort();
-        if(domain != null){
-            builder.append(createDomainCondition(domain, port));
         }
 
         builder.append(ruleFrom).append(ruleTo).append("</rule>");
