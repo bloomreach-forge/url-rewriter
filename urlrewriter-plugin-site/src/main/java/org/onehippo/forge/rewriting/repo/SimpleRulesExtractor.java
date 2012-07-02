@@ -65,8 +65,8 @@ public class SimpleRulesExtractor extends AbstractRulesExtractor {
                 new StringBuilder().append("<from>").append(ruleFrom).append("</from>").toString();
 
         ruleTo = type != null ?
-                new StringBuilder().append("<to type=\"").append(type).append("\">").append(ruleTo).append("</to>").toString():
-                new StringBuilder().append("<to type=\"").append(UrlRewriteConstants.DEFAULT_RULE_TYPE).append("\">").append(ruleTo).append("</to>").toString();
+                new StringBuilder().append("<to last=\"true\" type=\"").append(type).append("\">").append(ruleTo).append("</to>").toString():
+                new StringBuilder().append("<to last=\"true\" type=\"").append(UrlRewriteConstants.DEFAULT_RULE_TYPE).append("\">").append(ruleTo).append("</to>").toString();
 
 
         StringBuilder builder = new StringBuilder();
