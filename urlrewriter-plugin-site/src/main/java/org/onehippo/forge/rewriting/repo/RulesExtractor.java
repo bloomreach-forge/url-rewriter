@@ -31,14 +31,14 @@ import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 /**
  * @version $Id$
  */
-public class SimpleRulesExtractor extends AbstractRulesExtractor {
+public class RulesExtractor extends AbstractRulesExtractor {
 
-    private static Logger log = LoggerFactory.getLogger(SimpleRulesExtractor.class);
+    private static Logger log = LoggerFactory.getLogger(RulesExtractor.class);
 
     @Override
     public String extract(final Node ruleNode, final ServletContext context) throws RepositoryException {
 
-        if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_SIMPLERULE)){
+        if(! ruleNode.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULE)){
             return null;
         }
 

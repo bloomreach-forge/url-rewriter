@@ -24,7 +24,7 @@ public class UrlRewriteConstants {
     public static final String PRIMARY_TYPE_RULESET = "urlrewriter:ruleset";
     public static final String PRIMARY_TYPE_XMLRULE = "urlrewriter:xmlrule";
     public static final String PRIMARY_TYPE_ADVANCEDRULE = "urlrewriter:advancedrule";
-    public static final String PRIMARY_TYPE_SIMPLERULE = "urlrewriter:simplerule";
+    public static final String PRIMARY_TYPE_RULE = "urlrewriter:rule";
 
     public static final String IGNORE_CONTEXT_PATH_PROPERTY = "urlrewriter:ignorecontextpath";
     public static final Boolean IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE = true;
