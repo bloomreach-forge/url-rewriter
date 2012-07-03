@@ -110,9 +110,20 @@ public class RewritingManager {
                     Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
                     UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE;
 
+            boolean useQueryString = rootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
+                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
+                    UrlRewriteConstants.USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE;
+
             //Start recursion
             rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG);
-            rules.append(UrlRewriteConstants.XML_START + (!ignoreContextPath ? " use-context=\"true\">" : ">"));
+            rules.append(UrlRewriteConstants.XML_START); 
+            if(!ignoreContextPath) {
+              rules.append(" use-context=\"true\"");
+            } 
+            if(useQueryString) {
+              rules.append(" use-query-string=\"true\"");
+            }
+            rules.append(">");
             load(rootNode, context, rules);
 
         } catch (Exception e) {

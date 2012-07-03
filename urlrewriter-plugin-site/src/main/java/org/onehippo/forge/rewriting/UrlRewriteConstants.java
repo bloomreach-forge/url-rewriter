@@ -28,6 +28,8 @@ public class UrlRewriteConstants {
 
     public static final String IGNORE_CONTEXT_PATH_PROPERTY = "urlrewriter:ignorecontextpath";
     public static final Boolean IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE = true;
+    public static final String USE_QUERY_STRING_PROPERTY = "urlrewriter:usequerystring";
+    public static final Boolean USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE = false;
     public static final String FROM_PROPERTY = "urlrewriter:rulefrom";
     public static final String TO_PROPERTY = "urlrewriter:ruleto";
     public static final String TYPE_PROPERTY = "urlrewriter:ruletype";
