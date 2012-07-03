@@ -580,7 +580,7 @@
             <sv:value>frontend:pluginconfig</sv:value>
           </sv:property>
           <sv:property sv:name="selectable.options" sv:type="String">
-            <sv:value>permanent-redirect,temporary-redirect</sv:value>
+            <sv:value>temporary-redirect,permanent-redirect</sv:value>
           </sv:property>
         </sv:node>
       </sv:node>
