@@ -147,7 +147,7 @@
       <sv:value>10078.1</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/browser/navigator.xml</sv:value>
+      <sv:value>config/cms/browser/navigator.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser</sv:value>
@@ -162,7 +162,7 @@
       <sv:value>10078.2</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/browser/urlrewriterTreeLoader.xml</sv:value>
+      <sv:value>config/cms/browser/urlrewriterTreeLoader.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser</sv:value>
@@ -177,7 +177,7 @@
       <sv:value>10078.3</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/pickers/folders/navigator.xml</sv:value>
+      <sv:value>config/cms/pickers/folders/navigator.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-pickers/folders</sv:value>
@@ -192,7 +192,7 @@
       <sv:value>10078.4</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/pickers/folders/urlrewriterTreeLoader.xml</sv:value>
+      <sv:value>config/cms/pickers/folders/urlrewriterTreeLoader.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-pickers/folders</sv:value>
@@ -207,7 +207,7 @@
       <sv:value>10078.5</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/static/configTranslator/translations/section-urlrewriter.xml</sv:value>
+      <sv:value>config/cms/static/configTranslator/translations/section-urlrewriter.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-static/configTranslator/hippostd:translations</sv:value>
@@ -222,7 +222,7 @@
       <sv:value>10078.6</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/tree-views/urlrewriter.xml</sv:value>
+      <sv:value>config/cms/tree-views/urlrewriter.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-tree-views</sv:value>
@@ -237,7 +237,7 @@
       <sv:value>90005</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/cms/folder-views/ruleset.xml</sv:value>
+      <sv:value>config/cms/folder-views/ruleset.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-folder-views</sv:value>
@@ -253,7 +253,7 @@
       <sv:value>20079.0</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/queries/templates/new-urlrewriter-document.xml</sv:value>
+      <sv:value>config/queries/templates/new-urlrewriter-document.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
@@ -267,7 +267,7 @@
       <sv:value>20079.2</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/queries/templates/new-urlrewriter-folder.xml</sv:value>
+      <sv:value>config/queries/templates/new-urlrewriter-folder.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
@@ -281,7 +281,7 @@
       <sv:value>20080</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/data/content.xml</sv:value>
+      <sv:value>data/content.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/content</sv:value>
