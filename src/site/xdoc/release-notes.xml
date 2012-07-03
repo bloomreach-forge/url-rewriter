@@ -42,8 +42,8 @@
       </subsection>
       <subsection name="1.01.04">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-271">HIPPLUG-271: Improve urlrewriter warnings</a></li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-355">HIPPLUG-355: URLRewriter should be on a stable version of upstream</a></li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-271">HIPPLUG-271</a> Improve urlrewriter warnings</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-355">HIPPLUG-355</a> URLRewriter should be on a stable version of upstream</li>
           <li>put sensible defaults in the installation instructions</li>
         </ul>
       </subsection>
