@@ -23,9 +23,21 @@
   </properties>
   <body>
     <section name="Release Notes">
-      <subsection name="1.02.00-alpha">
+      <subsection name="1.02.00">
+        <p>NB! Due to a document type refactor, version 1.02.00 is <b>incompatible</b> with 1.01.xx.</p>
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-354">HIPPLUG-354: URL rewriter issues. A wrapper issue for many improvements currently under development</a></li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-251</a> When moving/copying rules, the picker does not show the correct sections</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-417</a> Move hiding hippo:folders from cms-tree-views/documents to cms-tree-views/urlrewriter</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-418</a> Use delta merge feature for cms-browser/navigator node</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-250</a> Improve interface add low-tech option without regular expressions</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-351</a> Advanced rule  document type improvements</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-352</a> Ruledocuments should set last to true on the to attribute of the last rule within a ruleset document</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-363</a> Make rules orderable</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-378</a> Add a checkbox to support wildcard matching engine for the advanced rule set</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-421</a> Folder view too wide</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-375</a> Make it possible to set use-context to true</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-377</a> Parse ruleFrom field and extract domain condition</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-">HIPPLUG-384</a> Copyright is 2011, should be 2012</li>
         </ul>
       </subsection>
       <subsection name="1.01.04">
