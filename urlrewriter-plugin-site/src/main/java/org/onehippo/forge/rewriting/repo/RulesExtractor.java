@@ -58,11 +58,8 @@ public class RulesExtractor extends AbstractRulesExtractor {
         ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
-        boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
 
-        ruleFrom = caseSensitive ?
-                new StringBuilder().append("<from casesensitive=\"true\">").append(ruleFrom).append("</from>").toString() :
-                new StringBuilder().append("<from>").append(ruleFrom).append("</from>").toString();
+        ruleFrom = new StringBuilder().append("<from>").append(ruleFrom).append("</from>").toString();
 
         ruleTo = type != null ?
                 new StringBuilder().append("<to last=\"true\" type=\"").append(type).append("\">").append(ruleTo).append("</to>").toString():
