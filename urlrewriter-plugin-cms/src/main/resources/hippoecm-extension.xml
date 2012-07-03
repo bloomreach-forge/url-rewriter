@@ -139,18 +139,63 @@
   <!--
     URL rewriter view
   -->
-  <sv:node sv:name="configuration-frontend-cms-browser-browserplugin">
+  <sv:node sv:name="configuration-frontend-cms-browser-navigator">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>90000.1</sv:value> <!-- TODO Sequence numbers again -->
+      <sv:value>10078.1</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/treeloader/navigator.xml</sv:value>
+      <sv:value>namespace/config/cms/browser/navigator.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser/</sv:value>
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <sv:node sv:name="configuration-frontend-cms-browser-urlrewritertreeloader">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10078.2</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>namespace/config/cms/browser/urlrewriterTreeLoader.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <sv:node sv:name="configuration-frontend-cms-pickers-folders-navigator">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10078.3</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>namespace/config/cms/pickers/folders/navigator.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-pickers/folders</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <sv:node sv:name="configuration-frontend-cms-pickers-folders-urlrewritertreeloader">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10078.4</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>namespace/config/cms/pickers/folders/urlrewriterTreeLoader.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-pickers/folders</sv:value>
     </sv:property>
   </sv:node>
 
@@ -162,25 +207,10 @@
       <sv:value>10078.5</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/treeloader/section-urlrewriter.xml</sv:value>
+      <sv:value>namespace/config/cms/static/configTranslator/translations/section-urlrewriter.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-static/configTranslator/hippostd:translations/</sv:value>
-    </sv:property>
-  </sv:node>
-
-  <sv:node sv:name="configuration-frontend-cms-browser-urlrewritertreeloader">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.4</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/treeloader/urlrewriterTreeLoader.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser/</sv:value>
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-static/configTranslator/hippostd:translations</sv:value>
     </sv:property>
   </sv:node>
 
@@ -189,13 +219,28 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.3</sv:value>
+      <sv:value>10078.6</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/treeloader/urlrewriter.xml</sv:value>
+      <sv:value>namespace/config/cms/tree-views/urlrewriter.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-tree-views/</sv:value>
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-tree-views</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <sv:node sv:name="configuration-frontend-cms-folder-views-ruleset">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>90005</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>namespace/config/cms/folder-views/ruleset.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-folder-views</sv:value>
     </sv:property>
   </sv:node>
 
@@ -208,7 +253,7 @@
       <sv:value>20079.0</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/new-urlrewriter-document.xml</sv:value>
+      <sv:value>namespace/config/queries/templates/new-urlrewriter-document.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
@@ -222,7 +267,7 @@
       <sv:value>20079.2</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/new-urlrewriter-folder.xml</sv:value>
+      <sv:value>namespace/config/queries/templates/new-urlrewriter-folder.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
@@ -242,21 +287,4 @@
       <sv:value>/content</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="urlrewriter-folderview">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>90005</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/config/folderviews/urlrewriterfolder-folderview.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-folder-views</sv:value>
-    </sv:property>
-  </sv:node>
-
-
-
 </sv:node>
