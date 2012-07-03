@@ -62,8 +62,8 @@ public class RewritingManager {
     /**
      * Load rules for given path. If no path is provided, default will be used (configured in spring configuration)
      *
-     * @param context
-     * @param request
+     * @param context servlet context
+     * @param request servlet request
      * @param urlRewriteLocation absolute repository path
      */
     @Deprecated
@@ -75,8 +75,8 @@ public class RewritingManager {
     /**
     * Load rules for given path. If no path is provided, default will be used (configured in spring configuration)
     *
-    * @param context
-    * @param request
+    * @param context servlet context
+    * @param request servlet request
     * @param rewriteRulesLocation absolute repository path of the rules
     */
     public synchronized StringBuilder load(final ServletContext context, final ServletRequest request, final String rewriteRulesLocation) {
@@ -94,7 +94,8 @@ public class RewritingManager {
         log.debug("Loading rules from location {}", rulesLocation);
 
         Session session = null;
-        StringBuilder rules = null;
+        StringBuilder rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG);
+        rules.append(UrlRewriteConstants.XML_START);
         try {
             session = getSession();
             if (session == null) {
@@ -114,27 +115,26 @@ public class RewritingManager {
                     Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
                     UrlRewriteConstants.USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE;
 
-            //Start recursion
-            rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG);
-            rules.append(UrlRewriteConstants.XML_START); 
             if(!ignoreContextPath) {
               rules.append(" use-context=\"true\"");
-            } 
+            }
             if(useQueryString) {
               rules.append(" use-query-string=\"true\"");
             }
             rules.append(">");
+
+            // Start recursion
             load(rootNode, context, rules);
 
         } catch (Exception e) {
-            log.error("Error loading simple rewriting rules {}", e);
+            log.error("Error loading rewriting rules {}", e);
         } finally {
             closeSession(session);
         }
 
         rules.append(UrlRewriteConstants.XML_END);
 
-        //Update our state
+        // Update our state
         loadedRules = new StringBuilder(rules);
         needRefresh = false;
         lastLoadDate = new Date();
@@ -145,8 +145,8 @@ public class RewritingManager {
     /**
      * Load rules recursively starting from a urlrewriter:ruleset node
      *
-     * @param startNode
-     * @param context
+     * @param startNode configured starting location for rules
+     * @param context the servlet context
      * @param rules StringBuilder to load the rules in
      */
     private void load(final Node startNode, final ServletContext context, final StringBuilder rules) throws RepositoryException {
@@ -162,10 +162,9 @@ public class RewritingManager {
                     continue;
                 }
 
-                String rule = null;
-                for(RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
+                for (RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
                     try{
-                        rule = rulesExtractor.extract(node, context);
+                        String rule = rulesExtractor.extract(node, context);
                         if(rule != null){
                             rules.append(rule);
                         }
@@ -180,11 +179,10 @@ public class RewritingManager {
 
 
     protected Node getDocumentNode(Node wrapperNode) throws RepositoryException{
-        Node document = null;
         if (wrapperNode.isNodeType(HippoNodeType.NT_HANDLE)) {
             NodeIterator docs = wrapperNode.getNodes(wrapperNode.getName());
             while (docs.hasNext()) {
-                document = docs.nextNode();
+                Node document = docs.nextNode();
                 if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
                     String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
                     if ("published".equals(state)) {
@@ -217,7 +215,7 @@ public class RewritingManager {
         return lastLoadDate;
     }
 
-    private Session getSession() {
+    protected Session getSession() {
         Session session = null;
         try {
             session = repository.login(credentials);
@@ -227,7 +225,7 @@ public class RewritingManager {
         return session;
     }
 
-    private void closeSession(final Session session) {
+    protected void closeSession(final Session session) {
         if (session != null) {
             session.logout();
         }
