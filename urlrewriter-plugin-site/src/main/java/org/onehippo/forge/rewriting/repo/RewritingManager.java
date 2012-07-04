@@ -163,9 +163,10 @@ public class RewritingManager {
                     continue;
                 }
 
+                String rule;
                 for (RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
                     try{
-                        String rule = rulesExtractor.extract(node, context);
+                        rule = rulesExtractor.extract(node, context);
                         if(rule != null){
                             rules.append(rule);
                         }
@@ -182,8 +183,9 @@ public class RewritingManager {
     protected Node getDocumentNode(Node wrapperNode) throws RepositoryException{
         if (wrapperNode.isNodeType(HippoNodeType.NT_HANDLE)) {
             NodeIterator docs = wrapperNode.getNodes(wrapperNode.getName());
+            Node document;
             while (docs.hasNext()) {
-                Node document = docs.nextNode();
+                document = docs.nextNode();
                 if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
                     String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
                     if ("published".equals(state)) {
