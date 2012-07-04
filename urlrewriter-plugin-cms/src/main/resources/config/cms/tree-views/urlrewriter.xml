@@ -53,7 +53,7 @@
       <sv:value>/content/urlrewriter</sv:value>
     </sv:property>
     <sv:property sv:name="plugin.class" sv:type="String">
-      <sv:value>org.hippoecm.frontend.plugins.cms.browse.section.BrowsingSectionPlugin</sv:value>
+      <sv:value>org.hippoecm.frontend.plugins.cms.browse.section.SearchingSectionPlugin</sv:value>
     </sv:property>
     <sv:property sv:name="title" sv:type="String">
       <sv:value>section-urlrewriter</sv:value>
