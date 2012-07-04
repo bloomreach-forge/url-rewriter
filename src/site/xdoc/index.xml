@@ -23,15 +23,18 @@
   </properties>
   <body>
     <section name="Introduction">
-      <subsection name="What is Urlrewriter?">
+      <subsection name="What is URL Rewriter?">
         <p>
-          Urlrewriter is basically a redirect servlet filter that is an extension of the Paul Tuckey's UrlRewriteFilter,
-          but instead of a packaged xml file the filter is fed with data from CMS documents.<br/>
+          URL Rewriter is a servlet filter that is an extension of Paul Tuckey's UrlRewriteFilter,
+          but instead of a packaged xml file the filter is fed with data from CMS documents. So dynamically manageable
+          instead of statically!
+        </p>
+        <p>
           See A) <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html">urlrewritefilter.googlecode.com</a><br/>
           and B) <a href="http://www.tuckey.org">tuckey.org</a><br/>
         </p>
         <p>
-          The URL Rewrite Filter supports the following options:
+          The URL Rewriter supports the following options:
         </p>
         <ul>
           <li>temporary-redirect - Redirect with 302 response code</li>
