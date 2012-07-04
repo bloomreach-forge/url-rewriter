@@ -34,7 +34,7 @@
 <![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-cms</artifactId>
-  <version>${xxx}</version>
+  <version>${forge.urlrewriter.version}</version>
 </dependency>]]>
         </source>
         <p>Add HST plugin to your project:</p>
@@ -42,7 +42,7 @@
 <![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-hst</artifactId>
-  <version>${xxx}</version>
+  <version>${forge.urlrewriter.version}</version>
 </dependency>]]>
         </source>
         <p>Configure site web.xml filter</p>

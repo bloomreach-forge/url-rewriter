@@ -25,14 +25,19 @@
     <section name="Introduction">
       <subsection name="What is Urlrewriter?">
         <p>
-          Urlrewriter is a redirect servlet Filter.
+          Urlrewriter is basically a redirect servlet filter that is an extension of the Paul Tuckey's UrlRewriteFilter,
+          but instead of a packaged xml file the filter is fed with data from CMS documents.<br/>
+          See A) <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html">urlrewritefilter.googlecode.com</a><br/>
+          and B) <a href="http://www.tuckey.org">tuckey.org</a><br/>
+        </p>
+        <p>
           The URL Rewrite Filter supports the following options:
         </p>
         <ul>
-          <li>redirect - Requests matching the "conditions" and the "from" for this rule will be HTTP redirected</li>
-          <li>forward - Requests matching the "conditions" for this "rule", and the URL in the "from" element will be internally forwarded to the URL specified in the "to" element.</li>
-          <li>permanent-redirect - Redirect with 301 response code</li>
           <li>temporary-redirect - Redirect with 302 response code</li>
+          <li>permanent-redirect - Redirect with 301 response code</li>
+          <li>forward - Requests matching the "conditions" for this "rule", and the URL in the "from" element will be internally forwarded to the URL specified in the "to" element.</li>
+          <li>redirect - Requests matching the "conditions" and the "from" for this rule will be HTTP redirected</li>
           <li>pre-include</li>
           <li>post-include</li>
           <li>proxy - The request will be proxied to the full url specified.</li>
