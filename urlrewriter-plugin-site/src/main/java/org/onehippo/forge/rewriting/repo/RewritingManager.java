@@ -152,8 +152,9 @@ public class RewritingManager {
     private void load(final Node startNode, final ServletContext context, final StringBuilder rules) throws RepositoryException {
 
         NodeIterator nodes = startNode.getNodes();
+        Node node;
         while (nodes.hasNext()) {
-            Node node = nodes.nextNode();
+            node = nodes.nextNode();
             if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
                 load(node, context, rules);
             } else {
