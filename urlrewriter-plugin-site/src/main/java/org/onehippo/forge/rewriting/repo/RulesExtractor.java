@@ -55,7 +55,7 @@ public class RulesExtractor extends AbstractRulesExtractor {
         if(urlFrom == null){
             return null;
         }
-        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
+        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "/");
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
 
