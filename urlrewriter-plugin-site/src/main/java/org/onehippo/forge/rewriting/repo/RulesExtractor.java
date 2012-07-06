@@ -55,11 +55,11 @@ public class RulesExtractor extends AbstractRulesExtractor {
         if(urlFrom == null){
             return null;
         }
-        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "/");
+        ruleFrom = urlFrom.getFile() + (!StringUtils.isBlank(urlFrom.getRef()) ? "#" + urlFrom.getRef() : "");
 
         String type = extractProperty(ruleNode, UrlRewriteConstants.TYPE_PROPERTY);
 
-        ruleFrom = new StringBuilder().append("<from>").append(ruleFrom).append("</from>").toString();
+        ruleFrom = new StringBuilder().append("<from>").append((StringUtils.isBlank(ruleFrom)) ? "/" : ruleFrom).append("</from>").toString();
 
         ruleTo = type != null ?
                 new StringBuilder().append("<to last=\"true\" type=\"").append(type).append("\">").append(ruleTo).append("</to>").toString():
