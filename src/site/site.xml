@@ -38,12 +38,21 @@
       <item name="Introduction" href="/index.html"/>
       <item name="Release Notes" href="/release-notes.html"/>
     </menu>
+
     <menu name="Usage">
       <item name="Installation" href="/install.html"/>
       <item name="Build from source" href="/build-from-source.html"/>
+      <item name="Using the URLRewriter" href="/using-the-urlrewriter.html">
+        <item name="Rule" href="/rules/rule.html"/>
+        <item name="Advanced Rule" href="/rules/advanced-rule.html">
+          <item name="Conditions" href="/rules/conditions.html"/>
+        </item>
+        <item name="XML Rule" href="/rules/xml-rule.html"/>
+      </item>      
     </menu>
 
     <menu name="Auto generated docs" ref="reports"/>
+
   </body>
 
 </project>

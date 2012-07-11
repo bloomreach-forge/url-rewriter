@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright (C) 2011 - 2012 Hippo
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Rule</title>
+  </properties>
+  <body>
+    <section name="Rule">
+      <subsection name="Overview">
+        <p>
+          This type of rule will present you with three input fields and a checkbox, namely:
+        </p>
+        <pre>
+  - Description
+  - From
+  - To
+  - Type 
+        </pre>
+      </subsection>
+      <subsection name="Description">
+        <p>
+          This field is meant to provide a clear description of the rule, so it's clear for other people what it does and why it was created. This will also help you to find it later using the search.         
+        </p>
+      </subsection>
+      <subsection name="From">
+        <p>
+          Here you can enter the URL that must be rewritten. The URL must either start with a '/' or be fully qualified, i.e. starting with http(s)://
+          The URL may contain 'wildcards' * will match any single element, ** will match all elements. For example:
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>URL</th>
+            <th>Explanation</th>
+          </tr>
+          <tr>
+            <td>/abc</td>
+            <td>This will match the URL /abc</td>
+          </tr>
+          <tr>
+            <td>/abc/*</td>
+            <td>This will match the URL /abc/def, but not /abc/def/ghi</td>
+          </tr>         
+          <tr>
+            <td>/abc/**</td>
+            <td>This will match any URL starting with /abc</td>
+          </tr>
+          <tr>
+            <td>http://www.example.com/abc/**/*.html</td>
+            <td>This will match any URL starting with /abc/, and ending with .html, but only if the requested domain is www.example.com</td>
+          </tr>          
+        </table>
+      </subsection>
+      <subsection name="To">
+        <p>
+          This field takes the URL where the above URL should be rewritten to. Any occurrence of a wildcard (* or **) in the from field can be referenced here as $N.
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>From field</th>
+            <th>To field</th>
+            <th>Explanation</th>
+          </tr>
+            <tr>
+            <td>/abc</td>
+            <td>/def</td>
+            <td>This rewrite the URL /abc to /def</td>
+          </tr>          
+          <tr>
+            <td>/abc/*.html</td>
+            <td>http://www.example.com/def/$1.html</td>
+            <td>This will rewrite /abc/somedocument.html to http://www.example.com/def/somedocument.html</td>
+          </tr>          
+        </table>
+      </subsection>
+      <subsection name="Rule Type">
+        What type of redirect should take place.
+        <table cellspacing="0">
+          <tr>
+            <th>Rule Type</th>
+            <th>HTTP status code</th>
+            <th>Explanation</th>
+          </tr>
+            <tr>
+            <td>temporary-redirect</td>
+            <td>302</td>
+            <td>This will tell browsers (and search engines) to keep requesting the original URL as this redirect is only temporary</td>
+          </tr>          
+          <tr>
+            <td>permanent-redirect</td>
+            <td>301</td>
+            <td>This will tell browser (and search engines) that the requeste URL has permanently moved, so they can update their caches and from now on directly request the new URL.</td>
+          </tr>          
+        </table>
+      </subsection>
+    </section>
+  </body>
+</document>

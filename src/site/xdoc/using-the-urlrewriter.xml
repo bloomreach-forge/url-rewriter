@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright (C) 2011 - 2012 Hippo
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Using the URLRewriter</title>
+  </properties>
+  <body>
+    <section name="Using the URLRewriter">
+      <subsection name="Overview">
+        <p>
+          In the CMS, in the document section there should be an extra harmonica called 'URLrewriter'. When you click one of folders you will see an overview of the rules with some extra information like the from, to and type of redirect. Note that this does not display the conditions, or even if there are any. The rules will be processed in the order they appear, so keep this in mind when creating rules of different depth. For example, the rule rewriting /abc should come after the rule rewriting /abc/def.
+        </p>
+      </subsection>
+      <subsection name="Global Configuration">
+        <p>
+          On the rulesLocation node (default: /content/urlrewriter) you can set some properties which will affect all rules.          
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>Property</th>
+            <th>Explanation</th>
+            <th>default</th>
+          </tr>
+          <tr>
+            <td>urlrewriter:ignorecontextpath</td>
+            <td>setting this to false will require you to prefix all the URLs you want to match with the contextpath, use this if you don't strip the context path from your URLs</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>urlrewriter:usequerystring</td>
+            <td>when set to true, the query string is taken into account when matching URLs</td>
+            <td>false</td>
+          </tr>
+        </table>       
+      </subsection>
+      <subsection name="Adding Rules">
+        <p>
+          When creating a new rule, there are three options:        
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>Rule Type</th>
+            <th>Explanation</th>
+          </tr>
+          <tr>
+            <td><a href="rules/rule.html">Rule</a></td>
+            <td>This type is the most simple to use, and should cover most usecases</td>
+          </tr>
+          <tr>
+            <td><a href="rules/advanced-rule.html">Advanced Rule</a></td>
+            <td>This type supports conditional rewrites and is regular expression based</td>
+          </tr>
+          <tr>
+            <td><a href="rules/xml-rule.html">XML Rule</a></td>
+            <td>Here you can add XML Rules in the format supported by the underlying software, <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html">Paul Tuckey's Url Rewrite Filter</a></td>
+          </tr>
+        </table>
+      </subsection>
+    </section>
+  </body>
+</document>

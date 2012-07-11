@@ -2,4 +2,9 @@
 /LICENSE -text
 /NOTICE -text
 src/etc/license.txt -text
+src/site/xdoc/rules/advanced-rule.xml -text
+src/site/xdoc/rules/conditions.xml -text
+src/site/xdoc/rules/rule.xml -text
+src/site/xdoc/rules/xml-rule.xml -text
+src/site/xdoc/using-the-urlrewriter.xml -text
 urlrewriter-plugin-cms/src/main/resources/namespace/urlrewriter.cnd -text

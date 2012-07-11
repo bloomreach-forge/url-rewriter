@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright (C) 2011 - 2012 Hippo
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Advanced Rule</title>
+  </properties>
+  <body>
+    <section name="Advanced Rule">
+      <subsection name="Overview">
+        <p>
+          This type of rule will present you with three input fiels and a couple of checkboxes, namely:
+        </p>
+        <pre>
+  - Description
+  - Conditions
+  - From
+  - To
+  - Case Sensitive
+  - Type 
+  - Use Wildcard Matching
+  - Process other rules
+        </pre>
+      </subsection>
+      <subsection name="Description">
+        <p>
+          This field is meant to provide a clear description of the rule, so it's clear for other people what it does and why it was created. This will also help you to find it later using the search.         
+        </p>
+      </subsection>
+      <subsection name="Conditions">
+        <p>
+          These conditions must match for this rule to be processed, click <a href="/rules/conditions.html">here</a> for the documentation.
+        </p>
+      </subsection>
+      <subsection name="From">
+        <p>
+          Here you can enter the URL that must be rewritten as a regular expression.
+        </p>
+      </subsection>
+      <subsection name="To">
+        <p>
+          This field takes the URL where the above URL should be rewritten to. It can contain backreferences, variables and functions.
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>Backreference</th>
+            <th>Explanation</th>
+          </tr>
+          <tr>
+            <td>$N</td>
+            <td>Provides access to the grouped parts (parentheses) of the pattern from the 'From' field.</td>
+          </tr>
+          <tr>
+            <td>%N</td>
+            <td>Provides access to the grouped parts (parentheses) of the pattern from the last matched Condition in the current rule.</td>
+          </tr>
+        </table>
+        <table cellspacing="0">
+          <tr>
+            <th>Variable</th>
+            <th>Example</th>
+          </tr>
+          <tr>
+            <td>%{scheme}</td>
+            <td>Will return either http or https. Any valid condition type can be used as a variable name.</td>
+          </tr>
+        </table>
+        <table cellspacing="0">
+          <tr>
+            <th>Function</th>
+            <th>Example</th>
+            <th>Example would return</th>
+          </tr>
+          <tr>
+            <td>replace</td>
+            <td><code>${replace:my cat is a blue cat:cat:dog}</code></td>
+            <td>my dog is a blue dog</td>
+          </tr>
+          <tr>
+            <td>replaceFirst</td>
+            <td><code>${replaceFirst:my cat is a blue cat:cat:dog}</code></td>
+            <td>my cat is a blue dog</td>
+          </tr>
+          <tr>
+            <td>escape</td>
+            <td><code>${escape:a b c}</code></td>
+            <td>a+b+c</td>
+          </tr>
+          <tr>
+            <td>unescape</td>
+            <td><code>${unescape:a+b+c}</code></td>
+            <td>a b c</td>
+          </tr>
+          <tr>
+            <td>lower</td>
+            <td><code>${lower:Hello World}</code></td>
+            <td>hello world</td>
+          </tr>
+          <tr>
+            <td>upper</td>
+            <td><code>${upper:hello}</code></td>
+            <td>HELLO</td>
+          </tr>
+          <tr>
+            <td>trim</td>
+            <td><code>${trim: abc def }</code></td>
+            <td>abc def</td>
+          </tr>
+        </table>   
+      </subsection>
+      <subsection name="Case Sensitive">
+        <p>
+          Tick this checkbox to take the case of the URL that is matched into account. 
+        </p>
+      </subsection>
+      <subsection name="Type">
+        <p>
+          What type of redirect should take place.
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>Rule Type</th>
+            <th>HTTP status code</th>
+            <th>Explanation</th>
+          </tr>
+            <tr>
+            <td>temporary-redirect</td>
+            <td>Redirect with 302 response code</td>
+          </tr>          
+          <tr>
+            <td>permanent-redirect</td>
+            <td>Redirect with 301 response code</td>
+          </tr>
+          <tr>
+            <td>forward</td>
+            <td>Requests matching the "conditions" for this "rule", and the URL in the "from" element will be internally forwarded to the URL specified in the "to" element.</td>
+          </tr>
+          <tr>
+            <td>redirect</td>
+            <td>Requests matching the "conditions" and the "from" for this rule will be HTTP redirected</td>
+          </tr>
+          <tr>
+            <td>pre-include</td>
+            <td></td>
+          </tr> 
+          <tr>
+            <td>post-include</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>proxy</td>
+            <td>The request will be proxied to the full url specified</td>
+          </tr>            
+        </table>
+      </subsection>
+      <subsection name="Use Wildcard Matching">
+        <p>
+          Use wildcard matching instead of regular expressions. A single wildcard (*) will match any single element, ** will match all elements.
+        </p>
+      </subsection>
+      <subsection name="Process other rules">
+        <p>
+          Other rules will be processed after this one succeeds, same as the 'last' flag of Apache's mod_rewrite. 
+        </p>
+      </subsection>
+    </section>
+  </body>
+</document>

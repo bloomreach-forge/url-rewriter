@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!--
+
+    Copyright (C) 2011 - 2012 Hippo
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+  <properties>
+    <title>Conditions</title>
+  </properties>
+  <body>
+    <section name="Conditions">
+      <subsection name="Conditions">
+        <p>
+          Either one or all conditions must match for a rule to be evaluated. Conditions can be ordered.  
+        </p>
+      </subsection>
+      <subsection name="Type">
+        <p>
+          What we are evaluating.         
+        </p>
+        <table cellspacing="0">
+          <tr>
+          <th>Type</th>
+          <th>Explanation</th>
+          </tr>
+          <tr>
+            <td>header</td>
+            <td>If used, the header name must be specified in the "name" attribute.</td>
+          </tr>
+          <tr>
+            <td>method</td>
+            <td>The method of the request. GET, POST, HEAD etc.</td>
+          </tr>
+          <tr>
+            <td>port</td>
+            <td>The port that the web application server is running on.</td>
+          </tr>
+          <tr>
+            <td>time</td>
+            <td>Current time at the server (this will be the number of seconds since 00:00:00 1970-01-01 UTC otherwise known as unix time). i.e. (new Date()).getTime() This can be used for making sure content goes live only at a time you set.</td>
+          </tr>
+          <tr>
+            <td>year</td>
+            <td>Current year at the server. i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#YEAR">YEAR</a>)</td>
+          </tr>
+          <tr>
+            <td>month</td>
+            <td>Month at the server. January is 0 i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#MONTH">MONTH</a>)</td>
+          </tr>
+          <tr>
+            <td>dayofmonth</td>
+            <td>Day of the month at the server. March first is 1 i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#DAY_OF_MONTH">DAY_OF_MONTH</a>)</td>
+          </tr>
+          <tr>
+            <td>dayofweek</td>
+            <td>Day of the week at the server. Saturday is 1, Sunday is 7 i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#DAY_OF_WEEK">DAY_OF_WEEK</a>)</td>
+          </tr>
+          <tr>
+            <td>ampm</td>
+            <td>AM or PM time at the server. i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#AM_PM">AM_PM</a>)</td>
+          </tr>
+          <tr>
+            <td>hourofday</td>
+            <td>The hour of the day (24 hour clock) at the server. 10pm is 22 i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#HOUR_OF_DAY">HOUR_OF_DAY</a>)</td>
+          </tr>
+          <tr>
+            <td>minute</td>
+            <td>The minute field of the current time at the server. i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#MINUTE">MINUTE</a>)</td>
+          </tr>
+          <tr>
+            <td>second</td>
+            <td>The second field of the current time at the server. i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#SECOND">SECOND</a>)</td>
+          </tr>
+          <tr>
+            <td>millisecond</td>
+            <td>The millisecond field of the current time at the server. i.e. (Calendar.getInstance()).get(Calendar.<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/util/Calendar.html#MILLISECOND">MILLISECOND</a>)</td>
+          </tr>
+          <tr>
+            <td>attribute</td>
+            <td>Will check the value of a request attribute (don't confuse this with parameter!), name must be set when using this type. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getAttribute(java.lang.String)">getAttribute</a>([name])</td>
+          </tr>
+          <tr>
+            <td>auth-type</td>
+            <td>Will check the value of a request attribute (don't confuse this with parameter!) i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getAuthType()">getAuthType</a>()</td>
+          </tr>
+          <tr>
+            <td>character-encoding</td>
+            <td>The character encoding of the imcoming request. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getCharacterEncoding()">getCharacterEncoding</a>()</td>
+          </tr>
+          <tr>
+            <td>content-length</td>
+            <td>The length of the imcoming request (can be useful if you want to deny large requests). i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getContentLength()">getContentLength</a>()</td>
+          </tr>
+          <tr>
+            <td>content-type</td>
+            <td>The type of the imcoming request. (this is probably not that useful) i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getContentType()">getContentType</a>()</td>
+          </tr>
+          <tr>
+            <td>context-path</td>
+            <td>The context path of the imcoming request. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getContextPath()">getContextPath</a>()</td>
+          </tr>
+          <tr>
+            <td>cookie</td>
+            <td>The value of a cookie, note, name must be specified to use this i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getCookies()">getCookies</a>() the find we the one with [name] specified and check the value.</td>
+          </tr>
+          <tr>
+            <td>parameter</td>
+            <td>A tidier way of checking request parameters than looking for them in the query string. This will check for the parameter in GET or POST, note, name must be specified. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getParameter(java.lang.String)">getParameter</a>([name])</td>
+          </tr>
+          <tr>
+            <td>path-info</td>
+            <td>i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getPathInfo()">getPathInfo</a>()</td>
+          </tr>
+          <tr>
+            <td>path-translated</td>
+            <td>i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getPathTranslated()">getPathTranslated</a>()</td>
+          </tr>
+          <tr>
+            <td>protocol</td>
+            <td>The protocol used to make the request, e.g. HTTP/1.1 i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getProtocol()">getProtocol</a>()</td>
+          </tr>
+          <tr>
+            <td>query-string</td>
+            <td>The query string used to make the request (if any), e.g. <![CDATA[id=2345&name=bob]]> i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getQueryString()">getQueryString</a>()</td>
+          </tr>
+          <tr>
+            <td>remote-addr</td>
+            <td>The IP address of the host making the request, e.g. 123.123.123.12 i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getRemoteAddr()">getRemoteAddr</a>()</td>
+          </tr>
+          <tr>
+            <td>remote-host</td>
+            <td>The host name of the host making the request, e.g. 123qw-dsl.att.com (note, this will only work if your app server is configured to lookup host names, most aren't). i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getRemoteHost()">getRemoteHost</a>()</td>
+          </tr>
+          <tr>
+            <td>remote-user</td>
+            <td>The login of the user making this request, if the user has been authenticated, e.g. bobt i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getRemoteUser()">getRemoteUser</a>()</td>
+          </tr>
+          <tr>
+            <td>requested-session-id</td>
+            <td>Returns the session ID specified by the client, e.g. 2344asd234sada4 i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getRequestedSessionId()">getRequestedSessionId</a>()</td>
+          </tr>
+          <tr>
+            <td>requested-session-id-from-cookie</td>
+            <td>Whether the requested session ID is from a cookie or not i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#isRequestedSessionIdFromCookie()">isRequestedSessionIdFromCookie</a>()</td>
+          </tr>
+          <tr>
+            <td>requested-session-id-from-url</td>
+            <td>Whether the requested session ID is from the URL or not i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#isRequestedSessionIdFromURL()">isRequestedSessionIdFromURL</a>()</td>
+          </tr>
+          <tr>
+            <td>requested-session-id-valid</td>
+            <td>Whether the requested session ID is valid or not i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#isRequestedSessionIdValid()">isRequestedSessionIdValid</a>()</td>
+          </tr>
+          <tr>
+            <td>request-uri</td>
+            <td>Returns the part of this request's URL from the protocol name up to the query string in the first line of the HTTP request i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getRequestURI()">getRequestURI()</a></td>
+          </tr>
+          <tr>
+            <td>request-url</td>
+            <td>Reconstructs the URL the client used to make the request. The returned URL contains a protocol, server name, port number, and server path, but it does not include query string parameters. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#getRequestURL()">getRequestURL()</a></td>
+          </tr>
+          <tr>
+            <td>session-attribute</td>
+            <td>(note, name must be set) i.e. session.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpSession.html#getAttribute(java.lang.String)">getAttribute([name])</a></td>
+          </tr>
+          <tr>
+            <td>session-isnew</td>
+            <td>Weather the session is new or not. i.e. session.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpSession.html#isNew()">isNew()</a></td>
+          </tr>
+          <tr>
+            <td>server-name</td>
+            <td>The host name of the server to which the request was sent (from the host header not the machine name). i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getServerName()">getServerName()</a></td>
+          </tr>
+          <tr>
+            <td>scheme</td>
+            <td>The scheme used for the request, e.g. http or https i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getScheme()">getScheme()</a></td>
+          </tr>
+          <tr>
+            <td>user-in-role</td>
+            <td>(Note, the value for this cannot be a regular expression) i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/http/HttpServletRequest.html#isUserInRole(java.lang.String)">isUserInRole([value])</a></td>
+          </tr>
+        </table>
+      </subsection>
+      <subsection name="Type parameter">
+        <p>
+          The following types require an extra parameter
+        </p>
+        <table cellspacing="0">
+          <tr>
+            <th>Type</th>
+            <th>Parameter</th>
+          </tr>
+          <tr>
+            <td>header</td>
+            <td>The name of the header to evaluate</td>
+          </tr>
+          <tr>
+            <td>attribute</td>
+            <td>The name of the request attribute to evaluate</td>
+          </tr>         
+          <tr>
+            <td>cookie</td>
+            <td>The name of the cookie to evaluate</td>
+          </tr>
+          <tr>
+            <td>parameter</td>
+            <td>The name of the request parameter to evaluate</td>
+          </tr>          
+          <tr>
+            <td>session-attribute</td>
+            <td>The name of the session-attribute to evaluate</td>
+          </tr>
+        </table>
+      </subsection>
+      <subsection name="Operator">
+        <p>
+          Which operator to use when evaluating the condition.  
+        </p>
+      </subsection>
+      <subsection name="Value">
+        <p>
+          Which value to run against the type.
+        </p>
+      </subsection>
+      <subsection name="Operator for the next condition">
+        <p>
+          Whether this *and* the next condition must match, or whether this *or* the next condition must match.
+        </p>
+      </subsection>
+    </section>
+  </body>
+</document>
