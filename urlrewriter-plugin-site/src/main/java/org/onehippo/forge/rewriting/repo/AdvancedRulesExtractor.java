@@ -15,8 +15,6 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
-import java.net.URL;
-
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
