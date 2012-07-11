@@ -29,6 +29,10 @@
         </p>
       </subsection>
       <subsection name="Installing into your project">
+        <p>Specify the version in the properties section of your project:</p>
+        <source>
+<![CDATA[<forge.urlrewriter.version>1.02.xx</forge.urlrewriter.version>]]>
+        </source>
         <p>Add CMS plugin to your project:</p>
         <source>
 <![CDATA[<dependency>

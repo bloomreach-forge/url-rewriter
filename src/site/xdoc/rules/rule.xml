@@ -59,10 +59,10 @@
           </tr>         
           <tr>
             <td>/abc/**</td>
-            <td>This will match any URL starting with /abc</td>
+            <td>This will match any URL starting with /abc/</td>
           </tr>
           <tr>
-            <td>http://www.example.com/abc/**/*.html</td>
+            <td>http://www.example.com/abc/**.html</td>
             <td>This will match any URL starting with /abc/, and ending with .html, but only if the requested domain is www.example.com</td>
           </tr>          
         </table>
@@ -80,7 +80,7 @@
             <tr>
             <td>/abc</td>
             <td>/def</td>
-            <td>This rewrite the URL /abc to /def</td>
+            <td>This will rewrite the URL /abc to /def</td>
           </tr>          
           <tr>
             <td>/abc/*.html</td>
