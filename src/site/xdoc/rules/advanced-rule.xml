@@ -176,7 +176,7 @@
       </subsection>
       <subsection name="Process other rules">
         <p>
-          Other rules will be processed after this one succeeds, same as the 'last' flag of Apache's mod_rewrite. 
+          Other rules will be processed after this one succeeds, same as not specifying the 'last' flag for Apache HTTPD mod_rewrite. 
         </p>
       </subsection>
     </section>
