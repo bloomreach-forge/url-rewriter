@@ -15,7 +15,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <urlrewritefilter.version>3.2.0</urlrewritefilter.version>
+    <urlrewritefilter.version>4.0.3</urlrewritefilter.version>
     <hippo.repository.api.version>2.22.05</hippo.repository.api.version>
     <hippo.cms.api.version>2.22.05</hippo.cms.api.version>
     <jackrabbit.version>2.2.10-h2</jackrabbit.version>
