@@ -95,7 +95,7 @@
           <tr>
             <td>replaceFirst</td>
             <td><code>${replaceFirst:my cat is a blue cat:cat:dog}</code></td>
-            <td>my cat is a blue dog</td>
+            <td>my dog is a blue cat</td>
           </tr>
           <tr>
             <td>escape</td>
