@@ -62,11 +62,11 @@
           </tr>
           <tr>
             <td><a href="rules/rule.html">Rule</a></td>
-            <td>This type is the most simple to use, and should cover most usecases</td>
+            <td>This type is the most simple to use, and should cover all the common usecases</td>
           </tr>
           <tr>
             <td><a href="rules/advanced-rule.html">Advanced Rule</a></td>
-            <td>This type supports conditional rewrites and is regular expression based</td>
+            <td>This type supports conditional rewrites and is regular expression based. It should be able to cover almost any usecase.</td>
           </tr>
           <tr>
             <td><a href="rules/xml-rule.html">XML Rule</a></td>
