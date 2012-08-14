@@ -121,6 +121,9 @@ public class RewritingManager {
             if(useQueryString) {
               rules.append(" use-query-string=\"true\"");
             }
+            // HIPPLUG-476: always disable decoding as it can interfer with hst encodings
+            rules.append(" decode-using=\"null\"");
+
             rules.append(">");
 
             // Start recursion
