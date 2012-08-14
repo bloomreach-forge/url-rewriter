@@ -23,6 +23,11 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.02.02">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a> don't decode urls as it can conflict with the hst</li>
+        </ul>
+      </subsection>
       <subsection name="1.02.01">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a> harmonica tab does not have "Add root folder" button</li>
