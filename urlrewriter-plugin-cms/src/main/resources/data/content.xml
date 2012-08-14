@@ -18,7 +18,7 @@
 -->
 <sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" sv:name="urlrewriter">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
-    <sv:value>hippostd:directory</sv:value>
+    <sv:value>hippostd:folder</sv:value>
   </sv:property>
   <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
     <sv:value>hippo:harddocument</sv:value>
