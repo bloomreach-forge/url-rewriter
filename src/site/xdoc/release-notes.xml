@@ -23,6 +23,13 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <!--
+      <subsection name="1.02.03">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a> improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error</li>
+        </ul>
+      </subsection>
+      -->
       <subsection name="1.02.02">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a> don't decode urls as it can conflict with the hst</li>
