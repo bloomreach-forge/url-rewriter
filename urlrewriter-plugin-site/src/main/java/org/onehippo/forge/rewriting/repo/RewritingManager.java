@@ -15,6 +15,7 @@
  */
 package org.onehippo.forge.rewriting.repo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -154,11 +155,16 @@ public class RewritingManager {
      */
     private void load(final Node startNode, final ServletContext context, final StringBuilder rules) throws RepositoryException {
 
-        NodeIterator nodes = startNode.getNodes();
-        Node node;
+        final List<String> version101Documents = new ArrayList<String>();
+
+        final NodeIterator nodes = startNode.getNodes();
         while (nodes.hasNext()) {
-            node = nodes.nextNode();
-            if(node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)){
+            Node node = nodes.nextNode();
+
+            // version 1.02.xx ruleset is a folder, version 1.01.xx used standard folders
+            if (node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_RULESET)
+                    || node.isNodeType(HippoStdNodeType.NT_FOLDER)
+                    || node.isNodeType(HippoStdNodeType.NT_DIRECTORY)){
                 load(node, context, rules);
             } else {
                 node = getDocumentNode(node);
@@ -166,19 +172,48 @@ public class RewritingManager {
                     continue;
                 }
 
-                String rule;
-                for (RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
-                    try{
-                        rule = rulesExtractor.extract(node, context);
-                        if(rule != null){
-                            rules.append(rule);
+                // ..but in 1.01.xx version, the ruleset was a document
+                if (node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_101xx_RULESET_DOCUMENT)
+                    || node.isNodeType(UrlRewriteConstants.PRIMARY_TYPE_101xx_RULESETXML_DOCUMENT)) {
+                    version101Documents.add(node.getPath());
+                }
+                else {
+
+                    String rule;
+                    for (RewritingRulesExtractor rulesExtractor : rewritingRulesExtractors){
+                        try{
+                            rule = rulesExtractor.extract(node, context);
+                            if(rule != null){
+                                rules.append(rule);
+                            }
+                        } catch (RepositoryException e){
+                            log.error("Exception encountered while extracting with: " + rulesExtractor, e);
                         }
-                    } catch (RepositoryException e){
-                        log.error("Exception encountered while extracting with: {}", rulesExtractor);
-                        log.error("Exception is: ", e);
                     }
                 }
             }
+        }
+
+        // construct an informative message and log as error to always show up
+        if (!version101Documents.isEmpty()) {
+
+            final StringBuilder builder = new StringBuilder();
+            builder.append("IMPORTANT: ");
+            if (version101Documents.size() == 1) {
+                builder.append("There is 1 rewriter rule of version 1.01.xx present in the repository. It is skipped and will NOT be processed. Locations: ");
+                builder.append(version101Documents.get(0));
+            }
+            else {
+                builder.append("There are ");
+                builder.append(version101Documents.size());
+                builder.append(" rewriter rules of version 1.01.xx present in the repository. These are skipped and will NOT be processed. ");
+                builder.append("First 2 found rules are at locations: \n");
+                builder.append(version101Documents.get(0)).append(" and \n");
+                builder.append(version101Documents.get(1)).append(". \n");
+            }
+            builder.append("Please create new rules based on old rules of 1.01.xx style.");
+
+            log.error(builder.toString());
         }
     }
 

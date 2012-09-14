@@ -20,6 +20,8 @@ package org.onehippo.forge.rewriting;
  */
 public class UrlRewriteConstants {
 
+    public static final String PRIMARY_TYPE_101xx_RULESET_DOCUMENT = "urlrewriter:ruleset";
+    public static final String PRIMARY_TYPE_101xx_RULESETXML_DOCUMENT = "urlrewriter:rulesetxml";
 
     public static final String PRIMARY_TYPE_RULESET = "urlrewriter:ruleset";
     public static final String PRIMARY_TYPE_XMLRULE = "urlrewriter:xmlrule";
