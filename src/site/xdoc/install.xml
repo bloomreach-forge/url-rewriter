@@ -41,6 +41,14 @@
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]>
         </source>
+        <p>Add Repository plugin to your project:</p>
+        <source>
+          <![CDATA[<dependency>
+  <groupId>org.onehippo.forge.urlrewriter</groupId>
+  <artifactId>urlrewriter-module-repository</artifactId>
+  <version>${forge.urlrewriter.version}</version>
+</dependency>]]>
+        </source>
         <p>Add HST plugin to your project:</p>
         <source>
 <![CDATA[<dependency>

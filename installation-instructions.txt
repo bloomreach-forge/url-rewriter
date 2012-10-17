@@ -14,10 +14,16 @@
     limitations under the License.
 ====
 
-# add CMS plugin to your project:
+# add CMS and Repository plugins to your project:
     <dependency>
       <groupId>org.onehippo.forge.urlrewriter</groupId>
       <artifactId>urlrewriter-module-cms</artifactId>
+      <version>${xxx}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.forge.urlrewriter</groupId>
+      <artifactId>urlrewriter-module-repository</artifactId>
       <version>${xxx}</version>
     </dependency>
 
