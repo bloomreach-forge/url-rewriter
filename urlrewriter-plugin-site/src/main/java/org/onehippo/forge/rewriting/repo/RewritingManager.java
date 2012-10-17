@@ -122,7 +122,7 @@ public class RewritingManager {
             if(useQueryString) {
               rules.append(" use-query-string=\"true\"");
             }
-            // HIPPLUG-476: always disable decoding as it can interfer with hst encodings
+            // HIPPLUG-476: always disable decoding as it can interfere with hst encodings
             rules.append(" decode-using=\"null\"");
 
             rules.append(">");
