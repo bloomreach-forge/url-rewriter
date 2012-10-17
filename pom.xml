@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>7</version>
+    <version>11</version>
   </parent>
 
   <name>Url rewriter</name>
@@ -16,14 +16,17 @@
 
   <properties>
     <urlrewritefilter.version>4.0.3</urlrewritefilter.version>
-    <hippo.repository.api.version>2.22.05</hippo.repository.api.version>
-    <hippo.cms.api.version>2.22.05</hippo.cms.api.version>
-    <jackrabbit.version>2.2.10-h2</jackrabbit.version>
+    <jackrabbit.version>2.2.12-h1</jackrabbit.version>
+    <hippo.repository.version>2.22.09</hippo.repository.version>
+    <hippo.cms.version>2.22.10</hippo.cms.version>
+    <hst.version>2.24.07</hst.version>
+    <forge.selection.version>2.05.00</forge.selection.version>
   </properties>
 
   <modules>
     <module>urlrewriter-plugin-cms</module>
     <module>urlrewriter-plugin-site</module>
+    <module>urlrewriter-plugin-repository</module>
   </modules>
 
   <licenses>
@@ -85,19 +88,19 @@
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-cms-api</artifactId>
-        <version>${hippo.cms.api.version}</version>
+        <version>${hippo.cms.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-api</artifactId>
-        <version>${hippo.repository.api.version}</version>
+        <version>${hippo.repository.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
         <artifactId>hippo-repository-builtin</artifactId>
-        <version>${hippo.repository.api.version}</version>
+        <version>${hippo.repository.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>

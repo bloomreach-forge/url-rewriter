@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.onehippo.forge.urlrewriter</groupId>
+    <artifactId>urlrewriter</artifactId>
+    <version>1.02.03-SNAPSHOT</version>
+  </parent>
+
+  <name>Url rewriter Repository plugin</name>
+  <description>Url rewriter Repository plugin</description>
+  <groupId>org.onehippo.forge.urlrewriter</groupId>
+  <artifactId>urlrewriter-module-repository</artifactId>
+  <packaging>jar</packaging>
+
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>forge-urlrewriter-maven-repo</id>
+      <url>svn:https://forge.onehippo.org/svn/urlrewriter/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+</project>
