@@ -54,15 +54,19 @@ public class AdvancedRulesExtractor extends AbstractRulesExtractor {
         boolean caseSensitive = extractBooleanProperty(ruleNode, UrlRewriteConstants.CASE_SENSITIVE_PROPERTY);
         boolean isWildCardType= extractBooleanProperty(ruleNode, UrlRewriteConstants.IS_WILDCARD_TYPE_PROPERTY);
         boolean isNotLast = extractBooleanProperty(ruleNode, UrlRewriteConstants.IS_NOT_LAST_PROPERTY);
+        boolean qsAppend = extractBooleanProperty(ruleNode, UrlRewriteConstants.QSAPPEND_PROPERTY);
 
-        ruleFrom = caseSensitive ?
-                new StringBuilder().append("<from casesensitive=\"true\">").append(ruleFrom).append("</from>").toString() :
-                new StringBuilder().append("<from>").append(ruleFrom).append("</from>").toString();
+        ruleFrom = new StringBuilder("<from")
+                .append(caseSensitive ? " casesensitive=\"true\"" : "")
+                .append(">")
+                .append(ruleFrom).append("</from>").toString();
 
-        ruleTo = type != null ?
-                new StringBuilder().append("<to type=\"").append(type).append("\"").append(isNotLast ? ">" : " last=\"true\">").append(ruleTo).append("</to>").toString() :
-                new StringBuilder().append("<to type=\"").append(UrlRewriteConstants.DEFAULT_RULE_TYPE).append("\"").append(isNotLast ? ">" : " last=\"true\">").append(ruleTo).append("</to>").toString();
-
+        ruleTo = new StringBuilder("<to type=\"")
+                .append(type != null ? type : UrlRewriteConstants.DEFAULT_RULE_TYPE).append("\"")
+                .append(isNotLast ? "" : " last=\"true\"")
+                .append(qsAppend ? " qsappend=\"true\"" : "")
+                .append(">")
+                .append(ruleTo).append("</to>").toString();
 
         StringBuilder builder = new StringBuilder();
         builder.append("<rule")
