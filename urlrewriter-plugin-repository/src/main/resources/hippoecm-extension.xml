@@ -95,6 +95,13 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
+    </sv:property>
+<!--TODO Without this it reloads on every restart. Docs about the implementationEntry in jar manifest are unclear
+    <sv:property sv:name="hippo:version" sv:type="String">
+      <sv:value>1.02.03</sv:value>
+    </sv:property>-->
   </sv:node>
   <sv:node sv:name="urlrewriter-namespace-rule">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
