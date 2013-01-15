@@ -1,4 +1,5 @@
 /*.iml
 /.idea
+/target
 urlrewriter-plugin-cms/*.iml
 urlrewriter-plugin-site/*.iml
