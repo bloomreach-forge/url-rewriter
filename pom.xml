@@ -221,43 +221,6 @@
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>2.4</version>
       </plugin>
-
-
-
-      <plugin>
-        <groupId>com.mycila.maven-license-plugin</groupId>
-        <artifactId>maven-license-plugin</artifactId>
-        <version>1.9.0</version>
-        <configuration>
-          <strictCheck>true</strictCheck>
-          <header>src/etc/license.txt</header>
-          <excludes>
-            <exclude>target/**</exclude>
-            <exclude>.idea/**</exclude>
-            <exclude>LICENSE.txt</exclude>
-            <exclude>NOTICE.txt</exclude>
-            <exclude>README.textile</exclude>
-            <exclude>src/etc/**</exclude>
-            <exclude>**/*.properties</exclude>
-            <exclude>**/*.cnd</exclude>
-          </excludes>
-          <properties>
-            <name>${project.name}</name>
-            <inceptionYear>${project.inceptionYear}</inceptionYear>
-            <lastEditedYear>2012</lastEditedYear>
-            <holder>Hippo</holder>
-          </properties>
-          <encoding>UTF-8</encoding>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
     </plugins>
   </build>
 
