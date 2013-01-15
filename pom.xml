@@ -270,10 +270,6 @@
             <groupId>org.apache.rat</groupId>
             <artifactId>apache-rat-plugin</artifactId>
             <inherited>false</inherited>
-            <configuration>
-              <excludes>
-              </excludes>
-            </configuration>
           </plugin>
         </plugins>
       </build>
