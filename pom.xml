@@ -22,7 +22,7 @@
     <version>16</version>
   </parent>
 
-  <name>Url rewriter</name>
+  <name>Hippo Forge Url Rewriter Addon Project</name>
   <description>Url rewriter</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
