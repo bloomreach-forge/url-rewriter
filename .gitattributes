@@ -15,3 +15,4 @@ urlrewriter-plugin-repository/src/main/resources/namespace/types/rule_de.xml -te
 urlrewriter-plugin-repository/src/main/resources/namespace/types/rulecondition_de.xml -text
 urlrewriter-plugin-repository/src/main/resources/namespace/types/xmlrule_de.xml -text
 urlrewriter-plugin-repository/src/main/resources/namespace/urlrewriter.cnd -text
+urlrewriter-plugin-site/src/main/appended-resources/META-INF/LICENSE -text
