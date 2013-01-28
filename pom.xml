@@ -22,8 +22,8 @@
     <version>18</version>
   </parent>
 
-  <name>Hippo Forge Url Rewriter Root</name>
-  <description>Url rewriter</description>
+  <name>Hippo Forge URL Rewriter</name>
+  <description>Hippo Forge URL Rewriter</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
   <version>1.02.03-SNAPSHOT</version>
