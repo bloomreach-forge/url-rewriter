@@ -21,17 +21,18 @@
          xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
 
   <skin>
-    <groupId>org.onehippo.ecm.skin</groupId>
-    <artifactId>maven-skin</artifactId>
-    <version>1.01.10</version>
+    <groupId>org.onehippo.forge.mavenskin</groupId>
+    <artifactId>forge-maven-skin</artifactId>
+    <version>1.01.00</version>
   </skin>
 
-  <publishDate position="navigation-bottom" format="MM-dd-yy"/>
-  <version position="navigation-bottom"/>
+  <publishDate format="d MMMM yyyy" />
 
-  <bannerLeft>
-    <name>Urlrewriter</name>
-  </bannerLeft>
+  <custom>
+    <hippoSkin>
+      <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+    </hippoSkin>
+  </custom>
 
   <body>
     <menu name="Home">
@@ -48,7 +49,7 @@
           <item name="Conditions" href="/rules/conditions.html"/>
         </item>
         <item name="XML Rule" href="/rules/xml-rule.html"/>
-      </item>      
+      </item>
     </menu>
 
     <menu name="Auto generated docs" ref="reports"/>

@@ -41,7 +41,7 @@
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]>
         </source>
-        <p>Add Repository plugin to your project:</p>
+        <p>Add repository plugin to your project (since 1.03.00):</p>
         <source>
           <![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>

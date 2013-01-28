@@ -22,7 +22,7 @@
     <version>18</version>
   </parent>
 
-  <name>Hippo Forge Url Rewriter Addon Project</name>
+  <name>Hippo Forge Url Rewriter Root</name>
   <description>Url rewriter</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
@@ -252,12 +252,10 @@
       <layout>default</layout>
     </repository>
     <repository>
-      <id>hippo-maven2-snapshots</id>
-      <name>Hippo Maven 2</name>
-      <url>http://maven.onehippo.com/maven2-snapshots/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
+      <id>hippo-maven2-forge</id>
+      <name>Hippo Maven 2 Forge repository</name>
+      <url>http://maven.onehippo.com/maven2-forge/</url>
+      <snapshots />
     </repository>
   </repositories>
 

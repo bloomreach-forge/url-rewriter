@@ -24,21 +24,34 @@
   <body>
     <section name="Release Notes">
       <!--
-      <subsection name="1.02.03">
+      <subsection name="1.03.00">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a> improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a>
+              Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-416">HIPPLUG-416</a>
+              Split cms module into repository and CMS modules</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-420">HIPPLUG-420</a>
+              In advanced rule, enable type parameter only for specific type values</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-427">HIPPLUG-427</a>
+              Fix NPE in status page when no root directory has ever been created.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a>
+              Support for qsappend by added boolean property to advanced rule doctype
+              (NB REVERT THIS IF TUCKEY'S URLREWRITER 4.0.5 IS NOT RELEASED - see issue)</li>
         </ul>
       </subsection>
-      -->
+          -->
       <subsection name="1.02.02">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a> don't decode urls as it can conflict with the hst</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a>
+            Don't decode urls as it can conflict with the hst</li>
         </ul>
       </subsection>
       <subsection name="1.02.01">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a> harmonica tab does not have "Add root folder" button</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-353">HIPPLUG-353</a> harmonica tab should have a search possiblity</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a>
+            Harmonica tab does not have "Add root folder" button</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-353">HIPPLUG-353</a>
+            Harmonica tab should have a search possiblity</li>
         </ul>
       </subsection>
       <subsection name="1.02.00">

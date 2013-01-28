@@ -24,7 +24,7 @@
   </parent>
 
   <name>Url rewriter CMS plugin</name>
-  <description>Url rewriter CMS plugin</description>
+  <description>Url Rewriter CMS plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-cms</artifactId>
   <packaging>jar</packaging>
