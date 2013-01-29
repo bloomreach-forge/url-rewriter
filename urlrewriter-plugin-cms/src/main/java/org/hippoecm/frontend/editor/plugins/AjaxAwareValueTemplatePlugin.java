@@ -19,9 +19,9 @@ import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.Model;
-import org.hippoecm.frontend.PluginRequestTarget;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
+import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
 import org.hippoecm.frontend.service.render.RenderPlugin;
 import org.onehippo.forge.AjaxUpdatesAware;
 import org.slf4j.Logger;
@@ -35,9 +35,9 @@ public class AjaxAwareValueTemplatePlugin extends ValueTemplatePlugin implements
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(AjaxAwareValueTemplatePlugin.class);
     private static final List<String> nameMustBeSpecifiedFor = Arrays.asList("header", "attribute", "cookie", "parameter", "session-attribute");
-    private static final AttributeModifier disabledAttributeModifier = new AttributeModifier("disabled", true, new Model<String>("disabled"));
-    private static final AttributeModifier placeholderAttributeModifier = new AttributeModifier("placeholder", true, new Model<String>("Not applicable"));
-    private PluginRequestTarget pluginRequestTarget;
+    private final AttributeModifier disabledAttributeModifier = new AttributeModifier("disabled", true, new Model<String>("disabled"));
+    private final AttributeModifier placeholderAttributeModifier = new AttributeModifier("placeholder", true,
+            new ClassResourceModel("not-applicable-placeholder", AjaxAwareValueTemplatePlugin.class, null));
 
     @Override
     public void onAjaxUpdate(AjaxRequestTarget target, RenderPlugin invoker) {
@@ -57,7 +57,7 @@ public class AjaxAwareValueTemplatePlugin extends ValueTemplatePlugin implements
                             }
                             AjaxAwareValueTemplatePlugin.this.redraw();
                         } else {
-                            if (! component.getBehaviors().contains(disabledAttributeModifier)) {
+                            if (!component.getBehaviors().contains(disabledAttributeModifier)) {
                                 component.add(disabledAttributeModifier);
                             }
                             if (!component.getBehaviors().contains(placeholderAttributeModifier)) {
