@@ -22,14 +22,17 @@
     <version>18</version>
   </parent>
 
-  <name>Hippo Forge URL Rewriter</name>
-  <description>Hippo Forge URL Rewriter</description>
+  <name>Hippo Forge URL Rewriter Plugin</name>
+  <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
   <version>1.02.03-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
+    <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
+    <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
+
     <urlrewritefilter.version>4.0.3</urlrewritefilter.version>
     <jackrabbit.version>2.2.12-h1</jackrabbit.version>
     <hippo.repository.version>2.22.09</hippo.repository.version>
