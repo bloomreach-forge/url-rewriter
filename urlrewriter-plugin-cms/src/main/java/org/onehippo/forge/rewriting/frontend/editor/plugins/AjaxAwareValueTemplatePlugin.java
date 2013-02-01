@@ -13,22 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.hippoecm.frontend.editor.plugins;
+package org.onehippo.forge.rewriting.frontend.editor.plugins;
+
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.Model;
+import org.hippoecm.frontend.editor.plugins.ValueTemplatePlugin;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
 import org.hippoecm.frontend.service.render.RenderPlugin;
-import org.onehippo.forge.AjaxUpdatesAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class AjaxAwareValueTemplatePlugin extends ValueTemplatePlugin implements AjaxUpdatesAware {
 

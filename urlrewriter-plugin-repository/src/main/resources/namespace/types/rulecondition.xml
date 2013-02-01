@@ -79,7 +79,7 @@
           <sv:value>false</sv:value>
         </sv:property>
         <sv:property sv:name="hipposysedit:type" sv:type="String">
-          <sv:value>AjaxAwareString</sv:value>
+          <sv:value>urlrewriter:AjaxAwareString</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="conditiontype">
@@ -102,7 +102,7 @@
           <sv:value>false</sv:value>
         </sv:property>
         <sv:property sv:name="hipposysedit:type" sv:type="String">
-          <sv:value>BroadcastingStaticDropdown</sv:value>
+          <sv:value>urlrewriter:BroadcastingStaticDropdown</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="conditionor">

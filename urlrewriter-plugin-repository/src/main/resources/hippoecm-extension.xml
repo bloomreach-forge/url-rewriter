@@ -434,7 +434,7 @@
       <sv:value>namespace/broadcastingstaticdropdown.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/system</sv:value>
+      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
   </sv:node>
   <sv:node sv:name="urlrewriter-ajax-aware-string">
@@ -448,7 +448,7 @@
       <sv:value>namespace/ajaxawarestring.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/system</sv:value>
+      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>

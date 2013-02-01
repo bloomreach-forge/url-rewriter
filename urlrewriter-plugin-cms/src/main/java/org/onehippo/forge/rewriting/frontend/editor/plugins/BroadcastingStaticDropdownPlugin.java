@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.onehippo.forge.selection.frontend.plugin;
+package org.onehippo.forge.rewriting.frontend.editor.plugins;
 
 import java.util.List;
 
@@ -32,7 +32,6 @@ import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.standards.diff.TextDiffModel;
 import org.hippoecm.frontend.service.render.RenderPlugin;
-import org.onehippo.forge.AjaxUpdatesAware;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

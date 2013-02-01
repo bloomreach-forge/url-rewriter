@@ -70,8 +70,11 @@
       <sv:property sv:name="hipposysedit:node" sv:type="Boolean">
         <sv:value>false</sv:value>
       </sv:property>
+      <sv:property sv:name="hipposysedit:type" sv:type="String">
+        <sv:value>String</sv:value>
+      </sv:property>
       <sv:property sv:name="hipposysedit:uri" sv:type="String">
-        <sv:value>internal</sv:value>
+        <sv:value>http://org.onehippo.forge/urlrewriter/1.0</sv:value>
       </sv:property>
     </sv:node>
   </sv:node>
@@ -109,7 +112,7 @@
           <sv:value>${model.compareTo}</sv:value>
         </sv:property>
         <sv:property sv:name="plugin.class" sv:type="String">
-          <sv:value>org.hippoecm.frontend.editor.plugins.AjaxAwareValueTemplatePlugin</sv:value>
+          <sv:value>org.onehippo.forge.urlrewriter.frontend.editor.plugins.AjaxAwareValueTemplatePlugin</sv:value>
         </sv:property>
         <sv:property sv:name="size" sv:type="String">
           <sv:value>${size}</sv:value>
