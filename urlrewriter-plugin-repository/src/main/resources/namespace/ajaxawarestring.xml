@@ -112,7 +112,7 @@
           <sv:value>${model.compareTo}</sv:value>
         </sv:property>
         <sv:property sv:name="plugin.class" sv:type="String">
-          <sv:value>org.onehippo.forge.urlrewriter.frontend.editor.plugins.AjaxAwareValueTemplatePlugin</sv:value>
+          <sv:value>org.onehippo.forge.rewriting.frontend.editor.plugins.AjaxAwareValueTemplatePlugin</sv:value>
         </sv:property>
         <sv:property sv:name="size" sv:type="String">
           <sv:value>${size}</sv:value>

@@ -128,7 +128,7 @@
           <sv:value>${model.compareTo}</sv:value>
         </sv:property>
         <sv:property sv:name="plugin.class" sv:type="String">
-          <sv:value>org.onehippo.forge.rewriting.frontend.plugin.BroadcastingStaticDropdownPlugin</sv:value>
+          <sv:value>org.onehippo.forge.rewriting.frontend.editor.plugins.BroadcastingStaticDropdownPlugin</sv:value>
         </sv:property>
         <sv:property sv:name="selectable.options" sv:type="String">
           <sv:value>${selectable.options}</sv:value>
