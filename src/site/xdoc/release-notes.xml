@@ -29,14 +29,18 @@
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a>
               Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-416">HIPPLUG-416</a>
-              Split cms module into repository and CMS modules</li>
+              Split single CMS module into two modules: repository and CMS</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-420">HIPPLUG-420</a>
               In advanced rule, enable type parameter only for specific type values</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-427">HIPPLUG-427</a>
               Fix NPE in status page when no root directory has ever been created.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a>
-              Support for qsappend by added boolean property to advanced rule doctype
-              (NB REVERT THIS IF TUCKEY'S URLREWRITER 4.0.5 IS NOT RELEASED - see issue)</li>
+              Support for qsappend by added boolean property to advanced rule doctype.
+              <span style="color:red">Note: </span>because of an </li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a>
+              Support for qsappend by added boolean property to advanced rule doctype</li>
+          <li><a href="https://issues.onehippo.com/browse/CMS7-6835">CMS7-6835</a>
+              Translations to German</li>
         </ul>
       </subsection>
           -->

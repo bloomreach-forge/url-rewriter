@@ -33,14 +33,14 @@
   - From
   - To
   - Case Sensitive
-  - Type 
+  - Type
   - Use Wildcard Matching
   - Process other rules
-        </pre>
+  - Append querystring (since 1.03.00)</pre>
       </subsection>
       <subsection name="Description">
         <p>
-          This field is meant to provide a clear description of the rule, so it's clear for other people what it does and why it was created. This will also help you to find it later using the search.         
+          This field is meant to provide a clear description of the rule, so it's clear for other people what it does and why it was created. This will also help you to find it later using the search.
         </p>
       </subsection>
       <subsection name="Conditions">
@@ -122,11 +122,11 @@
             <td><code>${trim: abc def }</code></td>
             <td>abc def</td>
           </tr>
-        </table>   
+        </table>
       </subsection>
       <subsection name="Case Sensitive">
         <p>
-          Tick this checkbox to take the case of the URL that is matched into account. 
+          Tick this checkbox to take the case of the URL that is matched into account.
         </p>
       </subsection>
       <subsection name="Type">
@@ -142,7 +142,7 @@
             <tr>
             <td>temporary-redirect</td>
             <td>Redirect with 302 response code</td>
-          </tr>          
+          </tr>
           <tr>
             <td>permanent-redirect</td>
             <td>Redirect with 301 response code</td>
@@ -158,7 +158,7 @@
           <tr>
             <td>pre-include</td>
             <td></td>
-          </tr> 
+          </tr>
           <tr>
             <td>post-include</td>
             <td></td>
@@ -166,18 +166,29 @@
           <tr>
             <td>proxy</td>
             <td>The request will be proxied to the full url specified</td>
-          </tr>            
+          </tr>
         </table>
       </subsection>
       <subsection name="Use Wildcard Matching">
         <p>
-          Use wildcard matching instead of regular expressions. A single wildcard (*) will match any single element, ** will match all elements.
+          Use wildcard matching instead of regular expressions. A single wildcard (*) will match any single element,
+          ** will match all elements.
         </p>
       </subsection>
-      <subsection name="Process other rules">
+      <subsection name="Process Other Rules">
         <p>
-          Other rules will be processed after this one succeeds, same as not specifying the 'last' flag for Apache HTTPD mod_rewrite. 
+          Other rules will be processed after this one succeeds, same as not specifying the 'last' flag for Apache HTTPD
+          mod_rewrite.
         </p>
+      </subsection>
+      <subsection name="Append Query String (since 1.03.00)">
+        <p>
+          If this option is checked, the query string of the matched URL (field 'Rewrite From') is kept in the
+          rewritten URL.
+        </p>
+        <p><span style="color:red">A known issue regarding missing question mark separator:</span> the software behind
+          the URL Rewriter has a known issue that the question mark is not present in the rewritten URL. The workaround
+          is to have the question mark already present in the field 'Rewrite From'.</p>
       </subsection>
     </section>
   </body>
