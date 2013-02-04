@@ -47,6 +47,17 @@
       <sv:value>Geavanceerde regel</sv:value>
     </sv:property>
   </sv:node>
+  <sv:node sv:name="hippo:translation">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:translation</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:language" sv:type="String">
+      <sv:value>de</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:message" sv:type="String">
+      <sv:value>Erweiterte Regel</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="hipposysedit:nodetype">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:handle</sv:value>
@@ -427,6 +438,17 @@
                 <sv:value>Beschrijving</sv:value>
               </sv:property>
             </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Beschreibung</sv:value>
+              </sv:property>
+            </sv:node>
           </sv:node>
           <sv:node sv:name="rulecondition">
             <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -455,6 +477,17 @@
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
                 <sv:value>Condities</sv:value>
+              </sv:property>
+            </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Bedingungen</sv:value>
               </sv:property>
             </sv:node>
           </sv:node>
@@ -487,6 +520,17 @@
                 <sv:value>Hoofdlettergevoelig</sv:value>
               </sv:property>
             </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Groß- und Kleinschreibung</sv:value>
+              </sv:property>
+            </sv:node>
           </sv:node>
           <sv:node sv:name="rulefrom">
             <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -515,6 +559,17 @@
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
                 <sv:value>Herschrijven van</sv:value>
+              </sv:property>
+            </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Rewrite von</sv:value>
               </sv:property>
             </sv:node>
           </sv:node>
@@ -547,6 +602,17 @@
                 <sv:value>Herschrijven naar</sv:value>
               </sv:property>
             </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Rewrite nach</sv:value>
+              </sv:property>
+            </sv:node>
           </sv:node>
           <sv:node sv:name="ruletype">
             <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -575,6 +641,17 @@
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
                 <sv:value>Type</sv:value>
+              </sv:property>
+            </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Typ</sv:value>
               </sv:property>
             </sv:node>
           </sv:node>
@@ -607,6 +684,17 @@
                 <sv:value>Gebruik wildcard matching</sv:value>
               </sv:property>
             </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Benutze wildcard matching</sv:value>
+              </sv:property>
+            </sv:node>
           </sv:node>
           <sv:node sv:name="isnotlast">
             <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -623,7 +711,7 @@
                 <sv:value>en</sv:value>
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
-                <sv:value>Process other rules</sv:value>
+                <sv:value>Process Other Rules</sv:value>
               </sv:property>
             </sv:node>
             <sv:node sv:name="hippo:translation">
@@ -635,6 +723,17 @@
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
                 <sv:value>Verwerk andere regels</sv:value>
+              </sv:property>
+            </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Process andere Regeln</sv:value>
               </sv:property>
             </sv:node>
           </sv:node>
@@ -653,7 +752,7 @@
                 <sv:value>en</sv:value>
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
-                <sv:value>Append querystring</sv:value>
+                <sv:value>Append Query String</sv:value>
               </sv:property>
             </sv:node>
             <sv:node sv:name="hippo:translation">
@@ -662,6 +761,17 @@
               </sv:property>
               <sv:property sv:name="hippo:language" sv:type="String">
                 <sv:value>nl</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:message" sv:type="String">
+                <sv:value>Append querystring</sv:value>
+              </sv:property>
+            </sv:node>
+            <sv:node sv:name="hippo:translation">
+              <sv:property sv:name="jcr:primaryType" sv:type="Name">
+                <sv:value>hippo:translation</sv:value>
+              </sv:property>
+              <sv:property sv:name="hippo:language" sv:type="String">
+                <sv:value>de</sv:value>
               </sv:property>
               <sv:property sv:name="hippo:message" sv:type="String">
                 <sv:value>Append querystring</sv:value>

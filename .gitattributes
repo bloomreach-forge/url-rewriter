@@ -7,12 +7,5 @@ src/site/xdoc/rules/conditions.xml -text
 src/site/xdoc/rules/rule.xml -text
 src/site/xdoc/rules/xml-rule.xml -text
 src/site/xdoc/using-the-urlrewriter.xml -text
-urlrewriter-plugin-repository/src/main/resources/config/cms/static/configTranslator/translations/section-urlrewriter_de.xml -text
-urlrewriter-plugin-repository/src/main/resources/config/queries/templates/new-urlrewriter-document_de.xml -text
-urlrewriter-plugin-repository/src/main/resources/config/queries/templates/new-urlrewriter-folder_de.xml -text
-urlrewriter-plugin-repository/src/main/resources/namespace/types/advancedrule_de.xml -text
-urlrewriter-plugin-repository/src/main/resources/namespace/types/rule_de.xml -text
-urlrewriter-plugin-repository/src/main/resources/namespace/types/rulecondition_de.xml -text
-urlrewriter-plugin-repository/src/main/resources/namespace/types/xmlrule_de.xml -text
 urlrewriter-plugin-repository/src/main/resources/namespace/urlrewriter.cnd -text
 urlrewriter-plugin-site/src/main/appended-resources/META-INF/LICENSE -text

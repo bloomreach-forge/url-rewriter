@@ -86,24 +86,6 @@
     </sv:property>
   </sv:node>
 
-  <sv:node sv:name="urlrewriter-namespace-rulecondition-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.21</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/types/rulecondition_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
-      <sv:value>true</sv:value>
-    </sv:property>
-  </sv:node>
-
   <sv:node sv:name="urlrewriter-namespace-advancedrule">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -122,26 +104,8 @@
     </sv:property>
 <!--TODO Without this it reloads on every restart. Docs about the implementationEntry in jar manifest are unclear
     <sv:property sv:name="hippo:version" sv:type="String">
-      <sv:value>1.02.03</sv:value>
+      <sv:value>1.03.00</sv:value>
     </sv:property>-->
-  </sv:node>
-
-  <sv:node sv:name="urlrewriter-namespace-advancedrule-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.31</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/types/advancedrule_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
-      <sv:value>true</sv:value>
-    </sv:property>
   </sv:node>
 
   <sv:node sv:name="urlrewriter-namespace-rule">
@@ -157,20 +121,8 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
-  </sv:node>
-
-  <sv:node sv:name="urlrewriter-namespace-rule-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.41</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/types/rule_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
     </sv:property>
   </sv:node>
 
@@ -187,20 +139,8 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
-  </sv:node>
-
-  <sv:node sv:name="urlrewriter-namespace-xmlrule-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.51</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/types/xmlrule_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
     </sv:property>
   </sv:node>
 
@@ -213,6 +153,39 @@
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/ruleset.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <sv:node sv:name="urlrewriter-namespace-static-dropdown">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>19051.7</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>namespace/types/broadcastingstaticdropdown.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <sv:node sv:name="urlrewriter-namespace-ajax-aware-string">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>19051.8</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>namespace/types/ajaxawarestring.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
@@ -295,20 +268,8 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:frontend/cms/cms-static/configTranslator/hippostd:translations</sv:value>
     </sv:property>
-  </sv:node>
-
-  <sv:node sv:name="configuration-frontend-cms-static-configtranslator-urlrewriter-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.51</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>config/cms/static/configTranslator/translations/section-urlrewriter_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-static/configTranslator/hippostd:translations</sv:value>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
     </sv:property>
   </sv:node>
 
@@ -347,9 +308,6 @@
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
-    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
-      <sv:value>true</sv:value>
-    </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
       <sv:value>20079.0</sv:value>
     </sv:property>
@@ -359,23 +317,11 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
     </sv:property>
-  </sv:node>
-
-  <sv:node sv:name="new-urlrewriter-document-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
     <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
       <sv:value>true</sv:value>
     </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>20079.01</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>config/queries/templates/new-urlrewriter-document_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
     </sv:property>
   </sv:node>
 
@@ -392,20 +338,8 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
     </sv:property>
-  </sv:node>
-
-  <sv:node sv:name="new-urlrewriter-folder-de">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>20079.21</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>config/queries/templates/new-urlrewriter-folder_de.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:queries/hippo:templates</sv:value>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
     </sv:property>
   </sv:node>
 
@@ -421,34 +355,6 @@
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/content</sv:value>
-    </sv:property>
-  </sv:node>
-  <sv:node sv:name="urlrewriter-broadcasting-static-dropdown">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>420080</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/broadcastingstaticdropdown.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
-    </sv:property>
-  </sv:node>
-  <sv:node sv:name="urlrewriter-ajax-aware-string">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>420080</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>namespace/ajaxawarestring.xml</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
   </sv:node>
 </sv:node>

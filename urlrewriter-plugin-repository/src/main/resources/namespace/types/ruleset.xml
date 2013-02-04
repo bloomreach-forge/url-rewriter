@@ -49,31 +49,6 @@
       <sv:value>Map met rewrite-regels</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="hipposysedit:nodetype">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:handle</sv:value>
-    </sv:property>
-    <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
-      <sv:value>hippo:hardhandle</sv:value>
-    </sv:property>
-    <sv:property sv:name="jcr:uuid" sv:type="String">
-      <sv:value>6fc519c6-5452-480c-9bbd-cd2a64389017</sv:value>
-    </sv:property>
-    <sv:node sv:name="hipposysedit:nodetype">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>hipposysedit:nodetype</sv:value>
-      </sv:property>
-      <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
-        <sv:value>hipposysedit:remodel</sv:value>
-      </sv:property>
-      <sv:property sv:name="hipposysedit:supertype" sv:type="String" sv:multiple="true">
-        <sv:value>hippostd:folder</sv:value>
-      </sv:property>
-      <sv:property sv:name="hipposysedit:uri" sv:type="String">
-        <sv:value>http://org.onehippo.forge/urlrewriter/1.0</sv:value>
-      </sv:property>
-    </sv:node>
-  </sv:node>
   <sv:node sv:name="hippo:translation">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:translation</sv:value>
@@ -106,5 +81,30 @@
     <sv:property sv:name="hippo:message" sv:type="String">
       <sv:value>Ordner</sv:value>
     </sv:property>
+  </sv:node>
+  <sv:node sv:name="hipposysedit:nodetype">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:handle</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+      <sv:value>hippo:hardhandle</sv:value>
+    </sv:property>
+    <sv:property sv:name="jcr:uuid" sv:type="String">
+      <sv:value>6fc519c6-5452-480c-9bbd-cd2a64389017</sv:value>
+    </sv:property>
+    <sv:node sv:name="hipposysedit:nodetype">
+      <sv:property sv:name="jcr:primaryType" sv:type="Name">
+        <sv:value>hipposysedit:nodetype</sv:value>
+      </sv:property>
+      <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
+        <sv:value>hipposysedit:remodel</sv:value>
+      </sv:property>
+      <sv:property sv:name="hipposysedit:supertype" sv:type="String" sv:multiple="true">
+        <sv:value>hippostd:folder</sv:value>
+      </sv:property>
+      <sv:property sv:name="hipposysedit:uri" sv:type="String">
+        <sv:value>http://org.onehippo.forge/urlrewriter/1.0</sv:value>
+      </sv:property>
+    </sv:node>
   </sv:node>
 </sv:node>
