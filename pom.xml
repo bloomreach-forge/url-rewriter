@@ -33,12 +33,13 @@
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
-    <urlrewritefilter.version>4.0.3</urlrewritefilter.version>
+    <tuckey.urlrewritefilter.version>4.0.3</tuckey.urlrewritefilter.version>
+    <forge.selection.version>2.06.00</forge.selection.version>
+
     <jackrabbit.version>2.2.12-h1</jackrabbit.version>
     <hippo.repository.version>2.22.09</hippo.repository.version>
     <hippo.cms.version>2.22.10</hippo.cms.version>
     <hst.version>2.24.07</hst.version>
-    <forge.selection.version>2.05.00</forge.selection.version>
   </properties>
 
   <modules>
@@ -101,7 +102,7 @@
       <dependency>
         <groupId>org.tuckey</groupId>
         <artifactId>urlrewritefilter</artifactId>
-        <version>${urlrewritefilter.version}</version>
+        <version>${tuckey.urlrewritefilter.version}</version>
       </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
