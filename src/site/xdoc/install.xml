@@ -29,27 +29,27 @@
         </p>
       </subsection>
       <subsection name="Installing into your project">
-        <p>Specify the version in the properties section of your project:</p>
+        <p>Specify the version in the properties section of your project's root pom:</p>
         <source><![CDATA[<forge.urlrewriter.version>1.03.00</forge.urlrewriter.version>]]></source>
-        <p>Add CMS plugin to your project:</p>
+        <p>Add CMS plugin to the CMS pom:</p>
         <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-cms</artifactId>
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]></source>
-        <p>Add repository plugin to your project (since 1.03.00):</p>
+        <p>Add repository plugin to the CMS pom (since 1.03.00):</p>
         <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-repository</artifactId>
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]></source>
-        <p>Add HST plugin to your project:</p>
+        <p>Add HST plugin to the site pom:</p>
         <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-hst</artifactId>
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]></source>
-        <p>Configure site web.xml filter</p>
+        <p>Configure the RewriteFilter in the site's web.xml</p>
         <source><![CDATA[<filter>
     <filter-name>RewriteFilter</filter-name>
     <filter-class>org.onehippo.forge.rewriting.HippoRewriteFilter</filter-class>
