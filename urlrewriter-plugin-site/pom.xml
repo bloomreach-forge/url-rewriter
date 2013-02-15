@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.03.00-SNAPSHOT</version>
+    <version>1.03.00</version>
   </parent>
 
   <name>Url rewriter HST plugin</name>
