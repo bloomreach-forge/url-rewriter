@@ -19,19 +19,25 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Using the URLRewriter</title>
+    <title>Using the URL Rewriter</title>
   </properties>
   <body>
-    <section name="Using the URLRewriter">
+    <section name="Using the URL Rewriter">
       <subsection name="Overview">
         <p>
-          In the CMS, in the document section there should be an extra harmonica called 'URLrewriter'. When you click one of folders you will see an overview of the rules with some extra information like the from, to and type of redirect. Note that this does not display the conditions, or even if there are any. The rules will be processed in the order they appear, so keep this in mind when creating rules of different depth. For example, the rule rewriting /abc should come after the rule rewriting /abc/def.
-          Which rules and conditions have been configured and in what order they will be processed can be seen on the status page. By default /rewrite-status, but only accessible locally.
+          In the CMS, in the document section there should be an extra harmonica called 'URL Rewriter'. When you click
+          one of folders you will see an overview of the rules with some extra information like the from, to and type of
+          redirect. Note that this does not display the conditions, or even if there are any. The rules will be processed
+          in the order they appear, so keep this in mind when creating rules of different depth. For example, the rule
+          rewriting /abc should come after the rule rewriting /abc/def.</p>
+        <p>
+          Which rules and conditions have been configured and in what order they will be processed can be seen on the
+          status page. By default /rewrite-status, but only accessible locally.
         </p>
       </subsection>
       <subsection name="Global Configuration">
         <p>
-          On the rulesLocation node (default: /content/urlrewriter) you can set some properties which will affect all rules.          
+          On the rulesLocation node (default: /content/urlrewriter) you can set some properties which will affect all rules.
         </p>
         <table cellspacing="0">
           <tr>
@@ -49,11 +55,11 @@
             <td>when set to true, the query string is taken into account when matching URLs</td>
             <td>false</td>
           </tr>
-        </table>       
+        </table>
       </subsection>
       <subsection name="Adding Rules">
         <p>
-          When creating a new rule, there are three options:        
+          When creating a new rule, there are three options:
         </p>
         <table cellspacing="0">
           <tr>

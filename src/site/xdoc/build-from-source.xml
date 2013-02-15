@@ -40,7 +40,7 @@
         <p>
           Check out the trunk source code from the SVN repository:
         </p>
-        <source>svn co https://forge.onehippo.org/svn/urlrewriter/plugin urlrewriter</source>
+        <source>svn co https://forge.onehippo.org/svn/urlrewriter/plugin/trunk urlrewriter-trunk</source>
         <p>
           Build the project using Maven:
         </p>

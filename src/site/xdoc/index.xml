@@ -49,7 +49,12 @@
     </section>
     <section name="Project status">
       <p>
-        See the <a href="http://forge.onehippo.org/gf/project/urlrewriter">forge project page</a>
+        The latest version of URL Rewriter is 1.03.00 running on Hippo CMS 7.8 and lower.
+        The 1.02.xx series can NOT be used on Hippo CMS 7.8, but reversly, 1.03.00 can be used on CMS 7.7.<br/>
+        See the <a href="release-notes.html">release notes</a> for detailed information.
+      </p>
+      <p>
+        See also the <a href="http://forge.onehippo.org/gf/project/urlrewriter">forge project page</a>
       </p>
     </section>
   </body>

@@ -43,7 +43,7 @@
     <menu name="Usage">
       <item name="Installation" href="/install.html"/>
       <item name="Build from source" href="/build-from-source.html"/>
-      <item name="Using the URLRewriter" href="/using-the-urlrewriter.html" collapse="true">
+      <item name="Using the URL Rewriter" href="/using-the-urlrewriter.html" collapse="true">
         <item name="Rule" href="/rules/rule.html"/>
         <item name="Advanced Rule" href="/rules/advanced-rule.html" collapse="true">
           <item name="Conditions" href="/rules/conditions.html"/>

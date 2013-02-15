@@ -22,7 +22,7 @@
     <title>Installing URL rewriter</title>
   </properties>
   <body>
-    <section name="Installing Urlrewriter">
+    <section name="Installing Url Rewriter">
       <subsection name="Prerequisites">
         <p>
           These instruction assumes that you have maven 3 installed
@@ -30,37 +30,27 @@
       </subsection>
       <subsection name="Installing into your project">
         <p>Specify the version in the properties section of your project:</p>
-        <source>
-<![CDATA[<forge.urlrewriter.version>1.02.xx</forge.urlrewriter.version>]]>
-        </source>
+        <source><![CDATA[<forge.urlrewriter.version>1.03.00</forge.urlrewriter.version>]]></source>
         <p>Add CMS plugin to your project:</p>
-        <source>
-<![CDATA[<dependency>
+        <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-cms</artifactId>
   <version>${forge.urlrewriter.version}</version>
-</dependency>]]>
-        </source>
+</dependency>]]></source>
         <p>Add repository plugin to your project (since 1.03.00):</p>
-        <source>
-          <![CDATA[<dependency>
+        <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-repository</artifactId>
   <version>${forge.urlrewriter.version}</version>
-</dependency>]]>
-        </source>
+</dependency>]]></source>
         <p>Add HST plugin to your project:</p>
-        <source>
-<![CDATA[<dependency>
+        <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-hst</artifactId>
   <version>${forge.urlrewriter.version}</version>
-</dependency>]]>
-        </source>
+</dependency>]]></source>
         <p>Configure site web.xml filter</p>
-        <source>
-          <![CDATA[
-<filter>
+        <source><![CDATA[<filter>
     <filter-name>RewriteFilter</filter-name>
     <filter-class>org.onehippo.forge.rewriting.HippoRewriteFilter</filter-class>
     <!-- sets up log level (will be logged to context log)
@@ -90,19 +80,15 @@
       <param-name>rulesLocation</param-name>
       <param-value>/content/urlrewriter</param-value>
     </init-param>
-</filter>
-          ]]>
-        </source>
+</filter>]]></source>
         <p>
           Add filter as a first entry in your web.xml before the other filter mappings:
         </p>
-        <source>
-<![CDATA[<filter-mapping>
+        <source><![CDATA[<filter-mapping>
   <filter-name>RewriteFilter</filter-name>
   <url-pattern>/*</url-pattern>
   <dispatcher>REQUEST</dispatcher>
-</filter-mapping>]]>
-        </source>
+</filter-mapping>]]></source>
         <p>Copy <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a> to the following location within your project: ..site/src/main/resources/META-INF/hst-assembly/overrides/</p>
       </subsection>
     </section>
@@ -112,12 +98,10 @@
         <em>
           Note: You can check out, build and run a demo as follows:
         </em>
-        <source>
-<![CDATA[$ svn co https://forge.onehippo.org/svn/urlrewriter/demo/trunk urlrewriter-demo
+        <source><![CDATA[$ svn co https://forge.onehippo.org/svn/urlrewriter/demo/trunk urlrewriter-demo
 $ cd urlrewriter-demo
 $ mvn clean install
-$ mvn -P cargo.run
-]]></source>
+$ mvn -P cargo.run]]></source>
       </subsection>
     </section>
   </body>
