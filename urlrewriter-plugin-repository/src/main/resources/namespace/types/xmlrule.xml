@@ -182,7 +182,7 @@
         <sv:value>validator.id</sv:value>
       </sv:property>
       <sv:property sv:name="type" sv:type="String">
-        <sv:value>urlrewriter:rulesetxml</sv:value>
+        <sv:value>urlrewriter:xmlrule</sv:value>
       </sv:property>
       <sv:node sv:name="translator">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
