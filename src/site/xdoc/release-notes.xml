@@ -39,6 +39,8 @@
               <span style="color:red">Note: </span>because of an </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a>
               Support for qsappend by added boolean property to advanced rule doctype</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-579</a>
+              Fixed French translation issue and added Italian</li>
           <li><a href="https://issues.onehippo.com/browse/CMS7-6835">CMS7-6835</a>
               Translations to German</li>
         </ul>
