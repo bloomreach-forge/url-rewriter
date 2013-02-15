@@ -320,9 +320,6 @@
     <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
       <sv:value>true</sv:value>
     </sv:property>
-    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
-      <sv:value>true</sv:value>
-    </sv:property>
   </sv:node>
 
   <sv:node sv:name="new-urlrewriter-folder">
