@@ -28,7 +28,7 @@
       <sv:value>true</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19050</sv:value>
+      <sv:value>29050</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:namespace" sv:type="String">
       <sv:value>http://org.onehippo.forge/urlrewriter/1.0</sv:value>
@@ -43,7 +43,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051</sv:value>
+      <sv:value>29051</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/urlrewriter.xml</sv:value>
@@ -58,7 +58,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.1</sv:value>
+      <sv:value>29051.1</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/basedocument.xml</sv:value>
@@ -73,7 +73,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.2</sv:value>
+      <sv:value>29051.2</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/rulecondition.xml</sv:value>
@@ -91,7 +91,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.3</sv:value>
+      <sv:value>29051.3</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/advancedrule.xml</sv:value>
@@ -113,7 +113,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.4</sv:value>
+      <sv:value>29051.4</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/rule.xml</sv:value>
@@ -131,7 +131,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.5</sv:value>
+      <sv:value>29051.5</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/xmlrule.xml</sv:value>
@@ -149,7 +149,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.6</sv:value>
+      <sv:value>29051.6</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/ruleset.xml</sv:value>
@@ -167,7 +167,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.7</sv:value>
+      <sv:value>29051.7</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/broadcastingstaticdropdown.xml</sv:value>
@@ -182,7 +182,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>19051.8</sv:value>
+      <sv:value>29051.8</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>namespace/types/ajaxawarestring.xml</sv:value>
@@ -200,7 +200,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.1</sv:value>
+      <sv:value>21078.1</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/browser/navigator.xml</sv:value>
@@ -215,7 +215,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.2</sv:value>
+      <sv:value>21078.2</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/browser/urlrewriterTreeLoader.xml</sv:value>
@@ -230,7 +230,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.3</sv:value>
+      <sv:value>21078.3</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/pickers/folders/navigator.xml</sv:value>
@@ -245,7 +245,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.4</sv:value>
+      <sv:value>21078.4</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/pickers/folders/urlrewriterTreeLoader.xml</sv:value>
@@ -260,7 +260,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.5</sv:value>
+      <sv:value>21078.5</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/static/configTranslator/translations/section-urlrewriter.xml</sv:value>
@@ -278,7 +278,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10078.6</sv:value>
+      <sv:value>21078.6</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/tree-views/urlrewriter.xml</sv:value>
@@ -293,7 +293,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>90005</sv:value>
+      <sv:value>21078.7</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/cms/folder-views/ruleset.xml</sv:value>
@@ -309,7 +309,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>20079.0</sv:value>
+      <sv:value>21081</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/queries/templates/new-urlrewriter-document.xml</sv:value>
@@ -330,7 +330,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>20079.2</sv:value>
+      <sv:value>21082</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>config/queries/templates/new-urlrewriter-folder.xml</sv:value>
@@ -348,7 +348,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>20080</sv:value>
+      <sv:value>29980</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>data/content.xml</sv:value>
