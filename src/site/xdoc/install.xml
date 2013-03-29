@@ -25,15 +25,16 @@
     <section name="Installing Url Rewriter">
       <subsection name="Prerequisites">
         <p>
-          This instruction assumes that you have maven 3 installed
+          This instruction assumes that you have maven 3 installed.
         </p>
       </subsection>
-      <subsection name="Installing into your project">
-          <subsection name="Configure root pom">
+      <subsection name="Install the url rewriter plugin into your project">
+          <p> The following steps are needed: </p>
+          <subsection name="1. Configure root pom">
             <p>Specify the version in the properties section of your project's root pom:</p>
             <source><![CDATA[<forge.urlrewriter.version>1.03.00</forge.urlrewriter.version>]]></source>
           </subsection>
-          <subsection name="Configure CMS pom">
+          <subsection name="2. Configure CMS pom">
         <p>Add CMS plugin to the CMS pom:</p>
         <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
@@ -47,7 +48,7 @@
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]></source>
           </subsection>
-          <subsection name="Configure site pom">
+          <subsection name="3. Configure site pom">
         <p>Add HST plugin to the site pom:</p>
         <source><![CDATA[<dependency>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
@@ -55,6 +56,7 @@
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]></source>
          </subsection>
+         <subsection name="4. Configure web.xml">
         <p>Configure the RewriteFilter in the site's web.xml</p>
         <p>Add to the parameter hst-bean-annotated-classes the beans of Urlrewriter </p>
         <source>
@@ -102,7 +104,10 @@
   <url-pattern>/*</url-pattern>
   <dispatcher>REQUEST</dispatcher>
 </filter-mapping>]]></source>
-        <p>Copy <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a> to the following location within your project: ..site/src/main/resources/META-INF/hst-assembly/overrides/</p>
+         </subsection>
+         <subsection name="5. Override the hst-assembly context of your project.">
+            <p>Copy <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a> to the following location within your project: ..site/src/main/resources/META-INF/hst-assembly/overrides/</p>
+         </subsection>
       </subsection>
     </section>
     <section name="Running the demo project">
