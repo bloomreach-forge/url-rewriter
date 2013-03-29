@@ -82,7 +82,7 @@
     </init-param>
 </filter>]]></source>
         <p>
-          Add filter as a first entry in your web.xml before the other filter mappings:
+          <em>Important!</em> Add filter as a <em>first</em> entry in your web.xml before the other filter mappings:
         </p>
         <source><![CDATA[<filter-mapping>
   <filter-name>RewriteFilter</filter-name>
