@@ -50,6 +50,13 @@
   <version>${forge.urlrewriter.version}</version>
 </dependency>]]></source>
         <p>Configure the RewriteFilter in the site's web.xml</p>
+        <p>Add to the parameter hst-bean-annotated-classes the beans of Urlrewriter </p>
+        <source>
+            <![CDATA[<context-param>
+            <param-name>hst-beans-annotated-classes</param-name>
+            <param-value>classpath*:org/onehippo/forge/rewriting/beans/**/*.class</param-value>
+            </context-param>]]></source>
+        <p>And add the HippoRewriteFilter to the web.xml </p>
         <source><![CDATA[<filter>
     <filter-name>RewriteFilter</filter-name>
     <filter-class>org.onehippo.forge.rewriting.HippoRewriteFilter</filter-class>
@@ -82,7 +89,7 @@
     </init-param>
 </filter>]]></source>
         <p>
-          <em>Important!</em> Add filter as a <em>first</em> entry in your web.xml before the other filter mappings:
+          <em>Important!</em> Add the filter mapping as a <em>first</em> entry in your web.xml before the other filter mappings:
         </p>
         <source><![CDATA[<filter-mapping>
   <filter-name>RewriteFilter</filter-name>
