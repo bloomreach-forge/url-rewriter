@@ -49,8 +49,31 @@
     </section>
     <section name="Project status">
       <p>
-        The latest version of URL Rewriter is 1.03.00 running on Hippo CMS 7.8 and lower.
-        The 1.02.xx series can NOT be used on Hippo CMS 7.8, but reversly, 1.03.00 can be used on CMS 7.7.<br/>
+        The latest version of URL Rewriter is 1.03.00 running on Hippo CMS 7.8 and 7.7.
+        The 1.02.xx versions can NOT be used on Hippo CMS 7.8, but reversly, 1.03.00 can be used on CMS 7.7.
+      </p>
+      <table>
+        <tr>
+          <th>Version</th>
+          <th>Hippo 7.6</th>
+          <th>Hippo 7.7</th>
+          <th>Hippo 7.8 and up</th>
+        </tr>
+        <tr>
+          <td>1.03.xx</td>
+          <td>-</td>
+          <td>x</td>
+          <td>x</td>
+        </tr>
+        <tr>
+          <td>1.02.xx</td>
+          <td>x</td>
+          <td>x</td>
+          <td>-</td>
+        </tr>
+      </table>
+      <p>
+        The 1.01.xx versions are not to be used due to incompatibility with 1.02.xx<br/>
         See the <a href="release-notes.html">release notes</a> for detailed information.
       </p>
       <p>

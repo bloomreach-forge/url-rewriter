@@ -25,67 +25,79 @@
     <section name="Release Notes">
       <subsection name="1.03.00">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a>
-              Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-416">HIPPLUG-416</a>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
+              Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-416">HIPPLUG-416</a><br/>
               Split single CMS module into two modules: repository and CMS<br/>
             <span style="color:red">Note: </span> when upgrading from lower version, please add the repository dependency,
-            <a href="install.html">see the install page</a></li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-420">HIPPLUG-420</a>
-              In advanced rule, enable type parameter only for specific type values</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-427">HIPPLUG-427</a>
+            <a href="install.html">see the install page</a>.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-420">HIPPLUG-420</a><br/>
+              In advanced rule, enable type parameter only for specific type values.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-427">HIPPLUG-427</a><br/>
               Fix NPE in status page when no root directory has ever been created.</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a><br/>
               Support for qsappend by added boolean property to advanced rule doctype.<br/>
               <span style="color:red">Note: </span>because of a known bug in the backing software, this only works if
               the 'Rewrite From' field ends with a question mark.
           </li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a>
-              Support for qsappend by added boolean property to advanced rule doctype</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-579">HIPPLUG-579</a>
-              Fixed French translation issue and added Italian</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-596">HIPPLUG-596</a>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-579">HIPPLUG-579</a><br/>
+              Fixed French translation issue and added Italian.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-596">HIPPLUG-596</a><br/>
               Document editor was broken in Hippo 7.8 for advanced rule and XML rule due to wrong
-            <code>editor:templates/_default_/type</code> properties</li>
-          <li><a href="https://issues.onehippo.com/browse/CMS7-6835">CMS7-6835</a>
-              Translations to German</li>
+            <code>editor:templates/_default_/type</code> properties.</li>
+          <li><a href="https://issues.onehippo.com/browse/CMS7-6835">CMS7-6835</a><br/>
+              Translations to German.</li>
         </ul>
       </subsection>
       <subsection name="1.02.02">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a>
-            Don't decode urls as it can conflict with the hst</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a><br/>
+            Don't decode urls as it can conflict with the HST.</li>
         </ul>
       </subsection>
       <subsection name="1.02.01">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a>
-            Harmonica tab does not have "Add root folder" button</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-353">HIPPLUG-353</a>
-            Harmonica tab should have a search possiblity</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a><br/>
+            Harmonica tab does not have "Add root folder" button.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-353">HIPPLUG-353</a><br/>
+            Harmonica tab should have a search possiblity.</li>
         </ul>
       </subsection>
       <subsection name="1.02.00">
         <p>NB! Due to a document type refactor, version 1.02.00 is <b>incompatible</b> with 1.01.xx.</p>
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-250">HIPPLUG-250</a> Improve interface add low-tech option without regular expressions</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-251">HIPPLUG-251</a> When moving/copying rules, the picker does not show the correct sections</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-351">HIPPLUG-351</a> Advanced rule  document type improvements</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-352">HIPPLUG-352</a> Ruledocuments should set last to true on the to attribute of the last rule within a ruleset document</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-363">HIPPLUG-363</a> Make rules orderable</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-375">HIPPLUG-375</a> Make it possible to set use-context to true</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-377">HIPPLUG-377</a> Parse ruleFrom field and extract domain condition</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-378">HIPPLUG-378</a> Add a checkbox to support wildcard matching engine for the advanced rule set</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-384">HIPPLUG-384</a> Copyright is 2011, should be 2012</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-417">HIPPLUG-417</a> Move hiding hippo:folders from cms-tree-views/documents to cms-tree-views/urlrewriter</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-418">HIPPLUG-418</a> Use delta merge feature for cms-browser/navigator node</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-421">HIPPLUG-421</a> Folder view too wide</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-250">HIPPLUG-250</a><br/>
+            Improve interface add low-tech option without regular expressions.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-251">HIPPLUG-251</a><br/>
+            When moving/copying rules, the picker does not show the correct sections.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-351">HIPPLUG-351</a><br/>
+            Advanced rule  document type improvements.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-352">HIPPLUG-352</a><br/>
+            Ruledocuments should set last to true on the to attribute of the last rule within a ruleset document.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-363">HIPPLUG-363</a><br/>
+            Make rules orderable.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-375">HIPPLUG-375</a><br/>
+            Make it possible to set use-context to true.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-377">HIPPLUG-377</a><br/>
+            Parse ruleFrom field and extract domain condition.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-378">HIPPLUG-378</a><br/>
+            Add a checkbox to support wildcard matching engine for the advanced rule set.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-384">HIPPLUG-384</a><br/>
+            Copyright is 2011, should be 2012.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-417">HIPPLUG-417</a><br/>
+            Move hiding hippo:folders from cms-tree-views/documents to cms-tree-views/urlrewriter.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-418">HIPPLUG-418</a><br/>
+            Use delta merge feature for cms-browser/navigator node.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-421">HIPPLUG-421</a><br/>
+            Folder view too wide.</li>
         </ul>
       </subsection>
       <subsection name="1.01.04">
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-271">HIPPLUG-271</a> Improve urlrewriter warnings</li>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-355">HIPPLUG-355</a> URL Rewriter should be on a stable version of upstream</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-271">HIPPLUG-271</a><br/>
+            Improve urlrewriter warnings.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-355">HIPPLUG-355</a><br/>
+            URL Rewriter should be on a stable version of upstream.</li>
           <li>put sensible defaults in the installation instructions</li>
         </ul>
       </subsection>
