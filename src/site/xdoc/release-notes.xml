@@ -23,8 +23,10 @@
   </properties>
   <body>
     <section name="Release Notes">
-      <subsection name="1.03.01 (unreleased)">
+      <subsection name="1.03.01">
         <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-669">HIPPLUG-669</a><br/>
+            Make sure that the mandatory 'Type' field in a rule or advanced rule turns red when not filled in.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-674">HIPPLUG-674</a><br/>
             Set the sequence number for /content/urlrewriter to 60000, to be sure /content already is there, avoiding
             an nt:unstructured node to be created automatically.</li>
