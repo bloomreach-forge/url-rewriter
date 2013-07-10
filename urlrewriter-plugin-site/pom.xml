@@ -90,12 +90,4 @@
     </dependency>
   </dependencies>
 
-  <distributionManagement>
-    <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>forge-urlrewriter-maven-repo</id>
-      <url>svn:https://forge.onehippo.org/svn/urlrewriter/maven2/</url>
-    </repository>
-  </distributionManagement>
-
 </project>
