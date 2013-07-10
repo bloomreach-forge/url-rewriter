@@ -23,6 +23,13 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.03.01 (unreleased)">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-674">HIPPLUG-674</a><br/>
+            Set the sequence number for /content/urlrewriter to 60000, to be sure /content already is there, avoiding
+            an nt:unstructured node to be created automatically.</li>
+        </ul>
+      </subsection>
       <subsection name="1.03.00">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
