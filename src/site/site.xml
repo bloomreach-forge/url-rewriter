@@ -42,7 +42,7 @@
 
     <menu name="Usage">
       <item name="Installation" href="/install.html"/>
-      <item name="Build from source" href="/build-from-source.html"/>
+      <item name="Hide URL Rewriter for non-admins" href="/hide-urlrewriter.html"/>
       <item name="Using the URL Rewriter" href="/using-the-urlrewriter.html" collapse="true">
         <item name="Rule" href="/rules/rule.html"/>
         <item name="Advanced Rule" href="/rules/advanced-rule.html" collapse="true">
@@ -50,7 +50,7 @@
         </item>
         <item name="XML Rule" href="/rules/xml-rule.html"/>
       </item>
-      <item name="Hide URLRewriter for non-admin users" href="/hide-urlrewriter.html"/>
+      <item name="Build from source" href="/build-from-source.html"/>
     </menu>
 
     <menu name="Auto generated docs" ref="reports"/>

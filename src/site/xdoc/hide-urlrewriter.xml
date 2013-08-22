@@ -19,17 +19,16 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Hide URLRewriter for non-admin users</title>
+    <title>Hide URL Rewriter for non-admins</title>
   </properties>
   <body>
-    <section name="Introduction">
-      Sometimes it is desired to hide the URLRewriter from users without admin rights.
-      <br/>
-      This page describes how to hide the URLRewriter section from the Browse Workspace for non-admins.
-    </section>
-    <section name="Make xml file">
-      Copy the following xml and save it as urlrewriter-deny-section.xml
-      <pre><![CDATA[<?xml version="1.0"?>
+    <section name="Hide URL Rewriter for non-admins">
+      <p>Sometimes it is desired to hide the URL Rewriter for all users except those with admin rights.
+        <br/>
+      This page describes how to hide the URL Rewriter section from the Browse Workspace for non-admins.</p>
+      <subsection name="Make a domain rule in xml">
+        <p>Copy the following xml and save it as hide-urlrewriter-section.xml</p>
+        <pre><![CDATA[<?xml version="1.0"?>
 <sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" sv:name="hide-urlrewriter-section">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hipposys:facetrule</sv:value>
@@ -50,10 +49,13 @@
     <sv:value>cms-tree-views/urlrewriter</sv:value>
   </sv:property>
 </sv:node>]]></pre>
-    </section>
-    <section name="Import">
-      Import the urlrewriter-deny-section.xml at
-      <pre>/hippo:configuration/hippo:domains/frontendconfig/frontend-plugins</pre>
+        <p>It represents a domain rule, <a href="http://www.onehippo.org/7_8/library/concepts/security/domains.html">see here on onehippo.org</a>.<br/></p>
+      </subsection>
+      <subsection name="Import the domain rule">
+        <p>Import the hide-urlrewriter-section.xml at this location:</p>
+        <pre>/hippo:configuration/hippo:domains/frontendconfig/frontend-plugins</pre>
+        <p>You can either do this manually on an existing repository or take the file up in your project's content module.</p>
+      </subsection>
     </section>
   </body>
 </document>
