@@ -51,5 +51,19 @@
         <source>mvn site</source>
       </subsection>
     </section>
+    <section name="Running the demo project">
+      <subsection name="Example Demo Project Location">
+        <p>If you do not want to put this plugin directly into your project you might want to checkout the demo project.</p>
+        <em>
+          Note: You can check out, build and run a demo as follows:
+        </em>
+        <source>
+          <![CDATA[$ svn co https://forge.onehippo.org/svn/urlrewriter/demo/trunk urlrewriter-demo
+$ cd urlrewriter-demo
+$ mvn clean install
+$ mvn -P cargo.run
+]]></source>
+      </subsection>
+    </section>
   </body>
 </document>

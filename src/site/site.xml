@@ -50,6 +50,7 @@
         </item>
         <item name="XML Rule" href="/rules/xml-rule.html"/>
       </item>
+      <item name="Hide URLRewriter for non-admin users" href="/hide-urlrewriter.html"/>
     </menu>
 
     <menu name="Auto generated docs" ref="reports"/>
