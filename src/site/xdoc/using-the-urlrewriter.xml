@@ -76,7 +76,7 @@
           </tr>
           <tr>
             <td><a href="rules/xml-rule.html">XML Rule</a></td>
-            <td>Here you can add XML Rules in the format supported by the underlying software, <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html">Paul Tuckey's Url Rewrite Filter</a></td>
+            <td>Here you can add XML Rules in the format supported by the underlying software, <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html">Paul Tuckey's Url Rewrite Filter</a></td>
           </tr>
         </table>
       </subsection>

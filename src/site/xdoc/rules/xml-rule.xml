@@ -25,7 +25,7 @@
     <section name="XML Rule">
       <subsection name="Overview">
         <p>
-          This type of rule will present you with a text field in which you can put the XML that the underlying software (Paul Tuckey's Url Rewrite Filter) understands. Click <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/3.2/index.html">here</a> for the documentation.
+          This type of rule will present you with a text field in which you can put the XML that the underlying software (Paul Tuckey's Url Rewrite Filter) understands. Click <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html">here</a> for the documentation.
         </p>
       </subsection>
     </section>
