@@ -25,6 +25,9 @@
     <section name="Hide URL Rewriter for non-admins">
       <p>Sometimes it is desired to hide the URL Rewriter for all users except those with admin rights.
         <br/>
+      By default both authors and editors can create rules, but only editors, and thus admins, can enable them.
+        <br/>
+        <br/>
       This page describes how to hide the URL Rewriter section from the Browse Workspace for non-admins.</p>
       <subsection name="Make a domain rule in xml">
         <p>Copy the following xml and save it as hide-urlrewriter-section.xml</p>
