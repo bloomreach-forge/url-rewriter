@@ -25,9 +25,22 @@
 
   <name>Url rewriter Repository plugin</name>
   <description>Url rewriter Repository plugin</description>
-  <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter-module-repository</artifactId>
   <packaging>jar</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-repository-api</artifactId>
+      <version>${hippo.repository.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-repository-upgrade</artifactId>
+      <version>${hippo.repository.version}</version>
+    </dependency>
+
+  </dependencies>
 
 
   <build>
@@ -43,7 +56,13 @@
             </manifest>
             <manifestEntries>
               <!-- versioning reloadonstartups: build reflects version -->
-              <Implementation-Build>10301</Implementation-Build>
+              <Implementation-Build>10401</Implementation-Build>
+              <Hippo-Modules>
+                org.onehippo.forge.rewriting.updater.UrlRewriter_1_04_UpdaterPhaseA
+                org.onehippo.forge.rewriting.updater.UrlRewriter_1_04_UpdaterPhaseB
+                org.onehippo.forge.rewriting.updater.UrlRewriter_1_04_UpdaterPhaseC
+                org.onehippo.forge.rewriting.updater.UrlRewriter_1_04_UpdaterPhaseD
+              </Hippo-Modules>
             </manifestEntries>
           </archive>
         </configuration>
