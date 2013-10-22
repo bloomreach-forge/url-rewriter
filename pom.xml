@@ -59,7 +59,7 @@
   <scm>
     <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</connection>
     <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</url>
+    <url>https://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</url>
   </scm>
 
   <distributionManagement>
