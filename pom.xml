@@ -34,9 +34,9 @@
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
     <tuckey.urlrewritefilter.version>4.0.3</tuckey.urlrewritefilter.version>
-    <forge.selection.version>2.06.00</forge.selection.version>
+    <forge.selection.version>2.06.04</forge.selection.version>
 
-    <jackrabbit.version>2.2.13</jackrabbit.version>
+    <jackrabbit.version>2.2.13-h6</jackrabbit.version>
     <hippo.repository.version>2.24.09</hippo.repository.version>
     <hippo.cms.version>2.24.06</hippo.cms.version>
     <hst.version>2.26.08</hst.version>
