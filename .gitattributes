@@ -7,5 +7,6 @@ src/site/xdoc/rules/conditions.xml -text
 src/site/xdoc/rules/rule.xml -text
 src/site/xdoc/rules/xml-rule.xml -text
 src/site/xdoc/using-the-urlrewriter.xml -text
+urlrewriter-plugin-repository/src/main/resources/namespace/urlrewriter-transition.cnd -text
 urlrewriter-plugin-repository/src/main/resources/namespace/urlrewriter.cnd -text
 urlrewriter-plugin-site/src/main/appended-resources/META-INF/LICENSE -text
