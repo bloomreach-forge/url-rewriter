@@ -57,9 +57,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</developerConnection>
-    <url>https://forge.onehippo.org/svn/urlrewriter/branches/urlrewriter-1.04.01.xx</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.04.01.xx</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.04.01.xx</developerConnection>
+    <url>https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.04.01.xx</url>
   </scm>
 
   <distributionManagement>
