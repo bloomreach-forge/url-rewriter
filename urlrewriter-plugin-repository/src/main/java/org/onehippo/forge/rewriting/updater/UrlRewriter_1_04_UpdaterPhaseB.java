@@ -37,7 +37,7 @@ public class UrlRewriter_1_04_UpdaterPhaseB implements UpdaterModule {
                     try {
                         UpdaterUtils.removeOldRewriterRules(childNode);
                     } catch (RepositoryException e) {
-                        log.error("Exception while processing node {}", childNode.getPath());
+                        log.error("Exception while processing node {}", childNode.getPath(), e);
                     }
                 }
             }
