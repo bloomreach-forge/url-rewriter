@@ -5,6 +5,7 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Value;
 
+import org.apache.commons.lang.StringUtils;
 import org.hippoecm.repository.updater.UpdaterNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -75,10 +76,22 @@ public class UpdaterUtils {
                             log.info("Copying rulecondition {}", oldRuleCondition.getPath());
 
                             Node newRuleCondition = rulesetNode.addNode("urlrewriter:rulecondition", "urlrewriter:rulecondition");
-                            newRuleCondition.setProperty("urlrewriter:conditionname", oldRuleCondition.getProperty("urlrewriter:conditionname").getString());
+
+                            //condition name
+                            String conditionName = oldRuleCondition.getProperty("urlrewriter:conditionname").getString();
+                            String conditionPredefinedName = oldRuleCondition.getProperty("urlrewriter:conditionpredefinedname").getString();
+                            newRuleCondition.setProperty("urlrewriter:conditionname", StringUtils.isNotEmpty(conditionName) ? conditionName : conditionPredefinedName);
+
+                            //type
+                            newRuleCondition.setProperty("urlrewriter:conditiontype",
+                                    StringUtils.isNotEmpty(conditionPredefinedName) || StringUtils.isNotEmpty(conditionName) ?
+                                            "header" : oldRuleCondition.getProperty("urlrewriter:conditiontype").getString());
+
+                            //operator
                             newRuleCondition.setProperty("urlrewriter:conditionoperator", oldRuleCondition.getProperty("urlrewriter:conditionoperator").getString());
-                            newRuleCondition.setProperty("urlrewriter:conditiontype", oldRuleCondition.getProperty("urlrewriter:conditiontype").getString());
+                            //or
                             newRuleCondition.setProperty("urlrewriter:conditionor", oldRuleCondition.getProperty("urlrewriter:conditionor").getString());
+                            //value
                             newRuleCondition.setProperty("urlrewriter:conditionvalue", oldRuleCondition.getProperty("urlrewriter:conditionvalue").getString());
                         }
                     }
