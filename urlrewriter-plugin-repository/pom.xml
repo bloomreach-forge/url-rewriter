@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.04.01d</version>
+    <version>1.04.01e-SNAPSHOT</version>
   </parent>
 
   <name>Url rewriter Repository plugin</name>
