@@ -27,6 +27,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.tools.ant.filters.StringInputStream;
 import org.hippoecm.hst.site.HstServices;
@@ -245,6 +246,16 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
                 showStatus(hsRequest, urlRewriteWrappedResponse);
                 return;
             }
+        }
+
+        // Check if request comes from ChannelManager, if it does skip rewriting
+        HttpSession session = hsRequest.getSession(false);
+        if (session != null && Boolean.TRUE.equals(session.getAttribute("org.hippoecm.hst.container.sso_cms_authenticated"))) {
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+            if (log.isDebugEnabled()) {
+                log.debug("Ignoring request because it comes from the Channel Manager");
+            }
+            return;
         }
 
         boolean requestRewritten = false;

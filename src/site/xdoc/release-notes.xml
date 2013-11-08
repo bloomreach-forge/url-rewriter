@@ -26,12 +26,18 @@
       <subsection name="1.04.01">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
-            Upgrader for projects using versions < 1.03. This upgrader upgrades the namespace and migrates all your existing documents to the new types.
+            Upgrader for projects using versions &lt; 1.03. This upgrader upgrades the namespace and migrates all your existing documents to the new types.
             To enable the upgrader (which consists of 4 phases) add version "url-rewriter-updater-1-04" to hippo:initialize and restart your system. Warning: This upgrade contains a Namespace visitor.
             You do not need to run the upgrader if you are on 1.03 and later, unless you want to be in sync with the latest namespace version (1.1). If you do want to sync your existing namespace to the newer version, you need only to run
             the last 2 phases of the upgrader. In this case, add version "url-rewriter-updater-1-04-phaseB" to hippo:initialize. This will trigger the last 2 phases, that is phase C and D. no content will be changed in this case.
             You'll need info level to see logging; the category you (may) need to set is "org.onehippo.forge.rewriting.updater".
           </li>
+        </ul>
+      </subsection>
+      <subsection name="1.03.02 (unreleased)">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-735">HIPPLUG-735</a><br/>
+            Don't rewrite URLs when a request comes from the Channel Manager.</li>
         </ul>
       </subsection>
       <subsection name="1.03.01">
