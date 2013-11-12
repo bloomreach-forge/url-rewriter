@@ -253,7 +253,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         if (session != null && Boolean.TRUE.equals(session.getAttribute("org.hippoecm.hst.container.sso_cms_authenticated"))) {
             chain.doFilter(hsRequest, urlRewriteWrappedResponse);
             if (log.isDebugEnabled()) {
-                log.debug("Ignoring request because it comes from the Channel Manager");
+                log.debug("Ignoring request for \"" + hsRequest.getRequestURI() + "\" because it comes from the Channel Manager");
             }
             return;
         }
