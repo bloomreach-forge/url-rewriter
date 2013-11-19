@@ -26,7 +26,7 @@
       <subsection name="1.04.00">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
-            Upgrader for projects using versions &lt; 1.03.00. This upgrader upgrades the namespace and migrates all your existing documents to the new types.<br/>
+            Upgrader for projects using versions &lt;= 1.01.04. This upgrader upgrades the namespace and migrates all your existing documents to the new types.<br/>
             <span style="color:red">Warning: </span>This upgrade contains a <b>Namespace visitor</b>.<br/><br/>
             The upgrader does not handle:<br/>
             <ul>
