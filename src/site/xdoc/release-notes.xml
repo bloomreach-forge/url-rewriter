@@ -23,6 +23,17 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.04.00">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
+            Upgrader for projects using versions &lt; 1.03.00. This upgrader upgrades the namespace and migrates all your existing documents to the new types. The upgrader does not handle old rulesetxml documents, you need to migrate those manually.
+            To enable the upgrader (which consists of 4 phases) add version "url-rewriter-updater-1-04" to hippo:initialize and restart your system. Warning: This upgrade contains a Namespace visitor.
+            You do not need to run the upgrader if you are on 1.03 and later, unless you want to be in sync with the latest namespace version (1.1). If you do want to sync your existing namespace to the newer version, you need only to run
+            the last 2 phases of the upgrader. In this case, add version "url-rewriter-updater-1-04-phaseB" to hippo:initialize. This will trigger the last 2 phases, that is phase C and D. no content will be changed in this case.
+            You'll need info level to see logging; the category you (may) need to set is "org.onehippo.forge.rewriting.updater".
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.03.02">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-735">HIPPLUG-735</a><br/>
@@ -41,27 +52,27 @@
       <subsection name="1.03.00">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
-              Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error.</li>
+            Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-416">HIPPLUG-416</a><br/>
-              Split single CMS module into two modules: repository and CMS<br/>
+            Split single CMS module into two modules: repository and CMS<br/>
             <span style="color:red">Note: </span> when upgrading from lower version, please add the repository dependency,
             <a href="install.html">see the install page</a>.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-420">HIPPLUG-420</a><br/>
-              In advanced rule, enable type parameter only for specific type values.</li>
+            In advanced rule, enable type parameter only for specific type values.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-427">HIPPLUG-427</a><br/>
-              Fix NPE in status page when no root directory has ever been created.</li>
+            Fix NPE in status page when no root directory has ever been created.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-428">HIPPLUG-428</a><br/>
-              Support for qsappend by added boolean property to advanced rule doctype.<br/>
-              <span style="color:red">Note: </span>because of a known bug in the backing software, this only works if
-              the 'Rewrite From' field ends with a question mark.
+            Support for qsappend by added boolean property to advanced rule doctype.<br/>
+            <span style="color:red">Note: </span>because of a known bug in the backing software, this only works if
+            the 'Rewrite From' field ends with a question mark.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-579">HIPPLUG-579</a><br/>
-              Fixed French translation issue and added Italian.</li>
+            Fixed French translation issue and added Italian.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-596">HIPPLUG-596</a><br/>
-              Document editor was broken in Hippo 7.8 for advanced rule and XML rule due to wrong
+            Document editor was broken in Hippo 7.8 for advanced rule and XML rule due to wrong
             <code>editor:templates/_default_/type</code> properties.</li>
           <li><a href="https://issues.onehippo.com/browse/CMS7-6835">CMS7-6835</a><br/>
-              Translations to German.</li>
+            Translations to German.</li>
         </ul>
       </subsection>
       <subsection name="1.02.02">

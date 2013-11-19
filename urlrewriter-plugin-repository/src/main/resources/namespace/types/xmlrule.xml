@@ -103,7 +103,7 @@
         <sv:value>hippostd:relaxed</sv:value>
       </sv:property>
       <sv:property sv:name="hipposysedit:uri" sv:type="String">
-        <sv:value>http://org.onehippo.forge/urlrewriter/1.0</sv:value>
+        <sv:value>http://org.onehippo.forge/urlrewriter/1.1</sv:value>
       </sv:property>
       <sv:node sv:name="rule">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">

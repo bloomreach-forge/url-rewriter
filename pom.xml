@@ -19,14 +19,14 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>18</version>
+    <version>22.2</version>
   </parent>
 
   <name>Hippo Forge URL Rewriter Plugin</name>
   <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
-  <version>1.03.03-SNAPSHOT</version>
+  <version>1.04.00-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -34,12 +34,12 @@
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
     <tuckey.urlrewritefilter.version>4.0.3</tuckey.urlrewritefilter.version>
-    <forge.selection.version>2.06.00</forge.selection.version>
+    <forge.selection.version>2.06.04</forge.selection.version>
 
-    <jackrabbit.version>2.2.12-h1</jackrabbit.version>
-    <hippo.repository.version>2.22.09</hippo.repository.version>
-    <hippo.cms.version>2.22.10</hippo.cms.version>
-    <hst.version>2.24.07</hst.version>
+    <jackrabbit.version>2.2.13-h6</jackrabbit.version>
+    <hippo.repository.version>2.24.09</hippo.repository.version>
+    <hippo.cms.version>2.24.06</hippo.cms.version>
+    <hst.version>2.26.08</hst.version>
   </properties>
 
   <modules>
