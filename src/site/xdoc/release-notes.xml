@@ -23,7 +23,7 @@
   </properties>
   <body>
     <section name="Release Notes">
-      <subsection name="1.03.02 (unreleased)">
+      <subsection name="1.03.02">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-735">HIPPLUG-735</a><br/>
             Don't rewrite URLs when a request comes from the Channel Manager.</li>
