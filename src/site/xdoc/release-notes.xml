@@ -23,7 +23,7 @@
   </properties>
   <body>
     <section name="Release Notes">
-      <subsection name="1.04.00">
+      <subsection name="1.04.00 (2013-11-19)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
             Upgrader for projects using versions &lt;= 1.01.04. This upgrader upgrades the namespace and migrates all your existing documents to the new types.<br/>
@@ -41,13 +41,13 @@
           </li>
         </ul>
       </subsection>
-      <subsection name="1.03.02">
+      <subsection name="1.03.02 (2013-11-19)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-735">HIPPLUG-735</a><br/>
             Don't rewrite URLs when a request comes from the Channel Manager.</li>
         </ul>
       </subsection>
-      <subsection name="1.03.01">
+      <subsection name="1.03.01 (2013-07-10)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-669">HIPPLUG-669</a><br/>
             Make sure that the mandatory 'Type' field in a rule or advanced rule turns red when not filled in.</li>
@@ -56,7 +56,7 @@
             an nt:unstructured node to be created automatically.</li>
         </ul>
       </subsection>
-      <subsection name="1.03.00">
+      <subsection name="1.03.00 (2013-02-15)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
             Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error.</li>
@@ -82,13 +82,13 @@
             Translations to German.</li>
         </ul>
       </subsection>
-      <subsection name="1.02.02">
+      <subsection name="1.02.02 (2012-08-14)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a><br/>
             Don't decode urls as it can conflict with the HST.</li>
         </ul>
       </subsection>
-      <subsection name="1.02.01">
+      <subsection name="1.02.01 (2012-07-04)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a><br/>
             Harmonica tab does not have "Add root folder" button.</li>
@@ -96,7 +96,7 @@
             Harmonica tab should have a search possiblity.</li>
         </ul>
       </subsection>
-      <subsection name="1.02.00">
+      <subsection name="1.02.00 (2012-07-04)">
         <p>NB! Due to a document type refactor, version 1.02.00 is <b>incompatible</b> with 1.01.xx.</p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-250">HIPPLUG-250</a><br/>
@@ -125,7 +125,7 @@
             Folder view too wide.</li>
         </ul>
       </subsection>
-      <subsection name="1.01.04">
+      <subsection name="1.01.04 (2012-05-21)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-271">HIPPLUG-271</a><br/>
             Improve urlrewriter warnings.</li>
@@ -134,18 +134,34 @@
           <li>put sensible defaults in the installation instructions</li>
         </ul>
       </subsection>
-      <subsection name="1.01.03">
+      <subsection name="1.01.03 (2011-10-10)">
         <ul>
           <li>Do not import the example rules by default</li>
         </ul>
       </subsection>
-      <subsection name="1.01.02">
+      <subsection name="1.01.02 (2011-10-04)">
         <ul>
           <li>Bug fixes:</li>
           <li>Refactorings</li>
         </ul>
       </subsection>
-      <subsection name="1.01.01">
+      <subsection name="1.01.01 (2011-09-23)">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-241">HIPPLUG-241</a><br/>
+            URLRewriter includes the pax-logging-api which conflicts with the slf4j api we already provide.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-246">HIPPLUG-246</a><br/>
+            URLRewriter: Not possible to supply name and type (name is necessary for parameter and header types)</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-247">HIPPLUG-247</a><br/>
+            conditions are now AND-ed, would be nice to have OR as well.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-248">HIPPLUG-248</a><br/>
+            add  301/302 checkbox</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-249">HIPPLUG-249</a><br/>
+            add checkbox casesensitive</li>
+        </ul>
+      </subsection>
+    </section>
+    <section>
+      <subsection name="1.01.00 (2011-09-14)">
         <ul>
           <li>Initial version</li>
         </ul>
