@@ -117,7 +117,7 @@
         </em>
         <source><![CDATA[$ svn co https://forge.onehippo.org/svn/urlrewriter/demo/trunk urlrewriter-demo
 $ cd urlrewriter-demo
-$ mvn clean install
+$ mvn clean package
 $ mvn -P cargo.run]]></source>
       </subsection>
     </section>
