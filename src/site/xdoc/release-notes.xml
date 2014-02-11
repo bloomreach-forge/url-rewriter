@@ -34,7 +34,7 @@
               <li>rules with multiple rule compounds</li>
             </ul><br/>
             To enable the upgrader (which consists of 4 phases) add version "url-rewriter-updater-1-04" to hippo:initialize and restart your system.<br/>
-            You do not need to run the upgrader if you are on 1.03 and later, unless you want to be in sync with the latest namespace version (1.1).<br/>
+            You do not need to run the upgrader if you are on 1.02.00 and later, unless you want to be in sync with the latest namespace version (1.1).<br/>
             In that case, you need only to run the last 2 phases of the upgrader. To do so, add version "url-rewriter-updater-1-04-phaseB" to hippo:initialize. 
             This will trigger the last 2 phases, that is phase C and D, in which no content is changed.<br/>
             Logging will happen on INFO level; the category you (may) need to set is "org.onehippo.forge.rewriting.updater".
