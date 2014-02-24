@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 
-    Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,6 +23,14 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.04.01 (unreleased)">
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-788">HIPPLUG-788</a><br/>
+            Remove 'hippotranslation' mixin and properties from document prototypes because rules are not translated.<br/>
+            Note that the document types are reloaded on startup so the <code>-Drepo.bootstrap</code> flag should be up.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.04.00 (2013-11-19)">
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
