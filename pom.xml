@@ -181,6 +181,7 @@
           <include>**/*.vm</include>
           <include>**/*.cnd</include>
           <include>**/*.xml</include>
+          <include>**/*.png</include>
         </includes>
       </resource>
     </resources>
