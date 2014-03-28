@@ -55,6 +55,16 @@
             <td>when set to true, the query string is taken into account when matching URLs</td>
             <td>false</td>
           </tr>
+          <tr>
+            <td>urlrewriter:excludePrefixes</td>
+            <td>this is a multiple string, each value is a prefix that should not be redirected</td>
+            <td>{_cmsinternal, _cmsrest, _rp} </td>
+          </tr>
+          <tr>
+            <td>urlrewriter:skippost</td>
+            <td>when set to true request using POST will not be redirected, to have them redirected set this property to true.</td>
+            <td>true</td>
+          </tr>
         </table>
       </subsection>
       <subsection name="Adding Rules">
