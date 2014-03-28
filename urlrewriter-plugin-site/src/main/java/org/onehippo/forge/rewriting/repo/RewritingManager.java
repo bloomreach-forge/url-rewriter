@@ -19,12 +19,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.jcr.Credentials;
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Repository;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import javax.jcr.*;
 import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -46,6 +41,8 @@ public class RewritingManager {
 
     // spring managed
     private String rewriteRulesLocation;
+    private boolean skipPOST;
+    private String[] skipPrefixes;
     private Repository repository;
     private Credentials credentials;
     private List<RewritingRulesExtractor> rewritingRulesExtractors;
@@ -116,12 +113,28 @@ public class RewritingManager {
                     Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
                     UrlRewriteConstants.USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE;
 
+            skipPOST = rootNode.hasProperty(UrlRewriteConstants.SKIP_POST_PROPERTY) ?
+                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.SKIP_POST_PROPERTY).getString()) :
+                    UrlRewriteConstants.SKIP_POST_PROPERTY_DEFAULT_VALUE;
+
+            if(rootNode.hasProperty(UrlRewriteConstants.SKIP_PREFIXES_PROPERTY)){
+                Value[] prefixes = rootNode.getProperty(UrlRewriteConstants.SKIP_PREFIXES_PROPERTY).getValues();
+                skipPrefixes = new String[prefixes.length];
+                for(int i =0; i < prefixes.length; i++)
+                {
+                    skipPrefixes[i] = prefixes[i].getString();
+                }
+            }else{
+                skipPrefixes = UrlRewriteConstants.SKIP_PREFIXES_DEFAULT_VALUE.split(", ");
+            }
+
             if(!ignoreContextPath) {
               rules.append(" use-context=\"true\"");
             }
             if(useQueryString) {
               rules.append(" use-query-string=\"true\"");
             }
+
             // HIPPLUG-476: always disable decoding as it can interfere with hst encodings
             rules.append(" decode-using=\"null\"");
 
@@ -246,6 +259,14 @@ public class RewritingManager {
             }
         }
         return rulesLocation;
+    }
+
+    public boolean getSkipPOST(){
+          return skipPOST;
+    }
+
+    public String[] getSkipPrefixes(){
+          return skipPrefixes;
     }
 
     public void invalidate(final Event event) {

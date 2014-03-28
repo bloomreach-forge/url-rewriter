@@ -62,6 +62,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private static final String INIT_PARAM_STATUS_ENABLED = "statusEnabled";
     private static final String INIT_PARAM_STATUS_PATH = "statusPath";
     private static final String INIT_PARAM_STATUS_ENABLED_ON_HOSTS = "statusEnabledOnHosts";
+    private static final String DEFAULT_PREFIXEXCLUDES = "_cmsrest, _cmsinternal, _rp";
     public static final String INIT_PARAM_RULES_LOCATION = "rulesLocation";
     public static final String INIT_PARAM_MOD_REWRITE_CONF_TEXT = "modRewriteConfText";
 
@@ -183,6 +184,18 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         }
     }
 
+    private boolean excludePrefixes(String uri){
+        String[] excludes = rewritingManager.getSkipPrefixes();
+        for(int i =0; i < excludes.length; i++)
+        {
+            if(uri.contains(excludes[i]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Destroy is called by the application server when it unloads this filter.
      */
@@ -248,9 +261,18 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             }
         }
 
+        //Check if request should be skipped with post
+        if(rewritingManager.getSkipPOST() && hsRequest.getMethod().equals("POST")){
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+            if (log.isDebugEnabled()) {
+                log.debug("Ignoring request for \"" + hsRequest.getRequestURI() + "\" because it is a POST request");
+            }
+            return;
+        }
+
         // Check if request comes from ChannelManager, if it does skip rewriting
         HttpSession session = hsRequest.getSession(false);
-        if (session != null && Boolean.TRUE.equals(session.getAttribute("org.hippoecm.hst.container.sso_cms_authenticated"))) {
+        if(excludePrefixes(hsRequest.getRequestURI())){
           chain.doFilter(hsRequest, urlRewriteWrappedResponse);
           if (log.isDebugEnabled()) {
             log.debug("Ignoring request for \"" + hsRequest.getRequestURI() + "\" because it comes from the Channel Manager");
