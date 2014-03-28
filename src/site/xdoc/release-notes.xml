@@ -29,6 +29,12 @@
             Remove 'hippotranslation' mixin and properties from document prototypes because rules are not translated.<br/>
             Note that the document types are reloaded on startup so the <code>-Drepo.bootstrap</code> flag should be up.
           </li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-760">HIPPLUG-760</a><br/>
+            Skip filter for hst namespace prefixed URLs<br/>
+            All POST requests are skipped by default, and it's now possible to configure prefixes to be skipped.<br/>
+            By default _cmsrest, _cmsinternal, _rp &amp; _hn: are configured to be skipped.<br/>
+            Please see the documentation.
+          </li>
         </ul>
       </subsection>
       <subsection name="1.04.00 (2013-11-19)">
