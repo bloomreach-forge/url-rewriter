@@ -62,7 +62,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private static final String INIT_PARAM_STATUS_ENABLED = "statusEnabled";
     private static final String INIT_PARAM_STATUS_PATH = "statusPath";
     private static final String INIT_PARAM_STATUS_ENABLED_ON_HOSTS = "statusEnabledOnHosts";
-    private static final String DEFAULT_PREFIXEXCLUDES = "_cmsrest, _cmsinternal, _rp";
+    private static final String DEFAULT_PREFIXEXCLUDES = "_cmsrest, _cmsinternal, _rp, _hn:";
     public static final String INIT_PARAM_RULES_LOCATION = "rulesLocation";
     public static final String INIT_PARAM_MOD_REWRITE_CONF_TEXT = "modRewriteConfText";
 
