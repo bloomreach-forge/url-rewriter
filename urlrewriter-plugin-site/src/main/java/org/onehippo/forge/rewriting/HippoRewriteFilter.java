@@ -188,7 +188,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         String[] excludes = rewritingManager.getSkipPrefixes();
         for(int i =0; i < excludes.length; i++)
         {
-            if(uri.contains(excludes[i]))
+            if(uri.startsWith("/"+excludes[i]))
             {
                 return true;
             }
@@ -272,7 +272,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
         // Check if request comes from ChannelManager, if it does skip rewriting
         HttpSession session = hsRequest.getSession(false);
-        if(excludePrefixes(hsRequest.getRequestURI())){
+        if(excludePrefixes(hsRequest.getRequestURI().replaceFirst(hsRequest.getContextPath(),""))){
           chain.doFilter(hsRequest, urlRewriteWrappedResponse);
           if (log.isDebugEnabled()) {
             log.debug("Ignoring request for \"" + hsRequest.getRequestURI() + "\" because it comes from the Channel Manager");
