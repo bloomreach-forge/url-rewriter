@@ -1,5 +1,5 @@
 /**
- * Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -184,8 +184,12 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private boolean matchSkippedPrefixes(HttpServletRequest hsRequest){
 
         String uri = hsRequest.getRequestURI();
-        if (uri.startsWith(hsRequest.getContextPath())) {
-            uri = uri.substring(hsRequest.getContextPath().length());
+
+        // remove context path unless explicitly unset
+        if (rewritingManager.getIgnoreContextPath()) {
+            if (uri.startsWith(hsRequest.getContextPath())) {
+                uri = uri.substring(hsRequest.getContextPath().length());
+            }
         }
 
         final String[] skippedPrefixes = rewritingManager.getSkippedPrefixes();

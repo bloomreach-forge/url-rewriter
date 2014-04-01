@@ -1,5 +1,5 @@
 /**
- * Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
- * @version $Id$
+ *
  */
 public class RewritingManager {
 
@@ -41,11 +41,14 @@ public class RewritingManager {
 
     // spring managed
     private String rewriteRulesLocation;
-    private boolean skipPOST;
-    private String[] skippedPrefixes;
     private Repository repository;
     private Credentials credentials;
     private List<RewritingRulesExtractor> rewritingRulesExtractors;
+
+    // configuration
+    private boolean ignoreContextPath;
+    private boolean skipPOST;
+    private String[] skippedPrefixes;
 
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
@@ -105,7 +108,7 @@ public class RewritingManager {
                 return null;
             }
 
-            boolean ignoreContextPath = rootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
+            ignoreContextPath = rootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
                     Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
                     UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE;
 
@@ -130,6 +133,7 @@ public class RewritingManager {
             if(!ignoreContextPath) {
               rules.append(" use-context=\"true\"");
             }
+
             if(useQueryString) {
               rules.append(" use-query-string=\"true\"");
             }
@@ -258,6 +262,10 @@ public class RewritingManager {
             }
         }
         return rulesLocation;
+    }
+
+    public boolean getIgnoreContextPath(){
+          return ignoreContextPath;
     }
 
     public boolean getSkipPOST(){
