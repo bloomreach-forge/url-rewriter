@@ -42,7 +42,7 @@ public class RewritingManager {
     // spring managed
     private String rewriteRulesLocation;
     private boolean skipPOST;
-    private String[] skipPrefixes;
+    private String[] skippedPrefixes;
     private Repository repository;
     private Credentials credentials;
     private List<RewritingRulesExtractor> rewritingRulesExtractors;
@@ -117,15 +117,14 @@ public class RewritingManager {
                     Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.SKIP_POST_PROPERTY).getString()) :
                     UrlRewriteConstants.SKIP_POST_PROPERTY_DEFAULT_VALUE;
 
-            if(rootNode.hasProperty(UrlRewriteConstants.SKIP_PREFIXES_PROPERTY)){
-                Value[] prefixes = rootNode.getProperty(UrlRewriteConstants.SKIP_PREFIXES_PROPERTY).getValues();
-                skipPrefixes = new String[prefixes.length];
-                for(int i =0; i < prefixes.length; i++)
-                {
-                    skipPrefixes[i] = prefixes[i].getString();
+            if(rootNode.hasProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY)){
+                Value[] prefixValues = rootNode.getProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY).getValues();
+                skippedPrefixes = new String[prefixValues.length];
+                for(int i=0; i < prefixValues.length; i++) {
+                    skippedPrefixes[i] = prefixValues[i].getString();
                 }
-            }else{
-                skipPrefixes = UrlRewriteConstants.SKIP_PREFIXES_DEFAULT_VALUE.split(", ");
+            } else {
+                skippedPrefixes = UrlRewriteConstants.SKIPPED_PREFIXES_DEFAULT_VALUE;
             }
 
             if(!ignoreContextPath) {
@@ -265,8 +264,8 @@ public class RewritingManager {
           return skipPOST;
     }
 
-    public String[] getSkipPrefixes(){
-          return skipPrefixes;
+    public String[] getSkippedPrefixes(){
+          return skippedPrefixes;
     }
 
     public void invalidate(final Event event) {

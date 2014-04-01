@@ -27,7 +27,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.tools.ant.filters.StringInputStream;
 import org.hippoecm.hst.site.HstServices;
@@ -46,9 +45,9 @@ import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
  * Hippo URL Rewrite Filter based on Url Rewrite Filter originally written by Paul Tuckey.
+ *
  * @see <a href="http://www.tuckey.org/urlrewrite/">Tucky Url Rewrite Filter</a>
  * @see <a href="http://http://urlrewriter.forge.onehippo.org/">Hippo Rewrite Filter project page on forge</a>
- * @version $Id$
  */
 public class HippoRewriteFilter extends UrlRewriteFilter {
 
@@ -62,7 +61,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private static final String INIT_PARAM_STATUS_ENABLED = "statusEnabled";
     private static final String INIT_PARAM_STATUS_PATH = "statusPath";
     private static final String INIT_PARAM_STATUS_ENABLED_ON_HOSTS = "statusEnabledOnHosts";
-    private static final String DEFAULT_PREFIXEXCLUDES = "_cmsrest, _cmsinternal, _rp, _hn:";
     public static final String INIT_PARAM_RULES_LOCATION = "rulesLocation";
     public static final String INIT_PARAM_MOD_REWRITE_CONF_TEXT = "modRewriteConfText";
 
@@ -79,7 +77,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private volatile boolean initialized;
 
     private RewritingManager rewritingManager;
-
 
     public void init(final FilterConfig filterConfig) throws ServletException {
 
@@ -184,12 +181,16 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         }
     }
 
-    private boolean excludePrefixes(String uri){
-        String[] excludes = rewritingManager.getSkipPrefixes();
-        for(int i =0; i < excludes.length; i++)
-        {
-            if(uri.startsWith("/"+excludes[i]))
-            {
+    private boolean matchSkippedPrefixes(HttpServletRequest hsRequest){
+
+        String uri = hsRequest.getRequestURI();
+        if (uri.startsWith(hsRequest.getContextPath())) {
+            uri = uri.substring(hsRequest.getContextPath().length());
+        }
+
+        final String[] skippedPrefixes = rewritingManager.getSkippedPrefixes();
+        for (final String skippedPrefix : skippedPrefixes) {
+            if (uri.startsWith(skippedPrefix)) {
                 return true;
             }
         }
@@ -261,23 +262,23 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             }
         }
 
-        //Check if request should be skipped with post
-        if(rewritingManager.getSkipPOST() && hsRequest.getMethod().equals("POST")){
-            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+        // Check if request should be skipped with post
+        if (rewritingManager.getSkipPOST() && hsRequest.getMethod().equals("POST")){
             if (log.isDebugEnabled()) {
-                log.debug("Ignoring request for \"" + hsRequest.getRequestURI() + "\" because it is a POST request");
+                log.debug("Ignoring request for {} because it is a POST request", hsRequest.getRequestURI());
             }
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
             return;
         }
 
-        // Check if request comes from ChannelManager, if it does skip rewriting
-        HttpSession session = hsRequest.getSession(false);
-        if(excludePrefixes(hsRequest.getRequestURI().replaceFirst(hsRequest.getContextPath(),""))){
-          chain.doFilter(hsRequest, urlRewriteWrappedResponse);
-          if (log.isDebugEnabled()) {
-            log.debug("Ignoring request for \"" + hsRequest.getRequestURI() + "\" because it comes from the Channel Manager");
-          }
-          return;
+        // Check if request begins with certain prefixes, if it does skip rewriting
+        if (matchSkippedPrefixes(hsRequest)){
+            if (log.isDebugEnabled()) {
+                log.debug("Ignoring request for {} because it matches one of the skippedprefixes {}",
+                        hsRequest.getRequestURI(), rewritingManager.getSkippedPrefixes());
+            }
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+            return;
         }
 
         boolean requestRewritten = false;
@@ -316,13 +317,11 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
     /**
      * Is it time to reload the configuration now.  Depends on is conf reloading is enabled.
-     *
-     * @param request
      */
     public boolean isTimeToReloadConf(final ServletRequest request) {
         // forced reload:
-        String rewrite = request.getParameter("reloadRewriteRules");
-        if (rewrite != null && rewrite.equals("true")) {
+        final String rewrite = request.getParameter("reloadRewriteRules");
+        if ("true".equals(rewrite)) {
             return true;
         }
         return needsReloading();
@@ -330,8 +329,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
     /**
      * Forcibly reload the configuration now.
-     *
-     * @param request
      */
     public void reloadConf(final ServletRequest request) {
 
@@ -392,5 +389,4 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         // dummy
         return 100000;
     }
-
 }

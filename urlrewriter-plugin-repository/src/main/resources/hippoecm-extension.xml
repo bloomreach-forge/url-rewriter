@@ -326,8 +326,8 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <!-- a high sequence to be sure /content already is there, avoiding an nt:unstructured node to be created -->
-      <sv:value>60000</sv:value>
+      <!-- high sequence to be sure /content already is there -->
+      <sv:value>40000</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>data/content.xml</sv:value>

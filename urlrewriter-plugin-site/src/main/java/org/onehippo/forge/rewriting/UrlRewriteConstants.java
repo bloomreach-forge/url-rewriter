@@ -34,8 +34,8 @@ public class UrlRewriteConstants {
     public static final Boolean USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE = false;
     public static final String SKIP_POST_PROPERTY = "urlrewriter:skippost";
     public static final Boolean SKIP_POST_PROPERTY_DEFAULT_VALUE = true;
-    public static final String SKIP_PREFIXES_PROPERTY = "urlrewriter:excludePrefixes";
-    public static final String SKIP_PREFIXES_DEFAULT_VALUE = " _cmsrest, _cmsinternal, _rp, _hn:";
+    public static final String SKIPPED_PREFIXES_PROPERTY = "urlrewriter:skippedprefixes";
+    public static final String[] SKIPPED_PREFIXES_DEFAULT_VALUE = new String[]{"/_cmsrest","/_cmsinternal","/_rp","/_hn:"};
     public static final String FROM_PROPERTY = "urlrewriter:rulefrom";
     public static final String TO_PROPERTY = "urlrewriter:ruleto";
     public static final String TYPE_PROPERTY = "urlrewriter:ruletype";

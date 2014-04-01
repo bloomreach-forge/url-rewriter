@@ -33,4 +33,13 @@
   <sv:property sv:name="urlrewriter:usequerystring" sv:type="String">
     <sv:value>false</sv:value>
   </sv:property>
+  <sv:property sv:name="urlrewriter:skippost" sv:type="Boolean">
+    <sv:value>true</sv:value>
+  </sv:property>
+  <sv:property sv:name="urlrewriter:skippedprefixes" sv:type="String" sv:multiple="true">
+    <sv:value>/_cmsrest</sv:value>
+    <sv:value>/_cmsinternal</sv:value>
+    <sv:value>/_rp</sv:value>
+    <sv:value>/_hn:</sv:value>
+  </sv:property>
 </sv:node>

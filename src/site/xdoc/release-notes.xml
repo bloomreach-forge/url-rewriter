@@ -30,10 +30,10 @@
             Note that the document types are reloaded on startup so the <code>-Drepo.bootstrap</code> flag should be up.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-760">HIPPLUG-760</a><br/>
-            Skip filter for hst namespace prefixed URLs<br/>
+            Skip rewriting for POST requests and prefixed URLs by configuration.<br/>
             All POST requests are skipped by default, and it's now possible to configure prefixes to be skipped.<br/>
-            By default _cmsrest, _cmsinternal, _rp &amp; _hn: are configured to be skipped.<br/>
-            Please see the documentation.
+            By default <code>_cmsrest, _cmsinternal, _rp &amp; _hn:</code> are configured to be skipped.<br/>
+            Please see <a href = "using-the-urlrewriter.html">using the URL Rewriter</a>.
           </li>
         </ul>
       </subsection>
