@@ -25,6 +25,9 @@
     <section name="Release Notes">
       <subsection name="1.04.01 (unreleased)">
         <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-816">HIPPLUG-816</a><br/>
+            Added a folder icon for the "Add rewrite rule folder" option in context menu.
+          </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-788">HIPPLUG-788</a><br/>
             Remove 'hippotranslation' mixin and properties from document prototypes because rules are not translated.<br/>
             Note that the document types are reloaded on startup so the <code>-Drepo.bootstrap</code> flag should be up.
