@@ -1,5 +1,5 @@
 /**
- * Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,16 +30,13 @@ import org.hippoecm.frontend.plugins.standards.list.ListColumn;
 import org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.comparators.UrlRewriterAttributeComparator;
 import org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.resolvers.UrlRewriterAttributeRenderer;
 import org.onehippo.forge.rewriting.frontend.plugins.cms.browse.list.resolvers.UrlRewriterAttributes;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * @version $Id$
+ * Provider for the columns of the listing of rule documents in the CMS.
  */
 public class UrlRewriterListColumnProviderPlugin extends AbstractListColumnProviderPlugin {
 
     private static final long serialVersionUID = 1L;
-    static final Logger log = LoggerFactory.getLogger(UrlRewriterListColumnProviderPlugin.class);
 
     public UrlRewriterListColumnProviderPlugin(IPluginContext context, IPluginConfig config) {
         super(context, config);
