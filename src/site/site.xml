@@ -23,7 +23,7 @@
   <skin>
     <groupId>org.onehippo.forge.mavenskin</groupId>
     <artifactId>forge-maven-skin</artifactId>
-    <version>1.01.00</version>
+    <version>1.02.00</version>
   </skin>
 
   <publishDate format="d MMMM yyyy" />

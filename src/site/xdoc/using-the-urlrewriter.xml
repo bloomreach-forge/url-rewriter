@@ -58,12 +58,12 @@
           </tr>
           <tr>
             <td>urlrewriter:skippedprefixes</td>
-            <td>this is a multiple string, each value is a prefix that should not be rewritten</td>
+            <td>(since 1.04.01) this is a multiple string, each value is a prefix that should not be rewritten</td>
             <td>{/_cmsinternal, /_cmsrest, /_rp, /hn:} </td>
           </tr>
           <tr>
             <td>urlrewriter:skippost</td>
-            <td>when set to true, POST requests will not be rewritten</td>
+            <td>(since 1.04.01) when set to true, POST requests will not be rewritten</td>
             <td>true</td>
           </tr>
         </table>

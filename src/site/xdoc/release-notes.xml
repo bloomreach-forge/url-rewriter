@@ -23,7 +23,10 @@
   </properties>
   <body>
     <section name="Release Notes">
-      <subsection name="1.04.01 (unreleased)">
+      <subsection name="1.04.01">
+          <p class="smallinfo" >
+              Release Date: April 10, 2014
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-816">HIPPLUG-816</a><br/>
             Added a folder icon for the "Add rewrite rule folder" option in context menu.
@@ -40,7 +43,10 @@
           </li>
         </ul>
       </subsection>
-      <subsection name="1.04.00 (2013-11-19)">
+      <subsection name="1.04.00">
+          <p class="smallinfo" >
+              Release Date: November 19, 2013
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
             Upgrader for projects using versions &lt;= 1.01.04. This upgrader upgrades the namespace and migrates all your existing documents to the new types.<br/>
@@ -58,13 +64,19 @@
           </li>
         </ul>
       </subsection>
-      <subsection name="1.03.02 (2013-11-19)">
+      <subsection name="1.03.02">
+          <p class="smallinfo" >
+              Release Date: November 19, 2013
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-735">HIPPLUG-735</a><br/>
             Don't rewrite URLs when a request comes from the Channel Manager.</li>
         </ul>
       </subsection>
-      <subsection name="1.03.01 (2013-07-10)">
+      <subsection name="1.03.01">
+          <p class="smallinfo" >
+              Release Date: July 10, 2013
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-669">HIPPLUG-669</a><br/>
             Make sure that the mandatory 'Type' field in a rule or advanced rule turns red when not filled in.</li>
@@ -73,7 +85,10 @@
             an nt:unstructured node to be created automatically.</li>
         </ul>
       </subsection>
-      <subsection name="1.03.00 (2013-02-15)">
+      <subsection name="1.03.00">
+          <p class="smallinfo" >
+              Release Date: February 15, 2013
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-379">HIPPLUG-379</a><br/>
             Improving upgrade path by reloading cnd and by detecting 1.01.xx style rules and logging an error.</li>
@@ -99,13 +114,19 @@
             Translations to German.</li>
         </ul>
       </subsection>
-      <subsection name="1.02.02 (2012-08-14)">
+      <subsection name="1.02.02">
+          <p class="smallinfo" >
+              Release Date: August 14, 2012
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-476">HIPPLUG-476</a><br/>
             Don't decode urls as it can conflict with the HST.</li>
         </ul>
       </subsection>
-      <subsection name="1.02.01 (2012-07-04)">
+      <subsection name="1.02.01">
+          <p class="smallinfo" >
+              Release Date: July 4, 2012
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-350">HIPPLUG-350</a><br/>
             Harmonica tab does not have "Add root folder" button.</li>
@@ -113,7 +134,10 @@
             Harmonica tab should have a search possiblity.</li>
         </ul>
       </subsection>
-      <subsection name="1.02.00 (2012-07-04)">
+      <subsection name="1.02.00">
+          <p class="smallinfo" >
+              Release Date: July 4, 2012
+          </p>
         <p>NB! Due to a document type refactor, version 1.02.00 is <b>incompatible</b> with 1.01.xx.</p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-250">HIPPLUG-250</a><br/>
@@ -142,7 +166,10 @@
             Folder view too wide.</li>
         </ul>
       </subsection>
-      <subsection name="1.01.04 (2012-05-21)">
+      <subsection name="1.01.04">
+          <p class="smallinfo" >
+              Release Date: May 21, 2012
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-271">HIPPLUG-271</a><br/>
             Improve urlrewriter warnings.</li>
@@ -151,18 +178,27 @@
           <li>put sensible defaults in the installation instructions</li>
         </ul>
       </subsection>
-      <subsection name="1.01.03 (2011-10-10)">
+      <subsection name="1.01.03">
+          <p class="smallinfo" >
+              Release Date: October 10, 2011
+          </p>
         <ul>
           <li>Do not import the example rules by default</li>
         </ul>
       </subsection>
-      <subsection name="1.01.02 (2011-10-04)">
+      <subsection name="1.01.02">
+          <p class="smallinfo" >
+              Release Date: October 4, 2011
+          </p>
         <ul>
           <li>Bug fixes:</li>
           <li>Refactorings</li>
         </ul>
       </subsection>
-      <subsection name="1.01.01 (2011-09-23)">
+      <subsection name="1.01.01">
+          <p class="smallinfo" >
+              Release Date: September 23, 2011
+          </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-241">HIPPLUG-241</a><br/>
             URLRewriter includes the pax-logging-api which conflicts with the slf4j api we already provide.</li>
@@ -178,7 +214,10 @@
       </subsection>
     </section>
     <section>
-      <subsection name="1.01.00 (2011-09-14)">
+      <subsection name="1.01.00">
+          <p class="smallinfo" >
+              Release Date: September 14, 2011
+          </p>
         <ul>
           <li>Initial version</li>
         </ul>
