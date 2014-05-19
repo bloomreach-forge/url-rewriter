@@ -20,13 +20,18 @@ import java.util.List;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
-import org.apache.wicket.markup.html.CSSPackageResource;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.HeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.request.resource.CssResourceReference;
 import org.apache.wicket.util.string.StringList;
+import org.apache.wicket.util.visit.IVisit;
+import org.apache.wicket.util.visit.IVisitor;
 import org.hippoecm.frontend.model.IModelReference;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
@@ -40,14 +45,14 @@ public class BroadcastingStaticDropdownPlugin extends RenderPlugin<String> {
 
     private static final long serialVersionUID = 1L;
 
-    static final Logger log = LoggerFactory.getLogger(BroadcastingStaticDropdownPlugin.class);
+    private static final Logger log = LoggerFactory.getLogger(BroadcastingStaticDropdownPlugin.class);
+    private static final HeaderItem STYLE = CssHeaderItem.forReference(
+            new CssResourceReference(BroadcastingStaticDropdownPlugin.class, "BroadcastingStaticDropdownPlugin.css"));
 
     private List<String> options;
 
     public BroadcastingStaticDropdownPlugin(IPluginContext context, IPluginConfig config) {
         super(context, config);
-
-        add(CSSPackageResource.getHeaderContribution(BroadcastingStaticDropdownPlugin.class, "BroadcastingStaticDropdownPlugin.css"));
 
         String mode = config.getString("mode", "view");
         Fragment fragment = new Fragment("fragment", mode, this);
@@ -62,15 +67,15 @@ public class BroadcastingStaticDropdownPlugin extends RenderPlugin<String> {
                 @Override
                 protected void onUpdate(final AjaxRequestTarget target) {
                     //TODO Using the RenderPlugin here is not very safe. The fact that the parent we're after is indeed a RenderPlugin is an assumption that simply holds true here. It would be better if org.hippoecm.frontend.plugin.impl.PluginFactory$LayoutPlugin was used instead, but it is private
-                    BroadcastingStaticDropdownPlugin.this.findParent(RenderPlugin.class).visitChildren(new IVisitor<Component>() {
-                        @Override
-                        public Object component(final Component component) {
-                            if (component instanceof AjaxUpdatesAware) {
-                                ((AjaxUpdatesAware) component).onAjaxUpdate(target, BroadcastingStaticDropdownPlugin.this);
-                            }
-                            return null;
-                        }
-                    });
+                    BroadcastingStaticDropdownPlugin.this.findParent(RenderPlugin.class).
+                            visitChildren(new IVisitor<Component, IVisit>() {
+                                @Override
+                                public void component(final Component component, final IVisit<IVisit> visit) {
+                                    if (component instanceof AjaxUpdatesAware) {
+                                        ((AjaxUpdatesAware) component).onAjaxUpdate(target, BroadcastingStaticDropdownPlugin.this);
+                                    }
+                                }
+                            });
                 }
             });
 
@@ -101,6 +106,12 @@ public class BroadcastingStaticDropdownPlugin extends RenderPlugin<String> {
             }
             fragment.add(label);
         }
+    }
+
+    @Override
+    public void renderHead(final IHeaderResponse response) {
+        super.renderHead(response);
+        response.render(STYLE);
     }
 
 }

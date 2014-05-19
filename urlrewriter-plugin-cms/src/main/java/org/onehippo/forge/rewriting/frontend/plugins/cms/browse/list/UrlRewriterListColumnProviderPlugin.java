@@ -20,8 +20,11 @@ import java.util.List;
 
 import javax.jcr.Node;
 
-import org.apache.wicket.markup.html.CSSPackageResource;
+import org.apache.wicket.markup.head.CssHeaderItem;
+import org.apache.wicket.markup.head.HeaderItem;
+import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.IHeaderContributor;
+import org.apache.wicket.request.resource.CssResourceReference;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.plugins.standards.ClassResourceModel;
@@ -38,13 +41,22 @@ public class UrlRewriterListColumnProviderPlugin extends AbstractListColumnProvi
 
     private static final long serialVersionUID = 1L;
 
+    private static final HeaderItem STYLE = CssHeaderItem.forReference(
+            new CssResourceReference(UrlRewriterListColumnProviderPlugin.class, "style.css"));
+
     public UrlRewriterListColumnProviderPlugin(IPluginContext context, IPluginConfig config) {
         super(context, config);
     }
 
+
     @Override
     public IHeaderContributor getHeaderContributor() {
-        return CSSPackageResource.getHeaderContribution(UrlRewriterListColumnProviderPlugin.class, "style.css");
+        return new IHeaderContributor() {
+            @Override
+            public void renderHead(final IHeaderResponse response) {
+                response.render(STYLE);
+            }
+        };
     }
 
     @Override

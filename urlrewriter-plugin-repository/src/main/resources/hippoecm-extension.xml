@@ -182,7 +182,7 @@
   <!--
     URL rewriter view
   -->
-  <sv:node sv:name="configuration-frontend-cms-browser-navigator">
+  <sv:node sv:name="configuration-frontend-cms-static-navigator">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
@@ -190,10 +190,10 @@
       <sv:value>21078.1</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>config/cms/browser/navigator.xml</sv:value>
+      <sv:value>config/cms/static/navigator.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-browser</sv:value>
+      <sv:value>/hippo:configuration/hippo:frontend/cms/cms-static</sv:value>
     </sv:property>
   </sv:node>
 

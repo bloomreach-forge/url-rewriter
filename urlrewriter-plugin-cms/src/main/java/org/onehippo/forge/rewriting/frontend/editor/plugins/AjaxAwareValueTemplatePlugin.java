@@ -22,6 +22,8 @@ import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.model.Model;
+import org.apache.wicket.util.visit.IVisit;
+import org.apache.wicket.util.visit.IVisitor;
 import org.hippoecm.frontend.editor.plugins.ValueTemplatePlugin;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
@@ -43,9 +45,9 @@ public class AjaxAwareValueTemplatePlugin extends ValueTemplatePlugin implements
     public void onAjaxUpdate(AjaxRequestTarget target, RenderPlugin invoker) {
 
         final Object conditionType = invoker.getModelObject();
-        this.visitChildren(new IVisitor<Component>() {
+        this.visitChildren(new IVisitor<Component, IVisit>() {
             @Override
-            public Object component(Component component) {
+            public void component(final Component component, final IVisit visit) {
                 if (component.getId().equals("widget")) {
                     if(conditionType instanceof String){
                         if (nameMustBeSpecifiedFor.contains(conditionType)) {
@@ -67,12 +69,10 @@ public class AjaxAwareValueTemplatePlugin extends ValueTemplatePlugin implements
                             AjaxAwareValueTemplatePlugin.this.redraw();
                         }
                     }
-                    return component;
                 }
-                return null;
             }
         });
-        target.addComponent(this);
+        target.add(this);
     }
 
     public AjaxAwareValueTemplatePlugin(IPluginContext context, IPluginConfig config) {

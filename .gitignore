@@ -2,4 +2,7 @@
 /.idea
 /target
 urlrewriter-plugin-cms/*.iml
+urlrewriter-plugin-cms/target
+urlrewriter-plugin-repository/*.iml
+urlrewriter-plugin-repository/target
 urlrewriter-plugin-site/*.iml

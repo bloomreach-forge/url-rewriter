@@ -23,6 +23,17 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.05.00">
+        <p class="smallinfo" >
+          Release Date: May 21, 2014
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-838">HIPPLUG-838</a><br/>
+            Upgraded to Hippo 7.9. This version is not compatible with earlier version of Hippo.
+            Use 1.04.xx for Hippo 7.8 and 7.7 versions.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.04.01">
           <p class="smallinfo" >
               Release Date: April 10, 2014

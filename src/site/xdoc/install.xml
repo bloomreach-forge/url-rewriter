@@ -32,7 +32,7 @@
         <p> The following steps are needed: </p>
         <subsection name="1. Configure root pom">
           <p>Specify the version in the properties section of your project's root pom:</p>
-          <source><![CDATA[<forge.urlrewriter.version>1.04.00</forge.urlrewriter.version>]]></source>
+          <source><![CDATA[<forge.urlrewriter.version>1.05.00</forge.urlrewriter.version>]]></source>
         </subsection>
         <subsection name="2. Configure CMS pom">
           <p>Add CMS plugin to the CMS pom:</p>

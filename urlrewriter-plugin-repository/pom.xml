@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.onehippo.forge.urlrewriter</groupId>
     <artifactId>urlrewriter</artifactId>
-    <version>1.04.02-SNAPSHOT</version>
+    <version>1.05.00-SNAPSHOT</version>
   </parent>
 
   <name>Url rewriter Repository plugin</name>
@@ -36,10 +36,14 @@
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-repository-upgrade</artifactId>
+      <artifactId>hippo-repository-deprecated-updater-module</artifactId>
       <version>${hippo.repository.version}</version>
+      <scope>provided</scope>
     </dependency>
-
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+    </dependency>
   </dependencies>
 
 

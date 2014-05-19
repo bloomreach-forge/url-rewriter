@@ -18,7 +18,6 @@ package org.onehippo.forge.rewriting.updater;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
-import javax.jcr.Value;
 
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.repository.updater.UpdaterNode;

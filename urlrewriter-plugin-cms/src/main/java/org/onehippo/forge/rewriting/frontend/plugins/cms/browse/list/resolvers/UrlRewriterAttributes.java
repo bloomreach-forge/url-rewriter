@@ -21,7 +21,6 @@ import javax.jcr.RepositoryException;
 import javax.jcr.nodetype.NodeType;
 import javax.jcr.nodetype.NodeTypeManager;
 
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.wicket.model.IDetachable;
 import org.hippoecm.frontend.model.JcrNodeModel;
 import org.hippoecm.frontend.model.event.IObservable;
@@ -29,6 +28,7 @@ import org.hippoecm.frontend.model.event.IObservationContext;
 import org.hippoecm.frontend.model.event.Observable;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNodeType;
+import org.onehippo.repository.util.JcrConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -102,8 +102,8 @@ public class UrlRewriterAttributes implements IObservable, IDetachable {
                         document = node;
                         primaryType = document.getPrimaryNodeType();
                     } else if (node.isNodeType(JcrConstants.NT_VERSION)) {
-                        Node frozen = node.getNode(JcrConstants.JCR_FROZENNODE);
-                        String primary = frozen.getProperty(JcrConstants.JCR_FROZENPRIMARYTYPE).getString();
+                        Node frozen = node.getNode(JcrConstants.JCR_FROZEN_NODE);
+                        String primary = frozen.getProperty(JcrConstants.JCR_FROZEN_PRIMARY_TYPE).getString();
                         NodeTypeManager ntMgr = frozen.getSession().getWorkspace().getNodeTypeManager();
                         primaryType = ntMgr.getNodeType(primary);
                         if (primaryType.isNodeType(HippoNodeType.NT_DOCUMENT)) {
