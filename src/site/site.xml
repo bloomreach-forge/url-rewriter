@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -26,22 +26,16 @@
     <version>1.02.00</version>
   </skin>
 
-  <publishDate format="d MMMM yyyy" />
-
-  <custom>
-    <hippoSkin>
-      <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
-    </hippoSkin>
-  </custom>
-
   <body>
     <menu name="Home">
       <item name="Introduction" href="/index.html"/>
       <item name="Release Notes" href="/release-notes.html"/>
+      <item name="Hippo Forge Project Page" href="https://forge.onehippo.org/gf/project/urlrewriter/"/>
     </menu>
 
     <menu name="Usage">
       <item name="Installation" href="/install.html"/>
+      <item name="Build Demo" href="/build-demo.html"/>
       <item name="Hide URL Rewriter for non-admins" href="/hide-urlrewriter.html"/>
       <item name="Using the URL Rewriter" href="/using-the-urlrewriter.html" collapse="true">
         <item name="Rule" href="/rules/rule.html"/>
@@ -50,7 +44,6 @@
         </item>
         <item name="XML Rule" href="/rules/xml-rule.html"/>
       </item>
-      <item name="Build from source" href="/build-from-source.html"/>
     </menu>
 
     <menu name="Auto generated docs" ref="reports"/>
