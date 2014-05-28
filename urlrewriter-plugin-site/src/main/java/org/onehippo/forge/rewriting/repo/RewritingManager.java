@@ -48,7 +48,7 @@ public class RewritingManager {
     // configuration
     private boolean ignoreContextPath;
     private boolean skipPOST;
-    private String[] skippedPrefixes;
+    private String[] skippedPrefixes = {};
 
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
