@@ -6,3 +6,4 @@ urlrewriter-plugin-cms/target
 urlrewriter-plugin-repository/*.iml
 urlrewriter-plugin-repository/target
 urlrewriter-plugin-site/*.iml
+urlrewriter-plugin-site/target
