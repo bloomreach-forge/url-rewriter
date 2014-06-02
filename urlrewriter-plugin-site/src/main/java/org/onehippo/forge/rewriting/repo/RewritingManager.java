@@ -48,7 +48,7 @@ public class RewritingManager {
     // configuration
     private boolean ignoreContextPath;
     private boolean skipPOST;
-    private String[] skippedPrefixes = {};
+    private String[] skippedPrefixes = UrlRewriteConstants.SKIPPED_PREFIXES_DEFAULT_VALUE;
 
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
@@ -126,8 +126,6 @@ public class RewritingManager {
                 for(int i=0; i < prefixValues.length; i++) {
                     skippedPrefixes[i] = prefixValues[i].getString();
                 }
-            } else {
-                skippedPrefixes = UrlRewriteConstants.SKIPPED_PREFIXES_DEFAULT_VALUE;
             }
 
             if(!ignoreContextPath) {
