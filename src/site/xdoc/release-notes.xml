@@ -28,6 +28,11 @@
           Unreleased
         </p>
         <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-850">HIPPLUG-850</a><br/>
+            Remove hardhandle and harddocument mixins from bootstrap configuration. These are no longer used in Hippo 7.9.
+          </li>
+        </ul>
+        <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-848">HIPPLUG-848</a><br/>
             Avoid possible NullPointerException in RewritingManager by initializing the skipped prefixes earlier.
           </li>
