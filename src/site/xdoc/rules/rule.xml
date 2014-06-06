@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 
-    Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Hippo URL Rewriter - Standard Rule</title>
+    <title>Standard Rule</title>
   </properties>
   <body>
     <section name="Standard Rule">

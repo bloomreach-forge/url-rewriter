@@ -19,20 +19,21 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Hippo URL Rewriter - Installing</title>
+    <title>Installing</title>
   </properties>
   <body>
-    <section name="Installing Url Rewriter">
+    <section name="Installing URL Rewriter">
       <subsection name="Prerequisites">
         <p>
-          This instruction assumes that you have maven 3 installed.
+          These instructions assume that you have an Hippo project based on the Hippo project archetype, i.e. a Maven
+          project consisting of at least three modules: cms, site and content.
         </p>
       </subsection>
       <subsection name="Install the url rewriter plugin into your project">
         <p> The following steps are needed: </p>
         <subsection name="1. Configure root pom">
           <p>Specify the version in the properties section of your project's root pom:</p>
-          <source><![CDATA[<forge.urlrewriter.version>1.05.00</forge.urlrewriter.version>]]></source>
+          <source><![CDATA[<forge.urlrewriter.version>1.05.01</forge.urlrewriter.version>]]></source>
         </subsection>
         <subsection name="2. Configure CMS pom">
           <p>Add CMS plugin to the CMS pom:</p>
@@ -58,12 +59,13 @@
         </subsection>
         <subsection name="4. Configure web.xml">
           <p>Configure the RewriteFilter in the site's web.xml</p>
-          <p>Add to the parameter hst-bean-annotated-classes the beans of Urlrewriter </p>
+          <p>Add to the parameter hst-bean-annotated-classes the beans of URL Rewriter (NB on 7.9, org/onehippo/forge/**
+            is already there by default):</p>
           <source><![CDATA[<context-param>
   <param-name>hst-beans-annotated-classes</param-name>
   <param-value>classpath*:org/onehippo/forge/rewriting/beans/**/*.class</param-value>
 </context-param>]]></source>
-          <p>And add the HippoRewriteFilter to the web.xml </p>
+          <p>And add the HippoRewriteFilter to the web.xml:</p>
           <source><![CDATA[<filter>
     <filter-name>RewriteFilter</filter-name>
     <filter-class>org.onehippo.forge.rewriting.HippoRewriteFilter</filter-class>
@@ -96,7 +98,8 @@
     </init-param>
 </filter>]]></source>
           <p>
-            <em>Important!</em> Add the filter mapping as a <strong>first</strong> entry in your web.xml before the other filter mappings:
+            <em class="note">Important!</em><br/>
+            Add the filter mapping as a <strong>first</strong> entry in your web.xml before the other filter mappings:
           </p>
           <source><![CDATA[<filter-mapping>
   <filter-name>RewriteFilter</filter-name>
@@ -104,21 +107,14 @@
   <dispatcher>REQUEST</dispatcher>
 </filter-mapping>]]></source>
         </subsection>
-        <subsection name="5. Override the hst-assembly context of your project.">
-          <p>Copy <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a> to the following location within your project: ..site/src/main/resources/META-INF/hst-assembly/overrides/</p>
+        <subsection name="5. Add relevant Spring components.">
+          <p>
+            In the Spring context of your site module, add a <code>RewritingManager</code> that reads the rules from the
+            repository and an <code>EventListener</code> for invalidation of the manager when rules are changed in the
+            CMS. </p>
+          <p>To do so, copy file <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a>
+            from the demo project's SVN to the following location within your project: [PROJECT_ROOT}/site/src/main/resources/META-INF/hst-assembly/overrides/</p>
         </subsection>
-      </subsection>
-    </section>
-    <section name="Running the demo project">
-      <subsection name="Example Demo Project Location">
-        <p>If you do not want to put this plugin directly into your project you might want to checkout the demo project.</p>
-        <em>
-          Note: You can check out, build and run a demo as follows:
-        </em>
-        <source><![CDATA[$ svn co https://forge.onehippo.org/svn/urlrewriter/demo/trunk urlrewriter-demo
-$ cd urlrewriter-demo
-$ mvn clean package
-$ mvn -P cargo.run]]></source>
       </subsection>
     </section>
   </body>
