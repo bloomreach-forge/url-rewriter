@@ -19,10 +19,10 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Rule</title>
+    <title>Hippo URL Rewriter - Standard Rule</title>
   </properties>
   <body>
-    <section name="Rule">
+    <section name="Standard Rule">
       <subsection name="Overview">
         <p>
           This type of rule will present you with three input fields and a checkbox, namely:

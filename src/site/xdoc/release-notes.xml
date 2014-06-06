@@ -19,13 +19,13 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Release Notes</title>
+    <title>Hippo URL Rewriter - Release Notes</title>
   </properties>
   <body>
     <section name="Release Notes">
       <subsection name="1.05.01">
         <p class="smallinfo" >
-          Unreleased
+          Release Date: June 5, 2014
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-850">HIPPLUG-850</a><br/>

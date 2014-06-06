@@ -19,7 +19,7 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Building the demo</title>
+    <title>Hippo URL Rewriter - Building the demo</title>
   </properties>
   <body>
     <section name="Building the demo">

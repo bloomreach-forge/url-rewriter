@@ -19,7 +19,7 @@
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Using the URL Rewriter</title>
+    <title>Hippo URL Rewriter - Usage</title>
   </properties>
   <body>
     <section name="Using the URL Rewriter">
