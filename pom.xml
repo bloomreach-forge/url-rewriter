@@ -38,9 +38,9 @@
 
     <commons-lang.version>2.6</commons-lang.version>
 
-    <hippo.repository.version>2.26.01</hippo.repository.version>
-    <hippo.cms.version>2.26.00</hippo.cms.version>
-    <hst.version>2.28.02</hst.version>
+    <hippo.repository.version>2.26.04</hippo.repository.version>
+    <hippo.cms.version>2.26.05</hippo.cms.version>
+    <hst.version>2.28.05</hst.version>
   </properties>
 
   <modules>
