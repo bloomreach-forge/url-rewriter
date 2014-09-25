@@ -59,8 +59,6 @@
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
             </manifest>
             <manifestEntries>
-              <!-- versioning reloadonstartups: build reflects version -->
-              <Implementation-Build>10401</Implementation-Build>
               <Hippo-Modules>
                 org.onehippo.forge.rewriting.updater.UrlRewriter_1_04_UpdaterPhaseA
                 org.onehippo.forge.rewriting.updater.UrlRewriter_1_04_UpdaterPhaseB

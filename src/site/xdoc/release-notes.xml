@@ -23,6 +23,20 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.05.02">
+        <p class="smallinfo" >
+          Release Date: TBD
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-928">HIPPLUG-928</a><br/>
+            Added non-empty validators when creating new rules. These need to be reloaded on startup.
+          </li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-907">HIPPLUG-907</a><br/>
+            The URI of the base document has been updated to match the CND.
+            CMS, Repository and HST have been updated to the latest versions.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.01">
         <p class="smallinfo" >
           Release Date: June 5, 2014
