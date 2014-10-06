@@ -239,9 +239,11 @@ public class RewritingManager {
             while (docs.hasNext()) {
                 document = docs.nextNode();
                 if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
-                    String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
-                    if ("published".equals(state)) {
-                        return document;
+                    Property availabities = document.getProperty(HippoNodeType.HIPPO_AVAILABILITY);
+                    for (Value availabity : availabities.getValues()) {
+                        if (availabity.getString().equals("live")) {
+                            return document;
+                        }
                     }
                 }
             }
