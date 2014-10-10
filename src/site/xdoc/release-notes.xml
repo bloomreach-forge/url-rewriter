@@ -28,7 +28,7 @@
           Release Date: October 10, 2014
         </p>
         <ul>
-          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-928">HIPPLUG-912</a><br/>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-912">HIPPLUG-912</a><br/>
             Unpublished rules are still being processed - once you publish a rule the only way to disable it is to delete it.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-928">HIPPLUG-928</a><br/>
