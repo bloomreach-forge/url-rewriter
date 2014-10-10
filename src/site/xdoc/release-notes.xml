@@ -25,10 +25,14 @@
     <section name="Release Notes">
       <subsection name="1.05.02">
         <p class="smallinfo" >
-          Release Date: TBD
+          Release Date: October 10, 2014
         </p>
         <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-928">HIPPLUG-912</a><br/>
+            Unpublished rules are still being processed - once you publish a rule the only way to disable it is to delete it.
+          </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-928">HIPPLUG-928</a><br/>
+            Preventing new rules from saving if a type has not been selected.
             Added non-empty validators when creating new rules. These need to be reloaded on startup.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-907">HIPPLUG-907</a><br/>
