@@ -29,7 +29,7 @@
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-912">HIPPLUG-912</a><br/>
-            Unpublished rules are still being processed - once you publish a rule the only way to disable it is to delete it.
+            Fix for unpublished rules still being processed - once a rule was published the only way to disable it was to delete it.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-928">HIPPLUG-928</a><br/>
             Preventing new rules from saving if a type has not been selected.
@@ -37,7 +37,6 @@
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-907">HIPPLUG-907</a><br/>
             The URI of the base document has been updated to match the CND.
-            CMS, Repository and HST have been updated to the latest versions.
           </li>
         </ul>
       </subsection>
