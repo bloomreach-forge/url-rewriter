@@ -50,12 +50,12 @@
       </subsection>
       <subsection name="From">
         <p>
-          Here you can enter the URL that must be rewritten as a regular expression.
+          Here you can enter the regular expression that the incoming URL will be matched against. (Assuming 'Use Wildcard Matching' is unchecked, see below)
         </p>
       </subsection>
       <subsection name="To">
         <p>
-          This field takes the URL where the above URL should be rewritten to. It can contain backreferences, variables and functions.
+          What the <b>matched</b> part of the URL will be rewritten to. It can contain backreferences, variables and functions.
         </p>
         <table cellspacing="0">
           <tr>
@@ -172,7 +172,7 @@
       <subsection name="Use Wildcard Matching">
         <p>
           Use wildcard matching instead of regular expressions. A single wildcard (*) will match any single element,
-          ** will match all elements.
+          ** will match all elements. See <a href="/rules/rule.html">this page</a> for some examples.
         </p>
       </subsection>
       <subsection name="Process Other Rules">
