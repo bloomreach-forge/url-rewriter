@@ -55,7 +55,7 @@
       </subsection>
       <subsection name="To">
         <p>
-          What the <b>matched</b> part of the URL will be rewritten to. It can contain backreferences, variables and functions.
+          What the <b>matched</b> part of the URL will be rewritten to, all other parts of the URL will remain intact. It can contain backreferences, variables and functions.
         </p>
         <table cellspacing="0">
           <tr>
