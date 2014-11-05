@@ -99,7 +99,7 @@
           </tr>
           <tr>
             <td>character-encoding</td>
-            <td>The character encoding of the imcoming request. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getCharacterEncoding()">getCharacterEncoding</a>()</td>
+            <td>The character encoding of the incoming request. i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getCharacterEncoding()">getCharacterEncoding</a>()</td>
           </tr>
           <tr>
             <td>content-length</td>
@@ -143,7 +143,7 @@
           </tr>
           <tr>
             <td>remote-host</td>
-            <td>The host name of the host making the request, e.g. 123qw-dsl.att.com (note, this will only work if your app server is configured to lookup host names, most aren't). i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getRemoteHost()">getRemoteHost</a>()</td>
+            <td>The host name of the host making the request, e.g. 123qw-dsl.att.com (note, this will only work if your app server is configured to look up host names, most aren't). i.e. request.<a href="http://java.sun.com/j2ee/1.4/docs/api/javax/servlet/ServletRequest.html#getRemoteHost()">getRemoteHost</a>()</td>
           </tr>
           <tr>
             <td>remote-user</td>

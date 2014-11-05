@@ -105,7 +105,7 @@
           <tr>
             <td>permanent-redirect</td>
             <td>301</td>
-            <td>This will tell browser (and search engines) that the requeste URL has permanently moved, so they can update their caches and from now on directly request the new URL.</td>
+            <td>This will tell browser (and search engines) that the requested URL has permanently moved, so they can update their caches and from now on directly request the new URL.</td>
           </tr>          
         </table>
       </subsection>
