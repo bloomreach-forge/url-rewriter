@@ -23,6 +23,16 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.05.03">
+        <p class="smallinfo">
+          Release Date: December 12, 2014
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-969">HIPPLUG-969</a><br/>
+            Undo the numeric prefixing of the document type names (HIPPLUG-382)
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.02">
         <p class="smallinfo" >
           Release Date: October 10, 2014
@@ -37,6 +47,9 @@
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-907">HIPPLUG-907</a><br/>
             The URI of the base document has been updated to match the CND.
+          </li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-382">HIPPLUG-382</a><br/>
+            URLRewriter document type dropdown should first show the regular rules.
           </li>
         </ul>
       </subsection>
