@@ -56,6 +56,9 @@ public class RewritingManager {
 
     private volatile boolean needRefresh = true;
 
+    private int logWarningCounter = 0;
+    private int logWarningLimit = 10;
+
     public boolean needReloading() {
         return needRefresh;
     }
@@ -102,6 +105,18 @@ public class RewritingManager {
             if (session == null) {
                 return null;
             }
+
+            if (!session.getRootNode().hasNode(rulesLocation.substring(1))) {
+                // HIPPLUG-963 - after x amount of warning, don't display any log anymore
+                // because otherwise warning will fill up the logs.
+                if (logWarningCounter <= logWarningLimit) {
+                    log.warn("{} Location {} is not yet available, should retry", logWarningCounter, rulesLocation);
+                    logWarningCounter++;
+                    return null;
+                }
+                return null;
+            }
+
             Node rootNode = session.getRootNode().getNode(rulesLocation.substring(1));
             if(! rootNode.hasNodes()){
                 log.debug("No rules found under {}.", UrlRewriteUtils.getJcrItemPath(rootNode));
@@ -145,7 +160,7 @@ public class RewritingManager {
             load(rootNode, context, rules);
 
         } catch (Exception e) {
-            log.error("Error loading rewriting rules {}", e);
+            log.error("Error loading rewriting rules in {}", rulesLocation, e);
         } finally {
             closeSession(session);
         }
@@ -289,7 +304,7 @@ public class RewritingManager {
         try {
             session = repository.login(credentials);
         } catch (RepositoryException e) {
-            log.error("Error obtaining session {}", e);
+            log.error("Error obtaining session", e);
         }
         return session;
     }
