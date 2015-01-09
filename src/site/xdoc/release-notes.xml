@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 
-    Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,6 +23,17 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.05.04">
+        <p class="smallinfo">
+          Release Date: January 9, 2015
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-963">HIPPLUG-963</a><br/>
+            In the site, log a warning when the path to the rewrite documents cannot be found. Log an error after 10th
+            occurence and then log no more.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.03">
         <p class="smallinfo">
           Release Date: December 12, 2014
