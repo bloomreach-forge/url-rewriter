@@ -1,5 +1,5 @@
 /**
- * Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,6 @@ import java.util.List;
 import javax.jcr.*;
 import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNodeType;
@@ -57,33 +56,19 @@ public class RewritingManager {
     private volatile boolean needRefresh = true;
 
     private int logWarningCounter = 0;
-    private int logWarningLimit = 10;
+    private static final int LOG_WARNING_LIMIT = 10;
 
     public boolean needReloading() {
         return needRefresh;
     }
 
     /**
-     * Load rules for given path. If no path is provided, default will be used (configured in spring configuration)
-     *
-     * @param context servlet context
-     * @param request servlet request
-     * @param urlRewriteLocation absolute repository path
-     */
-    @Deprecated
-    public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String urlRewriteLocation) {
-        return load(context, request, null);
-    }
-
-
-    /**
     * Load rules for given path. If no path is provided, default will be used (configured in spring configuration)
     *
     * @param context servlet context
-    * @param request servlet request
     * @param rewriteRulesLocation absolute repository path of the rules
     */
-    public synchronized StringBuilder load(final ServletContext context, final ServletRequest request, final String rewriteRulesLocation) {
+    public synchronized StringBuilder load(final ServletContext context, final String rewriteRulesLocation) {
         // check if refresh is needed..if not return local copy
         if (!needRefresh) {
             return loadedRules;
@@ -107,36 +92,40 @@ public class RewritingManager {
             }
 
             if (!session.getRootNode().hasNode(rulesLocation.substring(1))) {
-                // HIPPLUG-963 - after x amount of warning, don't display any log anymore
-                // because otherwise warning will fill up the logs.
-                if (logWarningCounter <= logWarningLimit) {
-                    log.warn("{} Location {} is not yet available, should retry", logWarningCounter, rulesLocation);
+                // after x amount of warning, don't log anymore because otherwise logging will fill up the logs.
+                if (logWarningCounter <= LOG_WARNING_LIMIT) {
+                    if (logWarningCounter == LOG_WARNING_LIMIT) {
+                        log.error("#{}: Location {} is not available, will retry but will not log anymore", logWarningCounter, rulesLocation);
+                    }
+                    else {
+                        log.warn("#{}: Location {} is not available, will retry", logWarningCounter, rulesLocation);
+                    }
                     logWarningCounter++;
                     return null;
                 }
                 return null;
             }
 
-            Node rootNode = session.getRootNode().getNode(rulesLocation.substring(1));
-            if(! rootNode.hasNodes()){
-                log.debug("No rules found under {}.", UrlRewriteUtils.getJcrItemPath(rootNode));
+            final Node rulesRootNode = session.getRootNode().getNode(rulesLocation.substring(1));
+            if(!rulesRootNode.hasNodes()){
+                log.debug("No rules found under {}.", UrlRewriteUtils.getJcrItemPath(rulesRootNode));
                 return null;
             }
 
-            ignoreContextPath = rootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
-                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
+            ignoreContextPath = rulesRootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
+                    Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
                     UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE;
 
-            boolean useQueryString = rootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
-                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
+            boolean useQueryString = rulesRootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
+                    Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
                     UrlRewriteConstants.USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE;
 
-            skipPOST = rootNode.hasProperty(UrlRewriteConstants.SKIP_POST_PROPERTY) ?
-                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.SKIP_POST_PROPERTY).getString()) :
+            skipPOST = rulesRootNode.hasProperty(UrlRewriteConstants.SKIP_POST_PROPERTY) ?
+                    Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.SKIP_POST_PROPERTY).getString()) :
                     UrlRewriteConstants.SKIP_POST_PROPERTY_DEFAULT_VALUE;
 
-            if(rootNode.hasProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY)){
-                Value[] prefixValues = rootNode.getProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY).getValues();
+            if (rulesRootNode.hasProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY)){
+                Value[] prefixValues = rulesRootNode.getProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY).getValues();
                 skippedPrefixes = new String[prefixValues.length];
                 for(int i=0; i < prefixValues.length; i++) {
                     skippedPrefixes[i] = prefixValues[i].getString();
@@ -157,7 +146,7 @@ public class RewritingManager {
             rules.append(">");
 
             // Start recursion
-            load(rootNode, context, rules);
+            load(rulesRootNode, context, rules);
 
         } catch (Exception e) {
             log.error("Error loading rewriting rules in {}", rulesLocation, e);
@@ -216,7 +205,7 @@ public class RewritingManager {
                                 rules.append(rule);
                             }
                         } catch (RepositoryException e){
-                            log.error("Exception encountered while extracting with: " + rulesExtractor, e);
+                            log.error("Exception encountered while extracting with {}", rulesExtractor, e);
                         }
                     }
                 }
@@ -270,8 +259,8 @@ public class RewritingManager {
     protected String getRulesLocation(String overrideRulesLocation){
         String rulesLocation = overrideRulesLocation;
         if(StringUtils.isBlank(rulesLocation)){
-            log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", getRewriteRulesLocation());
             rulesLocation = getRewriteRulesLocation();
+            log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", rulesLocation);
             if (rulesLocation == null || !rulesLocation.startsWith("/")) {
                 return null;
             }

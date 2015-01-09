@@ -1,5 +1,5 @@
 /**
- * Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -136,7 +136,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     }
 
 
-    private void fetchRules(final ServletRequest request) {
+    private void fetchRules() {
         if (HstServices.isAvailable()) {
             initialized = true; // set to true. if component is not there it will probably never be...
             rewritingManager = HstServices.getComponentManager().getComponent("org.onehippo.forge.rewriting.repo.RewritingManager");
@@ -145,7 +145,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
                 return;
             }
             // TODO we can make this fine grained
-            StringBuilder rules = rewritingManager.load(context ,request, rulesLocation);
+            StringBuilder rules = rewritingManager.load(context, rulesLocation);
             if(rules == null){
                 rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG + UrlRewriteConstants.XML_START + "/>");
             }
@@ -234,12 +234,12 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         // check if we loaded from repository, otherwise do nothing
         if (!initialized) {
             synchronized (lock) {
-                fetchRules(request);
+                fetchRules();
             }
         }
         // check if we need to reload rules:
         if (needsReloading()) {
-            fetchRules(request);
+            fetchRules();
         }
 
         if (!initialized) {
