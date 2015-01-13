@@ -41,5 +41,6 @@
     <sv:value>/_cmsinternal</sv:value>
     <sv:value>/_rp</sv:value>
     <sv:value>/_hn:</sv:value>
+    <sv:value>/ping/</sv:value>
   </sv:property>
 </sv:node>

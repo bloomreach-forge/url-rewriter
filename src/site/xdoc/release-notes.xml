@@ -23,6 +23,16 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.05.05">
+        <p class="smallinfo">
+          Release Date: <span style="color:red">Unreleased</span>
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-997">HIPPLUG-997</a><br/>
+            Add ping-servlet to default skipped prefixes
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.04">
         <p class="smallinfo">
           Release Date: January 9, 2015

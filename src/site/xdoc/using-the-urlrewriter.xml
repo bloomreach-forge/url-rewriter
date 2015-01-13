@@ -59,7 +59,7 @@
           <tr>
             <td>urlrewriter:skippedprefixes</td>
             <td>(since 1.04.01) this is a multiple string, each value is a prefix that should not be rewritten</td>
-            <td>{/_cmsinternal, /_cmsrest, /_rp, /hn:} </td>
+            <td>{/_cmsinternal, /_cmsrest, /_rp, /hn:, /ping/ (since 1.05.05)} </td>
           </tr>
           <tr>
             <td>urlrewriter:skippost</td>
