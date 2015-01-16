@@ -25,11 +25,11 @@
     <section name="Release Notes">
       <subsection name="1.05.05">
         <p class="smallinfo">
-          Release Date: <span style="color:red">Unreleased</span>
+          Release Date: January 16, 2015
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-997">HIPPLUG-997</a><br/>
-            Add ping-servlet to default skipped prefixes
+            Add '/ping/' to default skipped prefixes on behalf of the ping servlet.
           </li>
         </ul>
       </subsection>
@@ -40,7 +40,7 @@
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-963">HIPPLUG-963</a><br/>
             In the site, log a warning when the path to the rewrite documents cannot be found. Log an error after 10th
-            occurence and then log no more.
+            occurrence and then log no more.
           </li>
         </ul>
       </subsection>
