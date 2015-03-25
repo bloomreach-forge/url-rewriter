@@ -105,6 +105,16 @@
   <filter-name>RewriteFilter</filter-name>
   <url-pattern>/*</url-pattern>
   <dispatcher>REQUEST</dispatcher>
+  <dispatcher>FORWARD</dispatcher>
+</filter-mapping>]]></source>
+        <p>
+          Add the REQUEST and FORWARD dispatchers to your HstFilter filter mapping:
+        </p>
+        <source><![CDATA[<filter-mapping>
+  <filter-name>HstFilter</filter-name>
+  <url-pattern>/*</url-pattern>
+  <dispatcher>REQUEST</dispatcher>
+  <dispatcher>FORWARD</dispatcher>
 </filter-mapping>]]></source>
         </subsection>
         <subsection name="5. Add relevant Spring components.">
