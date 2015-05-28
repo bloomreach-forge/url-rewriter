@@ -18,6 +18,9 @@ package org.onehippo.forge.rewriting;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.FilterChain;
@@ -32,6 +35,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
 
 import org.apache.tools.ant.filters.StringInputStream;
 import org.hippoecm.hst.site.HstServices;
@@ -141,8 +146,22 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
                 .maximumSize(1)
                 .expireAfterWrite(10, TimeUnit.DAYS)
                 .build(new CacheLoader<String, UrlRewriter>() {
+                    private final ExecutorService executor = Executors.newFixedThreadPool(1);
+
                     public UrlRewriter load(String key) {
                         return fetchRules();
+                    }
+
+                    @Override
+                    public ListenableFuture<UrlRewriter> reload(final String key, final UrlRewriter oldValue) throws Exception {
+                        final ListenableFutureTask<UrlRewriter> task = ListenableFutureTask.create(
+                                new Callable<UrlRewriter>() {
+                                    public UrlRewriter call() {
+                                        return load(key);
+                                    }
+                                });
+                        executor.execute(task);
+                        return task;
                     }
                 });
     }
@@ -224,7 +243,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             chain.doFilter(hsRequest, urlRewriteWrappedResponse);
         }
     }
-
 
 
     private UrlRewriter fetchRules() {

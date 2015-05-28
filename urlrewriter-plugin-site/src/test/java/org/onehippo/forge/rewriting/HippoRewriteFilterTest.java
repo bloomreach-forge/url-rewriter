@@ -23,10 +23,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
+import javax.sql.RowSet;
+
 import com.google.common.base.Stopwatch;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,8 +56,23 @@ public class HippoRewriteFilterTest {
                 .maximumSize(1)
                 .expireAfterWrite(10, TimeUnit.DAYS)
                 .build(new CacheLoader<String, UrlRewriter>() {
+                    private final ExecutorService executor = Executors.newFixedThreadPool(1);
+
                     public UrlRewriter load(String key) {
                         return fetchRules();
+                    }
+
+                    @Override
+                    public ListenableFuture<UrlRewriter> reload(final String key, final UrlRewriter oldValue) throws Exception {
+                        ListenableFutureTask<UrlRewriter> task =
+                                ListenableFutureTask.create(
+                                        new Callable<UrlRewriter>() {
+                                            public UrlRewriter call() {
+                                                return load(key);
+                                            }
+                                        });
+                        executor.execute(task);
+                        return task;
                     }
                 });
         // initialize
