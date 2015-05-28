@@ -1,12 +1,12 @@
 /**
  * Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,6 +18,7 @@ package org.onehippo.forge.rewriting;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -27,6 +28,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 
 import org.apache.tools.ant.filters.StringInputStream;
 import org.hippoecm.hst.site.HstServices;
@@ -51,9 +56,8 @@ import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
  */
 public class HippoRewriteFilter extends UrlRewriteFilter {
 
+    public static final String CACHE_KEY = "rules";
     private static Logger log = LoggerFactory.getLogger(HippoRewriteFilter.class);
-
-    private final Object lock = new Object();
 
     // TODO check if this is needed
     private static final String DEFAULT_STATUS_ENABLED_ON_HOSTS = "localhost, local, 127.0.0.1";
@@ -65,11 +69,12 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     public static final String INIT_PARAM_MOD_REWRITE_CONF_TEXT = "modRewriteConfText";
 
     private ServerNameMatcher statusServerNameMatcher;
-    private UrlRewriter urlRewriter;
+
     private boolean statusEnabled = true;
     private String statusPath = "/rewrite-status";
     private String rulesLocation = null;
 
+    private LoadingCache<String, UrlRewriter> cache;
     private Conf confLastLoaded;
 
     // hippo vars
@@ -84,7 +89,6 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             log.error("unable to init filter as filter config is null");
             return;
         }
-
         log.debug("init: calling destroy just in case we are being re-initialized uncleanly");
         destroyActual();
 
@@ -93,14 +97,13 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             log.error("unable to init as servlet context is null");
             return;
         }
-
         // set the conf of the logger to make sure we get the messages in context log
         Log.setConfiguration(filterConfig);
 
         // status enabled (default true)
-        String statusEnabledConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_ENABLED);
+        final String statusEnabledConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_ENABLED);
         if (statusEnabledConf != null && !statusEnabledConf.isEmpty()) {
-            log.debug("statusEnabledConf set to {}",statusEnabledConf);
+            log.debug("statusEnabledConf set to {}", statusEnabledConf);
             statusEnabled = "true".equals(statusEnabledConf.toLowerCase());
         }
         if (statusEnabled) {
@@ -108,7 +111,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             String statusPathConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_PATH);
             if (statusPathConf != null && !statusPathConf.isEmpty()) {
                 statusPath = statusPathConf.trim();
-                log.info("status display enabled, path set to {}",statusPath);
+                log.info("status display enabled, path set to {}", statusPath);
             }
         } else {
             log.info("status display disabled");
@@ -118,7 +121,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         if (StringUtils.isBlank(statusEnabledOnHosts)) {
             statusEnabledOnHosts = DEFAULT_STATUS_ENABLED_ON_HOSTS;
         } else {
-            log.debug("statusEnabledOnHosts set to {}",statusEnabledOnHosts);
+            log.debug("statusEnabledOnHosts set to {}", statusEnabledOnHosts);
         }
         statusServerNameMatcher = new ServerNameMatcher(statusEnabledOnHosts);
 
@@ -133,29 +136,119 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             loader.process(modRewriteConfText, conf);
             conf.initialise();
         }
+        // build cache
+        cache = CacheBuilder.newBuilder()
+                .maximumSize(1)
+                .expireAfterWrite(10, TimeUnit.DAYS)
+                .build(new CacheLoader<String, UrlRewriter>() {
+                    public UrlRewriter load(String key) {
+                        return fetchRules();
+                    }
+                });
     }
 
 
-    private void fetchRules() {
+    /**
+     * The main method called for each request that this filter is mapped for.
+     *
+     * @param request  the request to filter
+     * @param response the response to filter
+     * @param chain    the chain for the filtering
+     * @throws java.io.IOException
+     * @throws ServletException
+     */
+    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
+        UrlRewriter rewriter = null;
+        if (!initialized) {
+            rewriter = cache.getUnchecked(CACHE_KEY);
+        }
+        if (needsReloading()) {
+            cache.refresh(CACHE_KEY);
+            rewriter = cache.getUnchecked(CACHE_KEY);
+        }
+        if (!initialized) {
+            chain.doFilter(request, response);
+            log.warn("############## hippo rewrite filter not initialized yet ###########");
+            return;
+        }
+        if (rewriter == null) {
+            rewriter = getUrlRewriter(request, response, chain);
+            // rewriter can be null if rewriting rules are invalid
+            if (rewriter == null) {
+                if (log.isDebugEnabled()) {
+                    log.debug("urlRewriter engine not loaded ignoring request (could be a conf file problem)");
+                }
+                chain.doFilter(request, response);
+                return;
+            }
+        }
+        final HttpServletRequest hsRequest = (HttpServletRequest)request;
+        final HttpServletResponse hsResponse = (HttpServletResponse)response;
+        final HttpServletResponse urlRewriteWrappedResponse = new UrlRewriteWrappedResponse(hsResponse, hsRequest, rewriter);
+        // check for status request
+        if (statusEnabled && statusServerNameMatcher.isMatch(request.getServerName())) {
+            String uri = hsRequest.getRequestURI();
+            if (log.isDebugEnabled()) {
+                log.debug("checking for status path on {} ", uri);
+            }
+            String contextPath = hsRequest.getContextPath();
+            if (uri != null && uri.startsWith(contextPath + statusPath)) {
+                showStatus(hsRequest, urlRewriteWrappedResponse);
+                return;
+            }
+        }
+
+        // Check if request should be skipped with post
+        if (rewritingManager.getSkipPOST() && hsRequest.getMethod().equals("POST")) {
+            if (log.isDebugEnabled()) {
+                log.debug("Ignoring request for {} because it is a POST request", hsRequest.getRequestURI());
+            }
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+            return;
+        }
+
+        // Check if request begins with certain prefixes, if it does skip rewriting
+        if (matchSkippedPrefixes(hsRequest)) {
+            if (log.isDebugEnabled()) {
+                log.debug("Ignoring request for {} because it matches one of the skippedprefixes {}",
+                        hsRequest.getRequestURI(), rewritingManager.getSkippedPrefixes());
+            }
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+            return;
+        }
+
+        // process the request
+        boolean requestRewritten = rewriter.processRequest(hsRequest, urlRewriteWrappedResponse, chain);
+        // if no rewrite has taken place continue as normal
+        if (!requestRewritten) {
+            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
+        }
+    }
+
+
+
+    private UrlRewriter fetchRules() {
         if (HstServices.isAvailable()) {
             initialized = true; // set to true. if component is not there it will probably never be...
             rewritingManager = HstServices.getComponentManager().getComponent("org.onehippo.forge.rewriting.repo.RewritingManager");
 
             if (rewritingManager == null) {
-                return;
+                return null;
             }
             // TODO we can make this fine grained
             StringBuilder rules = rewritingManager.load(context, rulesLocation);
-            if(rules == null){
+            if (rules == null) {
                 rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG + UrlRewriteConstants.XML_START + "/>");
             }
             Conf conf = new Conf(context, new StringInputStream(rules.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
-            checkConfLocal(conf);
+            return checkConfLocal(conf);
         }
+        return null;
 
     }
 
-    private void checkConfLocal(final Conf conf) {
+
+    private UrlRewriter checkConfLocal(final Conf conf) {
         if (log.isDebugEnabled()) {
             if (conf.getRules() != null) {
                 log.debug("initialized with {} rules", conf.getRules().size());
@@ -164,8 +257,8 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         }
         confLastLoaded = conf;
         if (conf.isOk() && conf.isEngineEnabled()) {
-            urlRewriter = new UrlRewriter(conf);
             log.info("loaded (conf ok)");
+            return new UrlRewriter(conf);
 
         } else {
             if (!conf.isOk()) {
@@ -174,14 +267,12 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             if (!conf.isEngineEnabled()) {
                 log.error("Engine explicitly disabled in conf"); // not really an error but we want ot to show in logs
             }
-            if (urlRewriter != null) {
-                log.error("unloading existing conf");
-                urlRewriter = null;
-            }
+
         }
+        return null;
     }
 
-    private boolean matchSkippedPrefixes(HttpServletRequest hsRequest){
+    private boolean matchSkippedPrefixes(HttpServletRequest hsRequest) {
 
         String uri = hsRequest.getRequestURI();
 
@@ -215,95 +306,17 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     }
 
     protected void destroyUrlRewriter() {
+        if (cache == null) {
+            return;
+        }
+        UrlRewriter urlRewriter = cache.getUnchecked(CACHE_KEY);
         if (urlRewriter != null) {
+            cache.invalidate(CACHE_KEY);
             urlRewriter.destroy();
             urlRewriter = null;
         }
     }
 
-    /**
-     * The main method called for each request that this filter is mapped for.
-     *
-     * @param request  the request to filter
-     * @param response the response to filter
-     * @param chain    the chain for the filtering
-     * @throws java.io.IOException
-     * @throws ServletException
-     */
-    public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
-        // check if we loaded from repository, otherwise do nothing
-        if (!initialized) {
-            synchronized (lock) {
-                if (!initialized) {
-                    fetchRules();
-                }
-            }
-        }
-
-
-        // check if we need to reload rules:
-        if (needsReloading()) {
-            fetchRules();
-        }
-
-        if (!initialized) {
-            // continue:
-            chain.doFilter(request, response);
-            log.warn("############## hippo rewrite filter not initialized yet ###########");
-            return;
-        }
-
-        UrlRewriter rewriter = getUrlRewriter(request, response, chain);
-        final HttpServletRequest hsRequest = (HttpServletRequest) request;
-        final HttpServletResponse hsResponse = (HttpServletResponse) response;
-        HttpServletResponse urlRewriteWrappedResponse = new UrlRewriteWrappedResponse(hsResponse, hsRequest, rewriter);
-        // check for status request
-        if (statusEnabled && statusServerNameMatcher.isMatch(request.getServerName())) {
-            String uri = hsRequest.getRequestURI();
-            if (log.isDebugEnabled()) {
-                log.debug("checking for status path on {} ", uri);
-            }
-            String contextPath = hsRequest.getContextPath();
-            if (uri != null && uri.startsWith(contextPath + statusPath)) {
-                showStatus(hsRequest, urlRewriteWrappedResponse);
-                return;
-            }
-        }
-
-        // Check if request should be skipped with post
-        if (rewritingManager.getSkipPOST() && hsRequest.getMethod().equals("POST")){
-            if (log.isDebugEnabled()) {
-                log.debug("Ignoring request for {} because it is a POST request", hsRequest.getRequestURI());
-            }
-            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
-            return;
-        }
-
-        // Check if request begins with certain prefixes, if it does skip rewriting
-        if (matchSkippedPrefixes(hsRequest)){
-            if (log.isDebugEnabled()) {
-                log.debug("Ignoring request for {} because it matches one of the skippedprefixes {}",
-                        hsRequest.getRequestURI(), rewritingManager.getSkippedPrefixes());
-            }
-            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
-            return;
-        }
-
-        boolean requestRewritten = false;
-        if (rewriter != null) {
-            // process the request
-            requestRewritten = rewriter.processRequest(hsRequest, urlRewriteWrappedResponse, chain);
-
-        } else {
-            if (log.isDebugEnabled()) {
-                log.debug("urlRewriter engine not loaded ignoring request (could be a conf file problem)");
-            }
-        }
-        // if no rewrite has taken place continue as normal
-        if (!requestRewritten) {
-            chain.doFilter(hsRequest, urlRewriteWrappedResponse);
-        }
-    }
 
     private boolean needsReloading() {
         return rewritingManager != null && rewritingManager.needReloading();
@@ -312,7 +325,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
     /**
      * Called for every request.
-     * <p/>
+     * <p>
      * Split from doFilter so that it can be overriden.
      */
     protected UrlRewriter getUrlRewriter(ServletRequest request, ServletResponse response, FilterChain chain) {
@@ -320,7 +333,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         if (isTimeToReloadConf(request)) {
             reloadConf(request);
         }
-        return urlRewriter;
+        return cache.getUnchecked(CACHE_KEY);
     }
 
     /**
@@ -377,7 +390,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     }
 
     public boolean isLoaded() {
-        return urlRewriter != null;
+        return cache.getUnchecked(CACHE_KEY) != null;
     }
 
     public boolean isConfReloadCheckEnabled() {
