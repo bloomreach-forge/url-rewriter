@@ -82,9 +82,9 @@ public class RewritingManager {
 
         log.debug("Loading rules from location {}", rulesLocation);
 
-        Session session = null;
         StringBuilder rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG);
         rules.append(UrlRewriteConstants.XML_START);
+        Session session = null;
         try {
             session = getSession();
             if (session == null) {
@@ -143,7 +143,7 @@ public class RewritingManager {
             // HIPPLUG-476: always disable decoding as it can interfere with hst encodings
             rules.append(" decode-using=\"null\"");
 
-            rules.append(">");
+            rules.append('>');
 
             // Start recursion
             load(rulesRootNode, context, rules);
@@ -280,7 +280,7 @@ public class RewritingManager {
           return skippedPrefixes;
     }
 
-    public void invalidate(final Event event) {
+    public synchronized void invalidate(final Event event) {
         needRefresh = true;
     }
 

@@ -99,16 +99,16 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
         // status enabled (default true)
         String statusEnabledConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_ENABLED);
-        if (statusEnabledConf != null && !"".equals(statusEnabledConf)) {
-            log.debug("statusEnabledConf set to " + statusEnabledConf);
+        if (statusEnabledConf != null && !statusEnabledConf.isEmpty()) {
+            log.debug("statusEnabledConf set to {}",statusEnabledConf);
             statusEnabled = "true".equals(statusEnabledConf.toLowerCase());
         }
         if (statusEnabled) {
             // status path (default /rewrite-status)
             String statusPathConf = filterConfig.getInitParameter(INIT_PARAM_STATUS_PATH);
-            if (statusPathConf != null && !"".equals(statusPathConf)) {
+            if (statusPathConf != null && !statusPathConf.isEmpty()) {
                 statusPath = statusPathConf.trim();
-                log.info("status display enabled, path set to " + statusPath);
+                log.info("status display enabled, path set to {}",statusPath);
             }
         } else {
             log.info("status display disabled");
@@ -118,7 +118,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         if (StringUtils.isBlank(statusEnabledOnHosts)) {
             statusEnabledOnHosts = DEFAULT_STATUS_ENABLED_ON_HOSTS;
         } else {
-            log.debug("statusEnabledOnHosts set to " + statusEnabledOnHosts);
+            log.debug("statusEnabledOnHosts set to {}",statusEnabledOnHosts);
         }
         statusServerNameMatcher = new ServerNameMatcher(statusEnabledOnHosts);
 
@@ -158,9 +158,9 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private void checkConfLocal(final Conf conf) {
         if (log.isDebugEnabled()) {
             if (conf.getRules() != null) {
-                log.debug("initialized with " + conf.getRules().size() + " rules");
+                log.debug("initialized with {} rules", conf.getRules().size());
             }
-            log.debug("conf is " + (conf.isOk() ? "ok" : "NOT ok"));
+            log.debug("conf is {},", (conf.isOk() ? "ok" : "NOT ok"));
         }
         confLastLoaded = conf;
         if (conf.isOk() && conf.isEngineEnabled()) {
@@ -234,9 +234,13 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         // check if we loaded from repository, otherwise do nothing
         if (!initialized) {
             synchronized (lock) {
-                fetchRules();
+                if (!initialized) {
+                    fetchRules();
+                }
             }
         }
+
+
         // check if we need to reload rules:
         if (needsReloading()) {
             fetchRules();
@@ -257,7 +261,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
         if (statusEnabled && statusServerNameMatcher.isMatch(request.getServerName())) {
             String uri = hsRequest.getRequestURI();
             if (log.isDebugEnabled()) {
-                log.debug("checking for status path on " + uri);
+                log.debug("checking for status path on {} ", uri);
             }
             String contextPath = hsRequest.getContextPath();
             if (uri != null && uri.startsWith(contextPath + statusPath)) {
