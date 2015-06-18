@@ -23,6 +23,16 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.05.06">
+        <p class="smallinfo">
+          Release Date: June 18, 2015
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1096">HIPPLUG-1096</a><br/>
+            Large hiccups and possible OOM during reloading of url rewrite rules.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.05">
         <p class="smallinfo">
           Release Date: January 16, 2015
