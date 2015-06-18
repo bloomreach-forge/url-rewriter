@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -29,15 +29,16 @@
   <packaging>jar</packaging>
 
   <dependencies>
+    <!-- selections plugin needed for url-rewriter document type(s) dropdown fields -->
     <dependency>
-      <groupId>org.onehippo.forge.selectionplugins</groupId>
-      <artifactId>selectionplugins-addon-repository</artifactId>
-      <version>${forge.selection.version}</version>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-selections-addon-cms</artifactId>
+      <version>${hippo.plugin.selections.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.onehippo.forge.selectionplugins</groupId>
-      <artifactId>selectionplugins-addon-cms</artifactId>
-      <version>${forge.selection.version}</version>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-plugin-selections-addon-repository</artifactId>
+      <version>${hippo.plugin.selections.version}</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>

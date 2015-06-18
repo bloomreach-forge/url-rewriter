@@ -19,7 +19,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>25</version>
+    <version>27.1</version>
   </parent>
 
   <name>Hippo Forge URL Rewriter Plugin</name>
@@ -34,13 +34,12 @@
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
     <tuckey.urlrewritefilter.version>4.0.3</tuckey.urlrewritefilter.version>
-    <forge.selection.version>2.08.00</forge.selection.version>
-
     <commons-lang.version>2.6</commons-lang.version>
 
-    <hippo.repository.version>2.26.04</hippo.repository.version>
-    <hippo.cms.version>2.26.05</hippo.cms.version>
-    <hst.version>2.28.05</hst.version>
+    <hippo.repository.version>2.28.01</hippo.repository.version>
+    <hippo.cms.version>2.28.01</hippo.cms.version>
+    <hst.version>2.30.01</hst.version>
+    <hippo.plugin.selections.version>2.09.01</hippo.plugin.selections.version>
   </properties>
 
   <modules>
@@ -205,14 +204,6 @@
         <configuration>
           <forkMode>always</forkMode>
           <workingDirectory>${project.build.directory}</workingDirectory>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
         </configuration>
       </plugin>
       <plugin>
