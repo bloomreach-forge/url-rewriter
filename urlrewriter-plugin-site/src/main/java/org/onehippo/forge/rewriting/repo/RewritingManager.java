@@ -73,8 +73,7 @@ public class RewritingManager {
         if (!needRefresh) {
             return loadedRules;
         }
-        // reset refresh immediately, cache takes care of reloading
-        needRefresh = false;
+
         String rulesLocation = getRulesLocation(rewriteRulesLocation);
         if(StringUtils.isBlank(rulesLocation)){
             log.error("No location specified for rules. Cannot load rules.");
@@ -159,6 +158,7 @@ public class RewritingManager {
 
         // Update our state
         loadedRules = new StringBuilder(rules);
+        needRefresh = false;
         lastLoadDate = new Date();
 
         return rules;
