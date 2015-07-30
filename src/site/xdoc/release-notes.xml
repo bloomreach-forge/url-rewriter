@@ -23,6 +23,16 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.06.00">
+        <p class="smallinfo">
+          Release Date: July 30, 2015
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1167">HIPPLUG-1167</a><br/>
+            Fix for reloading of expired rules
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.06">
         <p class="smallinfo">
           Release Date: June 18, 2015
