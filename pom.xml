@@ -22,7 +22,6 @@
     <version>27.1</version>
   </parent>
 
-
   <name>Hippo Forge URL Rewriter Plugin</name>
   <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
