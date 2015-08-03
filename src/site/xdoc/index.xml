@@ -48,9 +48,6 @@
       </subsection>
     </section>
     <section name="Project status">
-      <p>
-        The latest versions of URL Rewriter are in the 1.05.XX range running on Hippo CMS 7.9.
-      </p>
       <table>
         <tr>
           <th>Version</th>
@@ -58,7 +55,7 @@
           <th>Hippo 7.7</th>
           <th>Hippo 7.8</th>
           <th>Hippo 7.9</th>
-          <th>Hippo 10.0</th>
+          <th>Hippo 10</th>
         </tr>
         <tr>
           <td>1.06.xx</td>
