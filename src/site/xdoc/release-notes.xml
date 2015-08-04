@@ -29,13 +29,23 @@
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1167">HIPPLUG-1167</a><br/>
-            Fix for reloading of expired rules
+            Fix for reloading of expired rules.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1135">HIPPLUG-1135</a><br/>
-            Upgrade URL Rewriter plugin for CMS 10
+            Upgrade URL Rewriter plugin for CMS 10.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1134">HIPPLUG-1134</a><br/>
-            URL Rewriter NoClassDefFoundError on Hippo CMS 10
+            Fix URL Rewriter NoClassDefFoundError on outdated UpdateModules in Hippo CMS 10.
+          </li>
+        </ul>
+      </subsection>
+      <subsection name="1.05.07 (unreleased)">
+        <p class="smallinfo">
+          Release Date: N/A
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1172">HIPPLUG-1172</a><br/>
+            Fix for reloading of expired rules.
           </li>
         </ul>
       </subsection>
