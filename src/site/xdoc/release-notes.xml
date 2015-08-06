@@ -29,7 +29,7 @@
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1167">HIPPLUG-1167</a><br/>
-            Fix for reloading of expired rules.
+            Fix for reloading without any rules, when cache has expired.
           </li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1135">HIPPLUG-1135</a><br/>
             Upgrade URL Rewriter plugin for CMS 10.
@@ -39,13 +39,13 @@
           </li>
         </ul>
       </subsection>
-      <subsection name="1.05.07 (unreleased)">
+      <subsection name="1.05.07">
         <p class="smallinfo">
-          Release Date: N/A
+          Release Date: August 6, 2015
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1172">HIPPLUG-1172</a><br/>
-            Fix for reloading of expired rules.
+            Fix for reloading without any rules, when cache has expired.
           </li>
         </ul>
       </subsection>
