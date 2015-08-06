@@ -26,7 +26,7 @@
   <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
-  <version>1.05.07-SNAPSHOT</version>
+  <version>1.05.07</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -58,9 +58,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.05.xx</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.05.xx</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.05.xx</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/tags/urlrewriter-1.05.07</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/tags/urlrewriter-1.05.07</developerConnection>
+    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/tags/urlrewriter-1.05.07</url>
   </scm>
 
   <distributionManagement>
