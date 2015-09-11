@@ -63,7 +63,17 @@
       <version>6.8</version>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.0.1</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
   </dependencies>
 
 </project>
