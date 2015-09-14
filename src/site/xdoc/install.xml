@@ -59,7 +59,7 @@
         </subsection>
         <subsection name="4. Configure web.xml">
           <p>Configure the RewriteFilter in the site's web.xml</p>
-          <p>Add to the parameter hst-bean-annotated-classes the beans of URL Rewriter (NB on 7.9, org/onehippo/forge/**
+          <p>Add to the parameter hst-bean-annotated-classes the beans of URL Rewriter (NB since 7.9, org/onehippo/forge/**
             is already there by default):</p>
           <source><![CDATA[<context-param>
   <param-name>hst-beans-annotated-classes</param-name>
@@ -123,7 +123,7 @@
             repository and an <code>EventListener</code> for invalidation of the manager when rules are changed in the
             CMS. </p>
           <p>To do so, copy file <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a>
-            from the demo project's SVN to the following location within your project: [PROJECT_ROOT}/site/src/main/resources/META-INF/hst-assembly/overrides/</p>
+            from the demo project's SVN to the following location within your project: {PROJECT_ROOT}/site/src/main/resources/META-INF/hst-assembly/overrides/</p>
         </subsection>
       </subsection>
       <subsection name="Known Issues">
