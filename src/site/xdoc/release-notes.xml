@@ -39,6 +39,16 @@
           </li>
         </ul>
       </subsection>
+      <subsection name="1.05.08">
+        <p class="smallinfo">
+          Release Date: September 14, 2015
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1184">HIPPLUG-1184</a><br/>
+            Restore the working of Advance Rules of the type "proxy".
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.05.07">
         <p class="smallinfo">
           Release Date: August 6, 2015
