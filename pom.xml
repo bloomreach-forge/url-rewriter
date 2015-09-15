@@ -35,7 +35,7 @@
 
     <tuckey.urlrewritefilter.version>4.0.3</tuckey.urlrewritefilter.version>
     <forge.selection.version>2.08.00</forge.selection.version>
-
+    <commons-httpclient.version>3.1</commons-httpclient.version>
     <commons-lang.version>2.6</commons-lang.version>
 
     <hippo.repository.version>2.26.04</hippo.repository.version>
@@ -134,6 +134,11 @@
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
         <version>${commons-lang.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-httpclient</groupId>
+        <artifactId>commons-httpclient</artifactId>
+        <version>${commons-httpclient.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
