@@ -23,6 +23,16 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.06.01">
+        <p class="smallinfo">
+          Release Date: October 26, 2015
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1181">HIPPLUG-1181</a><br/>
+            Restore the working of Advanced Rules of the type "proxy" by adding dependency to the Apache commons library 3.1.
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.06.00">
         <p class="smallinfo">
           Release Date: July 30, 2015
@@ -45,7 +55,7 @@
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1184">HIPPLUG-1184</a><br/>
-            Restore the working of Advance Rules of the type "proxy".
+            Restore the working of Advanced Rules of the type "proxy" by adding dependency to the Apache commons library 3.0.1.
           </li>
         </ul>
       </subsection>
