@@ -125,13 +125,20 @@
           <p>To do so, copy file <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a>
             from the demo project's SVN to the following location within your project: {PROJECT_ROOT}/site/src/main/resources/META-INF/hst-assembly/overrides/</p>
         </subsection>
+        <subsection name="6. Deploy with bootstrap flag up.">
+          <p>When deploying a newly installed URL rewriter to an existing repository, be sure to make the plugin
+            bootstrap itself by setting system property <code>repo.bootstrap=true</code>.
+            See more at  <a href="http://www.onehippo.org/library/concepts/content-repository/content-bootstrap.html" target="_blank">Content Bootstrap at onehippo.org</a>.
+          </p>
+        </subsection>
       </subsection>
-      <subsection name="Known Issues">
+      <subsection name="Known issue, fixable by manual configuration">
         <p>
-          In URL Rewriter v1.04.01, the validator <code>required</code> in the document type [1] does not execute non-empty validation for "type" field, which results in the document successfully saved even when the required field is empty .
+          In URL Rewriter v1.04.01, the validator <code>required</code> in the document type [1] does not execute non-empty
+          validation for "type" field, which results in the document successfully saved even when the required field is empty.
           Adding extra validator <code>non-empty</code> will give a proper behavior and warning when the type field is empty.
         </p>
-        <p> This step should be done for the following document type: rule, advancedrule and xmlrule </p>
+        <p>This step should be done for the following document type: rule, advancedrule and xmlrule</p>
         <p><code>[1] /hippo:namespaces/urlrewriter/rule/hipposysedit:nodetype/hipposysedit:nodetype/ruletype[@validators=required]</code></p>
       </subsection>
     </section>
