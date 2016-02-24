@@ -33,7 +33,7 @@
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
-    <tuckey.urlrewritefilter.version>4.0.3</tuckey.urlrewritefilter.version>
+    <tuckey.urlrewritefilter.version>4.0.4</tuckey.urlrewritefilter.version>
     <commons-lang.version>2.6</commons-lang.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <hippo.repository.version>2.28.01</hippo.repository.version>
