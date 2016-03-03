@@ -23,6 +23,21 @@
   </properties>
   <body>
     <section name="Release Notes">
+        <subsection name="1.06.02">
+            <p class="smallinfo">
+                Release Date:
+            </p>
+            <ul>
+                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1267">HIPPLUG-1267</a><br/>
+                    Bumped Tuckey urlrewritefilter version to 4.0.4
+                    <ul>
+                        <li>minor improvements in documentation</li>
+                        <li>Fix for memory leak</li>
+                        <li>minor build improvements (only relevant if you build Tuckey from source)</li>
+                    </ul>
+                </li>
+            </ul>
+        </subsection>
       <subsection name="1.06.01">
         <p class="smallinfo">
           Release Date: October 26, 2015
