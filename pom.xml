@@ -26,7 +26,7 @@
   <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
-  <version>1.04.01e-SNAPSHOT</version>
+  <version>1.04.01-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>

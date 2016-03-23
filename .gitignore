@@ -3,3 +3,4 @@
 /target
 urlrewriter-plugin-cms/*.iml
 urlrewriter-plugin-site/*.iml
+urlrewriter-plugin-site/target

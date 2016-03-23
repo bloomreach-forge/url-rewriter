@@ -1,5 +1,5 @@
 /**
- * Copyright 2011-2013 Hippo B.V. (http://www.onehippo.com)
+ * Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,15 +19,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.jcr.Credentials;
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Repository;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import javax.jcr.*;
 import javax.jcr.observation.Event;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletRequest;
 
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNodeType;
@@ -38,7 +32,7 @@ import org.slf4j.LoggerFactory;
 import org.tuckey.web.filters.urlrewrite.utils.StringUtils;
 
 /**
- * @version $Id$
+ *
  */
 public class RewritingManager {
 
@@ -50,37 +44,31 @@ public class RewritingManager {
     private Credentials credentials;
     private List<RewritingRulesExtractor> rewritingRulesExtractors;
 
+    // configuration
+    private boolean ignoreContextPath;
+    private boolean skipPOST;
+    private String[] skippedPrefixes = UrlRewriteConstants.SKIPPED_PREFIXES_DEFAULT_VALUE;
+
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
     private Date lastLoadDate = new Date();
 
     private volatile boolean needRefresh = true;
 
+    private int logWarningCounter = 0;
+    private static final int LOG_WARNING_LIMIT = 10;
+
     public boolean needReloading() {
         return needRefresh;
     }
 
     /**
-     * Load rules for given path. If no path is provided, default will be used (configured in spring configuration)
-     *
-     * @param context servlet context
-     * @param request servlet request
-     * @param urlRewriteLocation absolute repository path
-     */
-    @Deprecated
-    public synchronized StringBuilder loadRules(final ServletContext context, final ServletRequest request, final String urlRewriteLocation) {
-        return load(context, request, null);
-    }
-
-
-    /**
     * Load rules for given path. If no path is provided, default will be used (configured in spring configuration)
     *
     * @param context servlet context
-    * @param request servlet request
     * @param rewriteRulesLocation absolute repository path of the rules
     */
-    public synchronized StringBuilder load(final ServletContext context, final ServletRequest request, final String rewriteRulesLocation) {
+    public synchronized StringBuilder load(final ServletContext context, final String rewriteRulesLocation) {
         // check if refresh is needed..if not return local copy
         if (!needRefresh) {
             return loadedRules;
@@ -94,44 +82,74 @@ public class RewritingManager {
 
         log.debug("Loading rules from location {}", rulesLocation);
 
-        Session session = null;
         StringBuilder rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG);
         rules.append(UrlRewriteConstants.XML_START);
+        Session session = null;
         try {
             session = getSession();
             if (session == null) {
                 return null;
             }
-            Node rootNode = session.getRootNode().getNode(rulesLocation.substring(1));
-            if(! rootNode.hasNodes()){
-                log.debug("No rules found under {}.", UrlRewriteUtils.getJcrItemPath(rootNode));
+
+            if (!session.getRootNode().hasNode(rulesLocation.substring(1))) {
+                // after x amount of warning, don't log anymore because otherwise logging will fill up the logs.
+                if (logWarningCounter <= LOG_WARNING_LIMIT) {
+                    if (logWarningCounter == LOG_WARNING_LIMIT) {
+                        log.error("#{}: Location {} is not available, will retry but will not log anymore", logWarningCounter, rulesLocation);
+                    }
+                    else {
+                        log.warn("#{}: Location {} is not available, will retry", logWarningCounter, rulesLocation);
+                    }
+                    logWarningCounter++;
+                    return null;
+                }
                 return null;
             }
 
-            boolean ignoreContextPath = rootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
-                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
+            final Node rulesRootNode = session.getRootNode().getNode(rulesLocation.substring(1));
+            if(!rulesRootNode.hasNodes()){
+                log.debug("No rules found under {}.", UrlRewriteUtils.getJcrItemPath(rulesRootNode));
+                return null;
+            }
+
+            ignoreContextPath = rulesRootNode.hasProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY) ?
+                    Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
                     UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE;
 
-            boolean useQueryString = rootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
-                    Boolean.valueOf(rootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
+            boolean useQueryString = rulesRootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
+                    Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
                     UrlRewriteConstants.USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE;
+
+            skipPOST = rulesRootNode.hasProperty(UrlRewriteConstants.SKIP_POST_PROPERTY) ?
+                    Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.SKIP_POST_PROPERTY).getString()) :
+                    UrlRewriteConstants.SKIP_POST_PROPERTY_DEFAULT_VALUE;
+
+            if (rulesRootNode.hasProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY)){
+                Value[] prefixValues = rulesRootNode.getProperty(UrlRewriteConstants.SKIPPED_PREFIXES_PROPERTY).getValues();
+                skippedPrefixes = new String[prefixValues.length];
+                for(int i=0; i < prefixValues.length; i++) {
+                    skippedPrefixes[i] = prefixValues[i].getString();
+                }
+            }
 
             if(!ignoreContextPath) {
               rules.append(" use-context=\"true\"");
             }
+
             if(useQueryString) {
               rules.append(" use-query-string=\"true\"");
             }
+
             // HIPPLUG-476: always disable decoding as it can interfere with hst encodings
             rules.append(" decode-using=\"null\"");
 
-            rules.append(">");
+            rules.append('>');
 
             // Start recursion
-            load(rootNode, context, rules);
+            load(rulesRootNode, context, rules);
 
         } catch (Exception e) {
-            log.error("Error loading rewriting rules {}", e);
+            log.error("Error loading rewriting rules in {}", rulesLocation, e);
         } finally {
             closeSession(session);
         }
@@ -187,7 +205,7 @@ public class RewritingManager {
                                 rules.append(rule);
                             }
                         } catch (RepositoryException e){
-                            log.error("Exception encountered while extracting with: " + rulesExtractor, e);
+                            log.error("Exception encountered while extracting with {}", rulesExtractor, e);
                         }
                     }
                 }
@@ -225,9 +243,11 @@ public class RewritingManager {
             while (docs.hasNext()) {
                 document = docs.nextNode();
                 if (document.isNodeType(HippoStdNodeType.NT_PUBLISHABLE)) {
-                    String state = document.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
-                    if ("published".equals(state)) {
-                        return document;
+                    Property availabities = document.getProperty(HippoNodeType.HIPPO_AVAILABILITY);
+                    for (Value availabity : availabities.getValues()) {
+                        if (availabity.getString().equals("live")) {
+                            return document;
+                        }
                     }
                 }
             }
@@ -239,8 +259,8 @@ public class RewritingManager {
     protected String getRulesLocation(String overrideRulesLocation){
         String rulesLocation = overrideRulesLocation;
         if(StringUtils.isBlank(rulesLocation)){
-            log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", getRewriteRulesLocation());
             rulesLocation = getRewriteRulesLocation();
+            log.debug("Filter configuration does not specify UrlRewriteLocation, or is not an absolute path. Will use default one: {}", rulesLocation);
             if (rulesLocation == null || !rulesLocation.startsWith("/")) {
                 return null;
             }
@@ -248,7 +268,19 @@ public class RewritingManager {
         return rulesLocation;
     }
 
-    public void invalidate(final Event event) {
+    public boolean getIgnoreContextPath(){
+          return ignoreContextPath;
+    }
+
+    public boolean getSkipPOST(){
+          return skipPOST;
+    }
+
+    public String[] getSkippedPrefixes(){
+          return skippedPrefixes;
+    }
+
+    public synchronized void invalidate(final Event event) {
         needRefresh = true;
     }
 
@@ -261,7 +293,7 @@ public class RewritingManager {
         try {
             session = repository.login(credentials);
         } catch (RepositoryException e) {
-            log.error("Error obtaining session {}", e);
+            log.error("Error obtaining session", e);
         }
         return session;
     }

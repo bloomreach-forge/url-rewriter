@@ -18,15 +18,12 @@ package org.onehippo.forge.rewriting.repo;
 import javax.jcr.observation.Event;
 
 import org.hippoecm.hst.core.jcr.GenericEventListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * EventListener invalidating a {@link RewritingManager}.
  */
 public class UrlRewriteListener extends GenericEventListener {
 
-    private Logger log = LoggerFactory.getLogger(UrlRewriteListener.class);
 
     private RewritingManager rewriteManager;
 
@@ -34,22 +31,27 @@ public class UrlRewriteListener extends GenericEventListener {
         this.rewriteManager = rewriteManager;
     }
 
+    @Override
     protected void onNodeAdded(Event event) {
         doInvalidation(event);
     }
 
+    @Override
     protected void onNodeRemoved(Event event) {
         doInvalidation(event);
     }
 
+    @Override
     protected void onPropertyAdded(Event event) {
         doInvalidation(event);
     }
 
+    @Override
     protected void onPropertyChanged(Event event) {
         doInvalidation(event);
     }
 
+    @Override
     protected void onPropertyRemoved(Event event) {
         doInvalidation(event);
     }
