@@ -93,7 +93,7 @@
         </p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1096">HIPPLUG-1096</a><br/>
-            Large hiccups and possible OOM during reloading of url rewrite rules.
+            Improvements to prevent hiccups and possible OOM during reloading of url rewrite rules.
           </li>
         </ul>
       </subsection>
@@ -169,6 +169,16 @@
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-838">HIPPLUG-838</a><br/>
             Upgraded to Hippo 7.9. This version is not compatible with earlier version of Hippo.
             Use 1.04.xx for Hippo 7.8 and 7.7 versions.
+          </li>
+        </ul>
+      </subsection>
+      <subsection name="1.04.02">
+          <p class="smallinfo" >
+              Release Date: March 23, 2016
+          </p>
+        <ul>
+          <li>Back ported <a href="https://issues.onehippo.com/browse/HIPPLUG-1096">HIPPLUG-1096</a><br/>
+            Improvements to prevent hiccups and possible OOM during reloading of url rewrite rules.
           </li>
         </ul>
       </subsection>
