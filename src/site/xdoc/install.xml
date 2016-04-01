@@ -99,7 +99,10 @@
 </filter>]]></source>
           <p>
             <em class="note">Important!</em><br/>
-            Add the filter mapping as a <strong>first</strong> entry in your web.xml before the other filter mappings:
+            Add the filter mapping as a <strong>first</strong> entry <strong>after CharacterEncodingFilter filter</strong>in your web.xml before the other filter mappings:
+          </p>
+          <p>See also Tomcat FAQ about encoding:
+            <a href="https://wiki.apache.org/tomcat/FAQ/CharacterEncoding">Character Encoding Issues</a>
           </p>
           <source><![CDATA[<filter-mapping>
   <filter-name>RewriteFilter</filter-name>
