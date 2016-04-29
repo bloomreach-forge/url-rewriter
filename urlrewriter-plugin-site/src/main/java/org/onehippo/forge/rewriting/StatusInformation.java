@@ -35,7 +35,6 @@ import org.tuckey.web.filters.urlrewrite.UrlRewriteFilter;
 
 public class StatusInformation extends Status {
 
-
     private static final Logger log = LoggerFactory.getLogger(StatusInformation.class);
     private static final String VERSION_UNKNOWN = "UNKNOWN";
 
@@ -100,7 +99,6 @@ public class StatusInformation extends Status {
         } catch (IOException | IllegalArgumentException e) {
             log.error("Error reading manifest stream", e);
         }
-
 
         return VERSION_UNKNOWN;
     }
