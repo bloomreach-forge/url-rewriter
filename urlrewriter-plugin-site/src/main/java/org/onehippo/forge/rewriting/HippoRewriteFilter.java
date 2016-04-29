@@ -386,7 +386,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
 
         log.debug("showing status");
 
-        Status status = new Status(confLastLoaded, this);
+        Status status = new StatusInformation(confLastLoaded, this);
         status.displayStatusInContainer(request);
 
         response.setContentType("text/html; charset=UTF-8");

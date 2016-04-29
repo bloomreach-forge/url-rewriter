@@ -18,7 +18,7 @@ package org.onehippo.forge.rewriting;
 /**
  * @version $Id$
  */
-public class UrlRewriteConstants {
+public final class UrlRewriteConstants {
 
     public static final String PRIMARY_TYPE_101xx_RULESET_DOCUMENT = "urlrewriter:ruleset";
     public static final String PRIMARY_TYPE_101xx_RULESETXML_DOCUMENT = "urlrewriter:rulesetxml";
@@ -56,4 +56,9 @@ public class UrlRewriteConstants {
     public static final String XML_START = "<urlrewrite";
     public static final String XML_END = "</urlrewrite>";
     public static final String DEFAULT_RULE_TYPE = "temporary-redirect";
+
+    private UrlRewriteConstants() {
+    }
+
+
 }
