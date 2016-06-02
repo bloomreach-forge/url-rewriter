@@ -187,6 +187,11 @@
             Improvements to prevent hiccups and possible OOM during reloading of url rewrite rules.
           </li>
         </ul>
+        <p class="note">
+          Note: this version lost an internal dependency to <code>commons-httpclient:commons-httpclient:jar:3.0.1</code>
+          from the "urlrewriter-module-hst" module. This breaks the proxy functionality so please add the dependency
+          again at project level, normally in file "site/pom.xml".
+        </p>
       </subsection>
       <subsection name="1.04.01">
           <p class="smallinfo" >
