@@ -23,11 +23,14 @@
   </properties>
   <body>
     <section name="Release Notes">
-        <subsection name="1.06.02 (unreleased)">
+        <subsection name="1.06.02">
             <p class="smallinfo">
-                Release Date: N/A
+                Release Date: June 02, 2016
             </p>
             <ul>
+                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1296">HIPPLUG-1296</a><br/>
+                  Show version on status page
+                </li>
                 <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1267">HIPPLUG-1267</a><br/>
                     Bumped Tuckey urlrewritefilter version to 4.0.4.
                     <ul>
@@ -38,6 +41,9 @@
                 </li>
                 <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1253">HIPPLUG-1253</a><br/>
                   Improve values for folder list view settings: page size 50, view size 10.
+                </li>
+                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1230">HIPPLUG-1230</a><br/>
+                    Demo on trunk doesn't work
                 </li>
             </ul>
         </subsection>
