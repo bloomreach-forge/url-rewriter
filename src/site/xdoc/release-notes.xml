@@ -23,30 +23,30 @@
   </properties>
   <body>
     <section name="Release Notes">
-        <subsection name="1.06.02">
-            <p class="smallinfo">
-                Release Date: June 02, 2016
-            </p>
-            <ul>
-                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1296">HIPPLUG-1296</a><br/>
-                  Show version on status page
-                </li>
-                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1267">HIPPLUG-1267</a><br/>
-                    Bumped Tuckey urlrewritefilter version to 4.0.4.
-                    <ul>
-                        <li>fix for memory leak</li>
-                        <li>minor improvements in documentation</li>
-                        <li>minor build improvements (only relevant if you build Tuckey from source)</li>
-                    </ul>
-                </li>
-                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1253">HIPPLUG-1253</a><br/>
-                  Improve values for folder list view settings: page size 50, view size 10.
-                </li>
-                <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1230">HIPPLUG-1230</a><br/>
-                    Demo on trunk doesn't work
-                </li>
-            </ul>
-        </subsection>
+      <subsection name="1.06.02">
+          <p class="smallinfo">
+              Release Date: June 02, 2016
+          </p>
+          <ul>
+              <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1296">HIPPLUG-1296</a><br/>
+                Show version on status page
+              </li>
+              <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1267">HIPPLUG-1267</a><br/>
+                  Bumped Tuckey urlrewritefilter version to 4.0.4.
+                  <ul>
+                      <li>fix for memory leak</li>
+                      <li>minor improvements in documentation</li>
+                      <li>minor build improvements (only relevant if you build Tuckey from source)</li>
+                  </ul>
+              </li>
+              <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1253">HIPPLUG-1253</a><br/>
+                Improve values for folder list view settings: page size 50, view size 10.
+              </li>
+              <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1230">HIPPLUG-1230</a><br/>
+                  Demo on trunk doesn't work
+              </li>
+          </ul>
+      </subsection>
       <subsection name="1.06.01">
         <p class="smallinfo">
           Release Date: October 26, 2015
@@ -223,7 +223,7 @@
             </ul><br/>
             To enable the upgrader (which consists of 4 phases) add version "url-rewriter-updater-1-04" to hippo:initialize and restart your system.<br/>
             You do not need to run the upgrader if you are on 1.02.00 and later, unless you want to be in sync with the latest namespace version (1.1).<br/>
-            In that case, you need only to run the last 2 phases of the upgrader. To do so, add version "url-rewriter-updater-1-04-phaseB" to hippo:initialize. 
+            In that case, you need only to run the last 2 phases of the upgrader. To do so, add version "url-rewriter-updater-1-04-phaseB" to hippo:initialize.
             This will trigger the last 2 phases, that is phase C and D, in which no content is changed.<br/>
             Logging will happen on INFO level; the category you (may) need to set is "org.onehippo.forge.rewriting.updater".
           </li>
