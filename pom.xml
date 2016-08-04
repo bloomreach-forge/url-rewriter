@@ -57,9 +57,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.06.xx</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.06.xx</developerConnection>
+    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.06.xx</url>
   </scm>
 
   <distributionManagement>
