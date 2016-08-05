@@ -37,8 +37,8 @@ public class AjaxAwareValueTemplatePlugin extends ValueTemplatePlugin implements
     private static final long serialVersionUID = 1L;
     private static final Logger log = LoggerFactory.getLogger(AjaxAwareValueTemplatePlugin.class);
     private static final List<String> nameMustBeSpecifiedFor = Arrays.asList("header", "attribute", "cookie", "parameter", "session-attribute");
-    private final AttributeModifier disabledAttributeModifier = new AttributeModifier("disabled", true, new Model<String>("disabled"));
-    private final AttributeModifier placeholderAttributeModifier = new AttributeModifier("placeholder", true,
+    private final AttributeModifier disabledAttributeModifier = new AttributeModifier("disabled", new Model<>("disabled"));
+    private final AttributeModifier placeholderAttributeModifier = new AttributeModifier("placeholder",
             new ClassResourceModel("not-applicable-placeholder", AjaxAwareValueTemplatePlugin.class, null));
 
     @Override
