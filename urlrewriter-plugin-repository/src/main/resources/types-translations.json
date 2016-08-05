@@ -1,0 +1,148 @@
+{"hippo:types": {
+  "urlrewriter:rulecondition":   {
+    "en":     {
+      "urlrewriter:conditiontype": "Type",
+      "urlrewriter:conditionoperator": "Operator",
+      "urlrewriter:conditionname": "Type parameter",
+      "urlrewriter:conditionor": "Operator for next condition",
+      "urlrewriter:conditionvalue": "Value"
+    },
+    "nl":     {
+      "urlrewriter:conditiontype": "Type",
+      "urlrewriter:conditionoperator": "Operator",
+      "urlrewriter:conditionname": "Type parameter",
+      "urlrewriter:conditionor": "Operator op volgende conditie",
+      "urlrewriter:conditionvalue": "Waarde"
+    },
+    "de":     {
+      "urlrewriter:conditiontype": "Typ",
+      "urlrewriter:conditionoperator": "Operator",
+      "urlrewriter:conditionname": "Typ Parameter",
+      "urlrewriter:conditionor": "Operator für Bedingung",
+      "urlrewriter:conditionvalue": "Wert"
+    },
+    "fr":     {
+      "urlrewriter:conditiontype": "Type",
+      "urlrewriter:conditionoperator": "Opérateur",
+      "urlrewriter:conditionname": "Paramètre de type",
+      "urlrewriter:conditionor": "Opérateur pour la condition suivante",
+      "urlrewriter:conditionvalue": "Valeur"
+    }
+  },
+  "urlrewriter:advancedrule":   {
+    "en":     {
+      "urlrewriter:rulefrom": "Rewrite From",
+      "urlrewriter:ruleto": "Rewrite To",
+      "urlrewriter:ruledescription": "Description",
+      "urlrewriter:isnotlast": "Process Other Rules",
+      "jcr:name": "Advanced Rule",
+      "urlrewriter:rulecondition": "Conditions",
+      "urlrewriter:iswildcardtype": "Use Wildcard Matching",
+      "urlrewriter:ruletype": "Type",
+      "urlrewriter:qsappend": "Append Query String",
+      "urlrewriter:casesensitive": "Case Sensitive"
+    },
+    "fr":     {
+      "urlrewriter:rulefrom": "Réécrire depuis",
+      "urlrewriter:ruleto": "Réécrire vers",
+      "urlrewriter:ruledescription": "Description",
+      "urlrewriter:isnotlast": "Traiter les autres règles",
+      "jcr:name": "Règle avancée",
+      "urlrewriter:rulecondition": "Conditions",
+      "urlrewriter:iswildcardtype": "Utiliser une comparaison avec des jokers",
+      "urlrewriter:ruletype": "Type",
+      "urlrewriter:qsappend": "Ajouter la query string",
+      "urlrewriter:casesensitive": "Sensible à la casse"
+    },
+    "nl":     {
+      "urlrewriter:rulefrom": "Herschrijven van",
+      "urlrewriter:ruleto": "Herschrijven naar",
+      "urlrewriter:ruledescription": "Beschrijving",
+      "urlrewriter:isnotlast": "Verwerk andere regels",
+      "jcr:name": "Geavanceerde regel",
+      "urlrewriter:rulecondition": "Condities",
+      "urlrewriter:iswildcardtype": "Gebruik wildcard matching",
+      "urlrewriter:ruletype": "Type",
+      "urlrewriter:qsappend": "Voeg querystring toe",
+      "urlrewriter:casesensitive": "Hoofdlettergevoelig"
+    },
+    "de":     {
+      "urlrewriter:rulefrom": "Rewrite von",
+      "urlrewriter:ruleto": "Rewrite nach",
+      "urlrewriter:ruledescription": "Beschreibung",
+      "urlrewriter:isnotlast": "Process andere Regeln",
+      "jcr:name": "Erweiterte Regel",
+      "urlrewriter:rulecondition": "Bedingungen",
+      "urlrewriter:iswildcardtype": "Benutze wildcard matching",
+      "urlrewriter:ruletype": "Typ",
+      "urlrewriter:qsappend": "Append querystring",
+      "urlrewriter:casesensitive": "Groß- und Kleinschreibung"
+    }
+  },
+  "urlrewriter:rule":   {
+    "en":     {
+      "urlrewriter:rulefrom": "Rewrite From",
+      "urlrewriter:ruleto": "Rewrite To",
+      "urlrewriter:ruletype": "Type",
+      "urlrewriter:ruledescription": "Description",
+      "jcr:name": "Rule"
+    },
+    "nl":     {
+      "urlrewriter:rulefrom": "Herschrijven van",
+      "urlrewriter:ruleto": "Herschrijven naar",
+      "urlrewriter:ruletype": "Type",
+      "urlrewriter:ruledescription": "Beschrijving",
+      "jcr:name": "Regel"
+    },
+    "de":     {
+      "urlrewriter:rulefrom": "Rewrite von",
+      "urlrewriter:ruleto": "Rewrite nach",
+      "urlrewriter:ruletype": "Typ",
+      "urlrewriter:ruledescription": "Beschreibung",
+      "jcr:name": "Regel"
+    },
+    "fr":     {
+      "urlrewriter:rulefrom": "Réécrire depuis",
+      "urlrewriter:ruleto": "Réécrire vers",
+      "urlrewriter:ruletype": "Type",
+      "urlrewriter:ruledescription": "Description",
+      "jcr:name": "Règle"
+    }
+  },
+  "urlrewriter:xmlrule":   {
+    "en":     {
+      "jcr:name": "XML Rule",
+      "urlrewriter:rule": "Rewrite rule in <urlrewrite> XML"
+    },
+    "nl":     {
+      "jcr:name": "XML regel",
+      "urlrewriter:rule": "Rewrite-regel in <urlrewrite> XML"
+    },
+    "de":     {
+      "jcr:name": "XML Regel",
+      "urlrewriter:rule": "Rewrite Regel in <urlrewrite> XML"
+    },
+    "fr":     {
+      "jcr:name": "Règle XML",
+      "urlrewriter:rule": "Règle de réécriture en <urlrewrite> XML"
+    }
+  },
+  "urlrewriter:ruleset":   {
+    "en": {"jcr:name": "Rewrite Rule Folder"},
+    "nl": {"jcr:name": "Map met rewrite-regels"},
+    "fr": {"jcr:name": "Dossier de règles de réécriture"},
+    "de": {"jcr:name": "Ordner"}
+  },
+  "urlrewriter:BroadcastingStaticDropdown":   {
+    "nl": {"jcr:name": "Statische Dropdown (broadcasting)"},
+    "en": {"jcr:name": "Static Dropdown (broadcasting)"},
+    "fr": {"jcr:name": "Liste déroulante statique (broadcasting)"},
+    "de": {"jcr:name": "Statisches Dropdown (broadcasting)"}
+  },
+  "urlrewriter:AjaxAwareString":   {
+    "nl": {"jcr:name": "Korte tekst (broadcast aware)"},
+    "en": {"jcr:name": "String (broadcast aware)"},
+    "fr": {"jcr:name": "Texte court (broadcast aware)"},
+    "de": {"jcr:name": "String (broadcast aware)"}
+  }
+}}

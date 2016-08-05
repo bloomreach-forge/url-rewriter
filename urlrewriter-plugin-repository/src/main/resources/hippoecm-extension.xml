@@ -330,18 +330,6 @@
     </sv:property>
   </sv:node>
 
-  <sv:node sv:name="new-urlrewriter-query-templates-translations">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:initializeitem</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>21083</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:resourcebundles" sv:type="String">
-      <sv:value>template-translations.json</sv:value>
-    </sv:property>
-  </sv:node>
-
   <sv:node sv:name="urlrewriter-root-content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -357,4 +345,28 @@
       <sv:value>/content</sv:value>
     </sv:property>
   </sv:node>
+
+  <sv:node sv:name="urlrewriter-query-templates-translations">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>21083</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:resourcebundles" sv:type="String">
+      <sv:value>template-translations.json</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="urlrewriter-document-types-translations">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>21083</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:resourcebundles" sv:type="String">
+      <sv:value>types-translations.json</sv:value>
+    </sv:property>
+  </sv:node>
+
 </sv:node>

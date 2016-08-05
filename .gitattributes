@@ -9,6 +9,7 @@ src/site/xdoc/rules/xml-rule.xml -text
 src/site/xdoc/using-the-urlrewriter.xml -text
 urlrewriter-plugin-repository/src/main/resources/namespace/urlrewriter.cnd -text
 urlrewriter-plugin-repository/src/main/resources/template-translations.json -text
+urlrewriter-plugin-repository/src/main/resources/types-translations.json -text
 urlrewriter-plugin-site/src/main/appended-resources/META-INF/LICENSE -text
 urlrewriter-plugin-site/src/main/java/org/onehippo/forge/rewriting/StatusInformation.java -text
 urlrewriter-plugin-site/src/test/java/org/onehippo/forge/rewriting/HippoRewriteFilterTest.java -text

@@ -22,66 +22,10 @@
   </sv:property>
   <sv:property sv:name="jcr:mixinTypes" sv:type="Name" sv:multiple="true">
     <sv:value>mix:referenceable</sv:value>
-    <sv:value>hippo:translated</sv:value>
   </sv:property>
   <sv:property sv:name="jcr:uuid" sv:type="String">
     <sv:value>45cc1975-e4a2-477c-984a-a1e6eb0a0faf</sv:value>
   </sv:property>
-  <sv:node sv:name="hippo:translation">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:translation</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:language" sv:type="String">
-      <sv:value>en</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Rewrite Rule Folder</sv:value>
-    </sv:property>
-  </sv:node>
-  <sv:node sv:name="hippo:translation">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:translation</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:language" sv:type="String">
-      <sv:value>nl</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Map met rewrite-regels</sv:value>
-    </sv:property>
-  </sv:node>
-  <sv:node sv:name="hippo:translation">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:translation</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:language" sv:type="String">
-      <sv:value>fr</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Dossier de règles de réécriture</sv:value>
-    </sv:property>
-  </sv:node>
-  <sv:node sv:name="hippo:translation">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:translation</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:language" sv:type="String">
-      <sv:value>it</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Insieme di regole di riscrittura</sv:value>
-    </sv:property>
-  </sv:node>
-  <sv:node sv:name="hippo:translation">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippo:translation</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:language" sv:type="String">
-      <sv:value>de</sv:value>
-    </sv:property>
-    <sv:property sv:name="hippo:message" sv:type="String">
-      <sv:value>Ordner</sv:value>
-    </sv:property>
-  </sv:node>
   <sv:node sv:name="hipposysedit:nodetype">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:handle</sv:value>
