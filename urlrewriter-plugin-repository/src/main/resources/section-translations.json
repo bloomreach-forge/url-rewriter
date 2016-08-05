@@ -1,0 +1,21 @@
+{
+  "hippo:cms": {
+    "sections": {
+      "en": {
+        "section-urlrewriter": "Url rewriter"
+      },
+      "fr": {
+        "section-urlrewriter": "Url rewriter"
+      },
+      "nl": {
+        "section-urlrewriter": "Url rewriter"
+      },
+      "de": {
+        "section-urlrewriter": "Url rewriter"
+      },
+      "zh": {
+        "section-urlrewriter": "Url rewriter"
+      }
+    }
+  }
+}
