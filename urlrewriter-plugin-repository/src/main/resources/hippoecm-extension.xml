@@ -97,7 +97,7 @@
       <sv:value>true</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:version" sv:type="String">
-      <sv:value>1.05.02</sv:value>
+      <sv:value>2.0.0</sv:value>
     </sv:property>
   </sv:node>
 
@@ -118,7 +118,7 @@
       <sv:value>true</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:version" sv:type="String">
-      <sv:value>1.05.02</sv:value>
+      <sv:value>2.0.0</sv:value>
     </sv:property>
   </sv:node>
 
@@ -139,7 +139,7 @@
       <sv:value>true</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:version" sv:type="String">
-      <sv:value>1.05.02</sv:value>
+      <sv:value>2.0.0</sv:value>
     </sv:property>
   </sv:node>
 
@@ -156,6 +156,12 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:version" sv:type="String">
+      <sv:value>2.0.0</sv:value>
+    </sv:property>
   </sv:node>
 
   <sv:node sv:name="urlrewriter-namespace-static-dropdown">
@@ -171,6 +177,12 @@
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
     </sv:property>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:version" sv:type="String">
+      <sv:value>2.0.0</sv:value>
+    </sv:property>
   </sv:node>
 
   <sv:node sv:name="urlrewriter-namespace-ajax-aware-string">
@@ -185,6 +197,12 @@
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:namespaces/urlrewriter</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:reloadonstartup" sv:type="Boolean">
+      <sv:value>true</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:version" sv:type="String">
+      <sv:value>2.0.0</sv:value>
     </sv:property>
   </sv:node>
 
