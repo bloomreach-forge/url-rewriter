@@ -1,0 +1,18 @@
+{"hippo:templates": {
+  "en":   {
+    "new-urlrewriter-document": "rewrite rule",
+    "new-urlrewriter-folder": "rewrite rule folder"
+  },
+  "nl":   {
+    "new-urlrewriter-folder": "map met rewrite-regels",
+    "new-urlrewriter-document": "rewrite-regel"
+  },
+  "fr":   {
+    "new-urlrewriter-folder": "dossier de règles de réécriture",
+    "new-urlrewriter-document": "règle de réécriture"
+  },
+  "de":   {
+    "new-urlrewriter-folder": "Rewrite-Regel Ordner",
+    "new-urlrewriter-document": "Rewrite-Regel"
+  }
+}}
