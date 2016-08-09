@@ -36,9 +36,9 @@
     <tuckey.urlrewritefilter.version>4.0.4</tuckey.urlrewritefilter.version>
     <commons-lang.version>2.6</commons-lang.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
-    <hippo.repository.version>4.0.0</hippo.repository.version>
-    <hippo.cms.version>4.0.0</hippo.cms.version>
-    <hst.version>4.0.0</hst.version>
+    <hippo.repository.version>4.0.1</hippo.repository.version>
+    <hippo.cms.version>4.0.1</hippo.cms.version>
+    <hst.version>4.0.1</hst.version>
     <hippo.plugin.selections.version>4.0.0</hippo.plugin.selections.version>
   </properties>
 
