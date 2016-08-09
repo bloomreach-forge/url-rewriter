@@ -51,6 +51,7 @@
       <table>
         <tr>
           <th>Version</th>
+          <th>Hippo 11</th>
           <th>Hippo 10</th>
           <th>Hippo 7.9</th>
           <th>Hippo 7.8</th>
@@ -58,7 +59,17 @@
           <th>Hippo 7.6</th>
         </tr>
         <tr>
+          <td>2.x</td>
+          <td>x</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+        <tr>
           <td>1.06.xx</td>
+          <td>-</td>
           <td>x</td>
           <td>-</td>
           <td>-</td>
@@ -67,6 +78,7 @@
         </tr>
         <tr>
           <td>1.05.xx</td>
+          <td>-</td>
           <td>-</td>
           <td>x</td>
           <td>-</td>
@@ -77,6 +89,7 @@
           <td>1.04.xx</td>
           <td>-</td>
           <td>-</td>
+          <td>-</td>
           <td>x</td>
           <td>x</td>
           <td>-</td>
@@ -85,12 +98,14 @@
           <td>1.03.xx</td>
           <td>-</td>
           <td>-</td>
+          <td>-</td>
           <td>x</td>
           <td>x</td>
           <td>-</td>
         </tr>
         <tr>
           <td>1.02.xx</td>
+          <td>-</td>
           <td>-</td>
           <td>-</td>
           <td>-</td>

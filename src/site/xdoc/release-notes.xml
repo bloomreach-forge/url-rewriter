@@ -23,6 +23,13 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="2.0.0">
+        <p class="smallinfo">Release Date: xx Aug 2016</p>
+        <ul>
+          <li>Upgrade URL Rewriter plugin to be compatible with CMS 11
+          </li>
+        </ul>
+      </subsection>
       <subsection name="1.06.02">
           <p class="smallinfo">
               Release Date: June 02, 2016
