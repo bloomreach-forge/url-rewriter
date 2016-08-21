@@ -21,7 +21,6 @@
     <sv:value>hippostd:templatequery</sv:value>
   </sv:property>
   <sv:property sv:multiple="true" sv:name="jcr:mixinTypes" sv:type="Name">
-    <sv:value>hippo:translated</sv:value>
     <sv:value>hippostd:translated</sv:value>
   </sv:property>
   <sv:property sv:name="hippostd:icon" sv:type="String">
