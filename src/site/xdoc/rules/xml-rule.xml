@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <!--
-
-    Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,7 +13,6 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
 -->
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
@@ -25,8 +23,36 @@
     <section name="XML Rule">
       <subsection name="Overview">
         <p>
-          This type of rule will present you with a text field in which you can put the XML that the underlying software (Paul Tuckey's Url Rewrite Filter) understands. Click <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html">here</a> for the documentation.
+          This type of rule will present you with a text field in which you can put the XML that the underlying software
+          (Paul Tuckey's Url Rewrite Filter) understands.
+          See <a href="http://cdn.rawgit.com/paultuckey/urlrewritefilter/master/src/doc/manual/4.0/index.html">cdn.rawgit.com/paultuckey/urlrewritefilter</a>
+          for the documentation.
         </p>
+      </subsection>
+      <subsection name="Pass cookies through proxy">
+        <p>When using an advanced rule of <a href="advanced-rule.html#Type">type 'proxy'</a>, cookies will be discarded.
+          While there are good reasons for this there may be cases where it is desirable to pass the cookies.</p>
+        <p>The Tuckey library supports the ability to call a specific Java class rather than the default processing.<br/>
+          <b>Since version 2.0.2</b>, a <code>RequestProxyPassCookies</code> class has been added to the URL rewriter
+          code base. It is based on Tuckey's <code>RequestProxy</code> and can be used as the <i>class</i> attribute of
+          the <i>&lt;run&gt;</i> element in the XML rule.
+        </p>
+        <p>A rule like this will work the same as the proxy functionality except that it will pass the cookies.</p>
+        <source>
+          <![CDATA[
+            <rule>
+              <name>XML Custom Proxy</name>
+              <from>^/test/(.*)$</from>
+              <set name="wildcard">$1</set>
+              <run class="org.onehippo.forge.rewriting.run.RequestProxyPassCookies" method="execute">
+                <init-param>
+                  <param-name>target</param-name>
+                  <param-value>http://localhost:8081/$1</param-value>
+                </init-param>
+              </run>
+              <to>null</to>
+            </rule>]]>
+        </source>
       </subsection>
     </section>
   </body>

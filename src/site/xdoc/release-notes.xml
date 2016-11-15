@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!--
-
     Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
 -->
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
@@ -23,17 +21,30 @@
   </properties>
   <body>
     <section name="Release Notes">
+
+      <subsection name="2.0.2 (UNRELEASED)">
+        <p class="smallinfo">Release date to be determined</p>
+        <ul>
+         <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1393">HIPPLUG-1393</a><br/>
+           The URL Rewriter version and configuration is now shown on top of the status page, in a blue box.</li>
+         <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1180">HIPPLUG-1180</a><br/>
+           Support for passing along cookies when proxying a POST, by providing Java class that is to be used
+           in an XML rule with a &lt;run&gt; element. See the <a href="./rules/xml-rule.html">XML Rule page.</a></li>
+        </ul>
+      </subsection>
       <subsection name="2.0.1">
         <p class="smallinfo">Release Date: 21 Aug 2016</p>
         <ul>
-          <li>Replace some left over old style CMS 10 and earlier translation
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1372">HIPPLUG-1372</a><br/>
+            Replace some left over old style CMS 10 and earlier translation
           </li>
         </ul>
       </subsection>
       <subsection name="2.0.0">
         <p class="smallinfo">Release Date: 16 Aug 2016</p>
         <ul>
-          <li>Upgrade URL Rewriter plugin to be compatible with CMS 11
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1347">HIPPLUG-1347</a><br/>
+            Upgrade URL Rewriter plugin to be compatible with CMS 11
           </li>
         </ul>
       </subsection>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-
-    Copyright 2011-2015 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,7 +13,6 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
 -->
 <!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://maven.apache.org/dtd/xdoc_1_0.dtd">
 <document>
@@ -30,8 +28,8 @@
           instead of statically!
         </p>
         <p>
-          See A) <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html">urlrewritefilter.googlecode.com</a><br/>
-          and B) <a href="http://www.tuckey.org">tuckey.org</a><br/>
+          See code at <a href="https://github.com/paultuckey/urlrewritefilter">github.com/paultuckey/urlrewritefilter</a><br/>
+          and documentation at <a href="http://www.tuckey.org/urlrewrite">www.tuckey.org/urlrewrite</a><br/>
         </p>
         <p>
           The URL Rewriter supports the following options:

@@ -23,7 +23,7 @@
   <skin>
     <groupId>org.onehippo.forge.mavenskin</groupId>
     <artifactId>forge-maven-skin</artifactId>
-    <version>1.03.00</version>
+    <version>1.04.00</version>
   </skin>
 
   <body>
@@ -37,7 +37,7 @@
       <item name="Installation" href="/install.html"/>
       <item name="Build Demo" href="/build-demo.html"/>
       <item name="Hide URL Rewriter for non-admins" href="/hide-urlrewriter.html"/>
-      <item name="Using the URL Rewriter" href="/using-the-urlrewriter.html" collapse="true">
+      <item name="Using the URL Rewriter" href="/using-the-urlrewriter.html">
         <item name="Rule" href="/rules/rule.html"/>
         <item name="Advanced Rule" href="/rules/advanced-rule.html" collapse="true">
           <item name="Conditions" href="/rules/conditions.html"/>

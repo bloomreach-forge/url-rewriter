@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 
-    Copyright 2011-2014 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@
           status page. By default /rewrite-status, but only accessible locally.
         </p>
       </subsection>
-      <subsection name="Global Configuration">
+      <subsection name="Configuration">
         <p>
           On the rulesLocation node (default: /content/urlrewriter) you can set some properties which will affect all rules.
         </p>
@@ -87,7 +87,9 @@
           </tr>
           <tr>
             <td><a href="rules/xml-rule.html">XML Rule</a></td>
-            <td>Here you can add XML Rules in the format supported by the underlying software, <a href="http://urlrewritefilter.googlecode.com/svn/trunk/src/doc/manual/4.0/index.html">Paul Tuckey's Url Rewrite Filter</a></td>
+            <td>Here you can add XML Rules in the format supported by the underlying software,
+              <a href="http://cdn.rawgit.com/paultuckey/urlrewritefilter/master/src/doc/manual/4.0/index.html">Paul
+                Tuckey's Url Rewrite Filter</a></td>
           </tr>
         </table>
       </subsection>

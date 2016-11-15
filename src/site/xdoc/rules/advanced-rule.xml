@@ -137,9 +137,8 @@
           <tr>
             <th>Rule Type</th>
             <th>HTTP status code</th>
-            <th>Explanation</th>
           </tr>
-            <tr>
+          <tr>
             <td>temporary-redirect</td>
             <td>Redirect with 302 response code</td>
           </tr>

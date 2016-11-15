@@ -23,8 +23,8 @@
     <version>2.0.2-SNAPSHOT</version>
   </parent>
 
-  <name>Url rewriter HST plugin</name>
-  <description>Url rewriter HST plugin</description>
+  <name>Url Rewriter HST Module</name>
+  <description>Url Rewriter HST Module</description>
   <artifactId>urlrewriter-module-hst</artifactId>
   <packaging>jar</packaging>
 
