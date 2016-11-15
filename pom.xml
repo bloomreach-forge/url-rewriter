@@ -51,15 +51,15 @@
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>https://forge.onehippo.org/svn/urlrewriter/plugin/trunk/LICENSE</url>
+      <url>https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/trunk</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/trunk</url>
+    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x</connection>
+    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x</developerConnection>
+    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x</url>
   </scm>
 
   <distributionManagement>
