@@ -248,7 +248,7 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
     private UrlRewriter fetchRules() {
         if (HstServices.isAvailable()) {
             initialized = true; // set to true. if component is not there it will probably never be...
-            rewritingManager = HstServices.getComponentManager().getComponent("org.onehippo.forge.rewriting.repo.RewritingManager");
+            rewritingManager = HstServices.getComponentManager().getComponent(RewritingManager.class.getName());
 
             if (rewritingManager == null) {
                 return null;
