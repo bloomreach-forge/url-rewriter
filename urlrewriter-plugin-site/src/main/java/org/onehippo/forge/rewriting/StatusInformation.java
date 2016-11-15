@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
@@ -27,6 +30,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.google.common.base.Strings;
 
+import org.hippoecm.hst.site.HstServices;
+import org.onehippo.forge.rewriting.repo.RewritingManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tuckey.web.filters.urlrewrite.Conf;
@@ -38,30 +43,34 @@ public class StatusInformation extends Status {
     private static final Logger log = LoggerFactory.getLogger(StatusInformation.class);
     private static final String VERSION_UNKNOWN = "UNKNOWN";
 
-    public StatusInformation(final Conf conf) {
-        super(conf);
-    }
-
     public StatusInformation(final Conf conf, final UrlRewriteFilter urlRewriteFilter) {
         super(conf, urlRewriteFilter);
     }
 
     @Override
     public void displayStatusInContainer(final HttpServletRequest hsRequest) {
+        displayHippoInformation();
         super.displayStatusInContainer(hsRequest);
-        addVersionNumber();
     }
 
-    private void addVersionNumber() {
+    private void displayHippoInformation() {
         final String version = extractVersion();
-        getBuffer()
-                .append("<h2>URL Rewriter Version</h2>")
-                .append("<p>")
-                .append(version)
-                .append("</p>")
-                .append('\n');
-    }
+        final Map<String, Object> properties = getConfiguration();
 
+        getBuffer().append("<div style=\"background-color: #cdf2ff; font-family: Arial, sans-serif; padding: 2px 15px 0px;\">")
+                   .append("  <h1 style=\"font-size: 120%\">Hippo URL Rewriter</h1>")
+                   .append("  <pre>Version: ").append(version).append("</pre>\n")
+                   .append("  <pre>\n");
+        for (String s : properties.keySet()) {
+            getBuffer().append(s)
+                       .append("=")
+                       .append(properties.get(s))
+                       .append("\n");
+        }
+
+        getBuffer().append("  </pre>\n")
+                   .append("</div>\n");
+    }
 
     private String extractVersion() {
         final Class clazz = getClass();
@@ -101,6 +110,19 @@ public class StatusInformation extends Status {
         }
 
         return VERSION_UNKNOWN;
+    }
+
+    private Map<String,Object> getConfiguration() {
+        final RewritingManager rewritingManager =
+                HstServices.getComponentManager().getComponent(RewritingManager.class.getName());
+
+        final Map<String, Object> result = new HashMap<>();
+        result.put("skipPost", rewritingManager.getSkipPOST());
+        result.put("skippedPrefixes", Arrays.toString(rewritingManager.getSkippedPrefixes()));
+        result.put("useQueryString", rewritingManager.isUseQueryString());
+        result.put("ignoreContextPath", rewritingManager.getIgnoreContextPath());
+
+        return result;
     }
 }
 

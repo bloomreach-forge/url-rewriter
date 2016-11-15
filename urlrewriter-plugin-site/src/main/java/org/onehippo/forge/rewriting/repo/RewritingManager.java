@@ -48,6 +48,7 @@ public class RewritingManager {
     private boolean ignoreContextPath;
     private boolean skipPOST;
     private String[] skippedPrefixes = UrlRewriteConstants.SKIPPED_PREFIXES_DEFAULT_VALUE;
+    private boolean useQueryString;
 
     // default, no rules
     private StringBuilder loadedRules = new StringBuilder();
@@ -116,7 +117,7 @@ public class RewritingManager {
                     Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY).getString()) :
                     UrlRewriteConstants.IGNORE_CONTEXT_PATH_PROPERTY_DEFAULT_VALUE;
 
-            boolean useQueryString = rulesRootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
+            useQueryString = rulesRootNode.hasProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY) ?
                     Boolean.valueOf(rulesRootNode.getProperty(UrlRewriteConstants.USE_QUERY_STRING_PROPERTY).getString()) :
                     UrlRewriteConstants.USE_QUERY_STRING_PROPERTY_DEFAULT_VALUE;
 
@@ -140,7 +141,7 @@ public class RewritingManager {
               rules.append(" use-query-string=\"true\"");
             }
 
-            // HIPPLUG-476: always disable decoding as it can interfere with hst encodings
+            // always disable decoding as it can interfere with hst encodings
             rules.append(" decode-using=\"null\"");
 
             rules.append('>');
@@ -278,6 +279,10 @@ public class RewritingManager {
 
     public String[] getSkippedPrefixes(){
           return skippedPrefixes;
+    }
+
+    public boolean isUseQueryString() {
+        return useQueryString;
     }
 
     public synchronized void invalidate(final Event event) {
