@@ -22,8 +22,8 @@
   <body>
     <section name="Release Notes">
 
-      <subsection name="2.0.2 (UNRELEASED)">
-        <p class="smallinfo">Release date to be determined</p>
+      <subsection name="2.0.2">
+        <p class="smallinfo">Release Date: 15 Nov 2016</p>
         <ul>
          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1393">HIPPLUG-1393</a><br/>
            The URL Rewriter version and configuration is now shown on top of the status page, in a blue box.</li>
