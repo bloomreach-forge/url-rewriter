@@ -64,9 +64,10 @@
 
   <distributionManagement>
     <repository>
+      <name>Hippo Maven 2 Enterprise Repository</name>
+      <id>hippo-maven2-enterprise</id>
+      <url>https://maven.onehippo.com/content/repositories/enterprise-releases/</url>
       <uniqueVersion>false</uniqueVersion>
-      <id>forge-urlrewriter-maven-repo</id>
-      <url>svn:https://forge.onehippo.org/svn/urlrewriter/maven2/</url>
     </repository>
     <site>
       <id>main-site</id>
