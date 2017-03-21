@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2011-2017 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -51,31 +51,24 @@
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-2.0.x</url>
+    <connection>scm:git:https://code.onehippo.org/cms-community/hippo-plugin-urlrewriter.git</connection>
+    <developerConnection>scm:git:git@code.onehippo.org:cms-community/hippo-plugin-urlrewriter.git</developerConnection>
+    <url>https://code.onehippo.org/cms-community/hippo-plugin-urlrewriter</url>
   </scm>
 
   <distributionManagement>
     <repository>
+      <id>hippo-maven2-forge</id>
+      <url>https://maven.onehippo.com/content/repositories/forge-releases/</url>
       <uniqueVersion>false</uniqueVersion>
-      <id>forge-urlrewriter-maven-repo</id>
-      <url>svn:https://forge.onehippo.org/svn/urlrewriter/maven2/</url>
     </repository>
-    <site>
-      <id>main-site</id>
-      <name>rewriter-site</name>
-      <url>http://urlrewriter.forge.onehippo.org/</url>
-    </site>
   </distributionManagement>
 
-  <url>http://urlrewriter.forge.onehippo.org/</url>
   <issueManagement>
     <url>https://issues.onehippo.com/browse/HIPPLUG</url>
   </issueManagement>
@@ -85,15 +78,15 @@
   <developers>
     <developer>
       <name>m.milicevic</name>
-      <email>m.milicevic@onehippo.com</email>
+      <email>marijan.milicevic@bloomreach.com</email>
     </developer>
     <developer>
       <name>j.hoffman</name>
-      <email>j.hoffman@onehippo.com</email>
+      <email>jeroen.hoffman@bloomreach.com</email>
     </developer>
     <developer>
       <name>m.chatzidakis</name>
-      <email>m.chatzidakis@onehippo.com</email>
+      <email>minos.chatzidakis@bloomreach.com</email>
     </developer>
   </developers>
 

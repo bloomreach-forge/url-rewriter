@@ -126,8 +126,8 @@
             In the Spring context of your site module, add a <code>RewritingManager</code> that reads the rules from the
             repository and an <code>EventListener</code> for invalidation of the manager when rules are changed in the
             CMS. </p>
-          <p>To do so, copy file <a href="https://forge.onehippo.org/svn/urlrewriter/demo/trunk/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml" target="_blank">urlrewriting-context.xml</a>
-            from the demo project's SVN to the following location within your project: {PROJECT_ROOT}/site/src/main/resources/META-INF/hst-assembly/overrides/</p>
+          <p>To do so, copy file "/site/src/main/resources/META-INF/hst-assembly/overrides/urlrewriting-context.xml"
+            from the demo project to the following location within your project: {PROJECT_ROOT}/site/src/main/resources/META-INF/hst-assembly/overrides/</p>
         </subsection>
         <subsection name="6. Deploy with bootstrap flag up.">
           <p>When deploying a newly installed URL rewriter to an existing repository, be sure to make the plugin
