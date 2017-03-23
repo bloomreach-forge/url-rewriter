@@ -26,14 +26,16 @@
   <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
-  <version>2.0.3-SNAPSHOT</version>
+  <version>2.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
-    <tuckey.urlrewritefilter.version>4.0.4</tuckey.urlrewritefilter.version>
+    <!-- Hippo fork of Tuckey filter, both at GitHub -->
+    <hippo.tuckey.urlrewritefilter.version>4.0.4-h1-SNAPSHOT</hippo.tuckey.urlrewritefilter.version>
+
     <commons-lang.version>2.6</commons-lang.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>
     <hippo.repository.version>4.0.1</hippo.repository.version>
@@ -96,7 +98,7 @@
       <dependency>
         <groupId>org.tuckey</groupId>
         <artifactId>urlrewritefilter</artifactId>
-        <version>${tuckey.urlrewritefilter.version}</version>
+        <version>${hippo.tuckey.urlrewritefilter.version}</version>
       </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
