@@ -26,7 +26,7 @@
   <description>Hippo Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
-  <version>2.1.0-SNAPSHOT</version>
+  <version>2.1.0</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -61,6 +61,7 @@
     <connection>scm:git:https://code.onehippo.org/cms-community/hippo-plugin-urlrewriter.git</connection>
     <developerConnection>scm:git:git@code.onehippo.org:cms-community/hippo-plugin-urlrewriter.git</developerConnection>
     <url>https://code.onehippo.org/cms-community/hippo-plugin-urlrewriter</url>
+    <tag>urlrewriter-2.1.0</tag>
   </scm>
 
   <distributionManagement>
