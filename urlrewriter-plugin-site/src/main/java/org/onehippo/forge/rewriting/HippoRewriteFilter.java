@@ -255,7 +255,11 @@ public class HippoRewriteFilter extends UrlRewriteFilter {
             if (rules == null) {
                 rules = new StringBuilder(UrlRewriteConstants.XML_PROLOG + UrlRewriteConstants.XML_START + "/>");
             }
-            Conf conf = new Conf(context, new StringInputStream(rules.toString()), "hippo-repository-", "hippo-repository-rewrite-rules", false);
+            Conf conf = new Conf(context,
+                    new StringInputStream(rules.toString(), "UTF-8"),
+                    "hippo-repository-",
+                    "hippo-repository-rewrite-rules",
+                    false);
             return checkConfLocal(conf);
         }
         return null;

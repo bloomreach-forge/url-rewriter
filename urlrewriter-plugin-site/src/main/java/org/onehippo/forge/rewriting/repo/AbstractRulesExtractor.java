@@ -98,7 +98,11 @@ public abstract class AbstractRulesExtractor implements RewritingRulesExtractor 
         if (StringUtils.isBlank(rule)) {
             return false;
         }
-        Conf conf = new Conf(context, new StringInputStream(UrlRewriteConstants.XML_PROLOG + UrlRewriteConstants.XML_START + ">" + rule + UrlRewriteConstants.XML_END), "testing-valid-", "testing-valid-rules", false);
+        Conf conf = new Conf(context,
+                 new StringInputStream(UrlRewriteConstants.XML_PROLOG + UrlRewriteConstants.XML_START + ">" + rule + UrlRewriteConstants.XML_END, "UTF-8"),
+                "testing-valid-",
+                "testing-valid-rules",
+                false);
         boolean ok = conf.isOk();
         if (!ok) {
             log.warn("skipping invalid rule:  {}", rule);
