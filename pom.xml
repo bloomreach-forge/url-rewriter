@@ -34,7 +34,7 @@
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
     <!-- Hippo fork of Tuckey filter, both at GitHub -->
-    <hippo.tuckey.urlrewritefilter.version>4.0.4-h1-SNAPSHOT</hippo.tuckey.urlrewritefilter.version>
+    <hippo.tuckey.urlrewritefilter.version>4.0.4-h1</hippo.tuckey.urlrewritefilter.version>
 
     <commons-lang.version>2.6</commons-lang.version>
     <commons-httpclient.version>3.1</commons-httpclient.version>

@@ -22,14 +22,32 @@
   <body>
     <section name="Release Notes">
 
+      <subsection name="2.1.0">
+        <p class="smallinfo">Release Date: 23 March 2017</p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1452">HIPPLUG-1452</a><br/>
+            The underlying filter from Tuckey is cloned on GitHub, improved and now used in the plugin: see
+          <a href="https://github.com/onehippo/urlrewritefilter">github.com/onehippo/urlrewritefilter</a>. This will
+            most notably fix:
+            <ul>
+            <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1419">HIPPLUG-1419</a><br/>
+              Redirect doesn't work unless ASCII characters are used, i.e. Cyrillic URLs are supported now.
+            </li>
+            <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1093">HIPPLUG-1093</a><br/>
+              The "Append Query String" checkbox in advanced rules doesn't add a "?" to the start of the query strings.
+            </li>
+            </ul>
+          </li>
+        </ul>
+      </subsection>
       <subsection name="2.0.2">
         <p class="smallinfo">Release Date: 15 Nov 2016</p>
         <ul>
-         <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1393">HIPPLUG-1393</a><br/>
-           The URL Rewriter version and configuration is now shown on top of the status page, in a blue box.</li>
-         <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1180">HIPPLUG-1180</a><br/>
-           Support for passing along cookies when proxying a POST, by providing Java class that is to be used
-           in an XML rule with a &lt;run&gt; element. See the <a href="./rules/xml-rule.html">XML Rule page.</a></li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1393">HIPPLUG-1393</a><br/>
+            The URL Rewriter version and configuration is now shown on top of the status page, in a blue box.</li>
+          <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1180">HIPPLUG-1180</a><br/>
+            Support for passing along cookies when proxying a POST, by providing Java class that is to be used
+            in an XML rule with a &lt;run&gt; element. See the <a href="./rules/xml-rule.html">XML Rule page.</a></li>
         </ul>
       </subsection>
       <subsection name="2.0.1">
