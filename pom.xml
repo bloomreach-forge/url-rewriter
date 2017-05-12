@@ -58,10 +58,10 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:https://code.onehippo.org/cms-community/hippo-plugin-urlrewriter.git</connection>
-    <developerConnection>scm:git:git@code.onehippo.org:cms-community/hippo-plugin-urlrewriter.git</developerConnection>
-    <url>https://code.onehippo.org/cms-community/hippo-plugin-urlrewriter</url>
-    <tag>urlrewriter-2.1.0</tag>
+    <connection>scm:git:git@github.com:onehippo-forge/url-rewriter.git</connection>
+    <developerConnection>scm:git:git@github.com:onehippo-forge/url-rewriter.git</developerConnection>
+    <url>https://github.com/onehippo-forge/url-rewriter.git</url>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
@@ -73,7 +73,7 @@
   </distributionManagement>
 
   <issueManagement>
-    <url>https://issues.onehippo.com/browse/HIPPLUG</url>
+    <url>https://issues.onehippo.com/browse/HIPFORGE</url>
   </issueManagement>
   <inceptionYear>2011</inceptionYear>
 
@@ -140,18 +140,6 @@
 
   <build>
     <defaultGoal>package</defaultGoal>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ftp</artifactId>
-        <version>1.0-alpha-6</version>
-      </extension>
-      <extension>
-        <groupId>org.jvnet.wagon-svn</groupId>
-        <artifactId>wagon-svn</artifactId>
-        <version>1.9</version>
-      </extension>
-    </extensions>
     <resources>
       <resource>
         <filtering>false</filtering>
@@ -209,13 +197,14 @@
         </configuration>
       </plugin>
       <plugin>
-        <inherited>true</inherited>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>3.3</version>
+        <configuration>
+          <outputDirectory>docs</outputDirectory>
+        </configuration>
       </plugin>
       <plugin>
-        <inherited>true</inherited>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>2.4</version>
