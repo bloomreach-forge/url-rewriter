@@ -28,9 +28,16 @@
           instead of statically!
         </p>
         <p>
-          See code at <a href="https://github.com/paultuckey/urlrewritefilter">github.com/paultuckey/urlrewritefilter</a><br/>
-          and documentation at <a href="http://www.tuckey.org/urlrewrite">www.tuckey.org/urlrewrite</a><br/>
+          Since version 2.1.0, the plugin uses a Hippo fork of Paul Tuckey's UrlRewriteFilter which is at
+          <a href="https://github.com/onehippo/urlrewritefilter">github.com/onehippo/urlrewritefilter</a><br/>
+          The original is at <a href="https://github.com/paultuckey/urlrewritefilter">github.com/paultuckey/urlrewritefilter</a>
+          with documentation at <a href="http://www.tuckey.org/urlrewrite">www.tuckey.org/urlrewrite</a>.
         </p>
+      </subsection>
+      <subsection name="Code base on GitHub">
+        <p>The code of this project is on GitHub at <a href="https://github.com/onehippo-forge/page-management-support/">https://github.com/onehippo-forge/page-management-support/</a>.</p>
+      </subsection>
+      <subsection name="Features">
         <p>
           The URL Rewriter supports the following options:
         </p>
@@ -43,78 +50,79 @@
           <li>post-include</li>
           <li>proxy - The request will be proxied to the full url specified.</li>
         </ul>
+        <p>See more at <a href="using-the-urlrewriter.html">using the URL rewriter</a></p>
       </subsection>
-    </section>
-    <section name="Project status">
-      <table>
-        <tr>
-          <th>Version</th>
-          <th>Hippo 11</th>
-          <th>Hippo 10</th>
-          <th>Hippo 7.9</th>
-          <th>Hippo 7.8</th>
-          <th>Hippo 7.7</th>
-          <th>Hippo 7.6</th>
-        </tr>
-        <tr>
-          <td>2.x</td>
-          <td>x</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>1.06.xx</td>
-          <td>-</td>
-          <td>x</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>1.05.xx</td>
-          <td>-</td>
-          <td>-</td>
-          <td>x</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>1.04.xx</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>x</td>
-          <td>x</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>1.03.xx</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>x</td>
-          <td>x</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>1.02.xx</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>x</td>
-          <td>x</td>
-        </tr>
-      </table>
-      <p>
-        The 1.01.xx versions are not to be used due to incompatibility with 1.02.xx and higher<br/>
-        See the <a href="release-notes.html">release notes</a> for detailed information.
-      </p>
+      <subsection name="Project status">
+        <table>
+          <tr>
+            <th>Version</th>
+            <th>Hippo 11</th>
+            <th>Hippo 10</th>
+            <th>Hippo 7.9</th>
+            <th>Hippo 7.8</th>
+            <th>Hippo 7.7</th>
+            <th>Hippo 7.6</th>
+          </tr>
+          <tr>
+            <td>2.x</td>
+            <td>x</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.06.xx</td>
+            <td>-</td>
+            <td>x</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.05.xx</td>
+            <td>-</td>
+            <td>-</td>
+            <td>x</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.04.xx</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>x</td>
+            <td>x</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.03.xx</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>x</td>
+            <td>x</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>1.02.xx</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>x</td>
+            <td>x</td>
+          </tr>
+        </table>
+        <p>
+          The 1.01.xx versions are not to be used due to incompatibility with 1.02.xx and higher<br/>
+          See the <a href="release-notes.html">release notes</a> for detailed information.
+        </p>
+      </subsection>
     </section>
   </body>
 </document>
