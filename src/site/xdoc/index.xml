@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2017 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@
         </p>
       </subsection>
       <subsection name="Code base on GitHub">
-        <p>The code of this project is on GitHub at <a href="https://github.com/onehippo-forge/page-management-support/">https://github.com/onehippo-forge/page-management-support/</a>.</p>
+        <p>The code of this project is on GitHub at <a href="https://github.com/onehippo-forge/url-rewriter/">https://github.com/onehippo-forge/url-rewriter/</a>.</p>
       </subsection>
       <subsection name="Features">
         <p>
