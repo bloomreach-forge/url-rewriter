@@ -21,6 +21,13 @@
   </properties>
   <body>
     <section name="Introduction">
+      <div class="alert alert-success">
+        <p><b>Enterprise version for Hippo 12</b></p>
+        <p>Since Hippo 12, there is an Enterprise-level follow-up of this plugin, called the <b>URL Rewriter Enterprise Add-on</b>.
+          It is a copy of this plugin, with some alterations, and it will be maintained and supported by BloomReach.</p>
+        <p>
+          Please refer to <a href="https://www.onehippo.org/12/library/enterprise/enterprise-features/url-rewriter/about-url-rewriter.html">URL Rewriter documentation on onehippo.org</a>.</p>
+      </div>
       <subsection name="What is URL Rewriter?">
         <p>
           URL Rewriter is a servlet filter that is an extension of Paul Tuckey's UrlRewriteFilter,
