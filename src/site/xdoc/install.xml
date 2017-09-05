@@ -29,6 +29,27 @@
           project consisting of at least three modules: cms, site and content.
         </p>
       </subsection>
+
+      <subsection name="Add the Forge repository configuration">
+        <p>In the main <code>pom.xml</code> of the project, in the <code>repositories</code> section, add this repository if it is not configured there yet.</p>
+        <div class="brush: xml">
+          <source><![CDATA[
+    <repository>
+      <id>hippo-forge</id>
+      <name>Hippo Forge maven 2 repository.</name>
+      <url>https://maven.onehippo.com/maven2-forge/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <layout>default</layout>
+    </repository>
+        ]]></source>
+        </div>
+      </subsection>
+
       <subsection name="Install the url rewriter plugin into your project">
         <p> The following steps are needed: </p>
         <subsection name="1. Configure root pom">
