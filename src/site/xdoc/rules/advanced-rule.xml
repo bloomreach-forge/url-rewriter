@@ -180,15 +180,6 @@
           mod_rewrite.
         </p>
       </subsection>
-      <subsection name="Append Query String (since 1.03.00)">
-        <p>
-          If this option is checked, the query string of the matched URL (field 'Rewrite From') is kept in the
-          rewritten URL.
-        </p>
-        <p><span style="color:red">A known issue regarding missing question mark separator:</span> the software behind
-          the URL Rewriter has a known issue that the question mark is not present in the rewritten URL. The workaround
-          is to have the question mark already at the end of the field 'Rewrite To'.</p>
-      </subsection>
     </section>
   </body>
 </document>
