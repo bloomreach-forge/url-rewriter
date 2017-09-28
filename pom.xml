@@ -42,6 +42,9 @@
     <hippo.cms.version>4.0.1</hippo.cms.version>
     <hst.version>4.0.1</hst.version>
     <hippo.plugin.selections.version>4.0.0</hippo.plugin.selections.version>
+
+    <maven.plugin.site.version>3.6</maven.plugin.site.version>
+    <maven.plugin.reports.version>2.4</maven.plugin.reports.version>
   </properties>
 
   <modules>
@@ -199,42 +202,29 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.6</version>
-        <configuration>
-          <outputDirectory>docs</outputDirectory>
-        </configuration>
+        <version>${maven.plugin.site.version}</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.4</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <configuration>
-          <filesets>
-            <fileset>
-              <directory>docs</directory>
-              <includes>
-                <include>**/*</include>
-              </includes>
-            </fileset>
-          </filesets>
-        </configuration>
+        <version>${maven.plugin.reports.version}</version>
       </plugin>
     </plugins>
   </build>
 
   <profiles>
     <profile>
-      <id>pedantic</id>
+      <!-- For generating/publishing GitHub Site Pages into /docs/ folder on master branch only -->
+      <id>github.pages</id>
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.rat</groupId>
-            <artifactId>apache-rat-plugin</artifactId>
-            <inherited>false</inherited>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>${maven.plugin.site.version}</version>
+            <configuration>
+              <outputDirectory>docs</outputDirectory>
+            </configuration>
           </plugin>
         </plugins>
       </build>
@@ -243,7 +233,7 @@
 
   <repositories>
     <repository>
-      <id>onehippo</id>
+      <id>hippo-maven2</id>
       <url>https://maven.onehippo.com/maven2/</url>
       <snapshots>
         <enabled>true</enabled>
