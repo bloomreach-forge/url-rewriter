@@ -35,14 +35,16 @@
         </p>
 	<p>A <i>drop-cookies</i> attribute was added to the &lt;to&gt; element in the XML rule to allow you
 	  to revert to the old behaviour. See below for an example:</p>
-        <source>
-          <![CDATA[
-            <rule>
-              <name>XML Custom Proxy</name>
-              <from>^/test/(.*)$</from>
-              <to type="proxy" drop-cookies="true">http://localhost:8081/$1</to>
-            </rule>]]>
-        </source>
+        <div class="brush: xml">
+          <source>
+            <![CDATA[
+              <rule>
+                <name>XML Custom Proxy</name>
+                <from>^/test/(.*)$</from>
+                <to type="proxy" drop-cookies="true">http://localhost:8081/$1</to>
+              </rule>]]>
+          </source>
+        </div>
       </subsection>
     </section>
   </body>
