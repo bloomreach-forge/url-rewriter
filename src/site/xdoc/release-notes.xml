@@ -29,16 +29,18 @@
           <a href="https://github.com/onehippo/urlrewritefilter">github.com/onehippo/urlrewritefilter</a>. This will
             most notably fix:
             <ul>
-            <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1419">HIPPLUG-1419</a><br/>
-              Redirect doesn't work unless ASCII characters are used, i.e. Cyrillic URLs are supported now.
-            </li>
-            <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1093">HIPPLUG-1093</a><br/>
-              The "Append Query String" checkbox in advanced rules doesn't add a "?" to the start of the query strings.
-            </li>
-            <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1180">HIPPLUG-1180</a><br/>
-              When using proxy and POST cookies are discarded<br/>
-              <span class="note">Note: This means a change in the default behaviour for proxy type rules compared to previous versions<br/><br/></span>
-            </li>
+              <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1419">HIPPLUG-1419</a><br/>
+                Redirect doesn't work unless ASCII characters are used, i.e. Cyrillic URLs are supported now.
+              </li>
+              <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1093">HIPPLUG-1093</a><br/>
+                The "Append Query String" checkbox in advanced rules doesn't add a "?" to the start of the query strings.
+              </li>
+              <li>When using advanced rule of type 'proxy', or the XML equivalent, cookies are now passed along by default,
+                so the RequestProxyPassCookies class introduced in 2.0.2 is no longer needed. See also the
+                <a href="./rules/xml-rule.html">XML Rule page</a>.<br/>
+                <span class="note">This means a change in the default behaviour for proxy type rules compared to
+                  previous versions.</span>
+              </li>
             </ul>
           </li>
         </ul>
@@ -50,7 +52,17 @@
             The URL Rewriter version and configuration is now shown on top of the status page, in a blue box.</li>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1180">HIPPLUG-1180</a><br/>
             Support for passing along cookies when proxying a POST, by providing Java class that is to be used
-            in an XML rule with a &lt;run&gt; element. See the <a href="./rules/xml-rule.html">XML Rule page.</a></li>
+            in an XML rule with a &lt;run&gt; element, like so:
+            <div class="brush: xml">
+    <source><![CDATA[<run class="org.onehippo.forge.rewriting.run.RequestProxyPassCookies" method="execute">
+  <init-param>
+    <param-name>target</param-name>
+    <param-value>http://localhost:8081/$1</param-value>
+  </init-param>
+</run>]]></source>
+            </div>
+            In 2.1.0, cookies are passed along by default.
+          </li>
         </ul>
       </subsection>
       <subsection name="2.0.1">

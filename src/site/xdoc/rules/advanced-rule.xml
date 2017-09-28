@@ -35,8 +35,8 @@
   - Case Sensitive
   - Type
   - Use Wildcard Matching
-  - Process other rules
-  - Append querystring (since 1.03.00)</pre>
+  - Process Other Rules
+  - Append Query String</pre>
       </subsection>
       <subsection name="Description">
         <p>
@@ -178,6 +178,12 @@
         <p>
           Other rules will be processed after this one succeeds, same as not specifying the 'last' flag for Apache HTTPD
           mod_rewrite.
+        </p>
+      </subsection>
+      <subsection name="Append Query String">
+        <p>
+          If this option is checked, the query string of the matched URL (field 'Rewrite From') is kept in the
+          rewritten URL.
         </p>
       </subsection>
     </section>
