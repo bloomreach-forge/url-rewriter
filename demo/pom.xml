@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>11.0.0</version>
+    <version>11.2.7-SNAPSHOT</version>
   </parent>
 
   <name>URL Rewriter Demo</name>
@@ -57,9 +57,9 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <forge.urlrewriter.version>2.1.1-SNAPSHOT</forge.urlrewriter.version>
+    <forge.urlrewriter.version>${project.version}</forge.urlrewriter.version>
 
-    <essentials.version>2.2.0</essentials.version>
+    <essentials.version>3.2.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.1</taglibs.version>
     <xalan.version>2.7.1</xalan.version>
@@ -77,7 +77,7 @@
   <repositories>
     <repository>
       <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
+      <name>Hippo Maven 2 Repository</name>
       <url>https://maven.onehippo.com/maven2/</url>
     </repository>
   </repositories>

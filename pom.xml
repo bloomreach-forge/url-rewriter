@@ -19,7 +19,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>28.1</version>
+    <version>28.9-SNAPSHOT</version>
   </parent>
 
   <name>Hippo Forge URL Rewriter Plugin</name>
@@ -34,14 +34,15 @@
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
     <!-- Hippo fork of Tuckey filter, both at GitHub -->
-    <hippo.tuckey.urlrewritefilter.version>4.0.4-h1</hippo.tuckey.urlrewritefilter.version>
-
+    <hippo.tuckey.urlrewritefilter.version>4.0.4-h2</hippo.tuckey.urlrewritefilter.version>
+    <httpcomponents.version>4.5.5</httpcomponents.version>
     <commons-lang.version>2.6</commons-lang.version>
-    <commons-httpclient.version>3.1</commons-httpclient.version>
-    <hippo.repository.version>4.0.1</hippo.repository.version>
-    <hippo.cms.version>4.0.1</hippo.cms.version>
-    <hst.version>4.0.1</hst.version>
-    <hippo.plugin.selections.version>4.0.0</hippo.plugin.selections.version>
+
+    <!-- Hippo 11.2.7 versioning -->
+    <hippo.cms.version>4.2.12-SNAPSHOT</hippo.cms.version>
+    <hippo.hst.version>4.2.7-SNAPSHOT</hippo.hst.version>
+    <hippo.repository.version>4.2.8-SNAPSHOT</hippo.repository.version>
+    <hippo.plugin.selections.version>4.2.2-SNAPSHOT</hippo.plugin.selections.version>
 
     <maven.plugin.site.version>3.6</maven.plugin.site.version>
     <maven.plugin.reports.version>2.4</maven.plugin.reports.version>
@@ -129,14 +130,20 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
+        <groupId>org.onehippo.cms7.hst</groupId>
+        <artifactId>hst-commons</artifactId>
+        <version>${hippo.hst.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
         <version>${commons-lang.version}</version>
       </dependency>
       <dependency>
-        <groupId>commons-httpclient</groupId>
-        <artifactId>commons-httpclient</artifactId>
-        <version>${commons-httpclient.version}</version>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpcomponents.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
