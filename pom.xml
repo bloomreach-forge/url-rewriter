@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
+  Copyright 2011-2018 Hippo B.V. (http://www.onehippo.com)
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>27.1</version>
+    <version>27.9</version>
   </parent>
 
   <name>Hippo Forge URL Rewriter Plugin</name>
@@ -33,13 +33,17 @@
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
     <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
 
-    <tuckey.urlrewritefilter.version>4.0.4</tuckey.urlrewritefilter.version>
+    <!-- Hippo fork of Tuckey filter, both at GitHub -->
+    <hippo.tuckey.urlrewritefilter.version>4.0.4-h2</hippo.tuckey.urlrewritefilter.version>
+    <httpcomponents.version>4.5.5</httpcomponents.version>
+
     <commons-lang.version>2.6</commons-lang.version>
-    <commons-httpclient.version>3.1</commons-httpclient.version>
-    <hippo.repository.version>3.2.2</hippo.repository.version>
-    <hippo.cms.version>3.2.1</hippo.cms.version>
-    <hst.version>3.1.1</hst.version>
-    <hippo.plugin.selections.version>3.2.0</hippo.plugin.selections.version>
+
+    <!-- Hippo 10.2.11 versioning -->
+    <hippo.cms.version>3.2.15-SNAPSHOT</hippo.cms.version>
+    <hippo.hst.version>3.2.11</hippo.hst.version>
+    <hippo.repository.version>3.2.12-SNAPSHOT</hippo.repository.version>
+    <hippo.plugin.selections.version>3.2.1</hippo.plugin.selections.version>
   </properties>
 
   <modules>
@@ -103,7 +107,7 @@
       <dependency>
         <groupId>org.tuckey</groupId>
         <artifactId>urlrewritefilter</artifactId>
-        <version>${tuckey.urlrewritefilter.version}</version>
+        <version>${hippo.tuckey.urlrewritefilter.version}</version>
       </dependency>
       <dependency>
         <groupId>org.onehippo.cms7</groupId>
@@ -130,14 +134,20 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
+        <groupId>org.onehippo.cms7.hst</groupId>
+        <artifactId>hst-commons</artifactId>
+        <version>${hippo.hst.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
         <version>${commons-lang.version}</version>
       </dependency>
       <dependency>
-        <groupId>commons-httpclient</groupId>
-        <artifactId>commons-httpclient</artifactId>
-        <version>${commons-httpclient.version}</version>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpcomponents.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

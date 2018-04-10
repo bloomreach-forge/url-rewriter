@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 
-    Copyright 2011-2016 Hippo B.V. (http://www.onehippo.com)
+    Copyright 2011-2018 Hippo B.V. (http://www.onehippo.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,6 +23,18 @@
   </properties>
   <body>
     <section name="Release Notes">
+      <subsection name="1.06.03">
+          <p class="smallinfo">
+              Release Date: 20 April 2018
+          </p>
+          <ul>
+              <li><a href="https://issues.onehippo.com/browse/HIPFORGE-153">HIPFORGE-153</a><br/>
+                Upgrade to Hippo 10.2.11, including the use of
+                <a href="https://github.com/onehippo/urlrewritefilter">Hippo Tuckey urlrewritefilter fork version 4.0.4-h2</a>
+                that depends on Apache httpclient 4.5.5 instead of commons-httpclient 3.1.
+              </li>
+          </ul>
+      </subsection>
       <subsection name="1.06.02">
           <p class="smallinfo">
               Release Date: June 02, 2016
