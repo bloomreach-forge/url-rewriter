@@ -55,34 +55,29 @@
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>https://forge.onehippo.org/svn/urlrewriter/plugin/trunk/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.06.xx</connection>
-    <developerConnection>scm:svn:https://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.06.xx</developerConnection>
-    <url>scm:svn:http://forge.onehippo.org/svn/urlrewriter/plugin/branches/urlrewriter-1.06.xx</url>
+    <connection>scm:git:git@github.com:onehippo-forge/url-rewriter.git</connection>
+    <developerConnection>scm:git:git@github.com:onehippo-forge/url-rewriter.git</developerConnection>
+    <url>https://github.com/onehippo-forge/url-rewriter.git</url>
   </scm>
 
   <distributionManagement>
     <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>forge-urlrewriter-maven-repo</id>
-      <url>svn:https://forge.onehippo.org/svn/urlrewriter/maven2/</url>
+      <id>hippo-maven2-forge</id>
+      <url>https://maven.onehippo.com/content/repositories/forge-releases/</url>
     </repository>
-    <site>
-      <id>main-site</id>
-      <name>rewriter-site</name>
-      <url>http://urlrewriter.forge.onehippo.org/</url>
-    </site>
   </distributionManagement>
 
-  <url>http://urlrewriter.forge.onehippo.org/</url>
+  <url>https://onehippo-forge.github.io/url-rewriter/</url>
+
   <issueManagement>
-    <url>https://issues.onehippo.com/browse/HIPPLUG</url>
+    <url>https://issues.onehippo.com/browse/HIPFORGE</url>
   </issueManagement>
+
   <inceptionYear>2011</inceptionYear>
 
   <organization />
