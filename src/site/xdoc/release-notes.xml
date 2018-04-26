@@ -22,7 +22,7 @@
   <body>
     <section name="Release Notes">
       <subsection name="2.2.0">
-        <p class="smallinfo">Release Date: 20 April 2018</p>
+        <p class="smallinfo">Release Date: 26 April 2018</p>
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPFORGE-153">HIPFORGE-153</a><br/>
             Upgrade to 11.2.7 and urlrewritefilter 4.0.4-h2, that uses Apache httpclient 4.5.5 instead of commons-httpclient 3.1.
@@ -87,6 +87,18 @@
         <ul>
           <li><a href="https://issues.onehippo.com/browse/HIPPLUG-1347">HIPPLUG-1347</a><br/>
             Upgrade URL Rewriter plugin to be compatible with CMS 11
+          </li>
+        </ul>
+      </subsection>
+      <subsection name="1.06.03">
+        <p class="smallinfo">
+          Release Date: 26 April 2018
+        </p>
+        <ul>
+          <li><a href="https://issues.onehippo.com/browse/HIPFORGE-153">HIPFORGE-153</a><br/>
+            Upgrade to Hippo 10.2.11, including the use of
+            <a href="https://github.com/onehippo/urlrewritefilter">Hippo Tuckey urlrewritefilter fork version 4.0.4-h2</a>
+            that depends on Apache httpclient 4.5.5 instead of commons-httpclient 3.1.
           </li>
         </ul>
       </subsection>
