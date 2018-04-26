@@ -19,7 +19,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>28.9-SNAPSHOT</version>
+    <version>28.9</version>
   </parent>
 
   <name>Hippo Forge URL Rewriter Plugin</name>
@@ -35,14 +35,13 @@
 
     <!-- Hippo fork of Tuckey filter, both at GitHub -->
     <hippo.tuckey.urlrewritefilter.version>4.0.4-h2</hippo.tuckey.urlrewritefilter.version>
-    <httpcomponents.version>4.5.5</httpcomponents.version>
-    <commons-lang.version>2.6</commons-lang.version>
+    <httpcomponents.httpclient.version>4.5.5</httpcomponents.httpclient.version>
 
     <!-- Hippo 11.2.7 versioning -->
-    <hippo.cms.version>4.2.12-SNAPSHOT</hippo.cms.version>
-    <hippo.hst.version>4.2.7-SNAPSHOT</hippo.hst.version>
-    <hippo.repository.version>4.2.8-SNAPSHOT</hippo.repository.version>
-    <hippo.plugin.selections.version>4.2.2-SNAPSHOT</hippo.plugin.selections.version>
+    <hippo.cms.version>4.2.12</hippo.cms.version>
+    <hippo.hst.version>4.2.7</hippo.hst.version>
+    <hippo.repository.version>4.2.8</hippo.repository.version>
+    <hippo.plugin.selections.version>4.2.2</hippo.plugin.selections.version>
 
     <maven.plugin.site.version>3.6</maven.plugin.site.version>
     <maven.plugin.reports.version>2.4</maven.plugin.reports.version>
@@ -136,14 +135,9 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>commons-lang</groupId>
-        <artifactId>commons-lang</artifactId>
-        <version>${commons-lang.version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
-        <version>${httpcomponents.version}</version>
+        <version>${httpcomponents.httpclient.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
