@@ -19,7 +19,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-project</artifactId>
-    <version>27.9</version>
+    <version>27.10</version>
   </parent>
 
   <name>Hippo Forge URL Rewriter Plugin</name>
@@ -40,10 +40,10 @@
     <commons-lang.version>2.6</commons-lang.version>
 
     <!-- Hippo 10.2.11 versioning -->
-    <hippo.cms.version>3.2.15-SNAPSHOT</hippo.cms.version>
-    <hippo.hst.version>3.2.11</hippo.hst.version>
-    <hippo.repository.version>3.2.12-SNAPSHOT</hippo.repository.version>
-    <hippo.plugin.selections.version>3.2.1</hippo.plugin.selections.version>
+    <hippo.cms.version>3.2.15</hippo.cms.version>
+    <hippo.hst.version>3.2.12</hippo.hst.version>
+    <hippo.repository.version>3.2.12</hippo.repository.version>
+    <hippo.plugin.selections.version>3.2.2</hippo.plugin.selections.version>
   </properties>
 
   <modules>
