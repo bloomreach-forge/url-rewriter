@@ -22,8 +22,8 @@
     <version>28.9</version>
   </parent>
 
-  <name>Hippo Forge URL Rewriter Plugin</name>
-  <description>Hippo Forge URL Rewriter Plugin</description>
+  <name>Bloomreach Forge URL Rewriter Plugin</name>
+  <description>Bloomreach Forge URL Rewriter Plugin</description>
   <groupId>org.onehippo.forge.urlrewriter</groupId>
   <artifactId>urlrewriter</artifactId>
   <version>2.2.1-SNAPSHOT</version>
@@ -31,7 +31,7 @@
 
   <properties>
     <!-- use root project name for all project modules NOTICE files, should be the same as in the root NOTICE file -->
-    <notice.project.name>Hippo Forge URL Rewriter Plugin</notice.project.name>
+    <notice.project.name>Bloomreach Forge URL Rewriter Plugin</notice.project.name>
 
     <!-- Hippo fork of Tuckey filter, both at GitHub -->
     <hippo.tuckey.urlrewritefilter.version>4.0.4-h2</hippo.tuckey.urlrewritefilter.version>
@@ -61,9 +61,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:onehippo-forge/url-rewriter.git</connection>
-    <developerConnection>scm:git:git@github.com:onehippo-forge/url-rewriter.git</developerConnection>
-    <url>https://github.com/onehippo-forge/url-rewriter.git</url>
+    <connection>scm:git:git@github.com:bloomreach-forge/url-rewriter.git</connection>
+    <developerConnection>scm:git:git@github.com:bloomreach-forge/url-rewriter.git</developerConnection>
+    <url>https://github.com/bloomreach-forge/url-rewriter.git</url>
     <tag>HEAD</tag>
   </scm>
 
