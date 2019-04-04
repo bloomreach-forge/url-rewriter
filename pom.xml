@@ -43,8 +43,8 @@
     <hippo.repository.version>4.2.8</hippo.repository.version>
     <hippo.plugin.selections.version>4.2.2</hippo.plugin.selections.version>
 
-    <maven.plugin.site.version>3.6</maven.plugin.site.version>
-    <maven.plugin.reports.version>2.4</maven.plugin.reports.version>
+    <maven.plugin.site.version>3.7.1</maven.plugin.site.version>
+    <maven.plugin.reports.version>3.0.0</maven.plugin.reports.version>
   </properties>
 
   <modules>
